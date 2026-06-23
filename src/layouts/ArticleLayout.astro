@@ -14,6 +14,7 @@ interface Heading { depth: number; slug: string; text: string; }
 interface Props {
   frontmatter: {
     title: string;
+    seoTitle?: string;
     excerpt: string;
     description?: string;
     badges?: any[];
@@ -25,22 +26,59 @@ interface Props {
     heroAlt?: string;
     heroLabel?: string;
     takeaways?: string[];
+    faq?: { q: string; a: string }[];
   };
   headings: Heading[];
 }
 const { frontmatter: fm, headings } = Astro.props;
-const ld = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: fm.title.replace(/<[^>]+>/g, ''),
-  description: fm.description || fm.excerpt,
-  author: fm.author ? { '@type': 'Person', name: fm.author.name } : undefined,
-  datePublished: fm.publishedDate,
-  dateModified: fm.updatedDate || fm.publishedDate,
-  publisher: { '@type': 'Organization', name: 'meilleur-erp.fr' },
+
+const SITE = 'https://meilleur-erp.fr';
+const cleanTitle = fm.title.replace(/<[^>]+>/g, '');
+const pageTitle = fm.seoTitle || `${cleanTitle} · meilleur-erp.fr`;
+const canonical = Astro.url.href;
+const author = fm.author
+  ? { '@type': 'Person', name: fm.author.name, url: `${SITE}/auteur/` }
+  : undefined;
+const publisher = {
+  '@type': 'Organization',
+  name: 'meilleur-erp.fr',
+  url: SITE,
 };
+
+// Données structurées : Article + (FAQPage) + BreadcrumbList, regroupées en @graph.
+const graph: any[] = [
+  {
+    '@type': 'Article',
+    headline: cleanTitle,
+    description: fm.description || fm.excerpt,
+    inLanguage: 'fr-FR',
+    mainEntityOfPage: canonical,
+    author,
+    datePublished: fm.publishedDate,
+    dateModified: fm.updatedDate || fm.publishedDate,
+    publisher,
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE}/` },
+      { '@type': 'ListItem', position: 2, name: cleanTitle, item: canonical },
+    ],
+  },
+];
+if (fm.faq && fm.faq.length > 0) {
+  graph.push({
+    '@type': 'FAQPage',
+    mainEntity: fm.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  });
+}
+const ld = { '@context': 'https://schema.org', '@graph': graph };
 ---
-<BaseLayout title={`${fm.title.replace(/<[^>]+>/g, '')} · meilleur-erp.fr`} description={fm.description || fm.excerpt} current="guides" ogImage={fm.heroImage}>
+<BaseLayout title={pageTitle} description={fm.description || fm.excerpt} current="guides" ogImage={fm.heroImage} canonical={canonical}>
   <script type="application/ld+json" set:html={JSON.stringify(ld)} is:inline />
   <div class="article-layout">
     <ArticleHero

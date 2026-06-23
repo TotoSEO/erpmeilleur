@@ -8,6 +8,10 @@ node_modules/
 # generated types
 .astro/
 
+# scratch (conversion contenu Drive)
+.raw/
+.convert.mjs
+
 # logs & env
 *.log
 .env

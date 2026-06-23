@@ -6,6 +6,7 @@ const articles = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/articles' }),
   schema: z.object({
     title: z.string(),
+    seoTitle: z.string().optional(),
     excerpt: z.string(),
     description: z.string().optional(),
     badges: z
@@ -28,6 +29,9 @@ const articles = defineCollection({
     heroAlt: z.string().optional(),
     heroLabel: z.string().optional(),
     takeaways: z.array(z.string()).optional(),
+    faq: z
+      .array(z.object({ q: z.string(), a: z.string() }))
+      .optional(),
   }),
 });
 

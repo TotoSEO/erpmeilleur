@@ -3,8 +3,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import Badge from '../components/Badge.astro';
 import StatDiscs from '../components/StatDiscs.astro';
+
+const SITE = 'https://meilleur-erp.fr';
+const homeLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE}/#organization`,
+      name: 'meilleur-erp.fr',
+      url: SITE,
+      description: "Le média indépendant des logiciels ERP : définitions, fonctionnement, modules, déploiement et coûts, expliqués simplement.",
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE}/#website`,
+      url: SITE,
+      name: 'meilleur-erp.fr',
+      inLanguage: 'fr-FR',
+      publisher: { '@id': `${SITE}/#organization` },
+    },
+  ],
+};
 ---
 <BaseLayout title="meilleur-erp.fr : le blog indépendant des logiciels ERP">
+  <script type="application/ld+json" set:html={JSON.stringify(homeLd)} is:inline />
   <div class="container" style="padding-top:56px;padding-bottom:24px">
     <div class="hero__grid">
       <div>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+/**
+ * Page auteur — entité « Guillaume Wagner » pour l'E-E-A-T et le GEO.
+ * Reliée à chaque article via le JSON-LD Article > author.url.
+ */
+const SITE = 'https://meilleur-erp.fr';
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${SITE}/auteur/#person`,
+  name: 'Guillaume Wagner',
+  url: `${SITE}/auteur/`,
+  jobTitle: 'Auteur',
+  worksFor: { '@type': 'Organization', name: 'meilleur-erp.fr', url: SITE },
+  knowsAbout: ['ERP', 'PGI', 'logiciels de gestion', 'progiciel de gestion intégré'],
+};
+---
+<BaseLayout
+  title="Guillaume Wagner, auteur · meilleur-erp.fr"
+  description="Guillaume Wagner rédige les contenus de meilleur-erp.fr : il explique les logiciels ERP de façon simple, concrète et chiffrée."
+  current="auteur"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} is:inline />
+  <div class="article-layout" style="padding-top:48px">
+    <div class="article-content">
+      <div style="display:flex;align-items:center;gap:18px;margin-bottom:18px">
+        <span class="hero__avatar" style="width:64px;height:64px;font-size:22px">GW</span>
+        <div>
+          <h1 style="font-family:var(--font-grotesk);font-weight:800;font-size:clamp(28px,5vw,40px);letter-spacing:-0.02em;color:var(--ink);margin:0">
+            Guillaume Wagner
+          </h1>
+          <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;color:var(--ink-55);margin:6px 0 0">
+            Auteur · meilleur-erp.fr
+          </p>
+        </div>
+      </div>
+
+      <p>
+        J'écris tous les contenus de meilleur-erp.fr. Mon objectif est simple :
+        rendre les logiciels ERP compréhensibles, sans jargon inutile et sans
+        discours d'éditeur.
+      </p>
+      <p>
+        Je privilégie le concret. Des explications claires, des exemples parlants,
+        des chiffres et des fourchettes quand ils aident à décider, et l'honnêteté
+        sur les limites autant que sur les bénéfices. Quand un sujet appartient à
+        une autre page, je l'effleure et je renvoie vers le bon endroit, plutôt que
+        de répéter ce qui est déjà expliqué ailleurs.
+      </p>
+      <p>
+        Si vous voulez réagir à un contenu ou signaler une imprécision, écrivez à
+        contact@meilleur-erp.fr.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
