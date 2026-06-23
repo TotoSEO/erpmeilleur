@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+/**
+ * Mentions légales — page statique simple, hors collection « articles ».
+ * Responsable de publication : Guillaume Wagner. Hébergeur : Cloudflare (Europe).
+ * Les champs entre crochets [ ] restent à compléter par l'éditeur.
+ */
+const updated = '23 juin 2026';
+---
+<BaseLayout
+  title="Mentions légales · meilleur-erp.fr"
+  description="Mentions légales du site meilleur-erp.fr : éditeur, responsable de publication, hébergeur et conditions d'utilisation."
+>
+  <div class="article-layout" style="padding-top:48px">
+    <div class="article-content">
+      <h1 style="font-family:var(--font-grotesk);font-weight:800;font-size:clamp(30px,5vw,44px);letter-spacing:-0.02em;color:var(--ink);margin:0 0 10px">
+        Mentions légales
+      </h1>
+      <p style="font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;color:var(--ink-55);margin:0 0 28px">
+        Dernière mise à jour : <span class="num">{updated}</span>
+      </p>
+
+      <h2>Éditeur du site</h2>
+      <p>
+        Le site <strong>meilleur-erp.fr</strong> est édité par Guillaume Wagner.
+      </p>
+      <ul>
+        <li>Responsable de la publication : <strong>Guillaume Wagner</strong></li>
+        <li>Contact : [adresse e-mail à compléter]</li>
+        <li>Statut / adresse de l'éditeur : [à compléter]</li>
+      </ul>
+
+      <h2>Hébergement</h2>
+      <p>
+        Le site est hébergé par <strong>Cloudflare</strong>, sur son infrastructure
+        européenne.
+      </p>
+      <ul>
+        <li>Cloudflare, Inc. (Cloudflare Europe)</li>
+        <li>Site web : cloudflare.com</li>
+      </ul>
+
+      <h2>Propriété intellectuelle</h2>
+      <p>
+        L'ensemble des contenus présents sur meilleur-erp.fr (textes, visuels,
+        éléments graphiques, mise en page) est protégé par le droit d'auteur.
+        Toute reproduction ou réutilisation, totale ou partielle, sans
+        autorisation préalable de l'éditeur est interdite.
+      </p>
+
+      <h2>Données personnelles</h2>
+      <p>
+        Le site collecte le minimum de données nécessaires à son fonctionnement.
+        Conformément au Règlement général sur la protection des données (RGPD),
+        vous disposez d'un droit d'accès, de rectification et de suppression des
+        données vous concernant, en écrivant à l'adresse de contact ci-dessus.
+      </p>
+
+      <h2>Responsabilité</h2>
+      <p>
+        Les contenus de meilleur-erp.fr sont fournis à titre informatif. L'éditeur
+        s'efforce d'en assurer l'exactitude et la mise à jour, sans pouvoir
+        garantir qu'ils soient exempts d'erreurs ou d'omissions.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
