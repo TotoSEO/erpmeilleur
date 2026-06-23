@@ -1,0 +1,66 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Données : tableau, faders, disques, graphique, fiche" subtitle="DataTable, Faders, StatDiscs, Chart, ProductCard, Badge" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; padding: 24px; background: #FFFFFF;
+    background-image: radial-gradient(44rem 44rem at 0% 0%, rgba(46,46,255,.10), transparent 55%), radial-gradient(40rem 40rem at 100% 100%, rgba(255,212,0,.12), transparent 55%); }
+  .stack { display: grid; gap: 22px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: start; }
+  .chips { display:flex; gap:10px; flex-wrap:wrap; }
+  .label { font-family: var(--font-mono); font-size: 11px; letter-spacing:.12em; text-transform:uppercase; color: var(--ink-55); margin-bottom: 10px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { DataTable, Faders, StatDiscs, Chart, ProductCard, Badge, GlassPanel } = window.CrmLogicielFrDesignSystem_d9d94b;
+function Demo() {
+  return (
+    <div className="stack">
+      <div className="chips">
+        <Badge tone="positive" variant="gradient">Recommandé</Badge>
+        <Badge tone="neutral" mono variant="soft">37 testés</Badge>
+        <Badge tone="blue" mono variant="outline">v2026-06</Badge>
+        <Badge tone="negative" variant="soft" dot>À éviter</Badge>
+      </div>
+      <DataTable
+        caption="Comparatif CRM · v2026-06"
+        columns={[
+          { key: 'nom', label: 'Outil', sticky: true },
+          { key: 'prix', label: 'Prix /mois', num: true },
+          { key: 'note', label: 'Note', num: true },
+          { key: 'verdict', label: 'Verdict' },
+        ]}
+        rows={[
+          { _best: true, nom: 'Pipedrive', prix: '14,90 €', note: { value: '8,4', tone: 'positive' }, verdict: 'Recommandé' },
+          { nom: 'HubSpot', prix: '0,00 €', note: { value: '7,1', tone: 'strong' }, verdict: 'Sous conditions' },
+          { nom: 'Salesforce', prix: '25,00 €', note: { value: '4,6', tone: 'negative' }, verdict: 'Trop lourd' },
+        ]}
+      />
+      <div className="row">
+        <GlassPanel padding="md"><div className="label">Notation par faders</div>
+          <Faders items={[{ label: 'Prise en main', value: 8.8 }, { label: 'Qualité-prix', value: 8.4 }, { label: 'Support FR', value: 7.2 }]} />
+        </GlassPanel>
+        <GlassPanel padding="lg" style={{ minHeight: 150 }}>
+          <StatDiscs items={[{ value: '8,4', unit: '/10', label: 'global' }, { value: '14,90', unit: '€', label: '/ mois' }, { value: '14', unit: 'j', label: 'essai' }]} />
+        </GlassPanel>
+      </div>
+      <div className="row">
+        <Chart title="Courbe d'adoption" caption="21 j · plateau J+3" values={[10,18,42,70,82,86,88,90]} highlight={3} height={130} />
+        <ProductCard name="Pipedrive" category="CRM commercial" score={8.4} verdict="positive"
+          specs={[{ label: 'Prix', value: '14,90 €' }, { label: 'Essai', value: '14 j' }, { label: 'Support', value: 'Oui' }]} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

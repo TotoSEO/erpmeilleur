@@ -1,0 +1,26 @@
+---
+/**
+ * KeyTakeaways — encart « Les points à retenir » : encart spécial présent sur
+ * chaque article, sous forme de liste à puces design (triangles bleu/jaune).
+ */
+interface Props {
+  items?: string[];
+  title?: string;
+  class?: string;
+}
+const { items = [], title = 'Les points à retenir', class: cls = '' } = Astro.props;
+---
+<aside class={`takeaways ${cls}`.trim()} aria-label={title}>
+  <div class="takeaways__head">
+    <span class="takeaways__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+    </span>
+    <div>
+      <h2 class="takeaways__title">{title}</h2>
+      <div class="takeaways__sub">L'essentiel en {items.length} points</div>
+    </div>
+  </div>
+  <ul class="takeaways__list">
+    {items.map((it) => (<li set:html={it} />))}
+  </ul>
+</aside>

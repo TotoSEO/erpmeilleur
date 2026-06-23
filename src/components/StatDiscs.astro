@@ -1,0 +1,20 @@
+---
+/**
+ * StatDiscs — disques de chiffres clés qui flottent en couches (relief).
+ * items: [{ value, unit?, label }] (2 à 4 disques)
+ */
+interface Item { value: string | number; unit?: string; label: string; }
+interface Props { items?: Item[]; class?: string; }
+const { items = [], class: cls = '' } = Astro.props;
+const list = items.slice(0, 4);
+---
+<div class={`statdiscs ${cls}`.trim()}>
+  {list.map((it) => (
+    <div class="statdiscs__disc">
+      <div>
+        <div class="statdiscs__val">{it.value}{it.unit && <small>{it.unit}</small>}</div>
+        <div class="statdiscs__label">{it.label}</div>
+      </div>
+    </div>
+  ))}
+</div>

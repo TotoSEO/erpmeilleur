@@ -1,0 +1,120 @@
+---
+title: 'Quel ERP pour une PME industrielle en <span class="text-gradient">2026</span> ?'
+excerpt: "Huit ERP testés sur des comptes réels pendant un mois : un budget, des cas d'usage, des chiffres. Aucune promesse d'éditeur, que des mesures datées."
+description: "Comparatif 2026 des ERP pour PME industrielles : prix réels à 12 mois, délai de mise en route, support en français. Méthode testée sur comptes réels."
+badges:
+  - { label: 'Guide de décision', tone: 'blue', variant: 'gradient' }
+  - { label: '14 min de lecture', tone: 'neutral', variant: 'soft', mono: true }
+author:
+  name: 'Julien Lefevre'
+  role: 'Testé sur compte réel'
+  initials: 'JL'
+readingTime: '14 min'
+publishedDate: '03 juin 2026'
+updatedDate: '23 juin 2026'
+heroLabel: "Banc d'essai · 8 ERP · 06/2026"
+takeaways:
+  - 'Le <strong>prix affiché ne prédit ni la qualité du support, ni la vitesse de mise en route</strong> : trois ERP sortent du lot pour une PME industrielle.'
+  - "Comptez <strong>6 à 14 semaines</strong> de mise en route réelle selon l'outil, hors reprise de données."
+  - "Le poste le plus sous-estimé : la <strong>reprise de l'historique</strong> (nomenclatures, stocks, en-cours). Budgétez-le à part."
+  - "Vérifiez la <strong>clause de réversibilité</strong> avant de signer : certains plans plafonnent l'export."
+---
+
+import Callout from '../../components/Callout.astro';
+import ColumnRow from '../../components/ColumnRow.astro';
+import Visual from '../../components/Visual.astro';
+import PullQuote from '../../components/PullQuote.astro';
+import Chart from '../../components/Chart.astro';
+import ProsCons from '../../components/ProsCons.astro';
+import DataTable from '../../components/DataTable.astro';
+import GlassPanel from '../../components/GlassPanel.astro';
+import Button from '../../components/Button.astro';
+
+<p class="prose dropcap">
+Un ERP pour une PME industrielle ne se choisit pas sur la liste de modules : il se choisit sur la friction quotidienne et sur le coût réel à douze mois. Nous avons ouvert huit comptes, importé un référentiel de 2 400 articles et 180 nomenclatures, puis chronométré chaque opération courante pendant un mois.
+</p>
+
+<Callout tone="astuce">
+Importez d'abord <b>50 articles test</b> avec leurs nomenclatures avant de migrer tout votre référentiel : vous repérez les champs mal mappés en quelques minutes, au lieu de corriger 2 400 fiches après coup.
+</Callout>
+
+## Ce que nous avons mesuré
+
+<ColumnRow layout="image-text" align="center" gap={32}>
+  <Visual label="Module production · vue ordres de fabrication, 11/06" height={230} />
+  <div>
+Import de 2 400 articles et 180 nomenclatures, prise en main jusqu'au premier ordre de fabrication complet, délai de réponse du support en français, et coût réel à douze mois options incluses.
+
+Chaque mesure est datée et reproductible. Aucune donnée d'éditeur n'entre dans la note finale.
+  </div>
+</ColumnRow>
+
+Le constat tient en une phrase : le prix affiché ne prédit ni la qualité du support, ni la rapidité de mise en route. Trois outils sortent du lot, deux sont à éviter pour ce profil.
+
+### La courbe de mise en route
+
+<Chart title="Mise en route" caption="Outil A · 30 jours, premier OF dès J+9" values={[4, 9, 18, 30, 48, 62, 71, 78, 83, 86]} highlight={3} />
+
+La progression se stabilise vite une fois la première semaine passée : le plateau arrive autour de J+18 pour les meilleurs outils, contre J+40 pour les plus lourds.
+
+## Le comparatif chiffré
+
+<DataTable
+  caption="8 ERP · prix à 12 mois, mise en route, support · 06/2026"
+  columns={[
+    { key: 'outil', label: 'ERP', sticky: true },
+    { key: 'prix', label: 'Prix 12 mois', num: true },
+    { key: 'setup', label: 'Mise en route', num: true },
+    { key: 'support', label: 'Support FR' },
+    { key: 'note', label: 'Note', num: true },
+  ]}
+  rows={[
+    { outil: 'Outil A', prix: '4 680 €', setup: '6 sem.', support: { value: 'Excellent', tone: 'positive' }, note: { value: '8,7', tone: 'strong' }, _best: true },
+    { outil: 'Outil B', prix: '5 910 €', setup: '9 sem.', support: { value: 'Bon', tone: 'positive' }, note: '8,1' },
+    { outil: 'Outil C', prix: '3 240 €', setup: '8 sem.', support: { value: 'Moyen', tone: 'muted' }, note: '7,4' },
+    { outil: 'Outil D', prix: '9 120 €', setup: '14 sem.', support: { value: 'Lent', tone: 'negative' }, note: { value: '5,9', tone: 'negative' } },
+  ]}
+/>
+
+<Callout tone="attention" label="Avertissement">
+Le plan d'entrée de certains outils <b>plafonne l'export à 1 000 lignes</b>. Au-delà, vous êtes captif : vérifiez la clause de réversibilité avant de vous engager.
+</Callout>
+
+## Avantages et limites de notre favori
+
+<ProsCons
+  pros={[
+    'Mise en route en 6 semaines, la plus rapide du panel.',
+    'Support en français réactif (moins de 2 h en moyenne).',
+    "Reprise de nomenclatures multi-niveaux sans script.",
+  ]}
+  cons={[
+    "Personnalisation des états limitée sur le plan d'entrée.",
+    'Application mobile encore perfectible pour la saisie atelier.',
+  ]}
+/>
+
+<ColumnRow layout="aside-body" align="start" gap={32}>
+  <GlassPanel padding="md">
+    <div class="kicker" style="margin-bottom:6px">En bref</div>
+    <p style="margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-80)">Pour une PME qui fabrique sur stock : Outil A. Pour le sur-mesure complexe : Outil B.</p>
+  </GlassPanel>
+  <div>
+Sur Outil A, l'import des 2 400 articles a pris 7 min 40 s et signalé 3 doublons. Sur Outil D, la même opération a demandé une configuration préalable de plus d'une heure : disqualifiant pour une PME sans administrateur dédié.
+
+La différence ne se joue pas sur les fonctionnalités cochées, mais sur le temps que l'outil vous rend chaque jour.
+  </div>
+</ColumnRow>
+
+<PullQuote author="Julien Lefevre" role="Auteur · testé sur compte réel" initials="JL">
+Un ERP ne se choisit pas sur sa liste de modules, mais sur la friction qu'il vous enlève à chaque clôture.
+</PullQuote>
+
+## Notre recommandation
+
+Pour la majorité des PME industrielles de 20 à 100 personnes, Outil A offre le meilleur rapport friction/prix. Outil B reste pertinent si vos process exigent du sur-mesure profond et que vous disposez d'un référent en interne.
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+  <Button variant="primary" href="#">Lire la fiche Outil A</Button>
+  <Button variant="secondary" href="#">Voir le comparatif complet</Button>
+</div>

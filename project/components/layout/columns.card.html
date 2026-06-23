@@ -1,0 +1,49 @@
+<!-- @dsCard group="Components" viewport="980x440" name="Colonnes : features & Pour/Contre" subtitle="FeatureColumns (même hauteur, bouton en bas) + ProsCons (H3)" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; padding: 24px; background: #FFFFFF;
+    background-image: radial-gradient(46rem 46rem at 0% 0%, rgba(46,46,255,.10), transparent 55%), radial-gradient(42rem 42rem at 100% 100%, rgba(255,212,0,.12), transparent 55%); }
+  .stack { display: grid; gap: 24px; }
+  h2.t { font-family: var(--font-grotesk); font-weight: 700; font-size: 18px; letter-spacing: -.01em; color: var(--ink); margin: 0 0 12px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { FeatureColumns, ProsCons } = window.CrmLogicielFrDesignSystem_d9d94b;
+function Demo() {
+  React.useEffect(() => { if (window.lucide) window.lucide.createIcons(); });
+  return (
+    <div className="stack">
+      <div>
+        <h2 className="t">FeatureColumns — picto, texte, bouton en bas</h2>
+        <FeatureColumns columns={3} items={[
+          { icon: <i data-lucide="search" style={{ width: 24, height: 24, color: '#fff' }}></i>, eyebrow: '01', title: 'On mesure', text: 'Comptes réels, opérations chronométrées, chiffres datés.', action: { label: 'La méthode', href: '#' } },
+          { icon: <i data-lucide="calendar-check" style={{ width: 24, height: 24, color: '#fff' }}></i>, eyebrow: '02', title: 'On date', text: 'Chaque prix et note est horodaté ; un changelog visible.', action: { label: 'Voir', href: '#' } },
+          { icon: <i data-lucide="pen-line" style={{ width: 24, height: 24, color: '#fff' }}></i>, eyebrow: '03', title: 'On signe', text: 'Un auteur unique, responsable de chaque verdict publié.', action: { label: "L'auteur", href: '#' } },
+        ]} />
+      </div>
+      <div>
+        <h2 className="t">ProsCons — Avantages / Inconvénients</h2>
+        <ProsCons
+          prosTitle="Ce qu'on a aimé" consTitle="Ce qui coince"
+          pros={['Import de 3 000 contacts en 4 min 12 s', 'Pipeline clair, pris en main vite', "Tarif d'entrée honnête"]}
+          cons={['Reporting avancé réservé aux plans hauts', "Support FR plus lent l'été"]}
+        />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+---
+import '../styles/styles.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+/**
+ * BaseLayout — coquille HTML : <head> SEO + perf, header sticky, footer.
+ */
+interface Props {
+  title: string;
+  description?: string;
+  current?: string;
+  ogImage?: string;
+  canonical?: string;
+}
+const {
+  title,
+  description = 'meilleur-erp.fr : le blog indépendant des logiciels ERP. On teste, on mesure, on date, on signe.',
+  current,
+  ogImage,
+  canonical = Astro.url.href,
+} = Astro.props;
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0B0B12" />
+
+    <!-- Perf : préconnexion aux serveurs de polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Open Graph / réseaux sociaux -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="meilleur-erp.fr" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="lumiere">
+    <a href="#contenu" class="skip-link">Aller au contenu</a>
+    <SiteHeader current={current} />
+    <main id="contenu">
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

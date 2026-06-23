@@ -1,0 +1,20 @@
+---
+/**
+ * Badge — sticker anguleux. tone × variant.
+ * tone: neutral | blue | teal | orange | positive | negative
+ * variant: soft | outline | solid | gradient | pop
+ */
+interface Props {
+  tone?: 'neutral' | 'blue' | 'teal' | 'orange' | 'positive' | 'negative';
+  variant?: 'soft' | 'outline' | 'solid' | 'gradient' | 'pop';
+  mono?: boolean;
+  dot?: boolean;
+  class?: string;
+}
+const { tone = 'neutral', variant = 'soft', mono = false, dot = false, class: cls = '' } = Astro.props;
+const classes = ['badge', `badge--${tone}`, mono ? 'badge--mono' : '', cls].filter(Boolean).join(' ');
+---
+<span class={classes} data-variant={variant} data-tone={tone}>
+  {dot && <span class="badge__dot" />}
+  <slot />
+</span>

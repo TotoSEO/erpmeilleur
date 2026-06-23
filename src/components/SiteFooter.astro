@@ -1,0 +1,27 @@
+---
+import Wordmark from './Wordmark.astro';
+/** SiteFooter — pied de page encre avec décor de formes coupées bleu/jaune. */
+const COLS = [
+  { title: 'Méthode', items: ['Comment on teste', 'Indépendance', 'Sources & dates'] },
+  { title: 'Contenus', items: ['Guides de décision', 'Fiches avis', 'Comparatifs'] },
+  { title: 'Le média', items: ['Julien Lefevre', 'Contact', 'Mentions légales'] },
+];
+---
+<footer class="site-footer">
+  <div class="site-footer__deco" aria-hidden="true"></div>
+  <div class="site-footer__grid">
+    <div>
+      <Wordmark size={20} inverse />
+      <p class="site-footer__about">Le premier blog indépendant des logiciels ERP. On mesure, on date, on signe.</p>
+    </div>
+    {COLS.map((c) => (
+      <div>
+        <h4>{c.title}</h4>
+        <ul>{c.items.map((it) => (<li><a href="#">{it}</a></li>))}</ul>
+      </div>
+    ))}
+  </div>
+  <div class="site-footer__legal">
+    <div class="site-footer__legal-in">© 2026 meilleur-erp.fr · <span class="num">42</span> ERP testés · Mis à jour le <span class="num">23 juin 2026</span></div>
+  </div>
+</footer>

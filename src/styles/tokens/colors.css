@@ -1,0 +1,98 @@
+/* meilleur-erp.fr — Couleurs (direction « anguleux : triangles & formes coupées »)
+   Fond blanc pur, encre quasi noire, bleu électrique + jaune vif, rouge d'alerte.
+   Coins nets, ombres dures décalées, décor de formes coupées. */
+
+:root {
+  /* ---- Surfaces ---- */
+  --paper: #FFFFFF;          /* blanc pur */
+  --paper-warm: #F6F6F8;     /* gris très léger (encarts) */
+  --paper-sunk: #EFEFF2;     /* zones enfoncées / lignes alternées */
+  --data-white: #FFFFFF;     /* surface data ultra-propre (tableaux, champs) */
+  --canvas: #FFFFFF;         /* fond de page : blanc */
+
+  /* ---- Encre (quasi noir) ---- */
+  --ink: #0B0B12;            /* texte fort & titres */
+  --ink-80: #26262F;         /* texte courant */
+  --ink-55: #54545F;         /* texte secondaire */
+  --ink-35: #9A9AA4;         /* placeholders / désactivé */
+
+  /* ---- Bleu électrique : marque primaire ---- */
+  --blue: #2E2EFF;
+  --blue-ink: #1C1CCC;       /* hover / pressé */
+  --blue-tint: #E4E4FF;      /* puces, fonds légers */
+
+  /* ---- Bleu ciel : accent secondaire ---- */
+  --teal: #18A6F6;
+  --teal-ink: #0C82C9;
+  --teal-tint: #DCF1FE;
+
+  /* ---- Jaune : accent / chaleur ---- */
+  --orange: #FFD400;
+  --orange-ink: #C99E00;
+  --orange-tint: #FFF3BF;
+
+  /* ---- Rouge vif : alertes & verdicts négatifs ---- */
+  --minium: #FF2D2D;
+  --minium-ink: #D81E1E;
+  --minium-tint: #FFE0DE;
+
+  /* ---- Positif : on reprend le bleu (plus de vert) ---- */
+  --green: #2E2EFF;
+  --green-ink: #1C1CCC;
+  --green-tint: #E4E4FF;
+
+  /* ---- Filets nets ---- */
+  --hairline: #E6E6EA;
+  --hairline-strong: #CFCFD6;
+  --rule-ink: #0B0B12;
+  --grid-line: rgba(11, 11, 18, 0.06);
+
+  /* ---- Dégradés (bleu & jaune, francs) ---- */
+  --grad-brand: linear-gradient(135deg, #2E2EFF 0%, #18A6F6 100%);
+  --grad-cool: linear-gradient(135deg, #1C1CCC 0%, #2E2EFF 100%);
+  --grad-sunset: linear-gradient(135deg, #FFD400 0%, #FFA800 100%);
+  --grad-aqua: linear-gradient(135deg, #18A6F6 0%, #2E2EFF 100%);
+  --grad-iris: linear-gradient(120deg, #2E2EFF 0%, #18A6F6 50%, #FFD400 100%);
+
+  /* ---- Surfaces « panneau » (solides, plus de verre) ---- */
+  --glass-bg: #FFFFFF;
+  --glass-bg-strong: #FFFFFF;
+  --glass-border: #0B0B12;
+  --glass-blur: 0px;
+  --glass-highlight: none;
+
+  /* ====== Alias sémantiques ====== */
+  --surface-page: var(--canvas);
+  --surface-card: var(--data-white);
+  --surface-data: var(--data-white);
+  --surface-field: var(--data-white);
+  --surface-sunk: var(--paper-sunk);
+  --surface-notebook: var(--paper-warm);
+  --surface-glass: var(--glass-bg);
+
+  --text-strong: var(--ink);
+  --text-body: var(--ink-80);
+  --text-muted: var(--ink-55);
+  --text-faint: var(--ink-35);
+  --text-link: var(--blue-ink);
+  --text-brand: var(--blue);
+
+  --border-default: var(--hairline);
+  --border-strong: var(--hairline-strong);
+  --border-ink: var(--rule-ink);
+
+  --accent: var(--orange);
+  --verdict-pos: var(--green);
+  --verdict-neg: var(--minium);
+
+  /* ---- Ombres : dures & décalées (signature « coupé / net ») ---- */
+  --shadow-none: none;
+  --shadow-soft: 5px 5px 0 var(--ink);
+  --shadow-raise: 4px 4px 0 var(--ink);
+  --shadow-glow: 6px 6px 0 var(--blue);
+  --shadow-glow-teal: 6px 6px 0 var(--teal);
+  --shadow-disc: 4px 4px 0 var(--ink);
+  --shadow-pop: 5px 5px 0 var(--ink);
+  --shadow-pop-violet: 5px 5px 0 var(--blue);
+  --shadow-pop-teal: 5px 5px 0 var(--teal);
+}

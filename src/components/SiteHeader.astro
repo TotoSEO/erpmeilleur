@@ -1,0 +1,43 @@
+---
+import Wordmark from './Wordmark.astro';
+/**
+ * SiteHeader — barre sticky, wordmark + navigation. Menu déroulant sur mobile.
+ */
+interface Props { current?: string; }
+const { current } = Astro.props;
+const NAV = [
+  { id: 'guides', label: 'Guides', href: '/exemple/' },
+  { id: 'avis', label: 'Avis', href: '#' },
+  { id: 'comparatifs', label: 'Comparatifs', href: '#' },
+  { id: 'auteur', label: "L'auteur", href: '#' },
+];
+---
+<header class="site-header">
+  <div class="site-header__bar">
+    <Wordmark href="/" size={21} />
+    <nav class="site-nav" aria-label="Navigation principale">
+      {NAV.map((n) => (
+        <a class="site-nav__link" href={n.href} aria-current={current === n.id ? 'page' : undefined}>{n.label}</a>
+      ))}
+    </nav>
+    <div class="site-header__meta">
+      <span class="site-header__count"><span class="num">42</span> ERP testés</span>
+      <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-burger>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18" /></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" data-mobile-nav hidden aria-label="Navigation mobile">
+    {NAV.map((n) => (<a href={n.href}>{n.label}</a>))}
+  </nav>
+</header>
+
+<script>
+  const btn = document.querySelector('[data-burger]');
+  const menu = document.querySelector('[data-mobile-nav]');
+  btn?.addEventListener('click', () => {
+    const open = menu?.hasAttribute('hidden');
+    if (open) { menu?.removeAttribute('hidden'); } else { menu?.setAttribute('hidden', ''); }
+    btn.setAttribute('aria-expanded', String(!!open));
+  });
+</script>

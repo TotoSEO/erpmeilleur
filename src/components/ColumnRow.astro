@@ -1,0 +1,18 @@
+---
+/**
+ * ColumnRow — système de colonnage éditorial pour rythmer un article.
+ * layout: image-text | text-image | two | aside-body | body-aside | three
+ * align: start | center | stretch ; repasse en pleine largeur sous 760px.
+ */
+interface Props {
+  layout?: 'image-text' | 'text-image' | 'two' | 'aside-body' | 'body-aside' | 'three';
+  align?: 'start' | 'center' | 'stretch';
+  gap?: number;
+  class?: string;
+}
+const { layout = 'two', align = 'start', gap = 24, class: cls = '' } = Astro.props;
+const classes = ['columns', `columns--${layout}`, align !== 'start' ? `columns--${align}` : '', cls].filter(Boolean).join(' ');
+---
+<div class={classes} style={`gap:${gap}px`}>
+  <slot />
+</div>

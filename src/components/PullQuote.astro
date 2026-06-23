@@ -1,0 +1,25 @@
+---
+/**
+ * PullQuote — citation éditoriale : guillemet géant en dégradé iris + signature.
+ */
+interface Props {
+  author?: string;
+  role?: string;
+  initials?: string;
+  class?: string;
+}
+const { author, role, initials, class: cls = '' } = Astro.props;
+---
+<figure class={`pullquote ${cls}`.trim()}>
+  <span class="pullquote__mark" aria-hidden="true">“</span>
+  <blockquote><slot /></blockquote>
+  {(author || role) && (
+    <figcaption class="pullquote__cap">
+      {initials && <span class="pullquote__avatar">{initials}</span>}
+      <span>
+        {author && <b class="pullquote__author">{author}</b>}
+        {role && <span class="pullquote__role">{role}</span>}
+      </span>
+    </figcaption>
+  )}
+</figure>

@@ -1,0 +1,8 @@
+/* crm-logiciel.fr — Design System : entrée globale.
+   Liste d'@import uniquement — aucune règle inline ici. */
+
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/base.css";

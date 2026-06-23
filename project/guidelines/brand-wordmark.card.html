@@ -1,0 +1,24 @@
+<!-- @dsCard group="Brand" viewport="700x190" name="Wordmark" subtitle="Meilleur-erp · .fr dans un cartouche dégradé arrondi" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; display: grid; grid-template-columns: 1fr 1fr; }
+  .panel { padding: 30px 26px; display: flex; align-items: center; }
+  .light { background: var(--paper); }
+  .dark { background: var(--ink); }
+  .wm { font-family: var(--font-grotesk); font-weight: 700; font-size: 34px; letter-spacing: -0.02em; display: inline-flex; align-items: baseline; }
+  .cart { font-size: 20px; padding: 4px 11px; border-radius: 0; clip-path: polygon(0 0,100% 0,100% 70%,82% 100%,0 100%); margin-left: 3px; transform: translateY(-2px); color: #fff; }
+</style>
+</head>
+<body>
+  <div class="panel light">
+    <span class="wm" style="color:var(--ink)">Meilleur-erp<span class="cart" style="background:var(--grad-brand)">.fr</span></span>
+  </div>
+  <div class="panel dark">
+    <span class="wm" style="color:var(--paper)">Meilleur-erp<span class="cart" style="background:var(--paper);color:var(--blue)">.fr</span></span>
+  </div>
+</body>
+</html>

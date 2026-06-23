@@ -1,0 +1,40 @@
+---
+/**
+ * ProsCons — double colonne Avantages / Inconvénients, titres H3, même hauteur.
+ * Pros = bleu, Cons = rouge.
+ */
+interface Props {
+  pros?: string[];
+  cons?: string[];
+  prosTitle?: string;
+  consTitle?: string;
+  class?: string;
+}
+const { pros = [], cons = [], prosTitle = 'Avantages', consTitle = 'Inconvénients', class: cls = '' } = Astro.props;
+const CHECK = 'm9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11';
+const CROSS = 'M18 6 6 18M6 6l12 12';
+---
+<div class={`proscons ${cls}`.trim()}>
+  <section class="proscons__col proscons__col--pros">
+    <h3>
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d={CHECK} /></svg>
+      {prosTitle}
+    </h3>
+    <ul>
+      {pros.map((t) => (
+        <li><span class="proscons__mark">+</span><span set:html={t} /></li>
+      ))}
+    </ul>
+  </section>
+  <section class="proscons__col proscons__col--cons">
+    <h3>
+      <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d={CROSS} /></svg>
+      {consTitle}
+    </h3>
+    <ul>
+      {cons.map((t) => (
+        <li><span class="proscons__mark">−</span><span set:html={t} /></li>
+      ))}
+    </ul>
+  </section>
+</div>

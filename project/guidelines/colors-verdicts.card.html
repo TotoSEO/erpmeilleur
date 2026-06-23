@@ -1,0 +1,24 @@
+<!-- @dsCard group="Colors" viewport="700x160" name="Verdicts & stickers" subtitle="Émeraude = validé, corail = négatif/alerte ; pastilles pop" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--paper); font-family: var(--font-ui); }
+  .row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; font-weight: 700; font-size: 13px; border-radius: 999px; }
+  .pop { background: #fff; border: 2px solid; box-shadow: 4px 4px 0 currentColor; }
+  .dot { width: 9px; height: 9px; border-radius: 999px; background: currentColor; }
+  .num { font-family: var(--font-mono); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <span class="pill pop" style="color:#1C1CCC;border-color:#2E2EFF"><span class="dot"></span>RECOMMANDÉ</span>
+    <span class="pill" style="background:var(--grad-sunset);color:#fff">À ÉVITER</span>
+    <span class="pill pop" style="color:#D81E1E;border-color:#FF2D2D">ALERTE</span>
+    <span class="pill" style="background:var(--grad-brand);color:#fff">Note <span class="num">8,4/10</span></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+---
+import Badge from './Badge.astro';
+/**
+ * ArticleHero — héros d'article 2 colonnes.
+ * Gauche : H1, extrait, puis ligne méta (auteur, durée, date de mise en ligne,
+ * date d'actualisation). Droite : image à la une (ou placeholder dégradé).
+ */
+interface Props {
+  title: string;
+  excerpt: string;
+  badges?: { label: string; tone?: string; variant?: string; mono?: boolean }[];
+  author?: { name: string; role?: string; initials?: string };
+  readingTime?: string;
+  publishedDate?: string;
+  updatedDate?: string;
+  heroImage?: string;
+  heroAlt?: string;
+  heroLabel?: string;
+}
+const {
+  title, excerpt, badges = [], author,
+  readingTime, publishedDate, updatedDate,
+  heroImage, heroAlt = '', heroLabel,
+} = Astro.props;
+---
+<header class="hero">
+  {badges.length > 0 && (
+    <div class="hero__top">
+      {badges.map((b) => (
+        <Badge tone={(b.tone as any) || 'blue'} variant={(b.variant as any) || 'gradient'} mono={b.mono}>{b.label}</Badge>
+      ))}
+    </div>
+  )}
+  <div class="hero__grid">
+    <div>
+      <h1 set:html={title} />
+      <p class="hero__excerpt">{excerpt}</p>
+      <div class="hero__meta">
+        {author && (
+          <div class="hero__author">
+            {author.initials && <span class="hero__avatar">{author.initials}</span>}
+            <div>
+              <div class="hero__author-name">{author.name}</div>
+              {author.role && <div class="hero__author-role">{author.role}</div>}
+            </div>
+          </div>
+        )}
+        {readingTime && (
+          <div class="hero__metaitem"><span class="k">Lecture</span><span class="v">{readingTime}</span></div>
+        )}
+        {publishedDate && (
+          <div class="hero__metaitem"><span class="k">Mis en ligne</span><span class="v">{publishedDate}</span></div>
+        )}
+        {updatedDate && (
+          <div class="hero__metaitem"><span class="k">Actualisé</span><span class="v">{updatedDate}</span></div>
+        )}
+      </div>
+    </div>
+    <div class="hero__media">
+      {heroImage
+        ? <img src={heroImage} alt={heroAlt} width="800" height="600" />
+        : <div class="ph">{heroLabel && <span>{heroLabel}</span>}</div>}
+    </div>
+  </div>
+</header>

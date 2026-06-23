@@ -1,0 +1,47 @@
+---
+/**
+ * DataTable — tableau comparatif : en-tête en dégradé, ligne « best » surlignée,
+ * colonnes `num` en mono alignées à droite. Coins nets, ombre dure.
+ * columns: [{ key, label, num?, sticky?, width? }]
+ * rows: [{ [key]: value | { value, tone }, _best? }]  tone: positive|negative|muted|strong
+ */
+interface Column { key: string; label: string; num?: boolean; sticky?: boolean; width?: string; }
+interface Props {
+  columns?: Column[];
+  rows?: Record<string, any>[];
+  caption?: string;
+  class?: string;
+}
+const { columns = [], rows = [], caption, class: cls = '' } = Astro.props;
+const toneClass: Record<string, string> = { positive: 'dt-pos', negative: 'dt-neg', muted: 'dt-muted', strong: 'dt-strong' };
+---
+<div class={`dtable ${cls}`.trim()}>
+  <div class="dtable__scroll">
+    <table>
+      {caption && <caption>{caption}</caption>}
+      <thead>
+        <tr>
+          {columns.map((c) => (
+            <th scope="col" class={[c.num ? 'num' : '', c.sticky ? 'col-sticky' : ''].filter(Boolean).join(' ')} style={c.width ? `width:${c.width}` : undefined}>{c.label}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr data-best={row._best ? '' : undefined}>
+            {columns.map((c) => {
+              const cell = row[c.key];
+              const isObj = cell && typeof cell === 'object' && 'value' in cell;
+              const value = isObj ? cell.value : cell;
+              const tone = isObj ? cell.tone : undefined;
+              const tcls = tone ? toneClass[tone] : '';
+              return (
+                <td class={[c.num ? 'num' : '', c.sticky ? 'col-sticky' : '', tcls].filter(Boolean).join(' ')}>{value}</td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

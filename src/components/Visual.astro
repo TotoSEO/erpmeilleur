@@ -1,0 +1,23 @@
+---
+/**
+ * Visual — visuel encadré pour le colonnage. Passez `src` pour une vraie image,
+ * sinon un aplat dégradé sert de placeholder. `label` = légende mono en coin.
+ */
+interface Props {
+  src?: string;
+  alt?: string;
+  label?: string;
+  height?: number;
+  gradient?: string;
+  class?: string;
+}
+const { src, alt = '', label, height = 196, gradient, class: cls = '' } = Astro.props;
+const style = [
+  `min-height:${height}px`,
+  gradient ? `background:${gradient}` : '',
+].filter(Boolean).join(';');
+---
+<div class={`visual ${cls}`.trim()} style={style}>
+  {src && <img src={src} alt={alt} />}
+  {label && <span class="visual__label">{label}</span>}
+</div>

@@ -1,0 +1,106 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ArticleHero from '../components/ArticleHero.astro';
+import KeyTakeaways from '../components/KeyTakeaways.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+
+/**
+ * ArticleLayout — gabarit d'un article de blog meilleur-erp.fr :
+ * héros 2 colonnes -> encart « Les points à retenir » -> (mobile : sommaire
+ * dépliable) -> contenu, avec un sommaire sticky scroll-spy en colonne de gauche
+ * sur desktop.
+ */
+interface Heading { depth: number; slug: string; text: string; }
+interface Props {
+  frontmatter: {
+    title: string;
+    excerpt: string;
+    description?: string;
+    badges?: any[];
+    author?: { name: string; role?: string; initials?: string };
+    readingTime?: string;
+    publishedDate?: string;
+    updatedDate?: string;
+    heroImage?: string;
+    heroAlt?: string;
+    heroLabel?: string;
+    takeaways?: string[];
+  };
+  headings: Heading[];
+}
+const { frontmatter: fm, headings } = Astro.props;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: fm.title.replace(/<[^>]+>/g, ''),
+  description: fm.description || fm.excerpt,
+  author: fm.author ? { '@type': 'Person', name: fm.author.name } : undefined,
+  datePublished: fm.publishedDate,
+  dateModified: fm.updatedDate || fm.publishedDate,
+  publisher: { '@type': 'Organization', name: 'meilleur-erp.fr' },
+};
+---
+<BaseLayout title={`${fm.title.replace(/<[^>]+>/g, '')} · meilleur-erp.fr`} description={fm.description || fm.excerpt} current="guides" ogImage={fm.heroImage}>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} is:inline />
+  <div class="article-layout">
+    <ArticleHero
+      title={fm.title}
+      excerpt={fm.excerpt}
+      badges={fm.badges}
+      author={fm.author}
+      readingTime={fm.readingTime}
+      publishedDate={fm.publishedDate}
+      updatedDate={fm.updatedDate}
+      heroImage={fm.heroImage}
+      heroAlt={fm.heroAlt}
+      heroLabel={fm.heroLabel}
+    />
+
+    <div class="article-body">
+      <TableOfContents headings={headings} variant="desktop" />
+
+      <div class="article-content">
+        {fm.takeaways && fm.takeaways.length > 0 && <KeyTakeaways items={fm.takeaways} />}
+        <TableOfContents headings={headings} variant="mobile" />
+        <slot />
+      </div>
+    </div>
+
+    <slot name="after" />
+  </div>
+</BaseLayout>
+
+<script>
+  // Scroll-spy : surligne l'entrée du sommaire correspondant au titre visible.
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.toc__link'));
+  const map = new Map<string, HTMLAnchorElement[]>();
+  for (const l of links) {
+    const id = decodeURIComponent((l.getAttribute('href') || '').slice(1));
+    if (!id) continue;
+    if (!map.has(id)) map.set(id, []);
+    map.get(id)!.push(l);
+  }
+  const targets = Array.from(document.querySelectorAll<HTMLElement>('.article-content h2, .article-content h3')).filter((h) => h.id && map.has(h.id));
+
+  if (targets.length) {
+    let activeId = '';
+    const setActive = (id: string) => {
+      if (id === activeId) return;
+      activeId = id;
+      links.forEach((l) => l.classList.remove('is-active'));
+      (map.get(id) || []).forEach((l) => l.classList.add('is-active'));
+    };
+    const onScroll = () => {
+      const top = 120;
+      let current = targets[0].id;
+      for (const t of targets) {
+        if (t.getBoundingClientRect().top - top <= 0) current = t.id;
+        else break;
+      }
+      setActive(current);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+  }
+</script>

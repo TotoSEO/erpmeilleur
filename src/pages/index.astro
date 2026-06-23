@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Badge from '../components/Badge.astro';
+import StatDiscs from '../components/StatDiscs.astro';
+---
+<BaseLayout title="meilleur-erp.fr : le blog indépendant des logiciels ERP">
+  <div class="container" style="padding-top:56px;padding-bottom:24px">
+    <div class="hero__grid">
+      <div>
+        <div class="hero__top">
+          <Badge tone="blue" variant="gradient">Média indépendant</Badge>
+          <Badge tone="neutral" variant="soft" mono>42 ERP testés</Badge>
+        </div>
+        <h1 class="hero" style="padding:0;font-family:var(--font-grotesk);font-weight:800;font-size:clamp(38px,7vw,68px);line-height:0.96;letter-spacing:-0.03em;color:var(--ink);margin:0">
+          On teste les ERP <span class="text-gradient">pour de vrai</span>.
+        </h1>
+        <p class="hero__excerpt" style="margin-top:20px">
+          Comptes réels, données réelles, mesures datées. Pas de contenu d'éditeur, pas de promesse : que des verdicts signés et chiffrés.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+          <Button variant="primary" size="lg" href="/exemple/">Lire un exemple d'article</Button>
+          <Button variant="secondary" size="lg" href="/exemple/#bibliotheque">Voir les composants</Button>
+        </div>
+      </div>
+      <div style="display:grid;place-items:center">
+        <StatDiscs items={[{ value: '42', label: 'ERP testés' }, { value: '14', unit: ' min', label: 'Lecture' }, { value: '8', unit: '/10', label: 'Note max' }, { value: '06', unit: '/26', label: 'À jour' }]} />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

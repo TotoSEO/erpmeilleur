@@ -1,0 +1,43 @@
+---
+/**
+ * ProductCard — fiche outil avec pastille de note qui déborde du coin (relief).
+ * verdict: positive | neutral | negative ; specs: [{ label, value }]
+ */
+interface Spec { label: string; value: string; }
+interface Props {
+  name: string;
+  category?: string;
+  score?: number | null;
+  verdict?: 'positive' | 'neutral' | 'negative';
+  verdictLabel?: string;
+  specs?: Spec[];
+  href?: string;
+  class?: string;
+}
+const { name, category, score = null, verdict = 'neutral', verdictLabel, specs = [], href, class: cls = '' } = Astro.props;
+const DEFAULT: Record<string, string> = { positive: 'Recommandé', neutral: 'Sous conditions', negative: 'À éviter' };
+const Tag = href ? 'a' : 'div';
+---
+<Tag class={`product product--${verdict} ${cls}`.trim()} href={href}>
+  {score != null && (
+    <span class="product__score">
+      <span>
+        <span class="product__score-val">{score.toFixed(1).replace('.', ',')}</span>
+        <span class="product__score-max">/10</span>
+      </span>
+    </span>
+  )}
+  {category && <div class="product__cat">{category}</div>}
+  <h3>{name}</h3>
+  <span class="product__verdict">{verdictLabel || DEFAULT[verdict]}</span>
+  {specs.length > 0 && (
+    <div class="product__specs">
+      {specs.slice(0, 3).map((s) => (
+        <div>
+          <div class="product__spec-l">{s.label}</div>
+          <div class="product__spec-v">{s.value}</div>
+        </div>
+      ))}
+    </div>
+  )}
+</Tag>

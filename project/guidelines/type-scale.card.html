@@ -1,0 +1,27 @@
+<!-- @dsCard group="Type" viewport="700x250" name="Échelle & hiérarchie" subtitle="Display Bricolage Grotesque, corps Hanken Grotesk, data JetBrains Mono" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; background: var(--paper);
+    background-image: radial-gradient(34rem 34rem at 0% 0%, rgba(14,159,90,.16), transparent 55%), radial-gradient(30rem 30rem at 100% 100%, rgba(79,176,42,.14), transparent 55%); }
+  .line { display: flex; align-items: baseline; gap: 14px; border-bottom: 1px solid var(--hairline); padding: 7px 0; }
+  .line:last-child { border: 0; }
+  .tag { font-family: var(--font-mono); font-size: 11px; color: var(--ink-55); width: 118px; flex: none; }
+  .ex { color: var(--ink); line-height: 1.04; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .disp { font-family: var(--font-grotesk); font-weight: 700; letter-spacing: -0.02em; }
+  .body { font-family: var(--font-sans); }
+  .mono { font-family: var(--font-mono); }
+</style>
+</head>
+<body>
+  <div class="line"><span class="tag">Display · 5xl 44</span><span class="ex disp" style="font-size:44px"><span class="text-gradient">Quel ERP en 2026</span></span></div>
+  <div class="line"><span class="tag">Display · 3xl 28</span><span class="ex disp" style="font-size:28px">Titre de section</span></div>
+  <div class="line"><span class="tag">Corps · xl 19</span><span class="ex body" style="font-size:19px">Chapô d'introduction</span></div>
+  <div class="line"><span class="tag">Corps · lg 17</span><span class="ex body" style="font-size:17px">Corps d'article en lecture longue</span></div>
+  <div class="line"><span class="tag">Data · 13</span><span class="ex mono" style="font-size:13px;letter-spacing:0.04em">14,90 € · 8,4/10 · 3 000</span></div>
+  <div class="line"><span class="tag">Kicker · 2xs 11</span><span class="ex mono" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-55)">Sur-titre mono</span></div>
+</body>
+</html>

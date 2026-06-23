@@ -1,0 +1,27 @@
+---
+/**
+ * Callout — encadré éditorial à disque d'icône en relief. Pas de filet-gauche.
+ * tone: astuce (bleu ciel) | retenir (bleu) | attention (jaune)
+ */
+interface Props {
+  tone?: 'astuce' | 'retenir' | 'attention';
+  label?: string;
+  class?: string;
+}
+const { tone = 'astuce', label, class: cls = '' } = Astro.props;
+const ICONS: Record<string, string> = {
+  astuce: 'M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z',
+  retenir: 'm9 11 3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11',
+  attention: 'M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z',
+};
+const DEFAULT: Record<string, string> = { astuce: 'Astuce', retenir: 'À retenir', attention: 'Attention' };
+---
+<aside class={`callout callout--${tone} ${cls}`.trim()}>
+  <span class="callout__disc">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <path d={ICONS[tone] || ICONS.astuce} />
+    </svg>
+  </span>
+  <div class="callout__label">{label || DEFAULT[tone]}</div>
+  <div class="callout__body"><slot /></div>
+</aside>

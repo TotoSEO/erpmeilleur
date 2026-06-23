@@ -1,0 +1,48 @@
+---
+/**
+ * Chart — graphique éditorial clair : grille douce, aire + ligne dégradées,
+ * point d'inflexion mis en avant.
+ * values: number[] ; max? borne le haut ; highlight? index du point marqué.
+ */
+interface Props {
+  title?: string;
+  caption?: string;
+  values?: number[];
+  max?: number | null;
+  highlight?: number | null;
+  height?: number;
+  class?: string;
+}
+const { title, caption, values = [], max = null, highlight = null, height = 170, class: cls = '' } = Astro.props;
+const W = 900, H = 170;
+const top = max || Math.max(...values, 1);
+const n = values.length;
+const pts = values.map((v, i) => {
+  const x = n <= 1 ? 0 : (i / (n - 1)) * W;
+  const y = H - (v / top) * (H - 16) - 8;
+  return [x, y] as [number, number];
+});
+const line = pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(' ');
+const area = `${line} L${W},${H} L0,${H} Z`;
+const uid = 'ch' + Math.random().toString(36).slice(2, 7);
+const hp = highlight != null ? pts[highlight] : null;
+---
+<figure class={`chart ${cls}`.trim()}>
+  {(title || caption) && (
+    <figcaption class="chart__cap">
+      {title && <b class="chart__title">{title}</b>}
+      {caption && <span class="chart__sub">{caption}</span>}
+    </figcaption>
+  )}
+  <div class="chart__plot" style={`height:${height}px`}>
+    <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style="position:absolute;inset:0">
+      <defs>
+        <linearGradient id={`${uid}l`} x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFD400" /><stop offset=".5" stop-color="#18A6F6" /><stop offset="1" stop-color="#2E2EFF" /></linearGradient>
+        <linearGradient id={`${uid}a`} x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(46,46,255,.26)" /><stop offset="1" stop-color="rgba(46,46,255,0)" /></linearGradient>
+      </defs>
+      <path d={area} fill={`url(#${uid}a)`} />
+      <path d={line} fill="none" stroke={`url(#${uid}l)`} stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" />
+    </svg>
+    {hp && <span class="chart__dot" style={`left:${(hp[0] / W) * 100}%;top:${(hp[1] / H) * 100}%`}></span>}
+  </div>
+</figure>

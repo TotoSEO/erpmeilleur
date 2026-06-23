@@ -1,0 +1,15 @@
+---
+/**
+ * GlassPanel — surface panneau (coins nets, bord encre, ombre dure). Brique de base.
+ * padding: none | sm | md | lg | xl
+ */
+interface Props {
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  strong?: boolean;
+  as?: string;
+  class?: string;
+}
+const { padding = 'lg', strong = false, as: Tag = 'div', class: cls = '' } = Astro.props;
+const classes = ['panel', strong ? 'panel--strong' : '', `panel--p-${padding}`, cls].filter(Boolean).join(' ');
+---
+<Tag class={classes}><slot /></Tag>

@@ -1,0 +1,23 @@
+<!-- @dsCard group="Brand" viewport="700x160" name="Décor lumineux" subtitle="Blobs dégradés derrière les sections — la texture du site" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; }
+  .demo { position: relative; height: 160px; padding: 26px; box-sizing: border-box; overflow: hidden; background: var(--paper); }
+  .demo::before { content:""; position:absolute; inset:0; background:
+    radial-gradient(20rem 20rem at 6% -20%, rgba(46,46,255,.18), transparent 60%),
+    radial-gradient(18rem 18rem at 100% 10%, rgba(24,166,246,.18), transparent 58%),
+    radial-gradient(16rem 16rem at 70% 120%, rgba(255,212,0,.18), transparent 60%); }
+  .tag { position: relative; display: inline-block; font-family: var(--font-mono); font-size: 12px; color: var(--ink); }
+  .glass { padding: 14px 18px; }
+</style>
+</head>
+<body>
+  <div class="demo">
+    <span class="tag glass">Sections data sur fond de blobs dégradés lumineux</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+---
+/**
+ * FeatureColumns — colonnes alignées de même hauteur : pictogramme (ou image) en
+ * haut, titre H3 + texte au milieu, bouton calé en bas. 2 à 4 colonnes.
+ * items: [{ icon?(svg html), image?(url), eyebrow?, title, text, action?:{label, href} }]
+ */
+interface Item {
+  icon?: string;
+  image?: string;
+  imageAlt?: string;
+  eyebrow?: string;
+  title: string;
+  text: string;
+  action?: { label: string; href?: string };
+}
+interface Props {
+  items?: Item[];
+  columns?: 2 | 3 | 4;
+  class?: string;
+}
+const { items = [], columns = 3, class: cls = '' } = Astro.props;
+const gridClass = columns === 2 ? 'features--2' : columns === 4 ? 'features--4' : '';
+---
+<div class={`features ${gridClass} ${cls}`.trim()}>
+  {items.map((it, i) => (
+    <article class="features__item">
+      {it.image ? (
+        <div class="features__img"><img src={it.image} alt={it.imageAlt || ''} /></div>
+      ) : (
+        <span class={`features__orb features__orb--${i % 4}`}>
+          {it.icon ? <Fragment set:html={it.icon} /> : (
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7" /></svg>
+          )}
+        </span>
+      )}
+      {it.eyebrow && <div class="features__eyebrow">{it.eyebrow}</div>}
+      <h3>{it.title}</h3>
+      <p>{it.text}</p>
+      {it.action && <a class="features__action" href={it.action.href || '#'}>{it.action.label}</a>}
+    </article>
+  ))}
+</div>

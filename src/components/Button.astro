@@ -1,0 +1,38 @@
+---
+/**
+ * Button — bouton anguleux : coins nets, bordure encre, ombre dure décalée.
+ * variant: primary | secondary | ghost | teal | minium | minium-outline
+ * size: sm | md | lg
+ */
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost' | 'teal' | 'minium' | 'minium-outline';
+  size?: 'sm' | 'md' | 'lg';
+  href?: string;
+  fullWidth?: boolean;
+  disabled?: boolean;
+  class?: string;
+  [key: string]: any;
+}
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  fullWidth = false,
+  disabled = false,
+  class: cls = '',
+  ...rest
+} = Astro.props;
+const classes = ['btn', `btn--${variant}`, `btn--${size}`, fullWidth ? 'btn--full' : '', cls]
+  .filter(Boolean)
+  .join(' ');
+const Tag = href ? 'a' : 'button';
+---
+{href ? (
+  <a href={href} class={classes} aria-disabled={disabled ? 'true' : undefined} {...rest}>
+    <slot />
+  </a>
+) : (
+  <button class={classes} disabled={disabled} {...rest}>
+    <slot />
+  </button>
+)}

@@ -1,0 +1,31 @@
+---
+/**
+ * Input — champ de saisie sur blanc data. Focus = filet bleu électrique.
+ * La valeur numérique se compose en mono (`mono`).
+ */
+interface Props {
+  label?: string;
+  hint?: string;
+  error?: string;
+  prefix?: string;
+  suffix?: string;
+  mono?: boolean;
+  id?: string;
+  type?: string;
+  placeholder?: string;
+  value?: string;
+  [key: string]: any;
+}
+const { label, hint, error, prefix, suffix, mono = false, id, ...rest } = Astro.props;
+const inputId = id || (label ? `f-${label.replace(/\s+/g, '-').toLowerCase()}` : undefined);
+const wrapClasses = ['field', mono ? 'field--mono' : '', error ? 'field--error' : ''].filter(Boolean).join(' ');
+---
+<label class={wrapClasses} for={inputId}>
+  {label && <span class="field__label">{label}</span>}
+  <span class="field__wrap">
+    {prefix && <span class="field__prefix">{prefix}</span>}
+    <input id={inputId} {...rest} />
+    {suffix && <span class="field__suffix">{suffix}</span>}
+  </span>
+  {(hint || error) && <span class="field__hint">{error || hint}</span>}
+</label>

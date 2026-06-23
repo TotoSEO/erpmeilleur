@@ -1,0 +1,30 @@
+---
+/**
+ * Faders — notation par faders : curseur physique sur rail gradué (console).
+ * items: [{ label, value, max? }] (max défaut 10). Le chiffre est en mono.
+ */
+interface Item { label: string; value: number; max?: number; }
+interface Props { items?: Item[]; class?: string; }
+const { items = [], class: cls = '' } = Astro.props;
+const gradFor = (v: number, max: number) => {
+  const r = v / max;
+  return r >= 0.7 ? 'var(--grad-aqua)' : r >= 0.5 ? 'var(--grad-cool)' : 'var(--grad-sunset)';
+};
+---
+<div class={`faders ${cls}`.trim()}>
+  {items.map((it) => {
+    const max = it.max || 10;
+    const pct = Math.max(0, Math.min(1, it.value / max)) * 100;
+    return (
+      <div class="faders__row">
+        <span class="faders__label">{it.label}</span>
+        <div class="faders__track">
+          <div class="faders__ticks"></div>
+          <div class="faders__rail"><div class="faders__fill" style={`width:${pct}%;background:${gradFor(it.value, max)}`}></div></div>
+          <div class="faders__knob" style={`left:${pct}%`}></div>
+        </div>
+        <span class="faders__value">{it.value.toFixed(1).replace('.', ',')}</span>
+      </div>
+    );
+  })}
+</div>

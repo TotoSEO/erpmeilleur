@@ -1,0 +1,42 @@
+<!-- @dsCard group="Components" viewport="700x230" name="Boutons & saisie" subtitle="Button (variants/tailles) + Input" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style> body { margin: 0; padding: 22px; background: #FFFFFF; background-image: radial-gradient(38rem 38rem at 0% 0%, rgba(46,46,255,.10), transparent 55%), radial-gradient(34rem 34rem at 100% 100%, rgba(255,212,0,.12), transparent 55%); } .grp { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; } </style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { Button, Input } = window.CrmLogicielFrDesignSystem_d9d94b;
+function Demo() {
+  return (
+    <div>
+      <div className="grp">
+        <Button variant="primary">Voir le comparatif</Button>
+        <Button variant="secondary">Filtrer</Button>
+        <Button variant="ghost">Annuler</Button>
+        <Button variant="teal">Trouver le mien</Button>
+        <Button variant="minium-outline">Signaler une erreur</Button>
+      </div>
+      <div className="grp">
+        <Button size="sm">Small</Button>
+        <Button size="md">Medium</Button>
+        <Button size="lg">Large</Button>
+        <Button disabled>Désactivé</Button>
+      </div>
+      <div className="grp" style={{ maxWidth: 320 }}>
+        <Input label="Votre budget mensuel" suffix="€ / mois" mono placeholder="50" style={{ width: 220 }} />
+      </div>
+    </div>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

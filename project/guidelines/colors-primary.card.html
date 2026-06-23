@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Palette principale" subtitle="Bleu électrique, bleu ciel, jaune, rouge, encre — sur blanc" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; background: var(--paper); }
+  .row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw { border-radius: 0; overflow: hidden; box-shadow: var(--shadow-soft); }
+  .chip { height: 80px; }
+  .meta { padding: 9px 12px; background: #fff; }
+  .nm { font-family: var(--font-ui); font-weight: 700; font-size: 13px; color: var(--ink); }
+  .hex { font-family: var(--font-mono); font-size: 12px; color: var(--ink-55); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:#2E2EFF"></div><div class="meta"><div class="nm">Bleu</div><div class="hex">#2E2EFF</div></div></div>
+    <div class="sw"><div class="chip" style="background:#18A6F6"></div><div class="meta"><div class="nm">Bleu ciel</div><div class="hex">#18A6F6</div></div></div>
+    <div class="sw"><div class="chip" style="background:#FFD400"></div><div class="meta"><div class="nm">Jaune</div><div class="hex">#FFD400</div></div></div>
+    <div class="sw"><div class="chip" style="background:#FF2D2D"></div><div class="meta"><div class="nm">Rouge</div><div class="hex">#FF2D2D</div></div></div>
+    <div class="sw"><div class="chip" style="background:#0B0B12"></div><div class="meta"><div class="nm">Encre</div><div class="hex">#0B0B12</div></div></div>
+  </div>
+</body>
+</html>

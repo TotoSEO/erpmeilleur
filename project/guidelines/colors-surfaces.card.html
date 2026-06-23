@@ -1,0 +1,25 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Dégradés lumineux" subtitle="Brand, aqua, sunset, iris — la matière des encarts" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 20px; background: var(--paper); }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .sw { border-radius: 0; overflow: hidden; box-shadow: var(--shadow-soft); }
+  .chip { height: 72px; }
+  .meta { padding: 9px 12px; background: #fff; }
+  .nm { font-family: var(--font-ui); font-weight: 700; font-size: 13px; color: var(--ink); }
+  .hex { font-family: var(--font-mono); font-size: 11px; color: var(--ink-55); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--grad-brand)"></div><div class="meta"><div class="nm">Brand</div><div class="hex">bleu → ciel</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grad-aqua)"></div><div class="meta"><div class="nm">Aqua</div><div class="hex">ciel → bleu</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grad-sunset)"></div><div class="meta"><div class="nm">Sunset</div><div class="hex">jaune → ambre</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--grad-iris)"></div><div class="meta"><div class="nm">Iris</div><div class="hex">bleu → jaune</div></div></div>
+  </div>
+</body>
+</html>

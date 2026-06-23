@@ -1,0 +1,29 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Coins nets, formes coupées & ombres" subtitle="Rayons à 0, découpes triangle/biseau, ombre dure pop" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 22px; font-family: var(--font-ui); background: var(--canvas); }
+  body::before { content:""; position:fixed; inset:0; z-index:-1; background:
+    conic-gradient(from 200deg at 100% 0, rgba(255,212,0,.5) 0 36deg, transparent 36deg),
+    conic-gradient(from 20deg at 0 100%, rgba(46,46,255,.4) 0 32deg, transparent 32deg); }
+  .row { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .box { width: 70px; height: 70px; background: var(--blue); border: 2px solid var(--ink); display: grid; place-items: center; box-shadow: 4px 4px 0 var(--ink); }
+  .lab { font-family: var(--font-mono); font-size: 11px; color: var(--ink-55); text-align: center; margin-top: 6px; }
+  .glasscard { width: 120px; height: 70px; display: grid; place-items: center; font-family: var(--font-mono); font-size: 11px; color: var(--ink); }
+  .pop { width: 70px; height: 70px; background: var(--orange); border: 2.5px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div><div class="box" style="clip-path:var(--cut-corner)"></div><div class="lab">biseau</div></div>
+    <div><div class="box" style="clip-path:var(--cut-both)"></div><div class="lab">double coupe</div></div>
+    <div><div class="box" style="clip-path:var(--cut-tri-up);box-shadow:none;border:none;background:var(--grad-brand)"></div><div class="lab">triangle</div></div>
+    <div><div class="box" style="clip-path:var(--cut-arrow)"></div><div class="lab">flèche</div></div>
+    <div><div class="glass glasscard">panneau</div><div class="lab">coins nets + ombre</div></div>
+    <div><div class="pop"></div><div class="lab">sticker pop</div></div>
+  </div>
+</body>
+</html>
