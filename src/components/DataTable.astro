@@ -7,12 +7,24 @@
  */
 interface Column { key: string; label: string; num?: boolean; sticky?: boolean; width?: string; }
 interface Props {
-  columns?: Column[];
-  rows?: Record<string, any>[];
+  // Forme riche : colonnes objet { key, label } + lignes objet.
+  // Forme simple (rédaction) : colonnes = string[] + lignes = string[][].
+  columns?: (Column | string)[];
+  rows?: (Record<string, any> | any[])[];
   caption?: string;
   class?: string;
 }
-const { columns = [], rows = [], caption, class: cls = '' } = Astro.props;
+const { columns: rawCols = [], rows: rawRows = [], caption, class: cls = '' } = Astro.props;
+
+// Normalise la forme simple (tableaux de chaînes) vers la forme objet interne.
+const columns: Column[] = rawCols.map((c, i) =>
+  typeof c === 'string' ? { key: String(i), label: c } : c
+);
+const rows: Record<string, any>[] = rawRows.map((r) =>
+  Array.isArray(r)
+    ? r.reduce((acc, val, i) => ({ ...acc, [String(i)]: val }), {} as Record<string, any>)
+    : r
+);
 const toneClass: Record<string, string> = { positive: 'dt-pos', negative: 'dt-neg', muted: 'dt-muted', strong: 'dt-strong' };
 ---
 <div class={`dtable ${cls}`.trim()}>

@@ -1,0 +1,139 @@
+---
+title: "Les modules d'un ERP : le guide complet des fonctions"
+seoTitle: "Modules ERP : le guide complet des fonctionnalités"
+excerpt: "Un ERP se compose de modules, chacun dédié à un métier (finance, ventes, stocks, RH…). Tour d'horizon des modules essentiels et de ceux à activer selon votre activité."
+description: "Quels sont les modules d'un ERP ? Finance, ventes, stocks, production, RH… Découvrez les modules essentiels et ceux à activer selon votre activité."
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "6 min"
+publishedDate: "23 juin 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Combien de modules a un ERP en moyenne ?"
+    a: "Ça dépend de l'éditeur, mais on compte généralement une dizaine de modules principaux (finance, ventes, achats, stocks, production, RH, CRM, projet, supply chain, maintenance, reporting). Vous n'en activez que ce dont vous avez besoin."
+  - q: "Peut-on ajouter des modules après le déploiement ?"
+    a: "Oui, c'est même tout l'intérêt d'un ERP modulaire. Vous démarrez avec le socle, puis vous activez de nouveaux modules au fil de la croissance, sans tout reconstruire."
+  - q: "Faut-il activer tous les modules ?"
+    a: "Non, surtout pas. Activer des modules dont vous n'avez pas l'usage complique le système pour rien. On part des besoins réels, et on n'active que les briques utiles."
+  - q: "Quels modules pour une entreprise de services sans production ?"
+    a: "Le socle (finance, gestion commerciale, achats si besoin), souvent complété par le module de gestion de projet ou à l'affaire pour suivre les missions, et le CRM pour la relation client. Pas de module production ni de stocks dans la plupart des cas."
+  - q: "Un module ERP peut-il être désactivé ?"
+    a: "Oui. Si un module ne sert plus ou ne correspond pas, on peut le désactiver. Mais mieux vaut cadrer les besoins en amont pour éviter d'activer puis désactiver dans tous les sens."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import Callout from '../../components/Callout.astro';
+import DataTable from '../../components/DataTable.astro';
+
+<KeyTakeaways title="En bref" items={[
+  "Un ERP est modulaire : on active les briques dont on a besoin, pas plus.",
+  "Les modules socle (finance, gestion commerciale, achats, stocks) forment le cœur transactionnel.",
+  "Les modules métier (production, projet, maintenance) s'ajoutent selon le secteur.",
+  "Les modules transverses (RH, CRM, reporting) servent un peu tout le monde.",
+  "Le bon réflexe : démarrer par le socle, le stabiliser, puis étoffer."
+]} />
+
+Un ERP, ce n'est pas un gros bloc unique. C'est un assemblage de modules, et chaque module gère un métier précis : la compta, les ventes, les stocks, la paie, la production... Vous activez ceux dont vous avez besoin, et vous en ajoutez d'autres quand l'entreprise grandit. C'est tout l'intérêt du système : il s'adapte à vous, pas l'inverse.
+
+Bon, dit comme ça, ça reste un peu abstrait. Le truc à retenir, c'est que tous ces modules partagent **la même base de données**. Du coup, quand une info entre quelque part, elle circule partout sans que personne ait à la ressaisir. C'est exactement ce qui fait [la mécanique d'un ERP](/comment-fonctionne-un-erp/), et ça repose sur le principe de base unique posé dans [la définition d'un ERP](/qu-est-ce-qu-un-erp/). Voyons maintenant les modules un par un.
+
+## Les modules socle, le cœur de tout ERP
+
+Il y a quatre modules que presque toutes les entreprises activent, quel que soit leur métier. On les appelle le **socle**, parce qu'ils forment ensemble un cycle de gestion complet et cohérent. Si vous démarrez un projet ERP, c'est par là que ça commence.
+
+### Le module de gestion financière et comptabilité
+
+C'est souvent le premier déployé, et pour cause : il structure les flux de données de tous les autres. Il gère la comptabilité, la facturation, la trésorerie, le suivi des paiements. Chaque opération de l'entreprise finit par y laisser une trace. C'est le rôle du [module comptabilité et finance](/erp-comptabilite/), qui fait de la donnée financière le point de convergence de l'ERP.
+
+### Le module de gestion commerciale et des ventes
+
+Lui, il pilote tout ce qui touche à la vente : devis, commandes, tarifs, facturation client. C'est le module qui transforme une opportunité en chiffre d'affaires, et le [module de gestion commerciale](/module-gestion-commerciale-erp/) couvre ce cycle de bout en bout.
+
+### Le module achats et approvisionnements
+
+Le pendant des ventes, côté fournisseurs. Il gère les demandes d'achat, les commandes fournisseurs, les réceptions et les factures. Surtout, il anticipe les besoins pour éviter les ruptures, et c'est précisément ce que pilote le [module achats](/module-achats-erp/) au quotidien.
+
+### Le module de gestion des stocks
+
+Indispensable dès qu'on stocke, fabrique ou distribue des produits. Il suit en temps réel chaque mouvement de marchandise, gère les inventaires et alerte quand un stock descend trop bas. Le [module de gestion des stocks](/erp-gestion-des-stocks/) transforme l'inventaire en véritable outil de pilotage.
+
+## Les modules métier, selon votre secteur
+
+Au-dessus du socle viennent les modules qui dépendent de votre activité. Une boîte industrielle n'aura pas les mêmes besoins qu'une société de services, c'est logique. **Ces modules sont optionnels**, on les active selon le métier. Voici les principaux.
+
+### Le module de production (GPAO)
+
+Pour les industriels et les fabricants, c'est **le cœur du réacteur**. La GPAO (gestion de production assistée par ordinateur) planifie la fabrication, gère les nomenclatures, génère les ordres de fabrication et calcule les besoins en matières. Le [module de production et la GPAO](/erp-production-gpao/) méritent qu'on s'y attarde, jargon compris.
+
+### Le module de gestion de projet ou à l'affaire
+
+Là, c'est pour les entreprises qui travaillent par dossiers, chantiers ou missions (BTP, ingénierie, services). Il permet de planifier les tâches, suivre l'avancement réel face au prévu, et piloter le budget de chaque affaire en continu. Son gros atout par rapport à un outil projet classique ? Il est branché direct sur les données financières et RH.
+
+### Le module supply chain et logistique
+
+Quand les flux deviennent complexes (plusieurs entrepôts, des transporteurs, une chaîne d'approvisionnement étendue), ce module coordonne tout, des fournisseurs jusqu'aux clients. Il synchronise les achats, les stocks, la production et les ventes pour donner une vision continue de toute la chaîne.
+
+### Le module maintenance (GMAO)
+
+Une panne machine, c'est une ligne à l'arrêt et des délais qui sautent. La GMAO (gestion de maintenance assistée par ordinateur) centralise l'historique de chaque équipement, planifie les interventions préventives et suit les réparations. Vraiment utile pour les entreprises avec un parc machine conséquent.
+
+## Les modules transverses
+
+Enfin, certains modules servent un peu tout le monde, quel que soit le secteur. On les dit **transverses** parce qu'ils touchent toute l'entreprise.
+
+### Le module RH et paie
+
+Il regroupe tout ce qui concerne les salariés : contrats, congés, absences, temps de travail, paie, formation. Fini les tableux RH éparpillés aux quatre coins de l'entreprise. Le [module RH](/erp-ressources-humaines/) centralise toute cette administration du personnel.
+
+### Le module CRM (relation client)
+
+Le CRM gère la relation client : prospects, opportunités, suivi commercial, service après-vente. Intégré à l'ERP, il assure le fil rouge du premier contact jusqu'à la facturation. Le [module CRM intégré](/crm-integre-erp/) fait dialoguer ce suivi client avec le reste de la gestion.
+
+### Le module reporting et business intelligence
+
+Celui-là agrège les données de tous les autres modules et les transforme en tableaux de bord et indicateurs. C'est l'outil du dirigeant qui veut piloter sur des chiffres à jour, en croisant les ventes, les stocks, la finance ou la production d'un seul coup d'œil.
+
+## Le récap des modules et de leurs connexions
+
+Pour y voir clair d'un coup d'œil, voici ce que gère chaque grand module et ce avec quoi il dialogue. Parce que c'est bien là toute la force d'un ERP : les modules ne travaillent jamais seuls.
+
+<DataTable caption="Les modules d'un ERP et leurs interconnexions" columns={["Module", "Ce qu'il gère", "S'interconnecte avec"]} rows={[
+  ["Finance / Compta", "Écritures, trésorerie, facturation", "Ventes, achats, RH, stocks"],
+  ["Gestion commerciale", "Devis, commandes, facturation client", "Stocks, compta, CRM"],
+  ["Achats", "Commandes fournisseurs, réceptions", "Stocks, finance, production"],
+  ["Stocks", "Mouvements, inventaires, traçabilité", "Achats, production, ventes"],
+  ["Production (GPAO)", "Nomenclatures, ordres de fabrication", "Stocks, achats, finance"],
+  ["RH / Paie", "Contrats, paie, congés, formation", "Finance (masse salariale)"],
+  ["CRM", "Prospects, opportunités, SAV", "Gestion commerciale, finance"],
+  ["Reporting / BI", "Tableaux de bord, indicateurs", "Tous les modules"]
+]} />
+
+## Par quels modules commencer ?
+
+C'est la vraie question quand on se lance. Et la réponse tient en une règle simple : **commencez par le socle**. Finance, gestion commerciale, achats, stocks. Ces quatre-là forment un cycle complet et cohérent, et ils règlent déjà l'essentiel des problèmes de ressaisie et de données éparpillées.
+
+Ensuite seulement, vous ajoutez les modules métier (production, projet, maintenance) selon vos priorités et votre secteur. L'erreur classique, c'est de vouloir **tout déployer d'un coup**. Mauvaise idée. Vous vous retrouvez avec un chantier ingérable et des équipes perdues.
+
+<Callout tone="astuce">Déployez par étapes. Stabilisez le socle, laissez les équipes se l'approprier, puis ajoutez une brique à la fois. C'est ce qui distingue un projet ERP qui réussit d'un projet qui s'emballe.</Callout>
+
+Le choix des bons modules dépend directement de vos points de blocage actuels. On part toujours des processus qui coincent, pas des modules les plus impressionnants sur le papier. Et une fois la liste arrêtée, c'est l'ordre de déploiement qui fait la différence entre un projet maîtrisé et un chantier qui déraille.
+
+## Questions fréquentes
+
+**Combien de modules a un ERP en moyenne ?**
+Ça dépend de l'éditeur, mais on compte généralement une dizaine de modules principaux (finance, ventes, achats, stocks, production, RH, CRM, projet, supply chain, maintenance, reporting). Vous n'en activez que ce dont vous avez besoin.
+
+**Peut-on ajouter des modules après le déploiement ?**
+Oui, c'est même tout l'intérêt d'un ERP modulaire. Vous démarrez avec le socle, puis vous activez de nouveaux modules au fil de la croissance, sans tout reconstruire.
+
+**Faut-il activer tous les modules ?**
+Non, surtout pas. Activer des modules dont vous n'avez pas l'usage complique le système pour rien. On part des besoins réels, et on n'active que les briques utiles.
+
+**Quels modules pour une entreprise de services sans production ?**
+Le socle (finance, gestion commerciale, achats si besoin), souvent complété par le module de gestion de projet ou à l'affaire pour suivre les missions, et le CRM pour la relation client. Pas de module production ni de stocks dans la plupart des cas.
+
+**Un module ERP peut-il être désactivé ?**
+Oui. Si un module ne sert plus ou ne correspond pas, on peut le désactiver. Mais mieux vaut cadrer les besoins en amont pour éviter d'activer puis désactiver dans tous les sens.

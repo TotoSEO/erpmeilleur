@@ -1,0 +1,106 @@
+---
+title: "Le module de production et la GPAO dans un ERP"
+seoTitle: "Module production ERP : la GPAO expliquée simplement"
+excerpt: "La GPAO, c'est le module qui pilote la fabrication : nomenclatures, ordres de fabrication, planning, calcul des besoins. Intégrée à l'ERP, elle relie la production aux stocks et à la compta."
+description: "La GPAO, module de production d'un ERP, gère nomenclatures, ordres de fabrication et planning. Vocabulaire, fonctions et différence avec ERP, MRP et MES."
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "5 min"
+publishedDate: "23 juin 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Que veut dire GPAO ?"
+    a: "GPAO signifie gestion de production assistée par ordinateur. C'est le module ou le logiciel qui planifie, organise et suit la fabrication dans une entreprise industrielle."
+  - q: "Qu'est-ce qu'une nomenclature en production ?"
+    a: "C'est la liste structurée de tous les composants et matières nécessaires pour fabriquer un produit. On parle parfois de nomenclature multi-niveaux quand un composant est lui-même fabriqué à partir d'autres pièces."
+  - q: "Différence entre CBN et ordonnancement ?"
+    a: "Le CBN (calcul des besoins nets) détermine ce qu'il faut produire ou acheter, et en quelle quantité. L'ordonnancement, lui, décide quand et sur quelle machine chaque ordre de fabrication sera réalisé. L'un calcule le quoi, l'autre organise le quand."
+  - q: "GPAO et MES, est-ce pareil ?"
+    a: "Non. La GPAO planifie et organise la production en amont. Le MES (manufacturing execution system) intervient au niveau de l'atelier pour collecter les données d'exécution en temps réel (états machines, cadences, arrêts). Ils sont complémentaires."
+  - q: "Faut-il une GPAO ou un ERP complet pour une PME industrielle ?"
+    a: "Tout dépend de la maturité du système d'information. Si l'entreprise a déjà une gestion commerciale et comptable mais rien pour la production, une GPAO peut suffire. Mais dès que les flux deviennent transverses, un ERP avec module GPAO offre une vision unifiée bien plus efficace."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import Callout from '../../components/Callout.astro';
+import DataTable from '../../components/DataTable.astro';
+
+<KeyTakeaways title="En bref" items={[
+  "GPAO veut dire gestion de production assistée par ordinateur.",
+  "Elle gère les nomenclatures, les gammes, les ordres de fabrication et le planning.",
+  "Elle calcule les besoins en matières pour anticiper les approvisionnements.",
+  "Intégrée à l'ERP, elle connecte la production aux stocks, aux achats et à la compta.",
+  "GPAO, ERP, MRP, MES : quatre sigles à ne pas confondre."
+]} />
+
+La GPAO, ça veut dire « gestion de production assistée par ordinateur ». Derrière ce nom un peu barbare, c'est tout simplement le module qui pilote la fabrication dans une entreprise industrielle. C'est l'un [des modules d'un ERP](/modules-erp/), celui qui organise ce qu'on produit, avec quoi, dans quel ordre et à quel moment.
+
+Bon, le sujet traîne pas mal de jargon (nomenclature, gamme, ordre de fabrication, ordonnancement...), et c'est souvent ce qui perd les gens. Alors on va y aller tranquillement, en expliquant chaque terme au passage. Promis, à la fin, tout ça sera clair. Et on démêlera aussi les quatre sigles qui sèment la pagaille : GPAO, ERP, MRP, MES.
+
+## Qu'est-ce que la GPAO ?
+
+La GPAO, c'est le cerveau de l'atelier. Son rôle, c'est de transformer une demande (une commande client ou une prévision de ventes) en production maîtrisée. Elle répond à des questions simples mais vitales : qu'est-ce qu'on fabrique, combien, avec quelles matières, sur quelles machines, et dans quel ordre ?
+
+Pour une PME industrielle, c'est souvent **la première raison** de s'équiper. Tant qu'on produit peu, un tableur peut suffire. Mais dès que les volumes montent, gérer la production « au feeling » devient impossible. La GPAO structure tout ça et fait passer d'un planning bricolé à un ordonnancement calculé.
+
+## Le vocabulaire de la production, expliqué simplement
+
+Avant d'aller plus loin, posons le vocabulaire. Ce sont les mots que vous croiserez partout, et une fois qu'on les a compris, le reste coule de source.
+
+- **La nomenclature** : c'est la liste de tous les composants nécessaires pour fabriquer un produit. Comme une recette de cuisine qui liste les ingrédients.
+- **La gamme opératoire** : c'est la séquence des opérations à réaliser, sur quels postes et avec quelle durée. Si la nomenclature dit « quoi », la gamme dit « comment ».
+- **L'ordre de fabrication (OF)** : c'est l'ordre de lancement d'une production. Il regroupe tout ce qu'il faut pour produire une quantité donnée.
+- **Le CBN (calcul des besoins nets)** : c'est le calcul qui détermine ce qu'il faut produire ou acheter, en fonction des commandes, des stocks et des nomenclatures.
+- **L'ordonnancement** : c'est l'organisation dans le temps. Il décide quand et sur quelle machine chaque OF est réalisé.
+
+<Callout tone="astuce">Une image simple : la nomenclature est la liste des ingrédients, la gamme est la recette étape par étape, l'ordre de fabrication est la commande « on lance ce plat », et l'ordonnancement décide à quel moment et sur quel feu on le cuisine.</Callout>
+
+## Les fonctions clés du module
+
+Maintenant que le vocabulaire est posé, voici ce que fait concrètement le module :
+
+- **Le plan de production** : du plan stratégique (le PIC, plan industriel et commercial, qui regarde loin) au plan court terme (le PDP, plan directeur de production, qui descend à la semaine).
+- **La génération des ordres de fabrication** : à partir des commandes et du calcul des besoins.
+- **L'ordonnancement** : à capacité infinie (plus simple, mais qui ignore les limites réelles des machines) ou à capacité finie (plus puissant, qui tient compte des contraintes réelles).
+- **Le suivi de fabrication** : comparer ce qui était prévu avec ce qui a réellement été produit.
+- **La traçabilité** : savoir quels composants et quels lots ont servi à quel produit.
+- **Le calcul des coûts de revient** : pour connaître le vrai coût de chaque production.
+
+## GPAO, ERP, MRP, MES : on démêle
+
+C'est le grand moment de confusion, alors clarifions. Ces quatre sigles reviennent tout le temps, et on les mélange à tort. Voici qui fait quoi.
+
+<DataTable caption="GPAO, ERP, MRP, MES : qui fait quoi" columns={["Sigle", "Rôle", "Périmètre"]} rows={[
+  ["ERP", "Pilote toute l'entreprise", "Production, ventes, achats, compta, RH..."],
+  ["GPAO", "Organise la production", "Nomenclatures, OF, planning, atelier"],
+  ["MRP / CBN", "Calcule les besoins", "Quoi produire ou acheter, et combien"],
+  ["MES", "Suit l'exécution en atelier", "États machines, cadences, temps réels"]
+]} />
+
+En résumé : l'ERP structure le pilotage global, la GPAO organise la production, le MRP (ou CBN) calcule les besoins en matières, et le MES remonte les données du terrain en temps réel. Le MRP est d'ailleurs l'ancêtre direct de l'ERP, comme le retrace [l'histoire de l'ERP né dans l'industrie](/histoire-erp/). Dans une usine moderne, ces outils se complètent. Mais la plupart des PME industrielles démarrent avec un ERP doté d'un module GPAO, ce qui couvre déjà l'essentiel sans multiplier les outils.
+
+## Module GPAO intégré ou logiciel autonome ?
+
+Il existe deux façons d'avoir une GPAO. La première, de plus en plus rare, c'est un logiciel autonome dédié uniquement à la production. La seconde, devenue la norme, c'est un module GPAO intégré à l'ERP.
+
+L'avantage de l'intégration est énorme. Vos données de production communiquent directement avec la compta, les achats, les ventes et le stock, sans ressaisie ni fichier intermédiaire. Une commande client crée un ordre de fabrication, qui consomme des matières en stock, qui déclenche des achats si besoin, et qui alimente le calcul des coûts. Tout est lié. Les matières consommées sont d'ailleurs suivies dans le [module de gestion des stocks](/erp-gestion-des-stocks/), qui se met à jour à chaque opération de fabrication. Avec une GPAO isolée, vous recréez les silos que vous vouliez justement supprimer.
+
+## Questions fréquentes
+
+**Que veut dire GPAO ?**
+GPAO signifie gestion de production assistée par ordinateur. C'est le module ou le logiciel qui planifie, organise et suit la fabrication dans une entreprise industrielle.
+
+**Qu'est-ce qu'une nomenclature en production ?**
+C'est la liste structurée de tous les composants et matières nécessaires pour fabriquer un produit. On parle parfois de nomenclature multi-niveaux quand un composant est lui-même fabriqué à partir d'autres pièces.
+
+**Différence entre CBN et ordonnancement ?**
+Le CBN (calcul des besoins nets) détermine ce qu'il faut produire ou acheter, et en quelle quantité. L'ordonnancement, lui, décide quand et sur quelle machine chaque ordre de fabrication sera réalisé. L'un calcule le quoi, l'autre organise le quand.
+
+**GPAO et MES, est-ce pareil ?**
+Non. La GPAO planifie et organise la production en amont. Le MES (manufacturing execution system) intervient au niveau de l'atelier pour collecter les données d'exécution en temps réel (états machines, cadences, arrêts). Ils sont complémentaires.
+
+**Faut-il une GPAO ou un ERP complet pour une PME industrielle ?**
+Tout dépend de la maturité du système d'information. Si l'entreprise a déjà une gestion commerciale et comptable mais rien pour la production, une GPAO peut suffire. Mais dès que les flux deviennent transverses, un ERP avec module GPAO offre une vision unifiée bien plus efficace.

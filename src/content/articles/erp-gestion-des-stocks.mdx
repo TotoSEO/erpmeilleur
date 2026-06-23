@@ -1,0 +1,103 @@
+---
+title: "Le module de gestion des stocks d'un ERP"
+seoTitle: "Module gestion des stocks ERP : fonctions et atouts"
+excerpt: "Le module de gestion des stocks suit en temps réel chaque mouvement, automatise les inventaires et déclenche les réapprovisionnements. Moins de ruptures, moins de stock dormant."
+description: "Le module de gestion des stocks d'un ERP suit les mouvements en temps réel, automatise inventaires et réapprovisionnements. Fonctions et bénéfices concrets."
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "5 min"
+publishedDate: "23 juin 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Qu'est-ce que la valorisation des stocks ?"
+    a: "C'est le calcul de la valeur de votre stock à un instant donné. Plusieurs méthodes existent, comme le PMP (prix moyen pondéré) ou le FIFO (premier entré, premier sorti). Elle sert à la compta et au pilotage financier."
+  - q: "Comment un ERP évite-t-il les ruptures ?"
+    a: "Grâce aux seuils d'alerte et au réapprovisionnement automatique. Quand un article descend sous un niveau défini, le système prévient ou propose directement une commande fournisseur, avant que la rupture n'arrive."
+  - q: "Peut-on gérer plusieurs entrepôts ?"
+    a: "Oui, c'est une fonction standard. Le module gère plusieurs dépôts et emplacements, suit les niveaux de chacun et permet les transferts entre sites."
+  - q: "Quelle différence entre inventaire tournant et permanent ?"
+    a: "L'inventaire permanent met à jour le stock à chaque mouvement, en continu. L'inventaire tournant consiste à compter régulièrement une partie du stock par roulement, plutôt que tout d'un coup une fois par an."
+  - q: "Un ERP gère-t-il les codes-barres et douchettes ?"
+    a: "Oui, la plupart des modules de stock intègrent la gestion des codes-barres et le scan par douchette, ce qui fiabilise et accélère les saisies en entrepôt."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import Callout from '../../components/Callout.astro';
+
+<KeyTakeaways title="En bref" items={[
+  "Il suit en temps réel chaque entrée, sortie et transfert de marchandise.",
+  "Il gère plusieurs entrepôts et emplacements depuis un seul endroit.",
+  "Il automatise les inventaires et alerte quand un stock passe sous un seuil.",
+  "Il trace les lots et valorise le stock (PMP, FIFO).",
+  "Résultat : moins de ruptures, moins d'argent immobilisé, des inventaires fiables."
+]} />
+
+Le stock, c'est de l'argent qui dort sur des étagères. Trop de stock, vous immobilisez de la trésorerie pour rien. Pas assez, vous tombez en rupture et vous perdez des ventes. Le module de gestion des stocks, c'est exactement ce qui vous aide à tenir le bon équilibre.
+
+Son boulot ? Suivre en temps réel tout ce qui entre, sort et bouge dans vos entrepôts. À chaque mouvement, le stock se met à jour tout seul. Plus besoin de compter à la main ou de tenir un tableur qui n'est jamais à jour. Comme [les autres modules d'un ERP](/modules-erp/), il ne travaille jamais seul. On va voir ce qu'il gère précisément, et surtout ce que ça change au quotidien.
+
+## Ce que gère le module de gestion des stocks
+
+En clair, ce module transforme votre stock en **outil de pilotage**. Chaque article, chaque lot, chaque emplacement est tracé. Vous savez à tout instant ce que vous avez, oú, et en quelle quantité.
+
+Il couvre les mouvements de stock (entrées, sorties, transferts entre dépôts, retours), les inventaires, la gestion multi-entrepôts, les alertes de seuil, la traçabilité par lot et la valorisation. Bref, tout ce qui touche à la marchandise physique, du moment où elle arrive jusqu'au moment où elle part.
+
+## Les fonctions clés
+
+Voici ce qu'on trouve dans un bon module de stock :
+
+- **Le suivi des mouvements en temps réel** : chaque entrée, sortie ou transfert est enregistré à l'instant où il se produit.
+- **La gestion multi-entrepôts et multi-emplacements** : plusieurs dépôts, plusieurs zones, gérés depuis une seule interface.
+- **Les inventaires** : tournants (par zone, en continu) ou permanents, automatisés pour éviter les comptages manuels interminables.
+- **Les seuils et alertes** : quand un article passe sous un niveau défini, le système prévient (et peut même déclencher une commande).
+- **La traçabilité par lot** : savoir quel lot est où, indispensable dans l'agroalimentaire, la pharma ou tout secteur réglementé.
+- **La valorisation des stocks** : calcul de la valeur du stock selon des méthodes comme le PMP (prix moyen pondéré) ou le FIFO (premier entré, premier sorti).
+- **Les codes-barres et douchettes** : pour scanner les mouvements et fiabiliser les saisies en entrepôt.
+
+## Comment le stock se connecte aux achats et à la production
+
+C'est là que la magie de l'ERP opère. Le stock ne vit pas dans sa bulle, il dialogue en permanence avec les autres modules.
+
+Côté achats, quand un article descend sous son seuil, le système peut générer automatiquement une **proposition de commande** fournisseur. La commande part, la marchandise arrive, et la réception met à jour le stock dans la foulée. Tout ce circuit est piloté par le [module achats](/module-achats-erp/), le stock n'étant qu'un maillon de la chaîne.
+
+Côté production, c'est pareil. Quand un ordre de fabrication démarre, il consomme les matières premières en stock, qui se décrémentent automatiquement. Et si une matière manque, alerte. Cette articulation avec la fabrication est détaillée dans le [module de production](/erp-production-gpao/).
+
+## Zoom sur la valorisation des stocks
+
+Un mot de plus sur la valorisation, parce que c'est un point qui intéresse autant le logisticien que le comptable. Valoriser un stock, c'est lui donner une valeur en euros, et ce n'est pas qu'une question d'inventaire : ça impacte directement le bilan de l'entreprise.
+
+Deux méthodes dominent. Le **PMP** (prix moyen pondéré) calcule un coût moyen à chaque entrée de marchandise, en lissant les variations de prix. Le **FIFO** (premier entré, premier sorti) considère qu'on écoule d'abord les articles les plus anciens, donc on les sort à leur prix d'achat d'origine. Le choix entre les deux change la valeur comptable du stock et le résultat affiché, surtout quand les prix d'achat bougent beaucoup. L'ERP applique la méthode retenue automatiquement, à chaque mouvement, sans calcul manuel.
+
+## Un exemple concret de suivi
+
+Pour rendre tout ça vivant, prenons une entreprise qui distribue du matériel. Un client commande 30 unités d'un article. Dès que la commande est validée côté vente, le module de stock réserve ces 30 unités : elles apparaissent comme engagées, plus disponibles pour une autre commande.
+
+À la préparation, les 30 unités sortent physiquement, le stock se décrémente, et si le niveau restant passe sous le seuil d'alerte, le système le signale aussitôt. Pendant ce temps, le magasinier scanne les articles à la douchette, ce qui fiabilise chaque mouvement. Résultat : à tout instant, le stock affiché correspond au stock réel. Fini les mauvaises surprises où l'on promet un produit qui n'est plus en rayon.
+
+## Ce que ça change concrètement
+
+Au-delà de la technique, qu'est-ce que ça apporte vraiment ? Trois choses, surtout.
+
+D'abord, **moins de ruptures**. Avec les seuils et le réappro automatique, vous ne découvrez plus un lundi matin qu'il manque la pièce essentielle. Ensuite, moins de stock dormant : vous arrêtez de surstocker « au cas où », donc vous libérez de la trésorerie. Enfin, des inventaires fiables et rapides, sans bloquer l'entreprise pendant deux jours pour tout compter.
+
+<Callout tone="astuce">Un stock bien géré, c'est un double gain : vous évitez les ruptures qui font fuir les clients, et vous arrêtez d'immobiliser de l'argent dans des marchandises qui ne tournent pas. Les deux pèsent directement sur la trésorerie.</Callout>
+
+## Questions fréquentes
+
+**Qu'est-ce que la valorisation des stocks ?**
+C'est le calcul de la valeur de votre stock à un instant donné. Plusieurs méthodes existent, comme le PMP (prix moyen pondéré) ou le FIFO (premier entré, premier sorti). Elle sert à la compta et au pilotage financier.
+
+**Comment un ERP évite-t-il les ruptures ?**
+Grâce aux seuils d'alerte et au réapprovisionnement automatique. Quand un article descend sous un niveau défini, le système prévient ou propose directement une commande fournisseur, avant que la rupture n'arrive.
+
+**Peut-on gérer plusieurs entrepôts ?**
+Oui, c'est une fonction standard. Le module gère plusieurs dépôts et emplacements, suit les niveaux de chacun et permet les transferts entre sites.
+
+**Quelle différence entre inventaire tournant et permanent ?**
+L'inventaire permanent met à jour le stock à chaque mouvement, en continu. L'inventaire tournant consiste à compter régulièrement une partie du stock par roulement, plutôt que tout d'un coup une fois par an.
+
+**Un ERP gère-t-il les codes-barres et douchettes ?**
+Oui, la plupart des modules de stock intègrent la gestion des codes-barres et le scan par douchette, ce qui fiabilise et accélère les saisies en entrepôt.
