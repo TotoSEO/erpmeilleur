@@ -23,3 +23,9 @@ _incoming/
 .gen-llms.mjs
 .convert.mjs
 .raw/
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
