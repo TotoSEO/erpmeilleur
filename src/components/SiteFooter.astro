@@ -2,19 +2,19 @@
 import Wordmark from './Wordmark.astro';
 /** SiteFooter — pied de page encre avec décor de formes coupées bleu/jaune. */
 const COLS = [
-  { title: 'Méthode', items: [
-    { label: 'Comment on teste', href: '#' },
-    { label: 'Indépendance', href: '#' },
-    { label: 'Sources & dates', href: '#' },
+  { title: 'Comprendre', items: [
+    { label: "Qu'est-ce qu'un ERP", href: '/qu-est-ce-qu-un-erp/' },
+    { label: 'À quoi ça sert', href: '/a-quoi-sert-un-erp/' },
+    { label: 'Les modules', href: '/modules-erp/' },
   ] },
-  { title: 'Contenus', items: [
-    { label: 'Guides de décision', href: '#' },
-    { label: 'Fiches avis', href: '#' },
-    { label: 'Comparatifs', href: '#' },
+  { title: 'Choisir & déployer', items: [
+    { label: 'Combien ça coûte', href: '/prix-erp/' },
+    { label: 'Comment choisir', href: '/comment-choisir-un-erp/' },
+    { label: 'Mise en place', href: '/mise-en-place-erp/' },
   ] },
   { title: 'Le média', items: [
     { label: 'Guillaume Wagner', href: '/auteur/' },
-    { label: 'Contact', href: '#' },
+    { label: 'Contact', href: 'mailto:contact@meilleur-erp.fr' },
     { label: 'Mentions légales', href: '/mentions-legales/' },
   ] },
 ];
@@ -24,7 +24,7 @@ const COLS = [
   <div class="site-footer__grid">
     <div>
       <Wordmark size={20} inverse />
-      <p class="site-footer__about">Le premier blog indépendant des logiciels ERP. On mesure, on date, on signe.</p>
+      <p class="site-footer__about">Le média indépendant des logiciels ERP. On explique, on source, on reste neutre.</p>
     </div>
     {COLS.map((c) => (
       <div>
@@ -34,6 +34,6 @@ const COLS = [
     ))}
   </div>
   <div class="site-footer__legal">
-    <div class="site-footer__legal-in">© 2026 meilleur-erp.fr · <span class="num">42</span> ERP testés · Mis à jour le <span class="num">23 juin 2026</span></div>
+    <div class="site-footer__legal-in">© 2026 meilleur-erp.fr · <span class="num">38</span> guides ERP · Contenus indépendants</div>
   </div>
 </footer>
