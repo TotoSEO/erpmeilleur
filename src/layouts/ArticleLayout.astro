@@ -4,6 +4,7 @@ import ArticleHero from '../components/ArticleHero.astro';
 import KeyTakeaways from '../components/KeyTakeaways.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import { parentOf } from '../data/cocon';
 
 /**
  * ArticleLayout — gabarit d'un article de blog meilleur-erp.fr :
@@ -46,11 +47,12 @@ const publisher = {
   url: SITE,
 };
 
-// Fil d'Ariane : Accueil › page pilier › page courante (le pilier lui-même n'a que 2 niveaux).
-const PILIER = { slug: 'qu-est-ce-qu-un-erp', name: "Qu'est-ce qu'un ERP" };
-const isPilier = Astro.url.pathname.replace(/\/+$/, '') === `/${PILIER.slug}`;
+// Fil d'Ariane hiérarchique : Accueil › hub de la branche › page courante.
+// N1 -> pilier ; N2 -> hub (ex. Modules) ; pilier -> racine.
+const slug = Astro.url.pathname.replace(/^\/+|\/+$/g, '');
+const parent = parentOf(slug);
 const crumbs: { name: string; url: string }[] = [{ name: 'Accueil', url: `${SITE}/` }];
-if (!isPilier) crumbs.push({ name: PILIER.name, url: `${SITE}/${PILIER.slug}/` });
+if (parent) crumbs.push({ name: parent.label, url: `${SITE}/${parent.slug}/` });
 crumbs.push({ name: cleanTitle, url: canonical });
 
 // Données structurées : Article + (FAQPage) + BreadcrumbList, regroupées en @graph.
