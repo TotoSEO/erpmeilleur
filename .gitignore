@@ -29,3 +29,4 @@ _incoming/
 .dev.vars*
 !.dev.vars.example
 !.env.example
+.shot*.mjs

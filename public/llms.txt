@@ -45,5 +45,8 @@
 - [Échec d'un projet ERP : causes fréquentes et prévention](https://meilleur-erp.fr/echec-projet-erp/): Entre 50 et 70 % des projets ERP échouent, rarement pour des raisons techniques.
 
 ## À propos
-- [Guillaume Wagner, auteur](https://meilleur-erp.fr/auteur/): l'auteur des contenus du site.
+- [Guillaume Wagner, auteur](https://meilleur-erp.fr/auteur/): l'auteur unique des contenus du site, ligne éditoriale indépendante et neutre.
+
+## Optional
+- [Plan du site](https://meilleur-erp.fr/plan-du-site/): l'arborescence complète des guides, organisée par thème.
 - [Mentions légales](https://meilleur-erp.fr/mentions-legales/): éditeur, hébergeur et conditions.

@@ -1,15 +1,37 @@
 # meilleur-erp.fr — accès ouvert aux moteurs et aux crawlers IA (objectif GEO/AEO).
+# Le média est informationnel et neutre : nous cherchons la citation dans les
+# réponses génératives, donc tous les robots respectueux sont les bienvenus.
+
 User-agent: *
 Allow: /
 
-# Crawlers IA explicitement autorisés (citation dans les réponses génératives).
-User-agent: GPTBot
-Allow: /
-
+# --- Moteurs de recherche IA (récupération / citation en temps réel) ---
 User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# --- Crawlers d'entraînement / d'indexation IA ---
+User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -18,13 +40,31 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
-User-agent: PerplexityBot
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Timpibot
 Allow: /
 
 User-agent: CCBot
-Allow: /
-
-User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://meilleur-erp.fr/sitemap-index.xml

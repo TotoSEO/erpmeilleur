@@ -2,8 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import Badge from '../components/Badge.astro';
-import StatDiscs from '../components/StatDiscs.astro';
-import FeatureColumns from '../components/FeatureColumns.astro';
 
 const SITE = 'https://meilleur-erp.fr';
 const homeLd = {
@@ -27,68 +25,435 @@ const homeLd = {
   ],
 };
 
-// Points d'entrée du cocon : les grands sujets, vers les articles hubs.
+// Blocs à onglet : explorer le cocon par objectif.
+const tabs = [
+  {
+    id: 'comprendre',
+    label: 'Comprendre',
+    kicker: 'Les fondations',
+    title: "Ce qu'est vraiment un ERP",
+    text: "Une seule base de données, des modules connectés, une saisie qui se propage partout. On part de la définition et on va jusqu'au fonctionnement interne, sans jargon.",
+    image: '/images/P0.webp',
+    links: [
+      { label: "Qu'est-ce qu'un ERP", href: '/qu-est-ce-qu-un-erp/' },
+      { label: 'À quoi ça sert', href: '/a-quoi-sert-un-erp/' },
+      { label: 'Comment ça fonctionne', href: '/comment-fonctionne-un-erp/' },
+    ],
+  },
+  {
+    id: 'modules',
+    label: 'Les modules',
+    kicker: 'Les fonctions',
+    title: 'Les briques, une par une',
+    text: "Finance, ventes, stocks, production, RH, achats : chaque module a un rôle précis. On explique ce que chacun fait, et lesquels activer selon votre métier.",
+    image: '/images/N1-05.webp',
+    links: [
+      { label: 'Tous les modules', href: '/modules-erp/' },
+      { label: 'Comptabilité & finance', href: '/erp-comptabilite/' },
+      { label: 'Production (GPAO)', href: '/erp-production-gpao/' },
+    ],
+  },
+  {
+    id: 'choisir',
+    label: 'Choisir',
+    kicker: 'La décision',
+    title: 'Le bon outil, au bon prix',
+    text: "Fourchettes de prix réelles, grille de critères, cahier des charges : la méthode pour comparer sans se faire éblouir par une démo commerciale.",
+    image: '/images/N1-08.webp',
+    links: [
+      { label: 'Combien ça coûte', href: '/prix-erp/' },
+      { label: 'Comment choisir', href: '/comment-choisir-un-erp/' },
+      { label: 'Cloud, SaaS ou sur site', href: '/erp-cloud-saas-on-premise/' },
+    ],
+  },
+  {
+    id: 'reussir',
+    label: 'Réussir',
+    kicker: 'Le projet',
+    title: 'Déployer sans se planter',
+    text: "Entre 50 et 70 % des projets ERP échouent, rarement pour des raisons techniques. Les étapes, la conduite du changement et les pièges à éviter, à froid.",
+    image: '/images/N1-11.webp',
+    links: [
+      { label: 'Mettre en place un ERP', href: '/mise-en-place-erp/' },
+      { label: 'Conduite du changement', href: '/conduite-du-changement-erp/' },
+      { label: 'Pourquoi un projet échoue', href: '/echec-projet-erp/' },
+    ],
+  },
+];
+
+// Ticker : les grands sujets qui défilent.
+const ticker = ['Définition', 'Modules', 'Prix réels', 'Cloud vs on-premise', 'Sécurité', 'RGPD', 'GPAO', 'CRM intégré', 'Migration', 'ROI', 'Facturation électronique', 'Open source'];
+
+// Parcours : points d'entrée du cocon.
 const parcours = [
-  { eyebrow: 'Les bases', title: "Qu'est-ce qu'un ERP ?", text: 'Définition simple, fonctionnement et exemple concret. Le point de départ.', action: { label: 'Lire le guide', href: '/qu-est-ce-qu-un-erp/' } },
-  { eyebrow: 'Fonctions', title: 'Les modules', text: 'Finance, ventes, stocks, production, RH : le panorama des briques et lesquelles activer.', action: { label: 'Voir les modules', href: '/modules-erp/' } },
-  { eyebrow: 'Budget', title: 'Combien ça coûte', text: 'Licence, intégration, maintenance : les postes de coût et les fourchettes réelles.', action: { label: 'Comprendre le prix', href: '/prix-erp/' } },
-  { eyebrow: 'Déploiement', title: 'Cloud, SaaS ou sur site', text: 'Les modes d’hébergement comparés, avec leurs coûts et leur logique de contrôle.', action: { label: 'Choisir le mode', href: '/erp-cloud-saas-on-premise/' } },
-  { eyebrow: 'Méthode', title: 'Comment choisir', text: 'Une grille de critères et une démarche pour ne pas se tromper de solution.', action: { label: 'La méthode', href: '/comment-choisir-un-erp/' } },
-  { eyebrow: 'Projet', title: 'Mettre en place un ERP', text: 'Les étapes d’un projet, de la préparation au go-live, et les pièges à éviter.', action: { label: 'Réussir son projet', href: '/mise-en-place-erp/' } },
+  { n: '01', eyebrow: 'Les bases', title: "Qu'est-ce qu'un ERP ?", text: 'Définition simple, fonctionnement et exemple concret. Le point de départ.', href: '/qu-est-ce-qu-un-erp/' },
+  { n: '02', eyebrow: 'Fonctions', title: 'Les modules', text: 'Finance, ventes, stocks, production, RH : le panorama des briques.', href: '/modules-erp/' },
+  { n: '03', eyebrow: 'Budget', title: 'Combien ça coûte', text: 'Licence, intégration, maintenance : les postes et les fourchettes réelles.', href: '/prix-erp/' },
+  { n: '04', eyebrow: 'Déploiement', title: 'Cloud, SaaS ou sur site', text: "Les modes d'hébergement comparés, coûts et logique de contrôle.", href: '/erp-cloud-saas-on-premise/' },
+  { n: '05', eyebrow: 'Méthode', title: 'Comment choisir', text: 'Une grille de critères pour ne pas se tromper de solution.', href: '/comment-choisir-un-erp/' },
+  { n: '06', eyebrow: 'Projet', title: 'Mettre en place un ERP', text: "Les étapes, de la préparation au go-live, et les pièges à éviter.", href: '/mise-en-place-erp/' },
 ];
 ---
 <BaseLayout title="meilleur-erp.fr : comprendre les logiciels ERP, simplement">
   <script type="application/ld+json" set:html={JSON.stringify(homeLd)} is:inline />
 
-  <div class="home-hero">
-    <div class="container" style="padding-top:52px;padding-bottom:44px">
-      <div class="hero__grid">
-        <div>
-          <div class="hero__top">
-            <Badge tone="blue" variant="gradient">Média indépendant</Badge>
-            <Badge tone="neutral" variant="soft" mono>Sans jargon</Badge>
-          </div>
-          <h1 class="hero" style="padding:0;font-family:var(--font-grotesk);font-weight:800;font-size:clamp(38px,7vw,68px);line-height:0.96;letter-spacing:-0.03em;color:var(--ink);margin:0">
-            Les ERP, <span class="text-gradient">expliqués simplement</span>.
-          </h1>
-          <p class="hero__excerpt" style="margin-top:20px">
-            Définitions claires, exemples concrets, chiffres réels. Un média indépendant qui explique les logiciels de gestion sans jargon et sans discours d'éditeur.
-          </p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
-            <Button variant="primary" size="lg" href="/qu-est-ce-qu-un-erp/">Commencer par la définition</Button>
-            <Button variant="secondary" size="lg" href="/glossaire-erp/">Le glossaire</Button>
-          </div>
+  <!-- ===================== HERO ===================== -->
+  <section class="mx-hero">
+    <div class="mx-hero__bg" aria-hidden="true">
+      <span class="blob blob--a"></span>
+      <span class="blob blob--b"></span>
+      <span class="tri tri--a"></span>
+      <span class="tri tri--b"></span>
+      <span class="ring"></span>
+    </div>
+
+    <div class="container mx-hero__grid">
+      <div class="mx-hero__copy reveal">
+        <div class="mx-hero__badges">
+          <Badge tone="blue" variant="gradient">Média indépendant</Badge>
+          <Badge tone="neutral" variant="soft" mono>Sans jargon</Badge>
         </div>
-        <div style="display:grid;place-items:center">
-          <StatDiscs items={[{ value: '38', label: 'Guides ERP' }, { value: '0', label: "Discours d'éditeur" }, { value: '100', unit: '%', label: 'Indépendant' }]} />
+        <h1 class="mx-hero__title">
+          Les ERP,<br /><span class="text-gradient">expliqués simplement</span>.
+        </h1>
+        <p class="mx-hero__lead">
+          Définitions claires, exemples concrets, chiffres réels. Un média indépendant qui décortique les logiciels de gestion sans jargon et sans discours d'éditeur.
+        </p>
+        <div class="mx-hero__cta">
+          <Button variant="primary" size="lg" href="/qu-est-ce-qu-un-erp/">Commencer par la définition</Button>
+          <Button variant="secondary" size="lg" href="/plan-du-site/">Explorer les guides</Button>
         </div>
+        <ul class="mx-hero__trust">
+          <li><strong data-count="38">0</strong><span>guides</span></li>
+          <li><strong data-count="6">0</strong><span>thèmes</span></li>
+          <li><strong data-count="0">0</strong><span>pub</span></li>
+        </ul>
       </div>
+
+      <!-- Images qui se superposent -->
+      <div class="mx-stack reveal" aria-hidden="true">
+        <figure class="mx-stack__card mx-stack__card--back">
+          <img src="/images/N1-08.webp" alt="" loading="eager" width="360" height="240" />
+          <figcaption>Prix réels</figcaption>
+        </figure>
+        <figure class="mx-stack__card mx-stack__card--mid">
+          <img src="/images/N1-05.webp" alt="" loading="eager" width="360" height="240" />
+          <figcaption>Les modules</figcaption>
+        </figure>
+        <figure class="mx-stack__card mx-stack__card--front">
+          <img src="/images/P0.webp" alt="" loading="eager" width="360" height="240" />
+          <figcaption>La définition</figcaption>
+        </figure>
+        <span class="mx-stack__pill">100 % indépendant</span>
+        <span class="mx-stack__dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TICKER ===================== -->
+  <div class="mx-ticker" aria-hidden="true">
+    <div class="mx-ticker__track">
+      {[...ticker, ...ticker].map((t) => (<span class="mx-ticker__item">{t}<i>◆</i></span>))}
     </div>
   </div>
 
-  <div class="home-sheet">
-    <div style="max-width:var(--measure-text)">
-      <div class="kicker" style="margin-bottom:8px">Par où commencer</div>
-      <h2 style="font-family:var(--font-grotesk);font-weight:800;font-size:clamp(24px,4vw,34px);letter-spacing:-0.02em;color:var(--ink);margin:0 0 10px">Le guide complet de l'ERP</h2>
-      <p style="font-family:var(--font-body);font-size:var(--text-lg);line-height:var(--leading-relaxed);color:var(--ink-80);margin:0 0 26px">
-        De la définition au choix de la solution : les grands sujets à connaître, chacun traité à fond et relié aux autres.
-      </p>
+  <!-- ===================== BLOC À ONGLET ===================== -->
+  <section class="container mx-section reveal">
+    <div class="mx-head">
+      <div class="kicker">Explorez par objectif</div>
+      <h2 class="mx-h2">Quatre portes d'entrée, un seul fil</h2>
+      <p class="mx-sub">Le cocon part d'une page pilier et se ramifie. Choisissez par où attaquer, tout est relié.</p>
     </div>
-    <FeatureColumns columns={3} items={parcours} />
 
-    <div class="home-author">
-      <img src="/images/guillaume-wagner.webp" alt="Portrait de Guillaume Wagner" width="56" height="56" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);flex:none" />
-      <div style="flex:1;min-width:240px">
-        <div style="font-family:var(--font-grotesk);font-weight:700;color:var(--ink)">Écrit par Guillaume Wagner</div>
-        <p style="margin:4px 0 0;font-size:14.5px;line-height:1.55;color:var(--ink-80)">Des explications concrètes, des chiffres, et l'honnêteté sur les limites autant que sur les bénéfices.</p>
+    <div class="mx-tabs" data-tabs>
+      <div class="mx-tabs__rail" role="tablist" aria-label="Explorer par objectif">
+        {tabs.map((t, i) => (
+          <button class={`mx-tabs__tab${i === 0 ? ' is-active' : ''}`} role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-tab={t.id}>
+            <span class="mx-tabs__num">0{i + 1}</span>
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      <div class="mx-tabs__panels">
+        {tabs.map((t, i) => (
+          <div class={`mx-panel${i === 0 ? ' is-active' : ''}`} role="tabpanel" data-panel={t.id}>
+            <div class="mx-panel__text">
+              <div class="kicker">{t.kicker}</div>
+              <h3 class="mx-panel__title">{t.title}</h3>
+              <p class="mx-panel__body">{t.text}</p>
+              <ul class="mx-panel__links">
+                {t.links.map((l) => (<li><a href={l.href}>{l.label}<span aria-hidden="true">→</span></a></li>))}
+              </ul>
+            </div>
+            <figure class="mx-panel__media">
+              <img src={t.image} alt="" loading="lazy" width="520" height="360" />
+              <span class="mx-panel__tag">{t.label}</span>
+            </figure>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PARCOURS ===================== -->
+  <section class="container mx-section">
+    <div class="mx-head reveal">
+      <div class="kicker">Par où commencer</div>
+      <h2 class="mx-h2">Le guide complet de l'ERP</h2>
+      <p class="mx-sub">Les grands sujets à connaître, chacun traité à fond et relié aux autres.</p>
+    </div>
+    <div class="mx-cards">
+      {parcours.map((p) => (
+        <a class="mx-card reveal" href={p.href}>
+          <span class="mx-card__n">{p.n}</span>
+          <span class="mx-card__eyebrow">{p.eyebrow}</span>
+          <span class="mx-card__title">{p.title}</span>
+          <span class="mx-card__text">{p.text}</span>
+          <span class="mx-card__go">Lire le guide <i aria-hidden="true">→</i></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- ===================== CONFIANCE ===================== -->
+  <section class="mx-trust">
+    <div class="container mx-trust__grid">
+      <div class="mx-trust__media reveal" aria-hidden="true">
+        <figure class="mx-trust__img mx-trust__img--1"><img src="/images/N2-03.webp" alt="" loading="lazy" width="300" height="210" /></figure>
+        <figure class="mx-trust__img mx-trust__img--2"><img src="/images/N1-14.webp" alt="" loading="lazy" width="300" height="210" /></figure>
+        <figure class="mx-trust__img mx-trust__img--3"><img src="/images/N2-04.webp" alt="" loading="lazy" width="300" height="210" /></figure>
+        <span class="mx-trust__shape" aria-hidden="true"></span>
+      </div>
+      <div class="mx-trust__copy reveal">
+        <div class="kicker">Pourquoi nous lire</div>
+        <h2 class="mx-h2 mx-h2--light">Neutre, sourcé, sans arrière-pensée commerciale</h2>
+        <p class="mx-trust__lead">
+          Pas d'éditeur derrière le rideau, pas de classement sponsorisé. On explique le fonctionnement, on donne des chiffres, et on dit les limites autant que les bénéfices.
+        </p>
+        <ul class="mx-trust__list">
+          <li><strong>Indépendance</strong>Aucun partenariat d'éditeur, aucune publicité.</li>
+          <li><strong>Concret</strong>Des exemples métier, des fourchettes de prix, des méthodes.</li>
+          <li><strong>Honnêteté</strong>Les inconvénients et les échecs, pas seulement la vitrine.</li>
+        </ul>
+        <Button variant="secondary" size="lg" href="/auteur/">Qui écrit ces guides ?</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AUTEUR ===================== -->
+  <section class="container mx-section">
+    <div class="mx-author reveal">
+      <img class="mx-author__photo" src="/images/guillaume-wagner.webp" alt="Portrait de Guillaume Wagner" width="72" height="72" />
+      <div class="mx-author__body">
+        <div class="mx-author__name">Écrit par Guillaume Wagner</div>
+        <p class="mx-author__text">Auteur unique du média. Des explications concrètes, des chiffres, et l'honnêteté sur les limites autant que sur les bénéfices.</p>
       </div>
       <Button variant="ghost" href="/auteur/">L'auteur</Button>
     </div>
-  </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .home-hero { background: linear-gradient(120deg, #EEF0FF 0%, #FFFFFF 58%); border-bottom: 2px solid var(--ink); }
-  .home-sheet { max-width: var(--content-wide); margin: 24px auto; padding: 34px clamp(16px, 3vw, 44px) 44px; background: #fff; box-shadow: 0 1px 0 var(--hairline), 0 24px 60px -34px rgba(11, 11, 18, 0.28); }
-  .home-author { margin-top: 30px; border: 2px solid var(--ink); box-shadow: var(--shadow-raise); padding: 24px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  /* ============ HERO ============ */
+  .mx-hero { position: relative; overflow: hidden; background: linear-gradient(120deg, #EEF0FF 0%, #FFFFFF 60%); border-bottom: 2px solid var(--ink); }
+  .mx-hero__grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; padding: clamp(48px, 7vw, 84px) 0 clamp(52px, 7vw, 88px); }
+  .mx-hero__bg { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+  .mx-hero__badges { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+  .mx-hero__title { font-family: var(--font-grotesk); font-weight: 800; font-size: clamp(40px, 7.2vw, 74px); line-height: 0.94; letter-spacing: -0.03em; color: var(--ink); margin: 0; }
+  .mx-hero__lead { font-family: var(--font-body); font-size: clamp(16px, 2.2vw, 20px); line-height: 1.55; color: var(--ink-80); margin: 20px 0 0; max-width: 40ch; }
+  .mx-hero__cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+  .mx-hero__trust { list-style: none; display: flex; gap: 30px; margin: 30px 0 0; padding: 20px 0 0; border-top: 1px solid var(--hairline-strong); }
+  .mx-hero__trust li { display: flex; flex-direction: column; }
+  .mx-hero__trust strong { font-family: var(--font-grotesk); font-weight: 800; font-size: 30px; line-height: 1; color: var(--ink); }
+  .mx-hero__trust span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-55); margin-top: 5px; }
+
+  /* décor animé */
+  .blob { position: absolute; border-radius: 50%; filter: blur(2px); opacity: 0.5; }
+  .blob--a { width: 320px; height: 320px; right: -60px; top: -80px; background: radial-gradient(circle at 30% 30%, rgba(46,46,255,0.28), transparent 70%); animation: drift 16s ease-in-out infinite; }
+  .blob--b { width: 240px; height: 240px; left: -50px; bottom: -60px; background: radial-gradient(circle at 50% 50%, rgba(24,166,246,0.26), transparent 70%); animation: drift 20s ease-in-out infinite reverse; }
+  .tri { position: absolute; width: 0; height: 0; }
+  .tri--a { right: 20%; top: 16%; border-left: 26px solid transparent; border-right: 26px solid transparent; border-bottom: 46px solid var(--orange); opacity: 0.85; animation: spin 22s linear infinite, floaty 7s ease-in-out infinite; }
+  .tri--b { left: 8%; top: 30%; border-left: 16px solid transparent; border-right: 16px solid transparent; border-bottom: 28px solid var(--blue); opacity: 0.7; animation: floaty 9s ease-in-out infinite; }
+  .ring { position: absolute; left: 12%; bottom: 14%; width: 74px; height: 74px; border: 4px solid var(--ink); border-radius: 50%; opacity: 0.12; animation: floaty 11s ease-in-out infinite reverse; }
+
+  /* pile d'images superposées */
+  .mx-stack { position: relative; height: clamp(340px, 40vw, 440px); }
+  .mx-stack__card { position: absolute; margin: 0; width: min(78%, 380px); border: 2px solid var(--ink); background: #fff; box-shadow: var(--shadow-soft); overflow: hidden; transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .mx-stack__card img { display: block; width: 100%; height: auto; }
+  .mx-stack__card figcaption { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); padding: 8px 12px; border-top: 2px solid var(--ink); background: #fff; }
+  .mx-stack__card--back { top: 4%; right: 2%; transform: rotate(4deg); z-index: 1; }
+  .mx-stack__card--mid { top: 26%; left: 0; transform: rotate(-5deg); z-index: 2; }
+  .mx-stack__card--front { bottom: 0; right: 8%; z-index: 3; box-shadow: var(--shadow-glow); animation: floaty 8s ease-in-out infinite; }
+  .mx-stack:hover .mx-stack__card--back { transform: rotate(7deg) translate(8px, -6px); }
+  .mx-stack:hover .mx-stack__card--mid { transform: rotate(-8deg) translate(-8px, 4px); }
+  .mx-stack:hover .mx-stack__card--front { transform: translateY(-6px); }
+  .mx-stack__pill { position: absolute; top: 0; left: 4%; z-index: 4; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--ink); padding: 7px 12px; transform: rotate(-3deg); box-shadow: 3px 3px 0 var(--blue); }
+  .mx-stack__dot { position: absolute; right: 0; bottom: 12%; z-index: 4; width: 46px; height: 46px; border-radius: 50%; background: var(--grad-sunset); border: 2px solid var(--ink); animation: floaty 6s ease-in-out infinite reverse; }
+
+  /* ============ TICKER ============ */
+  .mx-ticker { border-bottom: 2px solid var(--ink); background: var(--ink); overflow: hidden; }
+  .mx-ticker__track { display: inline-flex; white-space: nowrap; animation: marquee 32s linear infinite; }
+  .mx-ticker__item { display: inline-flex; align-items: center; gap: 18px; padding: 12px 18px; font-family: var(--font-grotesk); font-weight: 700; font-size: 15px; letter-spacing: 0.01em; color: #fff; }
+  .mx-ticker__item i { color: var(--orange); font-style: normal; font-size: 10px; }
+
+  /* ============ SECTIONS ============ */
+  .mx-section { padding: clamp(48px, 6vw, 78px) 0; }
+  .mx-head { max-width: 60ch; margin-bottom: 34px; }
+  .mx-h2 { font-family: var(--font-grotesk); font-weight: 800; font-size: clamp(26px, 4.4vw, 40px); letter-spacing: -0.02em; line-height: 1.04; color: var(--ink); margin: 8px 0 10px; }
+  .mx-sub { font-family: var(--font-body); font-size: var(--text-lg); line-height: 1.55; color: var(--ink-80); margin: 0; }
+
+  /* ============ TABS ============ */
+  .mx-tabs { display: grid; grid-template-columns: 230px 1fr; gap: 26px; border: 2px solid var(--ink); box-shadow: var(--shadow-soft); background: #fff; }
+  .mx-tabs__rail { display: flex; flex-direction: column; border-right: 2px solid var(--ink); background: var(--paper-warm); }
+  .mx-tabs__tab { display: flex; align-items: center; gap: 12px; text-align: left; padding: 20px 18px; border: none; border-bottom: 1px solid var(--hairline); background: transparent; cursor: pointer; font-family: var(--font-grotesk); font-weight: 700; font-size: 17px; color: var(--ink-55); transition: color 0.2s, background 0.2s, padding-left 0.2s; }
+  .mx-tabs__num { font-family: var(--font-mono); font-size: 11px; color: var(--ink-35); }
+  .mx-tabs__tab:hover { color: var(--ink); padding-left: 24px; }
+  .mx-tabs__tab.is-active { color: var(--ink); background: #fff; box-shadow: inset 5px 0 0 var(--blue); }
+  .mx-tabs__tab.is-active .mx-tabs__num { color: var(--blue); }
+  .mx-tabs__panels { position: relative; }
+  .mx-panel { display: none; grid-template-columns: 1fr 0.9fr; gap: 30px; align-items: center; padding: 30px clamp(20px, 3vw, 38px); }
+  .mx-panel.is-active { display: grid; animation: panelin 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .mx-panel__title { font-family: var(--font-grotesk); font-weight: 800; font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.02em; color: var(--ink); margin: 8px 0 12px; }
+  .mx-panel__body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--ink-80); margin: 0 0 18px; }
+  .mx-panel__links { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+  .mx-panel__links a { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-ui); font-weight: 600; font-size: 15px; color: var(--blue-ink); text-decoration: none; transition: gap 0.2s; }
+  .mx-panel__links a span { transition: transform 0.2s; }
+  .mx-panel__links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .mx-panel__links a:hover span { transform: translateX(4px); }
+  .mx-panel__media { position: relative; margin: 0; border: 2px solid var(--ink); box-shadow: var(--shadow-glow); overflow: hidden; }
+  .mx-panel__media img { display: block; width: 100%; height: auto; }
+  .mx-panel__tag { position: absolute; left: 0; bottom: 0; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--ink); padding: 6px 12px; }
+
+  /* ============ CARDS ============ */
+  .mx-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .mx-card { position: relative; display: flex; flex-direction: column; padding: 24px 22px 20px; border: 2px solid var(--ink); background: #fff; text-decoration: none; overflow: hidden; transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.22s; }
+  .mx-card::before { content: ""; position: absolute; left: 0; top: 0; height: 5px; width: 100%; background: var(--grad-iris); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .mx-card:hover { transform: translate(-3px, -3px); box-shadow: var(--shadow-soft); }
+  .mx-card:hover::before { transform: scaleX(1); }
+  .mx-card__n { font-family: var(--font-mono); font-size: 12px; color: var(--ink-35); }
+  .mx-card__eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase; color: var(--blue-ink); margin-top: 4px; }
+  .mx-card__title { font-family: var(--font-grotesk); font-weight: 800; font-size: 21px; letter-spacing: -0.01em; color: var(--ink); margin: 8px 0 8px; }
+  .mx-card__text { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: var(--ink-80); flex: 1; }
+  .mx-card__go { margin-top: 16px; font-family: var(--font-ui); font-weight: 700; font-size: 14px; color: var(--ink); display: inline-flex; align-items: center; gap: 7px; }
+  .mx-card__go i { transition: transform 0.2s; }
+  .mx-card:hover .mx-card__go i { transform: translateX(5px); }
+
+  /* ============ CONFIANCE ============ */
+  .mx-trust { background: var(--ink); color: #fff; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); overflow: hidden; }
+  .mx-trust__grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 46px; align-items: center; padding: clamp(52px, 7vw, 88px) 0; }
+  .mx-trust__media { position: relative; height: clamp(320px, 34vw, 400px); }
+  .mx-trust__img { position: absolute; margin: 0; width: min(64%, 300px); border: 2px solid #fff; overflow: hidden; box-shadow: 6px 6px 0 var(--blue); }
+  .mx-trust__img img { display: block; width: 100%; height: auto; }
+  .mx-trust__img--1 { top: 0; left: 4%; transform: rotate(-4deg); z-index: 3; }
+  .mx-trust__img--2 { top: 30%; right: 2%; transform: rotate(5deg); z-index: 2; box-shadow: 6px 6px 0 var(--orange); }
+  .mx-trust__img--3 { bottom: 0; left: 16%; transform: rotate(2deg); z-index: 1; box-shadow: 6px 6px 0 var(--teal); }
+  .mx-trust__shape { position: absolute; right: 8%; top: 6%; width: 60px; height: 60px; border: 4px solid var(--orange); border-radius: 50%; opacity: 0.9; animation: floaty 7s ease-in-out infinite; }
+  .mx-h2--light { color: #fff; }
+  .mx-trust__lead { font-family: var(--font-body); font-size: var(--text-lg); line-height: 1.6; color: rgba(255,255,255,0.82); margin: 0 0 22px; max-width: 46ch; }
+  .mx-trust__list { list-style: none; margin: 0 0 26px; padding: 0; display: grid; gap: 14px; }
+  .mx-trust__list li { position: relative; padding-left: 18px; font-family: var(--font-body); font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.78); }
+  .mx-trust__list li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 8px; height: 8px; background: var(--orange); }
+  .mx-trust__list strong { display: block; font-family: var(--font-grotesk); font-weight: 700; color: #fff; font-size: 16px; margin-bottom: 1px; }
+
+  /* ============ AUTEUR ============ */
+  .mx-author { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; border: 2px solid var(--ink); box-shadow: var(--shadow-raise); padding: 24px 26px; background: #fff; }
+  .mx-author__photo { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2px solid var(--ink); flex: none; }
+  .mx-author__body { flex: 1; min-width: 240px; }
+  .mx-author__name { font-family: var(--font-grotesk); font-weight: 700; font-size: 18px; color: var(--ink); }
+  .mx-author__text { margin: 5px 0 0; font-size: 14.5px; line-height: 1.55; color: var(--ink-80); }
+
+  /* ============ REVEAL ============ */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .reveal.is-in { opacity: 1; transform: none; }
+
+  /* ============ KEYFRAMES ============ */
+  @keyframes drift { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-24px, 20px); } }
+  @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @keyframes panelin { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+  /* front card keeps its own float even during reveal transform reset */
+  .mx-stack.is-in .mx-stack__card--front { animation: floaty 8s ease-in-out infinite; }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 960px) {
+    .mx-hero__grid { grid-template-columns: 1fr; gap: 28px; }
+    .mx-stack { height: clamp(300px, 60vw, 380px); order: -1; }
+    .mx-tabs { grid-template-columns: 1fr; }
+    .mx-tabs__rail { flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 2px solid var(--ink); }
+    .mx-tabs__tab { border-bottom: none; border-right: 1px solid var(--hairline); white-space: nowrap; }
+    .mx-tabs__tab.is-active { box-shadow: inset 0 -5px 0 var(--blue); }
+    .mx-panel.is-active, .mx-panel { grid-template-columns: 1fr; }
+    .mx-panel__media { order: -1; }
+    .mx-cards { grid-template-columns: 1fr; }
+    .mx-trust__grid { grid-template-columns: 1fr; gap: 40px; }
+    .mx-trust__media { order: 1; }
+  }
+  @media (max-width: 560px) {
+    .mx-hero__trust { gap: 22px; }
+    .mx-hero__trust strong { font-size: 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .blob, .tri, .ring, .mx-stack__card--front, .mx-stack__dot, .mx-trust__shape, .mx-ticker__track { animation: none !important; }
+  }
 </style>
+
+<script>
+  // Onglets
+  const tabsRoot = document.querySelector('[data-tabs]');
+  if (tabsRoot) {
+    const tabBtns = Array.from(tabsRoot.querySelectorAll<HTMLButtonElement>('[data-tab]'));
+    const panels = Array.from(tabsRoot.querySelectorAll<HTMLElement>('[data-panel]'));
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-tab');
+        tabBtns.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-selected', String(on));
+        });
+        panels.forEach((p) => p.classList.toggle('is-active', p.getAttribute('data-panel') === id));
+      });
+    });
+  }
+
+  // Révélation au scroll
+  const reveals = Array.from(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window && reveals.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('is-in'));
+  }
+
+  // Compteurs animés
+  const counters = Array.from(document.querySelectorAll<HTMLElement>('[data-count]'));
+  const runCount = (el: HTMLElement) => {
+    const target = Number(el.getAttribute('data-count') || '0');
+    if (target === 0) { el.textContent = '0'; return; }
+    const dur = 1100; const start = performance.now();
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = String(Math.round(target * eased));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  if ('IntersectionObserver' in window && counters.length) {
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { runCount(e.target as HTMLElement); cio.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    counters.forEach((el) => cio.observe(el));
+  } else {
+    counters.forEach(runCount);
+  }
+</script>
