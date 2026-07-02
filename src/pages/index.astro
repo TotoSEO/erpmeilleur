@@ -40,31 +40,33 @@ const parcours = [
 <BaseLayout title="meilleur-erp.fr : comprendre les logiciels ERP, simplement">
   <script type="application/ld+json" set:html={JSON.stringify(homeLd)} is:inline />
 
-  <div class="container" style="padding-top:56px;padding-bottom:24px">
-    <div class="hero__grid">
-      <div>
-        <div class="hero__top">
-          <Badge tone="blue" variant="gradient">Média indépendant</Badge>
-          <Badge tone="neutral" variant="soft" mono>38 guides ERP</Badge>
+  <div class="home-hero">
+    <div class="container" style="padding-top:52px;padding-bottom:44px">
+      <div class="hero__grid">
+        <div>
+          <div class="hero__top">
+            <Badge tone="blue" variant="gradient">Média indépendant</Badge>
+            <Badge tone="neutral" variant="soft" mono>Sans jargon</Badge>
+          </div>
+          <h1 class="hero" style="padding:0;font-family:var(--font-grotesk);font-weight:800;font-size:clamp(38px,7vw,68px);line-height:0.96;letter-spacing:-0.03em;color:var(--ink);margin:0">
+            Les ERP, <span class="text-gradient">expliqués simplement</span>.
+          </h1>
+          <p class="hero__excerpt" style="margin-top:20px">
+            Définitions claires, exemples concrets, chiffres réels. Un média indépendant qui explique les logiciels de gestion sans jargon et sans discours d'éditeur.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
+            <Button variant="primary" size="lg" href="/qu-est-ce-qu-un-erp/">Commencer par la définition</Button>
+            <Button variant="secondary" size="lg" href="/glossaire-erp/">Le glossaire</Button>
+          </div>
         </div>
-        <h1 class="hero" style="padding:0;font-family:var(--font-grotesk);font-weight:800;font-size:clamp(38px,7vw,68px);line-height:0.96;letter-spacing:-0.03em;color:var(--ink);margin:0">
-          Les ERP, <span class="text-gradient">expliqués simplement</span>.
-        </h1>
-        <p class="hero__excerpt" style="margin-top:20px">
-          Définitions claires, exemples concrets, chiffres réels. Un média indépendant qui explique les logiciels de gestion sans jargon et sans discours d'éditeur.
-        </p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px">
-          <Button variant="primary" size="lg" href="/qu-est-ce-qu-un-erp/">Commencer par la définition</Button>
-          <Button variant="secondary" size="lg" href="/glossaire-erp/">Le glossaire</Button>
+        <div style="display:grid;place-items:center">
+          <StatDiscs items={[{ value: '38', label: 'Guides ERP' }, { value: '0', label: "Discours d'éditeur" }, { value: '100', unit: '%', label: 'Indépendant' }]} />
         </div>
-      </div>
-      <div style="display:grid;place-items:center">
-        <StatDiscs items={[{ value: '38', label: 'Guides ERP' }, { value: '0', label: "Discours d'éditeur" }, { value: '100', unit: '%', label: 'Indépendant' }]} />
       </div>
     </div>
   </div>
 
-  <section class="container" style="padding-top:24px;padding-bottom:16px">
+  <div class="home-sheet">
     <div style="max-width:var(--measure-text)">
       <div class="kicker" style="margin-bottom:8px">Par où commencer</div>
       <h2 style="font-family:var(--font-grotesk);font-weight:800;font-size:clamp(24px,4vw,34px);letter-spacing:-0.02em;color:var(--ink);margin:0 0 10px">Le guide complet de l'ERP</h2>
@@ -73,10 +75,8 @@ const parcours = [
       </p>
     </div>
     <FeatureColumns columns={3} items={parcours} />
-  </section>
 
-  <section class="container" style="padding-top:8px;padding-bottom:48px">
-    <div style="border:2px solid var(--ink);box-shadow:var(--shadow-raise);padding:24px;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+    <div class="home-author">
       <span class="hero__avatar" style="width:56px;height:56px;font-size:20px;flex:none">GW</span>
       <div style="flex:1;min-width:240px">
         <div style="font-family:var(--font-grotesk);font-weight:700;color:var(--ink)">Écrit par Guillaume Wagner</div>
@@ -84,5 +84,11 @@ const parcours = [
       </div>
       <Button variant="ghost" href="/auteur/">L'auteur</Button>
     </div>
-  </section>
+  </div>
 </BaseLayout>
+
+<style>
+  .home-hero { background: linear-gradient(120deg, #EEF0FF 0%, #FFFFFF 58%); border-bottom: 2px solid var(--ink); }
+  .home-sheet { max-width: var(--content-wide); margin: 24px auto; padding: 34px clamp(16px, 3vw, 44px) 44px; background: #fff; box-shadow: 0 1px 0 var(--hairline), 0 24px 60px -34px rgba(11, 11, 18, 0.28); }
+  .home-author { margin-top: 30px; border: 2px solid var(--ink); box-shadow: var(--shadow-raise); padding: 24px; display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+</style>

@@ -1,12 +1,19 @@
 ---
 /**
- * Wordmark — logo typographique meilleur-erp.fr : « Meilleur-ERP » en grotesque
- * encre + « .fr » dans un cartouche bleu à coin coupé.
+ * Wordmark — logo meilleur-erp.fr (image). Sur fond sombre (footer), la variante
+ * `inverse` recolore le logo en blanc via un filtre CSS.
  */
 interface Props { size?: number; inverse?: boolean; href?: string; }
-const { size = 22, inverse = false, href } = Astro.props;
+const { size = 30, inverse = false, href } = Astro.props;
+const w = Math.round((size * 700) / 200);
 const Tag = href ? 'a' : 'span';
 ---
-<Tag class={`wordmark ${inverse ? 'wordmark--inverse' : ''}`.trim()} href={href} style={`font-size:${size}px`}>
-  Meilleur-ERP<span class="wordmark__tld" style={`font-size:${Math.round(size * 0.55)}px`}>.fr</span>
+<Tag class={`brand ${inverse ? 'brand--inverse' : ''}`.trim()} href={href} aria-label="Meilleur-erp.fr, accueil">
+  <img src="/logo.png" alt="Meilleur-erp.fr" width={w} height={size} decoding="async" />
 </Tag>
+
+<style>
+  .brand { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+  .brand img { display: block; }
+  .brand--inverse img { filter: brightness(0) invert(1); }
+</style>

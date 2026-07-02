@@ -40,7 +40,8 @@
 .site-footer__legal-in { max-width: var(--content-wide); margin: 0 auto; font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,.55); letter-spacing: 0.06em; }
 
 /* ============================= Layout article ============================= */
-.article-layout { max-width: var(--content-wide); margin: 0 auto; padding: 0 20px; }
+.article-layout { max-width: var(--content-wide); margin: 24px auto; padding: 28px clamp(16px, 3vw, 44px) 40px; background: #fff; box-shadow: 0 1px 0 var(--hairline), 0 24px 60px -34px rgba(11, 11, 18, 0.28); }
+@media (max-width: 720px) { .article-layout { margin: 0 auto; } }
 .article-body { display: grid; grid-template-columns: 248px minmax(0, 1fr); gap: 48px; align-items: start; padding-bottom: 40px; }
 .article-content { max-width: 820px; min-width: 0; }
 @media (max-width: 1000px) { .article-body { grid-template-columns: 1fr; gap: 0; } }

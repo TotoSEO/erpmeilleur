@@ -1,0 +1,29 @@
+---
+/**
+ * Breadcrumb — fil d'Ariane visible : Accueil › page pilier › page courante.
+ * Le dernier élément (page courante) n'est pas cliquable.
+ */
+interface Crumb { name: string; href?: string; }
+interface Props { items: Crumb[]; }
+const { items } = Astro.props;
+---
+<nav class="crumbs" aria-label="Fil d'Ariane">
+  <ol>
+    {items.map((c, i) => (
+      <li class="crumbs__item">
+        {c.href ? <a href={c.href}>{c.name}</a> : <span aria-current="page">{c.name}</span>}
+        {i < items.length - 1 && <span class="crumbs__sep" aria-hidden="true">›</span>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .crumbs { margin: 0 0 18px; }
+  .crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-family: var(--font-ui); font-size: 13px; letter-spacing: 0.01em; }
+  .crumbs__item { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+  .crumbs a { color: var(--ink-55); text-decoration: none; }
+  .crumbs a:hover { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 2px; }
+  .crumbs [aria-current="page"] { color: var(--ink); font-weight: 600; }
+  .crumbs__sep { color: var(--ink-35); }
+</style>
