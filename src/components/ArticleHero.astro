@@ -38,7 +38,7 @@ const {
       <div class="hero__meta">
         {author && (
           <div class="hero__author">
-            {author.initials && <span class="hero__avatar">{author.initials}</span>}
+            <img src="/images/guillaume-wagner.webp" alt={`Portrait de ${author.name}`} width="40" height="40" class="hero__avatar hero__avatar--photo" loading="lazy" />
             <div>
               <div class="hero__author-name">{author.name}</div>
               {author.role && <div class="hero__author-role">{author.role}</div>}

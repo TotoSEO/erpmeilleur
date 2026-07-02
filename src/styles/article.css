@@ -19,7 +19,7 @@
 .mobile-nav { display: none; border-top: 2px solid var(--ink); background: #fff; padding: 6px 12px; }
 .mobile-nav a { display: block; padding: 12px 8px; font-family: var(--font-ui); font-weight: 700; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--hairline); text-transform: uppercase; letter-spacing: 0.03em; }
 .mobile-nav a:last-child { border-bottom: none; }
-@media (max-width: 860px) { .site-nav, .site-header__count { display: none; } .burger { display: grid; } }
+@media (max-width: 860px) { .site-nav, .site-header__count { display: none; } .burger { display: grid; } .mobile-nav:not([hidden]) { display: block; } }
 
 .wordmark { font-family: var(--font-grotesk); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); display: inline-flex; align-items: baseline; line-height: 1; text-decoration: none; }
 .wordmark__tld { color: #fff; background: var(--blue); padding: 2px 7px; margin-left: 4px; clip-path: var(--cut-corner); }
@@ -56,6 +56,7 @@
 .hero__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 22px; margin-top: 24px; }
 .hero__author { display: flex; align-items: center; gap: 10px; }
 .hero__avatar { width: 40px; height: 40px; background: var(--grad-brand); color: #fff; display: grid; place-items: center; font-family: var(--font-grotesk); font-weight: 700; font-size: 14px; clip-path: var(--cut-corner); }
+.hero__avatar--photo { background: none; object-fit: cover; border-radius: 50%; clip-path: none; border: 2px solid var(--ink); }
 .hero__author-name { font-family: var(--font-ui); font-weight: 700; font-size: 14px; color: var(--ink); line-height: 1.2; }
 .hero__author-role { font-family: var(--font-mono); font-size: 11px; color: var(--ink-55); }
 .hero__metaitem { display: flex; flex-direction: column; gap: 2px; }
