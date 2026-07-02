@@ -9,11 +9,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  * personnelle de l'éditeur n'est pas publiée).
  */
 const updated = '23 juin 2026';
+const SITE = 'https://meilleur-erp.fr';
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Mentions légales',
+  url: `${SITE}/mentions-legales/`,
+  inLanguage: 'fr-FR',
+  isPartOf: { '@type': 'WebSite', name: 'meilleur-erp.fr', url: SITE },
+  publisher: { '@type': 'Organization', name: 'meilleur-erp.fr', url: SITE },
+};
 ---
 <BaseLayout
   title="Mentions légales · meilleur-erp.fr"
   description="Mentions légales du site meilleur-erp.fr : éditeur, responsable de publication, hébergeur et conditions d'utilisation."
 >
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} is:inline />
   <div class="article-layout" style="padding-top:48px">
     <div class="article-content">
       <h1 style="font-family:var(--font-grotesk);font-weight:800;font-size:clamp(30px,5vw,44px);letter-spacing:-0.02em;color:var(--ink);margin:0 0 10px">
