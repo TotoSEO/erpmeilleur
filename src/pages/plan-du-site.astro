@@ -15,7 +15,7 @@ const ld = {
 ---
 <BaseLayout
   title="Plan du site · meilleur-erp.fr"
-  description="Plan du site meilleur-erp.fr : tous les guides ERP organisés par thème, du pilier aux pages détaillées."
+  description="Plan du site meilleur-erp.fr : tous les guides ERP organisés par thème, des notions de base aux sujets les plus précis."
 >
   <script type="application/ld+json" set:html={JSON.stringify(ld)} is:inline />
   <div class="article-layout" style="padding-top:32px">
@@ -23,12 +23,12 @@ const ld = {
       <Breadcrumb items={[{ name: 'Accueil', href: '/' }, { name: 'Plan du site' }]} />
       <h1 style="font-family:var(--font-grotesk);font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:-0.02em;color:var(--ink);margin:0 0 6px">Plan du site</h1>
       <p style="font-family:var(--font-body);font-size:var(--text-lg);line-height:var(--leading-relaxed);color:var(--ink-80);margin:0 0 28px">
-        Tous les guides ERP, organisés par thème. Le cocon part d'une page pilier et se ramifie vers des pages de plus en plus précises.
+        Tous les guides ERP, organisés par thème. On part des notions de base pour aller vers des sujets de plus en plus précis.
       </p>
 
       <p style="margin:0 0 30px">
         <a href={`/${PILIER.slug}/`} style="font-family:var(--font-grotesk);font-weight:700;font-size:20px;color:var(--blue-ink)">★ {PILIER.label}</a>
-        <span style="display:block;font-size:14px;color:var(--ink-55);margin-top:2px">La page pilier : le point de départ de tout le cocon.</span>
+        <span style="display:block;font-size:14px;color:var(--ink-55);margin-top:2px">Le guide de référence : la meilleure porte d'entrée pour commencer.</span>
       </p>
 
       <div class="sitemap-grid">

@@ -1,3 +1,0 @@
-# Cloudflare Pages — redirections.
-# @astrojs/sitemap génère sitemap-index.xml : on redirige l'URL usuelle.
-/sitemap.xml   /sitemap-index.xml   301

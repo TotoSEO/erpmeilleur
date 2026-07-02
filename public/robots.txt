@@ -67,4 +67,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://meilleur-erp.fr/sitemap-index.xml
+Sitemap: https://meilleur-erp.fr/sitemap.xml
