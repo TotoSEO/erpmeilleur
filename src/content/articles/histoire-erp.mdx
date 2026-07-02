@@ -1,0 +1,168 @@
+---
+title: "De la gestion des stocks à l'IA : l'histoire de l'ERP"
+seoTitle: "Histoire de l'ERP : du MRP aux logiciels d'aujourd'hui"
+excerpt: "L'ERP n'est pas né ERP. Il vient du MRP industriel des années 1960 ; le mot lui-même date de 1990. Voici la frise complète, du calcul des stocks à l'intelligence artificielle."
+description: "L'histoire de l'ERP, des premiers MRP des années 1960 au terme forgé par Gartner en 1990, jusqu'aux logiciels cloud et IA d'aujourd'hui."
+heroImage: "/images/N1-19.webp"
+heroAlt: "De la gestion des stocks à l'IA : l'histoire de l'ERP"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "9 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Qui a inventé le terme ERP ?"
+    a: "Le cabinet d'analystes Gartner, en 1990. Il a forgé l'expression Enterprise Resource Planning pour décrire des logiciels qui dépassaient la seule production et couvraient toute l'entreprise. Les systèmes existaient avant, sous le nom de MRP."
+  - q: "Quelle est la différence entre MRP et ERP ?"
+    a: "Le MRP planifie les besoins en matières d'une usine. L'ERP va bien plus loin : il intègre toutes les fonctions de l'entreprise (finance, RH, ventes, stocks) sur une base unique. Le MRP est un ancêtre spécialisé de l'ERP."
+  - q: "Que veut dire ERP ?"
+    a: "ERP signifie Enterprise Resource Planning, soit « planification des ressources de l'entreprise ». En français, on parle aussi de PGI, progiciel de gestion intégré. Les deux désignent le même type de logiciel."
+  - q: "Quand l'ERP est-il arrivé dans les PME ?"
+    a: "Surtout à partir des années 2000-2010, avec le cloud et le modèle SaaS. Avant, son coût et sa complexité le réservaient aux grandes entreprises. Le cloud a fait tomber cette barrière."
+  - q: "SAP a-t-il créé le premier ERP ?"
+    a: "Non, mais SAP a imposé le modèle moderne avec R/3 en 1992. Les racines de l'ERP remontent au MRP des années 1960, bien avant. SAP demeure l'un des éditeurs historiques majeurs."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "L'ERP plonge ses racines dans le MRP, un outil industriel des années 1960 dédié à la gestion des matières.", "Le terme « ERP » a été forgé en 1990 par le cabinet Gartner, quand le logiciel a dépassé la seule production.", "SAP R/3 (1992) impose le modèle moderne ; les années 2000 ouvrent l'ERP au web, puis au cloud.", "Aujourd'hui, mobilité, SaaS et intelligence artificielle redéfinissent ce que fait un ERP.", "Chaque génération (MRP, MRP II, ERP, ERP II) a élargi le périmètre, des matières à toute l'entreprise." ]} />
+
+  
+
+On présente volontiers [l'ERP, logiciel moderne](/qu-est-ce-qu-un-erp/) de pilotage par excellence, pourtant son histoire commence il y a plus de soixante ans, dans les ateliers. Avant de piloter la finance, les ventes ou les RH, l'ancêtre de l'ERP ne servait qu'à une chose : **calculer les besoins en matières** d'une usine. 
+
+  
+
+Le mot « ERP » lui-même n'apparaît qu'en 1990. Tout ce qui précède portait d'autres noms : MRP, puis MRP II. Cette filiation explique pourquoi un ERP raisonne encore aujourd'hui en flux, en stocks et en ordres. Comprendre cette généalogie n'a rien d'une érudition gratuite : ça éclaire la logique même de l'outil que vous utilisez. Alors, d'où vient vraiment l'ERP ? Remontons le fil…
+
+  
+
+Six décennies, une même logique poussée toujours plus loin : relier les données de l'entreprise pour mieux décider. Chaque étape a ajouté un étage à l'édifice, sans jamais renier le précédent. 
+
+## Les années 1960-1970 : tout part des stocks
+
+### Des premiers calculs sur ordinateurs géants
+
+Au début des années 1960, quelques industriels confient à l'informatique une tâche ingrate : suivre les stocks et anticiper les approvisionnements. Les pionniers s'appellent **IBM et J.I. Case**, l'un fournissant la machine, l'autre le terrain d'essai. Ces programmes tournent sur des ordinateurs centraux qui occupent des pièces entières, pour un résultat qui paraît banal aujourd'hui mais relevait alors de l'exploit : saisir un plan de production, en déduire les matières nécessaires, générer les commandes.
+
+  
+
+L'expérience de J.I. Case, fabricant de matériel agricole, fait figure de déclencheur : en installant le MRP d'IBM, l'entreprise reprend le contrôle de ses stocks et de sa production, là où elle se noyait jusque-là. Le secteur entier prend note. Du jour au lendemain, tout le monde veut son MRP !
+
+### Le MRP, ancêtre direct
+
+Ce principe porte un nom : le **MRP**, pour Material Requirements Planning, soit la planification des besoins en matières. Formalisé notamment par Joseph Orlicky, il calcule, à partir du programme de fabrication et de l'état des stocks, ce qu'il faut commander et quand. Utile, mais limité… Le MRP ne voyait que la matière :
+
+  
+
+  - il ignorait la main-d'œuvre et les machines disponibles ;
+  - il supposait une capacité de production infinie, ce qui ne tient pas dans une vraie usine ;
+  - il ne réagissait pas aux imprévus en temps réel.
+
+  
+
+Ces angles morts allaient appeler une suite.
+
+## Les années 1980 : le MRP II voit plus large
+
+La réponse arrive dans les années 1980 avec le **MRP II**, Manufacturing Resource Planning. Le sigle se ressemble, le périmètre change. On doit le terme à Oliver Wight, resté dans l'histoire comme le « père du MRP II ». Là où le MRP se limitait aux matières, le MRP II embrasse tout l'appareil productif : machines, main-d'œuvre, capacités réelles de l'atelier, et même coûts de fabrication.
+
+  
+
+Surtout, il introduit la **planification de capacité finie**. Fini l'hypothèse d'une usine sans limites ! Le système tient compte de ce que l'atelier peut réellement produire, et planifie en conséquence. Deux nouveautés marquent les esprits : la planification des ventes et des opérations, qui aligne la demande commerciale sur la capacité industrielle, et l'ordonnancement en boucle fermée, où le réel remonté de l'atelier corrige le plan en continu. Il relie aussi la production à la finance, premier pas vers une vision d'ensemble. Les ordinateurs personnels, plus puissants et moins chers, accompagnent ce saut.
+
+  
+
+Prenez une usine automobile de cette décennie. Avec le MRP, on savait combien de moteurs produire. Avec le MRP II, on savait aussi quand les fabriquer, sur quelle machine, avec quelle main-d'œuvre et à quel coût. Un tout autre niveau de pilotage.
+
+## 1990 : Gartner invente le mot « ERP »
+
+Tournant décisif. En **1990**, le cabinet d'analystes Gartner forge un nouveau terme pour décrire ces logiciels qui débordent de l'usine : Enterprise Resource Planning, planification des ressources de l'entreprise. Le nom acte un changement de nature. L'outil ne sert plus seulement la production ; il englobe la comptabilité, les ventes, les achats, les ressources humaines, le tout sur une base de données unique et partagée. Le principe est limpide : au lieu d'un logiciel par service qui communiquent mal, une seule base où la donnée ne se saisit qu'une fois et où chacun voit la même information. Comme le résume une formule restée célèbre, la somme des optima locaux reste inférieure à l'optimum de l'ensemble : tout l'intérêt d'un système nativement intégré tient dans cette idée.
+
+  
+
+C'est la naissance de l'ERP tel qu'on le connaît. Au passage, [sa traduction française, PGI](/erp-pgi-difference/), apparaît aussi.
+
+  
+
+Deux échéances dopent l'adoption à la fin de la décennie : le passage informatique à l'an 2000 et, en Europe, l'arrivée de l'euro. Plutôt que de rafistoler des systèmes vieillissants, beaucoup d'entreprises en profitent pour tout remplacer par un ERP neuf. L'effet d'aubaine est massif.
+
+### SAP, Oracle et les géants
+
+Le marché se structure vite. En 1992, l'allemand SAP lance **R/3**, un ERP modulaire qui devient la référence mondiale en réunissant finance, logistique, achats et RH dans un même système. Oracle, PeopleSoft et JD Edwards se partagent le reste. Avec la mondialisation, ces logiciels gèrent plusieurs langues, devises et législations, ce qui les rend indispensables aux multinationales. L'Europe n'est pas en reste : SAP impose un champion continental, et plus tard l'open source trouve sa place avec des acteurs comme Odoo, fondé en 2005.
+
+### Des projets ambitieux, parfois douloureux
+
+Cette puissance a un revers : les déploiements sont longs, complexes et coûteux. Certains échecs deviennent célèbres et rappellent qu'un ERP touche au cœur de l'entreprise.
+
+  
+
+En 1999, le géant américain Hershey's bascule sur un nouvel ERP juste avant Halloween, sa plus grosse période de ventes. Le système déraille, les commandes ne partent plus, et le chocolatier perd près de 100 millions de dollars de ventes. L'épisode reste un cas d'école sur les risques d'un déploiement mal préparé.
+
+## Des années 2000 à aujourd'hui : le web, le cloud, puis l'IA
+
+### L'ERP s'ouvre sur l'extérieur
+
+Avec Internet, l'ERP sort de ses murs. On parle un temps d'**ERP II** : le logiciel ne gère plus seulement l'interne, il dialogue avec les clients, les fournisseurs et les partenaires. La relation client (CRM), la chaîne logistique (SCM) et le décisionnel (BI) entrent dans le périmètre. Les premières solutions cloud apparaissent même dès la fin des années 1990, NetSuite ouvrant la voie en 1998, financé à ses débuts par Larry Ellison, le cofondateur d'Oracle.
+
+  
+
+L'esprit de l'ERP II tient en deux mots : commerce collaboratif. Le logiciel ne se contente plus de traiter des transactions, il partage l'information avec tout l'écosystème. C'est aussi l'époque des solutions verticales, taillées pour la santé, le commerce ou l'industrie, et des premiers accès mobiles pour les dirigeants en déplacement. L'analytique prend son essor : avec des volumes de données toujours plus grands, comprendre l'activité grâce à des tableaux de bord devient un usage à part entière, et non plus un luxe.
+
+### Le cloud et la mobilité s'imposent
+
+La décennie 2010 fait basculer le marché. Le **cloud** et le modèle SaaS, longtemps regardés avec méfiance, deviennent la norme : moins d'infrastructure, des mises à jour automatiques, un accès de partout. L'ERP devient temps réel, accessible sur smartphone, et s'ouvre aux PME qui en étaient longtemps exclues par les coûts. Oracle rachète d'ailleurs NetSuite en 2016 pour 9,3 milliards de dollars, signe que le cloud a gagné la partie.
+
+  
+
+Le basculement ne s'est pas fait sans débat. Les partisans du logiciel installé en interne mettaient en avant la sécurité et la maîtrise ; les défenseurs du cloud, les coûts réduits et la souplesse. Aujourd'hui le cloud domine largement, même si des entreprises sensibles gardent encore leurs serveurs sous la main.
+
+### L'ère de l'intelligence artificielle
+
+Nous y sommes… [Les ERP d'aujourd'hui intègrent l'IA](/erp-intelligence-artificielle/) pour anticiper la demande, automatiser des décisions, dialoguer en langage naturel. Les capteurs de l'Internet des objets connectent le logiciel aux machines, et **l'analyse prédictive** remplace peu à peu le simple constat. C'est la mutation en cours, sans doute la plus profonde depuis 1990. 
+
+  
+
+Autre évolution notable : le no-code et le low-code. Configurer un écran, ajouter un champ ou monter un petit automatisme ne réclame plus forcément un développeur ; l'utilisateur métier assemble lui-même ses tableaux et ses règles depuis une interface visuelle. L'ERP, longtemps réputé rigide et lourd à paramétrer, gagne ainsi en souplesse et se plie plus vite aux façons de travailler de chaque entreprise.
+
+  
+
+Deux autres tendances complètent le tableau. L'ERP postmoderne, d'abord, qui troque le bloc monolithique d'autrefois contre un noyau allégé entouré de services cloud spécialisés, chacun choisi pour sa force. La responsabilité environnementale, ensuite : suivre son empreinte carbone devient une fonction attendue, signe que l'ERP épouse toujours les préoccupations de son temps. Le contraste avec les débuts donne le vertige, d'ailleurs : là où un MRP des années 1960 occupait une pièce entière, certains ERP traitent aujourd'hui plus d'un milliard de transactions par jour, soit des dizaines de milliers chaque seconde.
+
+## Les quatre générations en un coup d'œil
+
+Un même fil conducteur, étiré décennie après décennie, du seul atelier à l'entreprise entière.
+
+  
+
+<FeatureColumns columns={2} items={[ {title: "MRP (années 1960-1970)", text: "Calcul des besoins en matières. Cible : les usines. Une base par service, peu de temps réel."}, {title: "MRP II (années 1980)", text: "Ajoute machines, main-d'œuvre, capacités et finance. Une planification enfin réaliste de la production."}, {title: "ERP (années 1990)", text: "Sort de la production : compta, RH, ventes, achats, sur une base unique. Le terme naît chez Gartner."}, {title: "ERP II (années 2000)", text: "L'entreprise étendue : web, clients, fournisseurs, CRM, SCM. Préfigure le cloud et la mobilité."} ]} />
+
+## L'ERP, soixante ans plus tard
+
+En soixante ans, l'ERP a changé de visage sans changer d'âme. Né pour compter des boulons dans une usine, il pilote aujourd'hui des entreprises entières, du premier devis à la paie. Et il ne concerne plus les seuls géants : une PME de dix personnes peut s'équiper d'un outil que seules les multinationales s'offraient hier. L'ERP n'est pas qu'un héritage du MRP industriel, c'est devenu **la colonne vertébrale** numérique de l'organisation moderne. Et avec l'IA, son histoire est loin d'être terminée !
+
+## Questions fréquentes
+
+### Qui a inventé le terme ERP ?
+
+Le cabinet d'analystes Gartner, en 1990. Il a forgé l'expression Enterprise Resource Planning pour décrire des logiciels qui dépassaient la seule production et couvraient toute l'entreprise. Les systèmes existaient avant, sous le nom de MRP.
+
+### Quelle est la différence entre MRP et ERP ?
+
+Le MRP planifie les besoins en matières d'une usine. L'ERP va bien plus loin : il intègre toutes les fonctions de l'entreprise (finance, RH, ventes, stocks) sur une base unique. Le MRP est un ancêtre spécialisé de l'ERP.
+
+### Que veut dire ERP ?
+
+ERP signifie Enterprise Resource Planning, soit « planification des ressources de l'entreprise ». En français, on parle aussi de PGI, progiciel de gestion intégré. Les deux désignent le même type de logiciel.
+
+### Quand l'ERP est-il arrivé dans les PME ?
+
+Surtout à partir des années 2000-2010, avec le cloud et le modèle SaaS. Avant, son coût et sa complexité le réservaient aux grandes entreprises. Le cloud a fait tomber cette barrière.
+
+### SAP a-t-il créé le premier ERP ?
+
+Non, mais SAP a imposé le modèle moderne avec R/3 en 1992. Les racines de l'ERP remontent au MRP des années 1960, bien avant. SAP demeure l'un des éditeurs historiques majeurs.

@@ -1,0 +1,182 @@
+---
+title: "Sécuriser son ERP : les risques réels et les bons réflexes"
+seoTitle: "Sécurité ERP : protéger ses données et son entreprise"
+excerpt: "L'ERP concentre toutes les données de l'entreprise, ce qui en fait une cible de choix. Voici pourquoi il est visé, les menaces réelles et les mesures concrètes pour le protéger."
+description: "Sécurité ERP : pourquoi votre logiciel de gestion est une cible, les vraies menaces et les mesures concrètes pour protéger vos données en 2026."
+heroImage: "/images/N1-14.webp"
+heroAlt: "Sécuriser son ERP : les risques réels et les bons réflexes"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "11 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Un ERP en cloud est-il moins sûr qu'un ERP hébergé en interne ?"
+    a: "Pas forcément. Un bon hébergeur cloud dispose souvent de moyens de sécurité supérieurs à ceux d'une PME. La vraie différence tient au partage des responsabilités : dans le cloud, l'infrastructure est sécurisée pour vous, mais vos accès et vos données restent votre affaire."
+  - q: "Que faire en cas de cyberattaque sur son ERP ?"
+    a: "Isolez les systèmes touchés pour stopper la propagation, prévenez votre prestataire informatique et conservez les preuves (journaux, horodatages). Ne payez pas la rançon sans avis d'experts. Si des données personnelles sont concernées, une notification à la CNIL sous 72 heures peut être obligatoire."
+  - q: "Une petite entreprise est-elle vraiment visée ?"
+    a: "Oui. La majorité des attaques sont automatiques et ne ciblent personne en particulier : elles cherchent une faille, peu importe la taille. Les PME, souvent moins protégées, sont même des proies privilégiées. En France, une large part des attaques touche des structures de moins de 250 salariés."
+  - q: "Faut-il prévoir un plan de reprise pour son ERP ?"
+    a: "Oui, dès que l'ERP est vital pour l'activité. Au-delà des sauvegardes, un plan de reprise (PRA) précise le délai admissible pour redémarrer, la quantité de données que l'on accepte de perdre et l'ordre de relance des modules. Testé lors d'exercices, il évite d'improviser le jour où tout s'arrête."
+  - q: "Mon ERP doit-il être conforme au RGPD ?"
+    a: "Dès qu'il traite des données personnelles (clients, salariés), oui. Mais la conformité au RGPD est une question juridique, distincte de la sécurité technique : elle ajoute des obligations propres, comme la tenue d'un registre ou la gestion des droits des personnes."
+  - q: "Par quelle mesure de sécurité commencer ?"
+    a: "Par les deux qui offrent le meilleur rapport effort/risque : l'authentification multifacteur sur tous les comptes, et des sauvegardes isolées et testées. Vient ensuite la revue des droits d'accès, pour appliquer le principe du moindre privilège."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "L'ERP centralise vos données les plus sensibles : c'est le coffre-fort de l'entreprise, et donc une cible de choix.", "La première ligne de défense, c'est la maîtrise des accès : moindre privilège, MFA, révocation des comptes qui partent.", "Côté technique : chiffrement, sauvegardes isolées et testées, mises à jour, supervision des journaux.", "En cloud, la sécurité est partagée avec l'hébergeur ; sur site, tout repose sur vous.", "Le facteur humain reste la faille numéro un : sensibiliser les équipes compte autant que la technique." ]} />
+
+  
+
+Pensez à tout ce que contient votre ERP : la comptabilité, les commandes, les fiches clients et fournisseurs, parfois la paie. C'est précisément [le rôle central de l'ERP](/a-quoi-sert-un-erp/) qui en fait un outil si précieux… et une cible si convoitée. Pour un pirate, y accéder revient à ouvrir le coffre-fort de l'entreprise d'un seul coup.
+
+  
+
+Résultat, une seule brèche peut suffire à paralyser toute l'activité : production à l'arrêt, facturation bloquée, données dans la nature. En 2026, les rançongiciels visent justement ces systèmes de gestion, et la facture grimpe vite, de quelques dizaines à plusieurs centaines de milliers d'euros.
+
+  
+
+Faut-il paniquer pour autant ? Non ! La bonne nouvelle, c'est qu'on n'a pas besoin d'être expert en cybersécurité pour réduire l'essentiel du risque. Quelques réflexes bien choisis font déjà une énorme différence. Voyons pourquoi l'ERP est tellement visé, puis les mesures concrètes pour le protéger.
+
+  
+
+La sécurité d'un ERP se pense par couches, comme les remparts d'un château. Aucune n'est suffisante seule, mais empilées, elles rendent la tâche très difficile à un attaquant. On va les passer en revue, des accès jusqu'à la sauvegarde. 
+
+## Pourquoi un ERP est une cible de choix
+
+Avant de parler protection, comprenons la menace. Pourquoi un pirate s'intéresserait-il à votre logiciel de gestion plutôt qu'à autre chose ? La réponse tient en deux mots : valeur et exposition.
+
+### Le coffre-fort de l'entreprise
+
+Un ERP, par nature, rassemble au même endroit ce que l'entreprise a de plus sensible : ses finances, ses clients, ses fournisseurs, ses stocks, ses salariés. Cette concentration fait toute sa puissance au quotidien, mais aussi toute sa fragilité. Compromettre un ERP, c'est compromettre la mémoire et le fonctionnement de toute la boîte d'un seul coup.
+
+  
+
+Les cybercriminels l'ont parfaitement compris. Les rançongiciels visent désormais spécifiquement les bases de données ERP : ils chiffrent tout, bloquent la facturation et la production, puis exigent une rançon. Souvent, ils ajoutent le **vol de données** au chiffrement, histoire de faire pression par la menace de tout divulguer. Et l'addition est salée : selon les études du secteur, le coût d'une attaque pour une PME se chiffre facilement en dizaines, voire en centaines de milliers d'euros, sans compter les jours d'activité perdus.
+
+  
+
+Et contrairement à une idée tenace, les petites structures sont loin d'être épargnées. La plupart des attaques sont automatisées : des robots scannent Internet en continu, repèrent un serveur vulnérable ou un mot de passe faible, et frappent sans se soucier de la taille de l'entreprise. Une PME mal protégée fait même une proie idéale, justement parce qu'elle se croit trop petite pour intéresser qui que ce soit.
+
+### Une surface d'attaque qui s'élargit
+
+L'autre raison, c'est que l'ERP n'est plus une forteresse isolée. Il dialogue en permanence avec une foule d'outils : portails fournisseurs, CRM, solutions de paiement, plateformes e-commerce, applications mobiles… Chacune de ces connexions est une porte de plus. Une **API mal configurée**, une clé d'accès qui traîne, un serveur exposé sur Internet, et l'attaquant se faufile.
+
+  
+
+À cela s'ajoutent les classiques qui font toujours mouche. Le phishing, dopé à l'IA, produit des emails frauduleux quasi parfaits ; il cible particulièrement les dirigeants et les comptables pour déclencher un faux virement (le fameux changement de RIB, ou l'arnaque au président). Les identifiants volés circulent et sont testés en masse sur les accès ERP. Sans oublier les anciens comptes d'employés partis, restés actifs par négligence, ou les attaques qui passent par un prestataire moins bien protégé que vous, une technique en forte hausse ces dernières années.
+
+  
+
+Un dernier point, important : **aucun mode d'hébergement n'est à l'abri**. Un ERP installé sur vos serveurs reste vulnérable aux ports laissés ouverts, aux mots de passe par défaut jamais changés, aux droits trop larges. Un ERP dans le cloud, lui, peut être exposé par un simple paramètre de sécurité mal réglé. La menace ne vient donc pas que de l'extérieur : une bonne part des incidents naît d'une erreur de configuration ou d'une négligence interne.
+
+## Comment sécuriser son ERP : les mesures qui comptent
+
+Place au concret ! Sécuriser un ERP ne demande pas une armée d'ingénieurs, mais de la méthode et de la constance. Trois chantiers couvrent l'essentiel : les accès, la technique, et l'humain.
+
+### Maîtriser les accès
+
+C'est la première ligne de défense, et de loin la plus rentable. Le principe directeur tient en trois mots : le **moindre privilège**. Chacun ne doit pouvoir faire que ce que son poste exige, ni plus ni moins. Un comptable n'a rien à faire dans le module des stocks, un commercial n'a pas à toucher à la configuration système. On distingue en général trois niveaux :
+
+  
+
+  - **les administrateurs**, qui ont accès à tout : leur nombre doit être réduit au strict minimum et réservé aux responsables informatiques ;
+  - **les utilisateurs avancés**, qui peuvent paramétrer certaines fonctions, mais sans toucher aux réglages critiques de sécurité ;
+  - **les utilisateurs standards**, qui consultent et saisissent, sans pouvoir modifier les paramètres sensibles.
+
+  
+
+Trois réflexes complètent le tableau. D'abord, l'**authentification multifacteur** (MFA) sur tous les comptes : même un mot de passe volé devient inutile sans le second code. Ensuite, la révocation immédiate des accès dès qu'un collaborateur part ou change de poste, car un compte fantôme est une porte grande ouverte. Enfin, des comptes administrateurs distincts pour les tâches courantes et les tâches critiques, afin de limiter la casse en cas de compromission.
+
+  
+
+Un mot enfin sur les mots de passe, car ils restent le maillon le plus attaqué. Bannissez les classiques (« 123456 », « admin », le nom de l'entreprise), imposez des combinaisons robustes et un **gestionnaire de mots de passe** chiffré plutôt que des post-it ou un fichier non protégé. Sur les structures plus grandes, un outil de gestion des identités (IAM) centralise tout cela et garde une trace de chaque accès.
+
+  
+
+Un cas mérite une attention particulière : les accès distants. L'ERP se consulte de plus en plus hors des murs de l'entreprise, en télétravail, en déplacement, depuis un smartphone. Chaque connexion à distance est une porte supplémentaire à verrouiller. Imposez un canal chiffré, un VPN ou une passerelle dédiée, plutôt qu'un accès exposé en clair sur Internet. Et sur les terminaux nomades, exigez le même niveau que sur un poste fixe : verrouillage, chiffrement du support, et la possibilité d'effacer à distance un appareil perdu ou volé.
+
+### Protéger et surveiller les données
+
+Au-delà des accès, plusieurs mesures techniques forment le socle d'un ERP robuste.
+
+  
+
+<FeatureColumns columns={2} items={[ {title: "Le chiffrement", text: "Vos données doivent être chiffrées au repos (dans la base) comme en transit (quand elles circulent). Si un fichier est intercepté, il reste illisible."}, {title: "Les sauvegardes", text: "Une copie quotidienne, stockée sur un support isolé et surtout testée régulièrement. Trop d'entreprises découvrent au pire moment que la leur est inutilisable."}, {title: "Les mises à jour", text: "Les correctifs des éditeurs bouchent des failles connues. Reporter un patch, c'est laisser une porte ouverte que les attaques automatisées trouveront vite."}, {title: "La supervision", text: "L'ERP journalise tout. Surveiller ces traces permet de repérer une connexion depuis un pays inattendu, un export massif ou une action en pleine nuit."}, {title: "La segmentation", text: "Cloisonner l'ERP du reste du réseau, avec des pare-feux internes, évite qu'une intrusion sur un poste donne un accès direct aux serveurs sensibles."}, {title: "Les interconnexions", text: "Chaque API et chaque connecteur doit être sécurisé et surveillé, car ces passerelles sont devenues des points d'entrée privilégiés."} ]} />
+
+  
+
+Une sauvegarde ne vaut que par ce qu'elle permet : redémarrer. D'où l'intérêt de formaliser un vrai plan de reprise d'activité (PRA), volet technique d'un plan de continuité (PCA) plus large. Concrètement, on fixe deux repères. Le premier, souvent appelé RPO, définit la quantité de données que l'on accepte de perdre, autrement dit à quelle fréquence sauvegarder. Le second, le RTO, fixe le délai maximal admissible pour remettre l'ERP en marche. À partir de là, on priorise : quels modules relancer en premier, dans quel ordre, avec quelles ressources. Un plan écrit, répété lors d'exercices, évite de tout improviser sous pression le jour de l'attaque.
+
+  
+
+Aucune de ces mesures n'est figée. La sécurité d'un ERP se vérifie dans la durée : **un audit régulier des droits et des connexions** permet de débusquer les comptes inactifs oubliés, les permissions devenues trop larges ou les tentatives d'accès suspectes, et de corriger avant qu'un incident ne survienne.
+
+  
+
+Pour aller plus loin, des tests d'intrusion (pentests) confiés à des spécialistes poussent la vérification un cran plus loin : ils simulent une vraie attaque et révèlent les failles avant qu'un pirate ne les trouve. C'est un complément précieux à l'audit, à programmer notamment après une évolution majeure de l'ERP ou l'ajout de nouvelles connexions.
+
+### Ne pas négliger le facteur humain
+
+On peut empiler les meilleures technologies du monde, la première faille reste presque toujours humaine. Un clic sur un mauvais lien, un mot de passe noté sur un post-it, une mesure désactivée « cinq minutes pour gagner du temps »… il n'en faut pas plus. C'est pourquoi la sensibilisation des équipes **pèse autant que la technique**. Expliquer les pièges du phishing, instaurer le réflexe de signaler un email douteux sans crainte, rappeler que chaque action dans l'ERP a des conséquences : voilà ce qui transforme les utilisateurs en première barrière plutôt qu'en maillon faible.
+
+## Cloud ou sur site : qui est responsable de quoi ?
+
+Une question revient toujours : est-on plus en sécurité avec un ERP hébergé chez soi ou dans le cloud ? La vraie réponse, c'est que la protection dépend [de la sécurité selon le déploiement](/erp-cloud-saas-on-premise/), et surtout du partage des responsabilités qui va avec.
+
+  
+
+Sur site, tout repose sur vos épaules : serveurs, réseau, sauvegardes, correctifs, l'ensemble est à votre charge. Dans le cloud, la responsabilité est **partagée** : l'hébergeur sécurise l'infrastructure (les machines, le réseau, la disponibilité), mais vous restez responsable de vos comptes, de vos droits d'accès, de vos configurations et de vos données. Autrement dit, même sur un SaaS clé en main, la gestion des accès et des sauvegardes reste votre affaire, jamais celle du seul prestataire.
+
+  
+
+Aucun des deux n'est intrinsèquement plus sûr que l'autre. Sur site, vous gardez la maîtrise totale, mais aussi toute la charge et le coût des compétences à mobiliser. Dans le cloud, vous déléguez une partie du travail à un spécialiste, en échange d'une dépendance et d'un vrai soin à apporter à la configuration. Le bon arbitrage dépend surtout de vos moyens internes et de la sensibilité de vos données.
+
+  
+
+Pour vous repérer, appuyez-vous sur les certifications : un hébergeur sérieux affiche une **certification ISO 27001**, et pour des données sensibles, des labels comme SecNumCloud (qualifié par l'ANSSI) ou HDS pour les données de santé apportent une garantie supplémentaire. Et attention, protéger techniquement ses données est une chose ; respecter le cadre légal en est une autre, car [la conformité au RGPD](/erp-rgpd/) ajoute, elle, des obligations juridiques précises sur ces mêmes données.
+
+  
+
+Au fond, retenez une chose : un ERP parfaitement sûr n'existe pas. Un ERP bien protégé n'est pas un ERP inattaquable, c'est un ERP **capable de résister** et de repartir vite. Tout l'enjeu est là !
+
+  
+
+Deux pièges font plus de dégâts que les pirates eux-mêmes : les comptes d'anciens salariés laissés actifs, et les sauvegardes que personne n'a jamais testées. Le jour de l'attaque, on découvre que le compte oublié a servi de porte d'entrée, et que la sauvegarde censée tout sauver est illisible. Vérifiez ces deux points dès cette semaine.
+
+  
+
+Par quoi commencer si vous ne deviez faire que deux choses ? Activez l'authentification multifacteur sur tous les comptes, et mettez en place des sauvegardes isolées que vous testez vraiment. Ces deux mesures, peu coûteuses, bloquent à elles seules une grande partie des attaques et vous garantissent de pouvoir repartir.
+
+## Questions fréquentes
+
+### Un ERP en cloud est-il moins sûr qu'un ERP hébergé en interne ?
+
+Pas forcément. Un bon hébergeur cloud dispose souvent de moyens de sécurité supérieurs à ceux d'une PME. La vraie différence tient au partage des responsabilités : dans le cloud, l'infrastructure est sécurisée pour vous, mais vos accès et vos données restent votre affaire.
+
+### Que faire en cas de cyberattaque sur son ERP ?
+
+Isolez les systèmes touchés pour stopper la propagation, prévenez votre prestataire informatique et conservez les preuves (journaux, horodatages). Ne payez pas la rançon sans avis d'experts. Si des données personnelles sont concernées, une notification à la CNIL sous 72 heures peut être obligatoire.
+
+### Une petite entreprise est-elle vraiment visée ?
+
+Oui. La majorité des attaques sont automatiques et ne ciblent personne en particulier : elles cherchent une faille, peu importe la taille. Les PME, souvent moins protégées, sont même des proies privilégiées. En France, une large part des attaques touche des structures de moins de 250 salariés.
+
+### Faut-il prévoir un plan de reprise pour son ERP ?
+
+Oui, dès que l'ERP est vital pour l'activité. Au-delà des sauvegardes, un plan de reprise (PRA) précise le délai admissible pour redémarrer, la quantité de données que l'on accepte de perdre et l'ordre de relance des modules. Testé lors d'exercices, il évite d'improviser le jour où tout s'arrête.
+
+### Mon ERP doit-il être conforme au RGPD ?
+
+Dès qu'il traite des données personnelles (clients, salariés), oui. Mais la conformité au RGPD est une question juridique, distincte de la sécurité technique : elle ajoute des obligations propres, comme la tenue d'un registre ou la gestion des droits des personnes.
+
+### Par quelle mesure de sécurité commencer ?
+
+Par les deux qui offrent le meilleur rapport effort/risque : l'authentification multifacteur sur tous les comptes, et des sauvegardes isolées et testées. Vient ensuite la revue des droits d'accès, pour appliquer le principe du moindre privilège.

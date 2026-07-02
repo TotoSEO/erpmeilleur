@@ -1,0 +1,186 @@
+---
+title: "La GPAO : le module qui met votre production en musique"
+seoTitle: "Module production ERP : la GPAO expliquée simplement"
+excerpt: "Dans un ERP, la GPAO planifie, lance et suit la fabrication. Voici son vocabulaire (nomenclature, gamme, OF), ses fonctions clés et sa différence avec le MRP, le MES et l'ERP."
+description: "La GPAO, module de production d'un ERP, gère nomenclatures, ordres de fabrication et planning. Vocabulaire, fonctions et différence avec MRP et MES."
+heroImage: "/images/N2-04.webp"
+heroAlt: "La GPAO : le module qui met votre production en musique"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "11 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Que veut dire GPAO ?"
+    a: "GPAO signifie gestion de la production assistée par ordinateur. C'est le logiciel, ou le module d'ERP, qui planifie, lance et suit la fabrication : nomenclatures, gammes, ordres de fabrication, calcul des besoins et ordonnancement."
+  - q: "Qu'est-ce qu'un ordre de fabrication (OF) ?"
+    a: "C'est le document qui déclenche une production en atelier. Il rassemble le produit à fabriquer, la quantité, les matières à consommer, la gamme à suivre et les dates. On le lance, on le suit, puis on le clôture une fois la production terminée."
+  - q: "Faut-il une GPAO séparée ou un ERP avec module production ?"
+    a: "La plupart des PME industrielles choisissent aujourd'hui un ERP avec module GPAO intégré : une seule base, pas d'outils qui se parlent mal. Une GPAO indépendante se justifie surtout quand le reste du système d'information est déjà solide."
+  - q: "La capacité finie, est-ce vraiment important ?"
+    a: "Souvent, oui. Un ordonnancement à capacité infinie planifie comme si l'atelier n'avait aucune limite, ce qui reste théorique. La capacité finie tient compte des machines réellement disponibles et des goulots, pour un planning tenable."
+  - q: "La GPAO convient-elle à la production unitaire ou à l'affaire ?"
+    a: "Oui. Les GPAO s'adaptent aux différents modes : série, unitaire, à l'affaire ou en mode projet. Le paramétrage des gammes et des nomenclatures se règle selon la nature de la fabrication, du grand volume répétitif à la pièce unique."
+  - q: "La GPAO gère-t-elle la traçabilité des lots ?"
+    a: "Oui, c'est l'une de ses fonctions clés dans les secteurs réglementés. Elle relie les lots de matières consommés aux numéros de lot ou de série des produits finis, ce qui permet une traçabilité ascendante et descendante et cible précisément un éventuel rappel."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "La GPAO (gestion de la production assistée par ordinateur) est le module production de l'ERP.", "Deux fondations : la nomenclature (de quoi est fait le produit) et la gamme (comment le fabriquer).", "Elle calcule les besoins (CBN), génère les ordres de fabrication et les ordonnance sur les postes.", "L'ordonnancement à capacité finie tient compte des machines réellement disponibles, pas d'un atelier illimité.", "La GPAO planifie et pilote, le MES exécute à l'atelier, l'ERP intègre le tout." ]} />
+
+  
+
+GPAO, trois lettres qui intimident et qui veulent simplement dire : **gestion de la production assistée par ordinateur**. C'est le module de l'ERP dédié à l'atelier. Il planifie ce qu'il faut fabriquer, lance les ordres de fabrication, les répartit sur les bonnes machines, puis suit l'avancement jusqu'au produit fini.
+
+  
+
+Son rôle : faire passer votre production d'un planning bricolé dans un tableur à un pilotage calculé, qui tient compte des matières, des machines et des délais. Voyons son vocabulaire, ses fonctions, et comment il se distingue du MRP, du MES et de l'ERP dans son ensemble.
+
+## GPAO : de quoi parle-t-on ?
+
+Derrière le sigle, un outil simple à cerner : la GPAO gère tout le flux de fabrication d'une entreprise industrielle. Données techniques, calcul des besoins, lancement et suivi des ordres, gestion des capacités machines et de la main-d'œuvre, tout y passe.
+
+  
+
+Dans un ERP, cette GPAO ne fonctionne pas en vase clos : elle s'intègre parmi [les autres fonctions de l'ERP](/modules-erp/) et dialogue avec les achats, les ventes, les stocks et la comptabilité. Un ordre de fabrication lancé met à jour le stock, déclenche des achats, alimente le calcul des coûts. C'est là toute la force de l'intégration. La GPAO s'adresse aux entreprises qui fabriquent, assemblent ou transforment : de l'atelier en série au fabricant à l'affaire, en passant par la production répétitive. Chaque site ayant ses particularités, elle se paramètre autour de ses propres gammes et postes de charge.
+
+## Le vocabulaire de base : nomenclature et gamme
+
+Avant toute chose, deux notions à maîtriser, car tout le reste en découle !
+
+  
+
+La **nomenclature** répond à la question « de quoi est fait le produit ? ». C'est la liste structurée de ses composants et matières. Elle peut être multi-niveaux (un sous-ensemble contient lui-même des composants) et gérer des variantes.
+
+  
+
+La **gamme opératoire** répond à « comment le fabriquer ? ». C'est la séquence des opérations : quel poste, quelle machine, quel temps, quelles compétences. Ensemble, nomenclature et gamme forment le socle de toute la production. Bien tenus, ces deux référentiels deviennent un langage commun entre le bureau d'études, les méthodes, la production et les achats. La nomenclature sert d'ailleurs de base au calcul des besoins et au chiffrage du coût de revient.
+
+  
+
+Prenez une chaise : la nomenclature liste les pieds, l'assise, les vis ; la gamme décrit l'ordre des opérations, du sciage au contrôle final. Ces deux référentiels parlent à tous les services, du bureau d'études aux achats. 
+
+## Les fonctions clés
+
+Sur ces fondations, la GPAO enchaîne plusieurs fonctions, de la prévision jusqu'au suivi en atelier…
+
+### Le calcul des besoins (CBN)
+
+C'est le moteur historique, hérité du [MRP des débuts de l'informatique de gestion](/histoire-erp/). Le calcul des besoins nets part de la demande (commandes, plan de production) et, en s'appuyant sur les nomenclatures et [les stocks de matières disponibles](/erp-gestion-stocks/), détermine ce qu'il faut fabriquer ou acheter, et pour quand. La règle est limpide : le **besoin net** égale le besoin brut moins le stock existant. Le module génère alors des suggestions d'ordres, déjà datées.
+
+### Les ordres de fabrication (OF)
+
+L'ordre de fabrication, ou « OF », c'est le document de travail de l'atelier. Il regroupe tout ce qu'il faut pour lancer une production : le produit, la quantité, les matières à consommer, la gamme à suivre, les dates… On le crée, on le lance, on le suit jusqu'à la clôture. Chaque OF consomme des matières et produit du fini, et ces mouvements remontent seuls dans le stock.
+
+### L'ordonnancement
+
+Savoir quoi produire ne suffit pas, encore faut-il savoir quand et sur quelle machine. C'est le rôle de l'ordonnancement. Deux approches existent : à capacité infinie, plus simple, mais qui fait comme si l'atelier pouvait tout absorber ; à **capacité finie**, qui tient compte des machines réellement disponibles, des priorités clients et des goulots. La seconde est plus exigeante à paramétrer, mais autrement plus réaliste ! En amont, la GPAO structure la planification en plusieurs horizons :
+
+  
+
+  - le **PIC** (plan industriel et commercial) fixe le cap à moyen terme, famille de produits par famille ;
+  - le **PDP** (plan directeur de production) décline ce cap en quantités précises, semaine par semaine ;
+  - l'**ordonnancement** descend au niveau de l'OF et du poste, jour par jour.
+
+### Les stocks et les approvisionnements
+
+On la présente souvent comme une simple planificatrice, mais la GPAO gère aussi la matière au quotidien. Elle tient les stocks de composants et de produits finis, déclenche les réapprovisionnements sur seuil ou sur besoin calculé, et réserve les matières dès qu'un OF est lancé. Concrètement, elle sait à tout moment ce qui est disponible, ce qui est déjà promis à une fabrication et ce qui doit être commandé. Cette gestion évite les deux plaies de l'atelier : la rupture qui bloque une ligne et le sur-stock qui immobilise de la trésorerie. Là encore, l'intégration à l'ERP joue à plein, puisque le réappro alimente directement le module [achats et approvisionnements](/erp-achats/) sans ressaisie.
+
+### La traçabilité par lot et numéro de série
+
+Dès qu'un produit est réglementé, périssable ou critique, il faut pouvoir répondre à une question simple : quel lot de matière est parti dans quel produit fini, et chez quel client ? La GPAO trace cette généalogie. Elle enregistre les lots de composants consommés à chaque OF, attribue un numéro de lot ou de série aux produits fabriqués, et conserve le lien entre les deux. En cas de non-conformité, un rappel se cible sur les seuls lots concernés au lieu de toucher toute une production. Cette traçabilité ascendante et descendante est indispensable dans l'agroalimentaire, la pharmacie, l'aéronautique ou l'automobile, et c'est souvent un critère de tri décisif entre deux solutions.
+
+### Le suivi d'atelier, les coûts et les indicateurs
+
+Une fois la production lancée, la GPAO suit l'avancement des OF, les encours, les temps réellement passés. Elle calcule le coût de revient et pointe les écarts entre le prévu et le réalisé, en temps comme en matière. Quelques indicateurs résument la santé de l'atelier : le taux de service (les délais tenus), la charge face à la capacité, l'avancement des ordres, le taux de rebuts… Les opérateurs déclarent souvent leur avancement directement à l'atelier, sur une borne ou une tablette, ce qui alimente ces indicateurs en temps réel plutôt qu'en fin de semaine.
+
+## GPAO, MRP, MES, ERP : qui fait quoi ?
+
+Beaucoup d'acronymes, peu de clarté. Remettons chacun à sa place.
+
+  
+
+<FeatureColumns columns={2} items={[ {title: "ERP", text: "Le système global : production, ventes, achats, stocks, comptabilité, RH. La GPAO en est le module de fabrication."}, {title: "GPAO", text: "La planification et le pilotage de la production : nomenclatures, gammes, OF, calcul des besoins, ordonnancement, suivi."}, {title: "MRP", text: "Un moteur de calcul, pas un logiciel à part. Il transforme la demande en besoins datés de fabrication et d'achat."}, {title: "MES", text: "L'exécution à l'atelier, en temps réel : états machines, cadences, arrêts, qualité, déclarations des opérateurs."} ]} />
+
+  
+
+Pour résumer : la GPAO planifie, le MES exécute, l'ERP intègre, et le MRP calcule. La plupart des PME industrielles démarrent avec un ERP à module GPAO, puis ajoutent un MES le jour où le suivi atelier doit devenir très fin.
+
+## Les bénéfices concrets
+
+Qu'est-ce que ça change, au fond ? On passe d'une organisation qui court après les délais à une production sous contrôle. Les gains reviennent toujours : des délais mieux tenus, moins d'erreurs et de rebuts, une meilleure coordination entre le bureau d'études, les méthodes et l'atelier, et des stocks plus justes. Les études du secteur font état de gains de productivité sensibles après le déploiement d'une GPAO bien paramétrée, sans qu'il faille y voir une recette magique : le résultat dépend d'abord de la qualité des données techniques et de l'appropriation par les équipes.
+
+  
+
+Le vrai bond vient de l'intégration. Dans un module GPAO d'ERP, un OF lancé génère seul ses mouvements de stock, ses ordres d'achat, ses écritures. Une seule saisie, une seule source de vérité, plus de fichiers Excel qui se contredisent d'un service à l'autre ! Un exemple parlant : une commande client urgente arrive. En quelques clics, la GPAO vérifie la disponibilité des matières, propose une date de fabrication réaliste au vu de la charge, et réserve les composants. Ce qui prenait une demi-journée d'allers-retours entre l'atelier et le commercial se règle en direct.
+
+  
+
+Avant de choisir, testez la gestion des nomenclatures multi-niveaux, des variantes et des substitutions : c'est souvent là que se joue la différence entre deux solutions. Une GPAO qui gère mal ces cas très courants deviendra vite un frein, même si le reste séduit en démonstration.
+
+## Comment choisir un logiciel GPAO ?
+
+Le marché va des GPAO spécialisées aux gros ERP à module production, en passant par des éditeurs français bien installés sur l'industrie comme Sylob, Sage, Cegid ou l'open source d'Odoo. Pour trancher, quelques critères pèsent plus que la longueur de la liste de fonctions.
+
+  
+
+D'abord, l'**adéquation à votre mode de production**. Une usine en grande série et un atelier à l'affaire n'attendent pas la même chose : gestion des ordres répétitifs d'un côté, chiffrage au devis et suivi par affaire de l'autre. Vérifiez que l'outil sait modéliser vos nomenclatures et vos gammes réelles, avec leurs variantes et leurs cas particuliers.
+
+  
+
+Ensuite, l'**ergonomie et l'adoption à l'atelier**. Une GPAO n'apporte de la valeur que si les opérateurs déclarent vraiment leurs temps et leurs quantités. Une saisie lourde sur borne, et les données remontées deviennent fausses. Faites tester les écrans par ceux qui les utiliseront tous les jours, pas seulement par le service méthodes.
+
+  
+
+Troisième critère, la **capacité d'intégration**. Un module GPAO natif de votre ERP partage d'emblée la même base que les achats, les stocks et la compta. Si vous partez sur une GPAO indépendante, la qualité des interfaces avec le reste du système d'information devient un point de vigilance majeur : c'est souvent là que les projets dérapent, comme le rappelle tout retour d'expérience sur [l'intégration entre logiciels](/integration-erp/).
+
+  
+
+Enfin, la **modularité et l'évolutivité** : pouvoir démarrer sur le noyau nomenclatures / OF / ordonnancement, puis ajouter la traçabilité fine ou un MES sans tout remettre à plat. Pour la méthode complète de sélection, notre guide sur [comment choisir un ERP](/comment-choisir-un-erp/) détaille la démarche, de la grille de critères à la short-list.
+
+## Réussir la mise en place
+
+Un bon logiciel mal déployé ne produit rien. La GPAO est même l'un des modules les plus sensibles, parce qu'elle repose sur des données techniques (nomenclatures, gammes, temps) qu'il faut fiabiliser avant de démarrer. Un référentiel approximatif, et le calcul des besoins comme l'ordonnancement s'appuient sur du sable.
+
+  
+
+Le déploiement progressif reste la voie la plus sûre : on cadre d'abord les référentiels, on lance quelques ateliers ou familles de produits pilotes, puis on étend une fois le paramétrage validé. Cette approche par étapes évite le grand basculement risqué et laisse le temps aux équipes de s'approprier l'outil. Le rôle de l'intégrateur y est central : c'est lui qui traduit votre organisation en paramétrage, forme les utilisateurs et évite les pièges déjà vus ailleurs, d'où l'importance de bien distinguer [le rôle de l'éditeur et de l'intégrateur](/editeur-integrateur-erp/).
+
+  
+
+Ne sous-estimez pas non plus la [conduite du changement](/conduite-du-changement-erp/) : passer d'un pilotage au tableur à un OF déclaré en temps réel bouscule les habitudes de l'atelier. Côté budget, une GPAO intégrée à un ERP se raisonne comme un projet ERP, avec ses licences, son paramétrage, sa reprise de données et sa formation ; les ordres de grandeur varient fortement selon la taille et le mode de déploiement, et notre page sur [le prix d'un ERP](/prix-erp/) donne les repères pour cadrer l'enveloppe.
+
+## Le vrai rôle du module
+
+La GPAO, c'est ce qui transforme un savoir-faire d'atelier en un **processus piloté**, chiffré et répétable. Elle ne se contente pas de dire quoi produire ; elle orchestre les matières, les machines et les hommes pour livrer à l'heure. Un bon module de production n'est pas un simple lanceur d'ordres de fabrication, c'est le chef d'orchestre de toute votre usine.
+
+## Questions fréquentes
+
+### Que veut dire GPAO ?
+
+GPAO signifie gestion de la production assistée par ordinateur. C'est le logiciel, ou le module d'ERP, qui planifie, lance et suit la fabrication : nomenclatures, gammes, ordres de fabrication, calcul des besoins et ordonnancement.
+
+### Qu'est-ce qu'un ordre de fabrication (OF) ?
+
+C'est le document qui déclenche une production en atelier. Il rassemble le produit à fabriquer, la quantité, les matières à consommer, la gamme à suivre et les dates. On le lance, on le suit, puis on le clôture une fois la production terminée.
+
+### Faut-il une GPAO séparée ou un ERP avec module production ?
+
+La plupart des PME industrielles choisissent aujourd'hui un ERP avec module GPAO intégré : une seule base, pas d'outils qui se parlent mal. Une GPAO indépendante se justifie surtout quand le reste du système d'information est déjà solide.
+
+### La capacité finie, est-ce vraiment important ?
+
+Souvent, oui. Un ordonnancement à capacité infinie planifie comme si l'atelier n'avait aucune limite, ce qui reste théorique. La capacité finie tient compte des machines réellement disponibles et des goulots, pour un planning tenable.
+
+### La GPAO convient-elle à la production unitaire ou à l'affaire ?
+
+Oui. Les GPAO s'adaptent aux différents modes : série, unitaire, à l'affaire ou en mode projet. Le paramétrage des gammes et des nomenclatures se règle selon la nature de la fabrication, du grand volume répétitif à la pièce unique.
+
+### La GPAO gère-t-elle la traçabilité des lots ?
+
+Oui, c'est l'une de ses fonctions clés dans les secteurs réglementés. Elle relie les lots de matières consommés aux numéros de lot ou de série des produits finis, ce qui permet une traçabilité ascendante et descendante et cible précisément un éventuel rappel.

@@ -1,0 +1,176 @@
+---
+title: "Le module qui tient votre comptabilité presque sans saisie"
+seoTitle: "Module comptabilité ERP : à quoi il sert et ses avantages"
+excerpt: "Dans un ERP, le module de comptabilité génère les écritures automatiquement à partir des ventes, achats et règlements. Voici son rôle, ses fonctions et la conformité française."
+description: "Le module comptabilité d'un ERP automatise les écritures, gère la TVA, la trésorerie et la conformité française (FEC, facture électronique)."
+heroImage: "/images/N2-03.webp"
+heroAlt: "Le module qui tient votre comptabilité presque sans saisie"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "11 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "L'ERP génère-t-il vraiment les écritures comptables tout seul ?"
+    a: "Oui. Chaque facture, règlement ou note de frais produit son écriture, ventilée aux bons comptes, sans ressaisie. Le comptable contrôle et valide plutôt qu'il ne saisit. C'est le principal gain par rapport à un logiciel isolé."
+  - q: "Le module comptabilité remplace-t-il l'expert-comptable ?"
+    a: "Non. Il prépare une comptabilité propre et à jour, que l'expert-comptable révise ensuite. L'ERP lui transmet les écritures ou le FEC. Il fait gagner du temps aux deux, sans se substituer au conseil du professionnel."
+  - q: "Un ERP produit-il le FEC pour un contrôle fiscal ?"
+    a: "Oui, la plupart des ERP génèrent le fichier des écritures comptables au format réglementaire. Attention aux plans comptables très personnalisés, qui peuvent créer des anomalies : un test avant remise à l'administration reste prudent."
+  - q: "Peut-on gérer et déclarer la TVA directement dans l'ERP ?"
+    a: "Oui. La TVA se calcule automatiquement sur chaque opération, se ventile aux bons comptes, et la déclaration se prépare au format attendu. Le module gère aussi la TVA sur les débits comme sur les encaissements."
+  - q: "Gère-t-il la comptabilité analytique et les immobilisations ?"
+    a: "Oui. L'analytique répartit charges et produits par axe (service, projet, produit) pour mesurer la rentabilité de chacun. Les immobilisations sont suivies avec leurs plans d'amortissement, directement dans le module."
+  - q: "L'ERP capture-t-il automatiquement les factures fournisseurs ?"
+    a: "Le plus souvent, oui. Un moteur de reconnaissance (OCR, ou LAD-RAD) lit la facture reçue en PDF ou scannée, en extrait le fournisseur, les montants et la TVA, puis pré-remplit l'écriture. Le comptable vérifie et valide au lieu de tout retaper."
+  - q: "Peut-on payer les fournisseurs depuis l'ERP ?"
+    a: "Oui. Le module prépare les règlements arrivés à échéance et génère un fichier de virement SEPA à remettre à la banque, en lot. Il gère aussi les prélèvements, les remises et, pour l'international, le multi-devise avec calcul des écarts de change."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+
+<KeyTakeaways title="En bref" items={[ "Le module de comptabilité génère les écritures automatiquement à partir des ventes, achats, paie et règlements.", "Il gère la TVA, la trésorerie, le rapprochement bancaire, les relances et les clôtures.", "La comptabilité analytique éclaire la rentabilité par service, projet ou produit.", "Côté conformité : FEC, plan comptable français, facture électronique, mises à jour légales automatiques.", "Face à un logiciel comptable classique, l'ERP supprime la ressaisie et connecte la compta au reste." ]} />
+
+  
+
+Le module de comptabilité, c'est le point où toutes les opérations de l'entreprise deviennent des écritures. Une facture de vente, un achat, une paie, une note de frais : chacune génère son écriture comptable automatiquement, **sans aucune ressaisie** ! C'est le grand changement par rapport à un logiciel de comptabilité classique, où le comptable récupère les données des autres services et les retape à la main.
+
+  
+
+Derrière, le module couvre tout le champ financier : TVA, trésorerie, relances, analytique, clôtures, et la conformité aux règles françaises. Comme le reste de l'ERP, il s'appuie sur [une base de données unique](/comment-fonctionne-un-erp/), la même que la vente ou le stock. Voyons son rôle et ses fonctions.
+
+## À quoi sert le module comptabilité ?
+
+Son rôle : tenir la comptabilité générale de l'entreprise, mais sans la couper du reste. Dans un ERP, la compta n'est pas un îlot en bout de chaîne, elle est alimentée en continu par les opérations des [modules de l'ERP](/modules-erp/). Une commande d'achat validée débouche sur une facture, qui, une fois contrôlée, déclenche seule l'écriture au bon compte.
+
+  
+
+Résultat : moins de saisie, moins d'erreurs, et une image financière toujours à jour. Là où un comptable passait des heures à reventiler des fichiers Excel reçus par mail, le module tient le grand livre en temps réel. Prenez un achat de fournitures : la commande est validée, la facture arrive et passe le contrôle, et l'écriture se crée seule, la TVA se ventile, la dette fournisseur s'inscrit, la trésorerie prévisionnelle s'ajuste. Personne n'a eu à ouvrir le journal des achats.
+
+## Les fonctions clés
+
+Le module va bien au-delà de la simple saisie. Il couvre toute la chaîne, de l'écriture au bilan…
+
+  
+
+Une opération saisie une fois se propage jusqu'aux états financiers, sans nouvelle intervention. C'est ce qui rend la comptabilité d'un ERP à la fois plus rapide et plus fiable. 
+
+### La génération automatique des écritures
+
+Le cœur du module. Chaque facture de vente ou d'achat, chaque règlement, chaque note de frais produit son écriture, ventilée aux bons comptes, dans le bon journal. La comptabilité générale et la comptabilité auxiliaire (le détail par client et par fournisseur) se tiennent en parallèle, sans double saisie. Selon son origine, l'écriture atterrit dans le bon journal :
+
+  
+
+  - **journal des ventes** : factures et avoirs clients ;
+  - **journal des achats** : factures fournisseurs ;
+  - **journal de banque** : encaissements et décaissements ;
+  - **opérations diverses (OD)** : paie, dotations, régularisations.
+
+### La capture des factures fournisseurs
+
+Avant même de générer l'écriture, les ERP récents savent lire la facture. Une facture fournisseur reçue en PDF ou scannée passe par un moteur de reconnaissance (on parle de LAD-RAD, ou plus simplement d'OCR comptable) qui repère le fournisseur, le numéro de pièce, les montants HT, la TVA, l'échéance. Le module pré-remplit l'écriture et propose son imputation ; le comptable se contente de vérifier et de valider. Là où il fallait retaper chaque ligne à partir du papier, il ne reste qu'un contrôle. C'est la même logique que le reste du module — supprimer la saisie — poussée jusqu'à la porte d'entrée du service, là où la paperasse fournisseur s'accumulait.
+
+### La TVA et les déclarations
+
+La TVA se calcule seule, à partir du taux porté sur chaque article. Le module ventile la TVA collectée et déductible vers les bons comptes, gère la distinction entre TVA sur les débits et TVA sur les encaissements, et prépare la déclaration au format attendu par l'administration. Les mentions légales obligatoires s'appliquent selon le cas (autoliquidation, exonération intracommunautaire…).
+
+### La trésorerie et le rapprochement bancaire
+
+Côté finance, le module suit la trésorerie en temps réel. Il automatise le rapprochement bancaire (le « pointage » entre relevés et écritures), le lettrage des factures et des règlements, les échéanciers, et construit un prévisionnel de trésorerie. De quoi savoir, à tout moment, ce qui est réellement disponible. Le rapprochement automatique, en particulier, fait gagner un temps fou : au lieu de pointer ligne à ligne un relevé contre le grand livre, le module propose les correspondances et ne laisse que les écarts à trancher.
+
+### Les règlements et les moyens de paiement
+
+Le module ne se contente pas d'enregistrer les paiements, il les exécute. À partir des factures fournisseurs arrivées à échéance, il prépare une campagne de règlement et génère le fichier de virement SEPA à remettre à la banque, en un lot plutôt qu'une saisie par facture. Côté clients, il gère les remises et les prélèvements SEPA pour encaisser les échéances sans relance. Les entreprises qui achètent ou vendent à l'étranger apprécient le multi-devise : la facture est saisie en devise, convertie au cours du jour, et le module calcule seul les écarts de change au règlement comme à la clôture. Une fois le paiement passé, l'écriture de banque et le lettrage suivent tout seuls.
+
+### Les notes de frais
+
+Souvent réduites à une ligne dans un tableur, les notes de frais sont dans un ERP une brique à part entière. Le salarié saisit sa dépense, parfois directement [depuis son mobile](/erp-mobile/) avec la photo du justificatif, puis la note part dans un circuit de validation : le manager approuve, le comptable contrôle. À l'arrivée, le module génère l'écriture, récupère la TVA déductible quand elle est admise, et déclenche le remboursement dans la prochaine campagne de virements. Le justificatif reste attaché à l'écriture, ce qui simplifie tout contrôle ultérieur. Rien à ressaisir entre la dépense du commercial et son remboursement.
+
+### Le recouvrement
+
+Les impayés grèvent la trésorerie. Le module suit les échéances, émet des relances paramétrables, garde trace des « promesses de paiement », et donne une vue claire des créances en cours. Résultat : des délais de règlement raccourcis et moins d'argent qui traîne chez les clients !
+
+### L'analytique, le budgétaire et les immobilisations
+
+Au-delà de la conformité, le module éclaire les décisions. La **comptabilité analytique** répartit charges et produits par axe (service, projet, produit) pour mesurer la vraie rentabilité de chacun. Le suivi budgétaire compare le réalisé au prévu. Et la gestion des immobilisations tient les actifs et leurs plans d'amortissement. Ces trois volets transforment la comptabilité en outil de pilotage : on ne se contente plus de constater le résultat global, on sait quel client, quel chantier ou quelle gamme le tire vers le haut ou le plombe.
+
+### Les clôtures, le reporting et les tableaux de bord
+
+En bout de course, le module produit les états réglementaires : grand livre, balance, journaux, bilan, compte de résultat… Les tableaux de bord financiers s'actualisent en temps réel, et pour les groupes, la consolidation réunit plusieurs sociétés, parfois en plusieurs normes (plan comptable français, IFRS). La clôture, longtemps synonyme de nuits blanches, devient un processus outillé : écritures d'à-nouveau, provisions et régularisations s'appuient sur des données déjà fiabilisées toute l'année.
+
+  
+
+Le reporting, lui, ne s'arrête pas aux états légaux. Le directeur financier construit ses propres tableaux de bord : DSO (délai moyen d'encaissement client), besoin en fonds de roulement, marge par activité, position de trésorerie à trente ou soixante jours. Comme les indicateurs se nourrissent des mêmes écritures que le grand livre, ils sont justes sans retraitement, et l'on peut suivre une tendance mois après mois plutôt que de figer un chiffre au moment de la clôture. C'est la différence entre une comptabilité qui rend des comptes et une comptabilité qui aide à décider.
+
+## La conformité française : FEC, PCG et facture électronique
+
+C'est un terrain où l'erreur coûte cher. Le module respecte le plan comptable général français et produit le **FEC**, le « fichier des écritures comptables », dans le format réglementaire exact. En cas de contrôle fiscal, ce fichier est le premier document réclamé : autant qu'il soit irréprochable !
+
+  
+
+Deux points valent l'attention. D'abord, les mises à jour légales : en SaaS, l'éditeur applique seul les nouveaux taux, formats et barèmes ; en installation locale, il faut poser les correctifs à la main. Ensuite, la [facturation électronique](/erp-facturation-electronique/), dont la réforme rebat les cartes et que les ERP récents intègrent nativement.
+
+  
+
+Attention à ne pas confondre deux obligations distinctes. La déclaration de TVA rythme le mois ou le trimestre ; la liasse fiscale, elle, boucle l'exercice. C'est l'ensemble des feuillets agréés (bilan, compte de résultat, annexes, tableaux) transmis à l'administration au format EDI-TDFC. Les modules les plus complets préparent cette liasse à partir de la balance de clôture, ce qui évite de reconstituer les tableaux à la main dans un logiciel tiers ; les plus légers s'arrêtent au FEC et laissent l'expert-comptable produire la liasse. Un point à vérifier au moment du choix, selon que l'on veut internaliser ou non ce travail.
+
+  
+
+Le FEC ne pardonne pas l'à-peu-près. Un plan comptable non standard ou des écritures d'interface mal paramétrées peuvent produire un fichier non conforme, rejeté par l'administration. La qualité du paramétrage initial, souvent confiée à l'intégrateur, conditionne directement votre sérénité en cas de contrôle.
+
+## ERP ou logiciel de comptabilité classique : quelle différence ?
+
+On pose souvent la question au moment de choisir. La différence tient en un mot : le flux.
+
+  
+
+Avec un logiciel de comptabilité classique, le comptable reçoit les informations des autres services par mail, fichier Excel ou import, puis les ressaisit. Cette rupture est la première source d'erreurs, de retards, et parfois de TVA déductible oubliée. Avec un ERP, l'écriture naît directement de l'opération, sans rupture ni recopie. L'enjeu dépasse le simple confort : chaque ressaisie évitée, c'est une facture qui ne se perd pas, une TVA déductible qui ne s'oublie pas, une clôture qui avance plus vite. Sur l'année, le gain se chiffre.
+
+  
+
+Faut-il pour autant jeter son logiciel de compta ? Pas forcément. Beaucoup d'entreprises gardent leur expert-comptable, à qui l'ERP transmet les écritures ou le FEC. L'ERP ne remplace pas le comptable, il lui livre une matière déjà propre et à jour.
+
+## Choisir un ERP côté comptabilité : les points de vigilance
+
+Tous les modules ne se valent pas, et la comptabilité concentre quelques pièges qu'il vaut mieux repérer avant de signer. Le premier tient au paramétrage du plan comptable : un ERP généraliste part souvent d'un plan étranger qu'il faut franciser compte par compte, faute de quoi le FEC sort bancal. Le deuxième, c'est la reprise de l'existant. Passer d'un ancien outil à l'ERP suppose de reprendre les balances, les à-nouveaux, les comptes tiers et les en-cours de TVA sans rien perdre ; cette [migration des données](/migration-donnees-erp/) mérite un test à blanc avant la bascule réelle.
+
+  
+
+Restent les questions de périmètre : le module gère-t-il plusieurs sociétés, plusieurs devises, la liasse fiscale ? Se connecte-t-il proprement au portail de votre expert-comptable ? Génère-t-il un FEC déjà validé sur un jeu d'écritures réel ? Ces critères pèsent autant que le prix, et recoupent la démarche générale pour [choisir un ERP](/comment-choisir-un-erp/) : partir de ses obligations concrètes plutôt que de la longueur de la brochure. Un module puissant mal paramétré produit de mauvaises écritures plus vite, voilà tout.
+
+## Le vrai rôle du module
+
+Le module de comptabilité, c'est la **mémoire financière** de l'ERP, nourrie sans effort par tout ce qui se passe ailleurs. Il ne se contente pas d'enregistrer le passé ; il donne une image vivante de la santé de l'entreprise, à jour à la minute. Un bon module de comptabilité n'est pas un tiroir où l'on range des écritures, c'est le tableau de bord financier de toute l'organisation.
+
+## Questions fréquentes
+
+### L'ERP génère-t-il vraiment les écritures comptables tout seul ?
+
+Oui. Chaque facture, règlement ou note de frais produit son écriture, ventilée aux bons comptes, sans ressaisie. Le comptable contrôle et valide plutôt qu'il ne saisit. C'est le principal gain par rapport à un logiciel isolé.
+
+### Le module comptabilité remplace-t-il l'expert-comptable ?
+
+Non. Il prépare une comptabilité propre et à jour, que l'expert-comptable révise ensuite. L'ERP lui transmet les écritures ou le FEC. Il fait gagner du temps aux deux, sans se substituer au conseil du professionnel.
+
+### Un ERP produit-il le FEC pour un contrôle fiscal ?
+
+Oui, la plupart des ERP génèrent le fichier des écritures comptables au format réglementaire. Attention aux plans comptables très personnalisés, qui peuvent créer des anomalies : un test avant remise à l'administration reste prudent.
+
+### Peut-on gérer et déclarer la TVA directement dans l'ERP ?
+
+Oui. La TVA se calcule automatiquement sur chaque opération, se ventile aux bons comptes, et la déclaration se prépare au format attendu. Le module gère aussi la TVA sur les débits comme sur les encaissements.
+
+### Gère-t-il la comptabilité analytique et les immobilisations ?
+
+Oui. L'analytique répartit charges et produits par axe (service, projet, produit) pour mesurer la rentabilité de chacun. Les immobilisations sont suivies avec leurs plans d'amortissement, directement dans le module.
+
+### L'ERP capture-t-il automatiquement les factures fournisseurs ?
+
+Le plus souvent, oui. Un moteur de reconnaissance (OCR, ou LAD-RAD) lit la facture reçue en PDF ou scannée, en extrait le fournisseur, les montants et la TVA, puis pré-remplit l'écriture. Le comptable vérifie et valide au lieu de tout retaper.
+
+### Peut-on payer les fournisseurs depuis l'ERP ?
+
+Oui. Le module prépare les règlements arrivés à échéance et génère un fichier de virement SEPA à remettre à la banque, en lot. Il gère aussi les prélèvements, les remises et, pour l'international, le multi-devise avec calcul des écarts de change.

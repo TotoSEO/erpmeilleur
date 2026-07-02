@@ -1,0 +1,196 @@
+---
+title: "Le module qui gère vos salariés, du contrat à la paie"
+seoTitle: "Module RH ERP : paie, congés et gestion du personnel"
+excerpt: "Dans un ERP, le module RH gère contrats, absences, paie et DSN. Voici son périmètre, ses fonctions et sa différence avec un SIRH dédié."
+description: "Le module RH d'un ERP gère contrats, absences, paie et DSN, formation et compétences. Son périmètre, ses fonctions, et où il s'arrête face à un logiciel RH spécialisé."
+heroImage: "/images/N2-05.webp"
+heroAlt: "Le module qui gère vos salariés, du contrat à la paie"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "11 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Le module RH d'un ERP gère-t-il vraiment la paie ?"
+    a: "Oui, la plupart calculent les bulletins et produisent la DSN. Les éléments variables (heures, absences, primes) remontent automatiquement des autres modules. Reste que la profondeur varie : certains ERP délèguent la paie à un logiciel spécialisé connecté."
+  - q: "Qu'est-ce que la DSN, et l'ERP la produit-il ?"
+    a: "La DSN, déclaration sociale nominative, est une déclaration mensuelle obligatoire qui transmet les données de paie aux organismes sociaux. La plupart des modules RH d'ERP la génèrent au format requis et l'envoient via net-entreprises.gouv.fr."
+  - q: "Combien coûte le module RH d'un ERP ?"
+    a: "Cela dépend du mode d'hébergement. En SaaS, le tarif se compte le plus souvent au salarié et par mois ; en installation locale, il s'agit d'une licence à l'achat, complétée d'une maintenance annuelle. À comparer au coût d'un bulletin traité manuellement, souvent estimé entre 40 et 50 euros : c'est là qu'un module intégré et automatisé devient rentable."
+  - q: "Le module RH d'un ERP gère-t-il le recrutement ?"
+    a: "Partiellement. Il enregistre les candidatures, prépare le contrat et l'arrivée du salarié, mais reste basique sur le sourcing et le suivi des candidats. Pour un vrai processus de recrutement (multidiffusion d'offres, ATS, gestion d'un vivier), les entreprises s'appuient plutôt sur un outil dédié connecté à l'ERP."
+  - q: "Peut-on connecter un SIRH dédié à son ERP ?"
+    a: "Oui, c'est même une configuration très répandue. Une API relie les deux : l'ERP garde la finance et les opérations, le SIRH gère les personnes, et les données sociales et financières restent cohérentes sans double saisie."
+  - q: "Les salariés peuvent-ils poser leurs congés en autonomie ?"
+    a: "Quand le module propose un portail self-service, oui. Le salarié demande ses congés, consulte son bulletin ou met à jour ses coordonnées depuis un ordinateur ou un mobile. Cette fonction reste souvent plus aboutie dans les SIRH dédiés."
+  - q: "Pourquoi les équipes RH préfèrent-elles souvent un SIRH ?"
+    a: "Parce qu'un ERP est pensé pour la finance et les opérations, ses interfaces RH paraissent parfois lourdes aux équipes. Un SIRH offre des workflows, des rapports et une ergonomie conçus pour le quotidien RH, ce qui explique son adoption."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "Le module RH d'un ERP centralise contrats, absences, paie, DSN et formation dans la base de l'ERP.", "La paie calcule les bulletins et reprend seule les éléments variables (temps, absences, primes).", "La DSN, déclaration sociale mensuelle obligatoire, se produit directement depuis le module.", "Un self-service laisse les salariés poser leurs congés et consulter leurs bulletins en autonomie.", "Face à un SIRH dédié, le module d'ERP couvre l'essentiel, mais avec moins de profondeur RH." ]} />
+
+  
+
+Le module RH d'un ERP, c'est la brique qui gère les collaborateurs : leurs contrats, leurs congés, leur paie, leurs formations. Tout ce qui touche à la vie du salarié dans l'entreprise, du premier jour au dernier, se retrouve **centralisé dans la même base** que la finance et les opérations.
+
+  
+
+Une nuance s'impose d'emblée : ce module fait le travail de fond (dossier du personnel, absences, bulletins, DSN), mais il reste souvent plus léger qu'un logiciel RH spécialisé. On verra pourquoi, et comment trancher. Voyons d'abord son rôle et ses fonctions.
+
+## À quoi sert le module RH d'un ERP ?
+
+Son rôle : réunir les processus ressources humaines au même endroit que le reste de la gestion. Concrètement, il tient le dossier de chaque salarié, suit ses absences, calcule sa paie et produit les déclarations sociales, le tout connecté aux [autres modules de l'ERP](/modules-erp/).
+
+  
+
+Cette intégration a un vrai intérêt : les heures pointées, les absences validées ou les primes accordées remontent seules vers la paie, sans qu'on les ressaisisse. Là où beaucoup d'entreprises jonglent encore entre un tableur de congés, un logiciel de paie et des mails de validation, le module fait circuler une donnée unique. Prenez un simple arrêt maladie : saisi une fois, il ajuste le solde d'absences, se répercute sur le bulletin du mois et remonte dans la DSN… sans que personne ait à le ressaisir trois fois !
+
+## Les fonctions clés
+
+Le périmètre couvre toute l'administration RH, du contrat d'embauche jusqu'à la déclaration mensuelle.
+
+  
+
+Le principe est toujours le même : ce qui est saisi une fois en amont (une absence, une heure supplémentaire) nourrit la paie puis la déclaration, sans double saisie. C'est là que le module fait gagner du temps et évite les erreurs. 
+
+### L'administration du personnel
+
+C'est la base. Le module centralise le dossier de chaque salarié : contrat, avenants, données personnelles, documents légaux…, souvent dans un coffre-fort numérique. Il gère aussi les entrées et les sorties : arrivée d'un nouveau, suivi de la période d'essai, départ avec les procédures prévues par la loi et la convention collective.
+
+### Les temps et les absences
+
+Congés payés, RTT, arrêts, récupérations… : le module suit toutes les absences et tient les soldes à jour automatiquement. Les demandes passent par un circuit de validation, et le décompte des heures, y compris supplémentaires, se fait seul. Fini les compteurs de congés tenus à la main, source classique de litiges !
+
+  
+
+Au-delà du décompte, les modules les plus complets vont jusqu'à la planification : construction des plannings d'équipe, affectation des horaires par poste, suivi des temps sur plusieurs établissements. Cette gestion des temps et des activités, la GTA, devient vite indispensable dès qu'on jongle avec des équipes postées, des sites multiples ou des horaires variables. C'est aussi le point où les besoins se creusent le plus : un atelier en 3x8 n'attend pas la même chose qu'un cabinet de conseil.
+
+### La paie et la DSN
+
+Le « cœur du réacteur ». Le module calcule les bulletins de salaire (base, primes, heures supplémentaires, avantages en nature) selon la convention collective, gère le prélèvement à la source et les cotisations. Surtout, les éléments variables validés ailleurs remontent seuls, ce qui supprime la principale source d'erreur sur les bulletins.
+
+  
+
+En bout de chaîne vient la **DSN**, la « déclaration sociale nominative ». Mensuelle et obligatoire depuis 2016, elle transmet aux organismes sociaux les données de paie de chaque salarié, en s'interfaçant avec net-entreprises.gouv.fr. Le module la génère au bon format, ce qui compte d'autant plus que les contrôles URSSAF se durcissent.
+
+### La formation et les compétences
+
+Au-delà de la paie, le module suit le développement des équipes : plan de formation, historique des formations suivies, référentiel de compétences. Il héberge aussi les entretiens d'évaluation et les entretiens professionnels, ces derniers obligatoires tous les deux ans. De quoi garder une trace et anticiper les besoins.
+
+### Le recrutement et l'onboarding
+
+Sur le recrutement, le module d'ERP reste volontairement sobre : il enregistre une candidature, prépare le contrat et déclenche l'arrivée du nouveau salarié — matériel, création des comptes, documents à signer. Pour aller plus loin — diffusion multi-jobboards, suivi structuré des candidats dans un véritable ATS, gestion d'un vivier —, il atteint vite ses limites, et c'est souvent là qu'un outil spécialisé prend le relais. L'onboarding, lui, gagne à être cadré : une check-list d'intégration reliée au dossier du salarié évite d'oublier une étape le jour de l'arrivée.
+
+### Le self-service salarié
+
+Un portail donne la main aux collaborateurs, souvent depuis un mobile :
+
+  
+
+  - **poser une demande de congé** et suivre sa validation ;
+  - **consulter et télécharger ses bulletins** de paie ;
+  - **mettre à jour ses coordonnées** ou ses documents personnels.
+
+  
+
+Moins de sollicitations pour les RH, plus d'autonomie pour chacun ! C'est justement sur ce terrain que les modules d'ERP se montrent parfois plus limités qu'un outil dédié.
+
+## Piloter la RH : tableaux de bord et indicateurs sociaux
+
+Une donnée RH centralisée n'a de valeur que si on sait la relire. C'est le rôle du reporting : transformer les dossiers, les temps et la paie en indicateurs de pilotage. Masse salariale et son évolution, taux d'absentéisme, turnover, pyramide des âges, répartition femmes-hommes, effectifs par service… le module agrège ces chiffres depuis sa propre base, sans export ni retraitement dans un tableur.
+
+  
+
+Pour une direction, ces tableaux de bord servent à anticiper : repérer un absentéisme qui grimpe sur un site, surveiller le poids des heures supplémentaires, préparer un budget de formation ou alimenter la base de données économiques et sociales attendue par les représentants du personnel. Là encore, les modules d'ERP couvrent les indicateurs standards ; les analyses plus fines, du prévisionnel des compétences au people analytics, restent le terrain des solutions RH spécialisées.
+
+## La conformité : DSN, RGPD et mises à jour légales
+
+En RH, la conformité n'est pas négociable, et l'erreur se paie cher. Un mauvais paramétrage de paie peut compromettre les droits à la retraite d'un salarié et exposer l'employeur à un redressement.
+
+  
+
+Le point le plus sensible : les mises à jour réglementaires. Un changement de taux de cotisation décidé par l'URSSAF doit s'appliquer dès le mois suivant, sur tous les bulletins, sans intervention. En mode SaaS, l'éditeur s'en charge seul ; en installation locale, il faut le faire à la main. C'est souvent le « critère numéro un » dans le choix d'une solution.
+
+  
+
+Autre bénéfice, souvent sous-estimé : la protection des données. Des informations salariés centralisées, avec des droits d'accès fins et une traçabilité, sont bien mieux protégées que les mêmes données éparpillées dans des fichiers Excel envoyés par mail. C'est aussi une exigence de [conformité au RGPD](/erp-rgpd/), qui impose de savoir qui accède à quoi et de limiter les données conservées au strict nécessaire.
+
+  
+
+Posez une seule question à chaque éditeur : votre solution applique-t-elle seule les évolutions réglementaires (taux, nouvelles obligations DSN), ou faut-il les paramétrer soi-même ? La réponse départage les outils bien plus sûrement qu'une longue liste de fonctionnalités. Sur la paie, une donnée fausse a des conséquences légales, pas un simple désagrément.
+
+## SaaS ou installation locale : hébergement et budget
+
+La paie se gère aujourd'hui de deux façons. En SaaS, le logiciel tourne chez l'éditeur : vous payez un abonnement, le plus souvent au salarié et par mois, et c'est lui qui héberge, sauvegarde et surtout met à jour la réglementation. En installation locale, ou on-premise, vous achetez une licence, le logiciel tourne sur vos serveurs, et la responsabilité des mises à jour comme des sauvegardes vous revient. Ce choix d'[hébergement cloud ou local](/erp-cloud-saas-on-premise/) pèse particulièrement lourd en paie, où une mise à jour ratée se traduit aussitôt par des bulletins faux.
+
+  
+
+Côté budget, les ordres de grandeur diffèrent nettement. Une solution SaaS se facture souvent de quelques euros à une quinzaine d'euros par salarié et par mois, hébergement et mises à jour compris ; une licence on-premise demande un investissement initial plus lourd, complété par une maintenance annuelle. À rapprocher du coût d'un bulletin traité à la main, souvent 40 à 50 euros. Pour cadrer l'enveloppe sans se tromper, mieux vaut raisonner en coût complet sur plusieurs années : le [budget d'un projet ERP](/prix-erp/) ne se résume jamais au tarif affiché de la licence.
+
+## Module RH d'ERP ou SIRH dédié : lequel choisir ?
+
+C'est LA question à se poser. Un ERP est bâti autour de la finance et des opérations, si bien que son module RH couvre l'essentiel sans toujours aller très loin. Le self-service, la gestion des talents ou l'onboarding y restent souvent basiques.
+
+  
+
+Un [logiciel RH dédié, le SIRH](/logiciels-gestion-entreprise/), fait l'inverse : tout y tourne autour du collaborateur, du recrutement au départ, avec une profondeur et une ergonomie pensées pour les équipes RH. Un chiffre résume la situation : d'après le CXP, à peine 13 % des entreprises utilisent la RH de leur ERP, et 8 % la paie. La fonction RH reste souvent confiée à des solutions spécialisées. Le coût pèse aussi dans la balance : un bulletin traité à la main revient souvent à 40 ou 50 euros, contre bien moins via une solution dédiée et automatisée. Sur des centaines de bulletins par mois, l'écart n'a rien d'anecdotique.
+
+  
+
+<FeatureColumns columns={2} items={[ {title: "Le module RH de l'ERP", text: "Idéal si vous avez déjà un ERP et des besoins RH modérés. Combler ses lacunes coûte moins cher et reste cohérent avec le reste."}, {title: "Le SIRH dédié", text: "Le bon choix pour des besoins RH avancés ou un départ de zéro : recrutement, formation, gestion fine des compétences et de la performance."}, {title: "La combinaison des deux", text: "Configuration répandue : l'ERP pour la finance et les opérations, un SIRH pour les personnes, reliés par une intégration."}, {title: "Le critère qui tranche", text: "Votre couverture existante. Si l'ERP est déjà en place, on part de lui ; sinon, le SIRH prend tout son sens."} ]} />
+
+  
+
+En pratique, beaucoup d'entreprises finissent par combiner les deux, chaque service gardant l'outil taillé pour lui.
+
+## Réussir le déploiement du module RH
+
+Activer le module RH d'un ERP n'est pas qu'un sujet technique. Le premier chantier, c'est la reprise des données : historiques de paie, soldes de congés, dossiers du personnel, éléments variables… Une [migration des données RH](/migration-donnees-erp/) mal préparée, et ce sont des soldes de congés faux ou des cumuls de paie à recaler pendant des mois.
+
+  
+
+Vient ensuite l'adoption. Un module RH touche tout le monde : les gestionnaires de paie, les managers qui valident les congés, les salariés passés au self-service. Si le portail est jugé lourd ou mal expliqué, chacun retourne à ses habitudes — le tableur, le mail, le papier. Un minimum de [conduite du changement](/conduite-du-changement-erp/) et de formation fait souvent la différence entre un outil réellement utilisé et une coquille vide.
+
+  
+
+Les erreurs classiques reviennent toujours : vouloir tout déployer d'un coup, sous-estimer le paramétrage de la convention collective, négliger le test des premiers bulletins. Un démarrage prudent — une paie à blanc sur un mois, comparée à l'ancien système — évite bien des mauvaises surprises au premier bulletin réel.
+
+## Le vrai rôle du module
+
+Le module RH de l'ERP, c'est le **socle administratif** de la fonction : il tient les dossiers, sort la paie, produit la DSN, sans effort de recopie. Il ne prétend pas remplacer un outil RH complet, il assure ce socle, proprement et à jour. Un bon module RH n'est pas un simple logiciel de paie greffé à l'ERP, c'est le point où la vie de vos salariés rejoint la gestion de l'entreprise.
+
+## Questions fréquentes
+
+### Le module RH d'un ERP gère-t-il vraiment la paie ?
+
+Oui, la plupart calculent les bulletins et produisent la DSN. Les éléments variables (heures, absences, primes) remontent automatiquement des autres modules. Reste que la profondeur varie : certains ERP délèguent la paie à un logiciel spécialisé connecté.
+
+### Qu'est-ce que la DSN, et l'ERP la produit-il ?
+
+La DSN, déclaration sociale nominative, est une déclaration mensuelle obligatoire qui transmet les données de paie aux organismes sociaux. La plupart des modules RH d'ERP la génèrent au format requis et l'envoient via net-entreprises.gouv.fr.
+
+### Combien coûte le module RH d'un ERP ?
+
+Cela dépend du mode d'hébergement. En SaaS, le tarif se compte le plus souvent au salarié et par mois ; en installation locale, il s'agit d'une licence à l'achat, complétée d'une maintenance annuelle. À comparer au coût d'un bulletin traité manuellement, souvent estimé entre 40 et 50 euros : c'est là qu'un module intégré et automatisé devient rentable.
+
+### Le module RH d'un ERP gère-t-il le recrutement ?
+
+Partiellement. Il enregistre les candidatures, prépare le contrat et l'arrivée du salarié, mais reste basique sur le sourcing et le suivi des candidats. Pour un vrai processus de recrutement (multidiffusion d'offres, ATS, gestion d'un vivier), les entreprises s'appuient plutôt sur un outil dédié connecté à l'ERP.
+
+### Peut-on connecter un SIRH dédié à son ERP ?
+
+Oui, c'est même une configuration très répandue. Une API relie les deux : l'ERP garde la finance et les opérations, le SIRH gère les personnes, et les données sociales et financières restent cohérentes sans double saisie.
+
+### Les salariés peuvent-ils poser leurs congés en autonomie ?
+
+Quand le module propose un portail self-service, oui. Le salarié demande ses congés, consulte son bulletin ou met à jour ses coordonnées depuis un ordinateur ou un mobile. Cette fonction reste souvent plus aboutie dans les SIRH dédiés.
+
+### Pourquoi les équipes RH préfèrent-elles souvent un SIRH ?
+
+Parce qu'un ERP est pensé pour la finance et les opérations, ses interfaces RH paraissent parfois lourdes aux équipes. Un SIRH offre des workflows, des rapports et une ergonomie conçus pour le quotidien RH, ce qui explique son adoption.

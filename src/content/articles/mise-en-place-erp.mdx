@@ -1,0 +1,224 @@
+---
+title: "Mettre en place un ERP : comment le projet se déroule vraiment"
+seoTitle: "Mise en place d'un ERP : étapes, durée et équipe projet"
+excerpt: "De la première réunion de cadrage jusqu'aux semaines qui suivent le démarrage, voici comment se déroule un projet ERP : les étapes, la durée, l'équipe à mobiliser et les pièges qui font tout dérailler."
+description: "Comment se déroule un projet ERP, du cadrage au go-live : étapes clés, durée pour une PME, équipe à mobiliser et pièges à éviter pour réussir sa mise en place."
+heroImage: "/images/N1-11.webp"
+heroAlt: "Mettre en place un ERP : comment le projet se déroule vraiment"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "13 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Peut-on mettre en place un ERP sans intégrateur ?"
+    a: "C'est possible, mais risqué pour la plupart des entreprises. Un intégrateur apporte la méthode, l'expérience de projets similaires et la connaissance fine du paramétrage. Sans lui, il faut des compétences internes solides et du temps à y consacrer. Les ERP open source ou très simples se prêtent parfois à un déploiement autonome, mais dès que le périmètre se complexifie, l'accompagnement devient vite rentable."
+  - q: "Faut-il tout déployer d'un coup ou avancer par étapes ?"
+    a: "Les deux approches existent et se choisissent selon votre tolérance au risque. Le big bang bascule tout le même jour : plus rapide, mais sans filet. Le déploiement progressif active les modules ou les sites un à un, ce qui sécurise mais étire le projet. Une PME au périmètre limité s'en sort souvent bien avec un big bang préparé. Un groupe multi-sites a tout intérêt à y aller par paliers."
+  - q: "L'entreprise peut-elle continuer à travailler normalement pendant le projet ?"
+    a: "Oui, l'essentiel du projet se déroule en parallèle de l'activité. Le cadrage, le paramétrage et la formation n'arrêtent pas la production. Seule la bascule demande de la vigilance : on la planifie souvent sur une période creuse (un week-end, une fin de mois calme) pour limiter l'impact. Les premiers jours d'utilisation réelle restent plus lents, le temps que chacun prenne ses marques."
+  - q: "Faut-il un chef de projet dédié en interne ?"
+    a: "Oui, c'est un facteur de réussite majeur, même à temps partiel dans une PME. Cette personne fait le lien avec l'intégrateur, arbitre les questions du quotidien et garde le cap sur les objectifs de départ. Sans référent interne identifié, le projet s'éparpille et personne ne porte les décisions. Inutile que ce soit un informaticien : un bon connaisseur de l'entreprise fait souvent l'affaire."
+  - q: "Que se passe-t-il une fois l'ERP en production et l'hypercare terminé ?"
+    a: "L'outil entre dans sa vie courante. Un contrat de maintenance ou de support (TMA) prend en charge les demandes du quotidien, tandis que vous rouvrez le chantier des fonctions laissées de côté au démarrage. S'ajoutent les montées de version de l'éditeur, plus faciles à absorber si vous êtes resté proche du standard. Désigner un référent interne qui garde la main sur le paramétrage évite que l'ERP se fige avec le temps."
+  - q: "Comment savoir si la mise en place est réussie ?"
+    a: "La vraie mesure, c'est l'usage. Un ERP réussi, c'est un outil que les équipes utilisent vraiment, sans le contourner, et qui atteint les objectifs fixés au cadrage : gain de temps, fiabilité des données, visibilité sur l'activité. Si trois mois après le démarrage les anciens fichiers Excel ont disparu et que les tableaux de bord servent à décider, vous tenez le bon bout."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import DataTable from '../../components/DataTable.astro';
+
+<KeyTakeaways title="En bref" items={[ "Un projet ERP suit des étapes balisées : cadrage, paramétrage, migration des données, tests, formation, go-live, puis suivi.", "Pour une PME, comptez six à douze mois entre le cadrage et un système stabilisé.", "Ce n'est pas un projet informatique mais un projet d'organisation : l'adhésion des équipes fait la réussite.", "Le cadrage est l'étape la plus déterminante ; la bâcler se paie au prix fort ensuite.", "Le go-live n'est pas la fin : un suivi rapproché de un à trois mois stabilise les usages." ]} />
+
+  
+
+Vous avez tranché : votre entreprise va s'équiper d'un ERP. Et là, une question revient toujours. Concrètement, comment ça se passe ?
+
+  
+
+La mise en place d'un ERP se déroule en une suite d'étapes assez balisées. On cadre le besoin, on paramètre l'outil, on reprend les données, on teste, on forme les équipes, puis on bascule en production avant un suivi rapproché. Comptez plusieurs mois, rarement moins de six pour une PME. Et le point que personne ne dit assez fort : ce n'est pas un projet informatique, c'est un projet d'organisation. La technique, votre intégrateur la maîtrise. Ce qui fait la réussite ou l'échec, c'est la préparation en amont et l'adhésion de vos équipes.
+
+  
+
+Une précision avant d'attaquer. Je pars du principe que vous savez déjà [ce qu'est un ERP](/qu-est-ce-qu-un-erp/) et que [le moment de vous équiper](/quand-mettre-en-place-un-erp/) est venu : ici, on parle d'une seule chose, le déroulé du projet, étape par étape, avec ce qui vous attend vraiment à chacune.
+
+## Un projet d'organisation avant d'être un projet informatique
+
+Si vous ne deviez retenir qu'une idée de cet article, ce serait celle-là. Un ERP, ça remplace rarement un seul logiciel : ça rebat les cartes de la façon dont chaque service travaille au quotidien. Le commercial saisit ses devis autrement. La compta récupère ses écritures autrement. Le magasinier scanne autrement. Vous touchez aux habitudes de tout le monde, en même temps.
+
+  
+
+D'où le vrai risque. Selon une étude McKinsey souvent citée, près de **70 % des projets de transformation** échouent, et la cause numéro un n'est presque jamais la technique. C'est la résistance des équipes. Le logiciel tourne, mais personne ne s'en sert comme prévu.
+
+  
+
+Ça change la façon de piloter. La partie technique (installer, paramétrer, connecter), votre intégrateur sait faire, c'est son métier. Votre valeur ajoutée à vous est ailleurs : décrire précisément vos processus, faire des choix clairs, embarquer vos collaborateurs. Gardez cette grille en tête, parce qu'elle explique presque tout ce qui suit.
+
+## Les étapes d'un projet ERP, du cadrage au go-live
+
+Voici la vue d'ensemble avant d'entrer dans le détail. Chaque projet a ses variantes, mais le squelette reste le même quel que soit l'éditeur.
+
+  
+
+<DataTable caption="Les grandes étapes d'un projet ERP" columns={["Étape", "Qui pilote", "Livrable", "Durée indicative"]} rows={[ ["Cadrage et besoins", "Entreprise + intégrateur", "Cahier des charges validé", "3 à 8 semaines"], ["Paramétrage", "Intégrateur + référents métier", "ERP configuré", "1 à 4 mois"], ["Migration des données", "Entreprise + intégrateur", "Données reprises et vérifiées", "2 à 6 semaines, en parallèle"], ["Recette et tests", "Référents métier", "ERP validé sur cas réels", "2 à 4 semaines"], ["Formation", "Intégrateur + référents", "Équipes opérationnelles", "1 à 3 semaines"], ["Go-live", "Toute l'équipe projet", "ERP en production", "Jour J + hypercare"], ["Suivi post-démarrage", "Entreprise + éditeur", "Usages stabilisés", "1 à 3 mois"] ]} />
+
+### Le cadrage et l'analyse des besoins
+
+C'est **l'étape la plus déterminante**, et celle qu'on bâcle le plus souvent, parce qu'on a hâte de voir le logiciel tourner. Mauvais calcul. Tout ce que vous ratez ici se paie plus tard, en paramétrages à refaire et en utilisateurs perdus.
+
+  
+
+Concrètement, vous posez les objectifs (qu'est-ce qu'on cherche à régler, précisément ?), vous cartographiez vos processus métier réels, ceux de la vraie vie et pas ceux du manuel qualité, puis vous formalisez tout ça. Prenez un flux banal comme « de la commande client à la facture » : décrivez qui fait quoi, à quel moment, avec quelle validation. C'est ce niveau de détail qui rend le paramétrage juste. C'est aussi là qu'intervient [le cahier des charges qui cadre le projet](/cahier-des-charges-erp/), le document de référence pour tout le monde, de l'intégrateur aux utilisateurs.
+
+  
+
+Profitez-en pour fixer, dès le cadrage, ce à quoi vous mesurerez la réussite : réduction des délais de facturation, fiabilité des stocks, temps de saisie divisé, visibilité sur la marge. Ces objectifs chiffrés serviront de boussole tout au long du projet, et de juge de paix une fois l'outil en route.
+
+  
+
+Impliquez les métiers dès cette phase, pas seulement la direction et l'IT. Les gens qui utiliseront l'outil tous les jours repèrent des contraintes qu'aucun comité de pilotage ne devine. Une remarque, enfin, si vous hésitez encore entre plusieurs solutions : le choix de l'outil se joue en amont, et [la méthode de choix en amont](/comment-choisir-un-erp/) mérite son propre temps de réflexion. Une fois l'ERP retenu et le cadrage validé, l'implémentation démarre pour de bon.
+
+### Le paramétrage de la solution
+
+Place à la technique. L'intégrateur configure l'ERP pour qu'il colle à vos processus : règles de gestion, circuits de validation, droits par utilisateur, modèles de documents. C'est lui qui pilote, mais vos référents métier restent dans la boucle pour valider chaque choix.
+
+  
+
+Le mode d'hébergement pèse ici sur le déroulé. Un ERP en SaaS, hébergé dans le cloud de l'éditeur, s'installe vite : pas de serveur à monter, des mises à jour prises en charge, un paramétrage qui démarre presque tout de suite. Une solution installée sur vos propres serveurs, en on-premise, demande une phase d'infrastructure en amont et mobilise davantage votre IT. Ce choix se tranche normalement dès la sélection ; si le sujet reste flou, le comparatif entre [cloud et installation locale](/erp-cloud-saas-on-premise/) éclaire ses conséquences sur le calendrier.
+
+  
+
+Un conseil de terrain. Plus vous restez proche du **fonctionnement standard** de l'outil, plus le projet avance vite et reste stable. Chaque développement spécifique répond parfois à un vrai besoin, mais il alourdit le paramétrage, les tests, et surtout vos futures mises à jour. La question à se poser à chaque demande : est-ce un vrai avantage métier, ou juste une habitude qu'on n'a pas envie de lâcher ?
+
+### La migration des données et la recette
+
+Votre nouvel ERP a besoin d'être nourri : fiches clients, articles, stocks, balances comptables, en-cours, historiques. Sauf que vos anciennes données sont rarement propres. Doublons, champs vides, formats incohérents… Transférez la pagaille telle quelle, et vous obtenez une pagaille plus rapide. C'est tout.
+
+  
+
+Profitez de la migration pour faire le ménage dans vos bases. Un ERP nourri de données propres démarre bien. Nourri de doublons et de champs vides, il démarre mal, et c'est très long à rattraper une fois en production.
+
+  
+
+D'où l'intérêt de bien préparer [la migration des données existantes](/migration-donnees-erp/), idéalement avec plusieurs cycles de reprise à blanc avant le jour J. Le principe : on charge les données dans un environnement de test, on vérifie qu'elles arrivent complètes et au bon endroit, on corrige à la source, puis on recommence. Deux ou trois passages valent mieux qu'un, parce que chaque cycle révèle des anomalies que le précédent masquait. Beaucoup de blocages au démarrage viennent de là, bien plus que du logiciel.
+
+  
+
+Vient ensuite la recette. Vos référents déroulent leurs scénarios réels (passer une commande, éditer une facture, sortir un état de stock) et valident que l'outil répond. C'est le dernier filet avant la bascule. On ne le saute jamais. Une recette sérieuse ne se limite pas aux cas idéaux : testez aussi les avoirs, les retours, les commandes partielles, les fins de mois, bref tout ce qui coince dans la vraie vie.
+
+### La formation des équipes
+
+On arrive à l'étape que beaucoup sous-estiment, et c'est une vraie erreur. Un ERP parfaitement paramétré mais mal expliqué, c'est un projet qui capote. Vos équipes vont changer leurs gestes quotidiens. Si elles ne comprennent ni le pourquoi ni le comment, elles contournent l'outil ou y reviennent à reculons.
+
+  
+
+La formation commence avant le démarrage et se prolonge après, jamais en une seule session expédiée la veille du go-live. Le schéma qui marche le mieux : l'intégrateur forme vos **utilisateurs clés** (les fameux key users), qui deviennent ensuite les relais en interne, ceux que les collègues iront voir quand ils sècheront. Présentiel, tutoriels vidéo, fiches réflexes… peu importe le format tant qu'il colle à vos gens.
+
+  
+
+La formation technique ne suffit pas pour autant. Embarquer durablement les équipes relève de [la conduite du changement auprès des équipes](/conduite-du-changement-erp/), un travail de communication et d'écoute qui commence dès le lancement du projet.
+
+  
+
+Former un collaborateur à cliquer au bon endroit, c'est une chose. Lui donner envie de se servir de l'outil chaque jour, c'en est une autre. La réussite se joue là.
+
+### Le go-live et le suivi post-démarrage
+
+Le jour J, vous basculez en production. L'ancien système s'éteint, l'ERP prend le relais. Selon les entreprises, on bascule tout d'un coup (le fameux big bang) ou module par module, site par site. La bascule progressive rassure mais étire le calendrier. Le big bang va plus vite, en échange de nerfs solides et d'une recette béton.
+
+  
+
+Et surtout, le go-live **n'est pas la fin**. Les premières semaines, prévoyez un support renforcé, souvent appelé hypercare : vos key users et l'éditeur restent mobilisés pour répondre vite, corriger les derniers bugs et rassurer les utilisateurs. Dans les faits, ça ressemble souvent à une permanence dédiée et à des points quotidiens les premiers jours. Comptez un à trois mois pour que les usages se stabilisent et que l'outil tourne presque tout seul. C'est à ce moment, pas avant, qu'on peut parler de projet réussi.
+
+### Après l'hypercare : faire vivre l'ERP dans la durée
+
+L'hypercare passé, le projet ne s'arrête pas, il change de nature. On sort du mode chantier pour entrer dans la vie courante de l'outil. Concrètement, cela veut dire un contrat de support ou de maintenance applicative (la fameuse TMA) pour traiter les demandes du quotidien, et une routine d'amélioration continue : ce qu'on avait laissé de côté au go-live pour tenir les délais revient sur la table, module par module.
+
+  
+
+Il y a aussi les montées de version. Un éditeur fait évoluer son ERP au fil des ans, avec de nouvelles fonctions et des correctifs de sécurité. Rester proche du standard, comme évoqué plus haut, rend ces mises à jour bien plus simples à absorber. Désigner en interne un référent qui garde la main sur le paramétrage et centralise les demandes d'évolution évite que l'outil se fige le jour où l'intégrateur s'en va.
+
+## Mesurer les résultats une fois l'ERP en route
+
+Le go-live franchi, reste à vérifier que l'outil tient ses promesses. C'est là que servent les objectifs posés au cadrage : reprenez-les un à un, quelques mois après le démarrage, et regardez ce qui a bougé. Délais de traitement d'une commande, fiabilité des niveaux de stock, temps passé à ressaisir des données d'un logiciel à l'autre, clôture comptable qui tombe plus tôt : ce sont ces indicateurs concrets qui disent si le projet a créé de la valeur, pas le simple fait que le logiciel démarre.
+
+  
+
+Le calcul du [retour sur investissement d'un ERP](/roi-erp/) se lit sur la durée, rarement dès les premières semaines. Les gains apparaissent quand les usages se sont installés et que les anciens contournements ont disparu. Suivre deux ou trois indicateurs parlants, plutôt qu'un tableau de bord fleuve que personne ne consulte, suffit largement à piloter cette phase.
+
+## Combien de temps pour mettre en place un ERP ?
+
+La réponse honnête : ça dépend, mais on peut donner des ordres de grandeur. Pour une PME, comptez en général **six à douze mois** entre le premier atelier de cadrage et un système stabilisé. Une PME de trente personnes sur un périmètre compta, ventes et stocks s'en sort souvent en quatre à six mois. Un groupe multi-sites, lui, dépasse régulièrement l'année.
+
+  
+
+Trois facteurs pèsent vraiment sur le calendrier :
+
+  
+
+  - **Le périmètre fonctionnel** : combien de modules et combien de processus à couvrir.
+  - **Le nombre d'utilisateurs et de sites** : un mono-site se déploie bien plus vite qu'une organisation éclatée.
+  - **Le volume de spécifique** : chaque développement sur mesure rallonge le paramétrage comme les tests.
+
+  
+
+Plus vous cumulez les trois, plus [la durée à prévoir pour le projet](/duree-projet-erp/) s'allonge, parfois bien au-delà de l'estimation initiale.
+
+### Qui mobilise-t-on dans l'entreprise pour le faire ?
+
+Un projet ERP ne repose jamais sur une seule personne, et surtout pas sur la seule DSI. Il vous faut une petite équipe projet, mobilisée sur la durée. Trois rôles à ne pas négliger :
+
+  
+
+  - **Un sponsor côté direction**, qui tranche les arbitrages et donne le cap.
+  - **Un chef de projet interne**, qui fait le lien au quotidien avec l'intégrateur (à temps partiel dans une PME, mais bien présent).
+  - **Des référents métier**, un par service clé (compta, ventes, stocks, production), qui connaissent les vrais processus, testent l'outil et forment ensuite leurs collègues.
+
+  
+
+Sans ces référents, l'intégrateur paramètre dans le vide. En face, côté prestataire, vous avez un chef de projet et des consultants fonctionnels. Un projet fluide tient souvent à la **qualité du binôme** entre votre chef de projet et le sien. Quand ces deux-là se parlent bien, tout le reste avance mieux.
+
+## Les pièges qui font dérailler un projet
+
+Vous l'avez senti au fil des étapes : les mêmes erreurs reviennent projet après projet. Un cadrage expédié. Des données migrées sans nettoyage. Une formation reléguée à la dernière minute. Des équipes qu'on n'a jamais écoutées. Aucune n'est technique. Toutes sont évitables.
+
+  
+
+Le piège le plus coûteux est rarement technique. Un projet piloté comme un simple chantier informatique, avec une direction aux abonnés absents et des utilisateurs mis devant le fait accompli, court tout droit à l'échec.
+
+  
+
+Chacune de ces erreurs a ses signaux d'alerte. [Les causes d'échec à anticiper](/echec-projet-erp/) sont aujourd'hui bien documentées, et les repérer tôt change tout le déroulé d'un projet.
+
+  
+
+Au fond, la réussite se joue avant même d'allumer le logiciel. Tout part du cadrage : des objectifs nets, des processus bien décrits, des équipes prévenues et impliquées. Le reste, c'est de l'exécution.
+
+## Questions fréquentes
+
+### Peut-on mettre en place un ERP sans intégrateur ?
+
+C'est possible, mais risqué pour la plupart des entreprises. Un intégrateur apporte la méthode, l'expérience de projets similaires et la connaissance fine du paramétrage. Sans lui, il faut des compétences internes solides et du temps à y consacrer. Les ERP open source ou très simples se prêtent parfois à un déploiement autonome, mais dès que le périmètre se complexifie, l'accompagnement devient vite rentable.
+
+### Faut-il tout déployer d'un coup ou avancer par étapes ?
+
+Les deux approches existent et se choisissent selon votre tolérance au risque. Le big bang bascule tout le même jour : plus rapide, mais sans filet. Le déploiement progressif active les modules ou les sites un à un, ce qui sécurise mais étire le projet. Une PME au périmètre limité s'en sort souvent bien avec un big bang préparé. Un groupe multi-sites a tout intérêt à y aller par paliers.
+
+### L'entreprise peut-elle continuer à travailler normalement pendant le projet ?
+
+Oui, l'essentiel du projet se déroule en parallèle de l'activité. Le cadrage, le paramétrage et la formation n'arrêtent pas la production. Seule la bascule demande de la vigilance : on la planifie souvent sur une période creuse (un week-end, une fin de mois calme) pour limiter l'impact. Les premiers jours d'utilisation réelle restent plus lents, le temps que chacun prenne ses marques.
+
+### Faut-il un chef de projet dédié en interne ?
+
+Oui, c'est un facteur de réussite majeur, même à temps partiel dans une PME. Cette personne fait le lien avec l'intégrateur, arbitre les questions du quotidien et garde le cap sur les objectifs de départ. Sans référent interne identifié, le projet s'éparpille et personne ne porte les décisions. Inutile que ce soit un informaticien : un bon connaisseur de l'entreprise fait souvent l'affaire.
+
+### Que se passe-t-il une fois l'ERP en production et l'hypercare terminé ?
+
+L'outil entre dans sa vie courante. Un contrat de maintenance ou de support (TMA) prend en charge les demandes du quotidien, tandis que vous rouvrez le chantier des fonctions laissées de côté au démarrage. S'ajoutent les montées de version de l'éditeur, plus faciles à absorber si vous êtes resté proche du standard. Désigner un référent interne qui garde la main sur le paramétrage évite que l'ERP se fige avec le temps.
+
+### Comment savoir si la mise en place est réussie ?
+
+La vraie mesure, c'est l'usage. Un ERP réussi, c'est un outil que les équipes utilisent vraiment, sans le contourner, et qui atteint les objectifs fixés au cadrage : gain de temps, fiabilité des données, visibilité sur l'activité. Si trois mois après le démarrage les anciens fichiers Excel ont disparu et que les tableaux de bord servent à décider, vous tenez le bon bout.

@@ -1,0 +1,213 @@
+---
+title: "Facturation électronique : ce qui change, et le rôle de votre ERP"
+seoTitle: "Facturation électronique 2026 : le rôle de votre ERP"
+excerpt: ""
+description: "Facturation électronique obligatoire en 2026 : calendrier, plateformes agréées, format Factur-X, et le rôle de votre ERP pour être en conformité."
+heroImage: "/images/N1-17.webp"
+heroAlt: "Facturation électronique : ce qui change, et le rôle de votre ERP"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "12 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Mon ERP suffit-il, ou dois-je en changer ?"
+    a: "Pas forcément en changer. Votre ERP est une « solution compatible » : il doit pouvoir produire du Factur-X et se connecter à une plateforme agréée. S'il est récent et maintenu, une mise à jour suffit souvent. Vérifiez auprès de votre éditeur."
+  - q: "Qu'est-ce qu'une plateforme agréée (PA) ?"
+    a: "C'est un opérateur immatriculé par l'administration fiscale, intermédiaire obligatoire pour émettre et recevoir vos factures électroniques. Anciennement appelée PDP, elle achemine les factures et transmet les données au fisc. Plus d'une centaine existent déjà, dont certaines gratuites."
+  - q: "Plateforme agréée ou opérateur de dématérialisation : quelle différence ?"
+    a: "Une plateforme agréée (PA) est immatriculée par l'administration et peut transmettre officiellement vos factures. Un opérateur de dématérialisation (OD) sait les produire ou les convertir, mais n'est pas habilité : il doit s'appuyer sur une PA. Pour une transaction B2B conforme, seule une PA de la liste officielle fait foi."
+  - q: "Le PDF par email est-il encore valable ?"
+    a: "Non, plus une fois votre échéance passée. Un PDF ordinaire envoyé par mail ne sera plus considéré comme une facture électronique conforme pour le B2B. Seule une facture au format structuré, transmise via une plateforme agréée, comptera."
+  - q: "Ma micro-entreprise est-elle concernée ?"
+    a: "Oui. Toute entreprise assujettie à la TVA l'est, y compris en franchise de base. Dès septembre 2026, vous devrez pouvoir recevoir des factures électroniques ; l'obligation d'émettre arrivera en septembre 2027. Une plateforme agréée gratuite suffit largement."
+  - q: "Le Portail Public de Facturation est-il gratuit ?"
+    a: "Le PPF existe toujours, mais il ne sert plus à émettre ou recevoir vos factures. L'État a abandonné ce service gratuit fin 2024. Le PPF se limite désormais à l'annuaire et à la remontée des données. Vous devez passer par une plateforme agréée."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+
+*La facturation électronique B2B devient obligatoire à partir de septembre 2026.* Le principe est simple : une facture ne circule plus en direct par email, elle passe par des plateformes agréées qui l'acheminent et transmettent au passage certaines données au fisc. Votre ERP se branche à l'une de ces plateformes pour émettre et recevoir. 
+
+  
+  
+
+<KeyTakeaways title="En bref" items={[ "À partir du 1er septembre 2026, toutes les entreprises doivent pouvoir recevoir des factures électroniques ; les grandes entreprises et ETI doivent aussi les émettre.", "Les PME, TPE et micro-entreprises devront émettre à partir du 1er septembre 2027 (mais devront déjà recevoir dès 2026).", "Un simple PDF par email ne sera plus conforme : les factures B2B passent par une plateforme agréée (PA, ex-PDP), au format Factur-X, UBL ou CII.", "Votre ERP n'est pas une plateforme agréée : il doit s'y connecter pour émettre et recevoir. Vérifiez sa compatibilité.", "La vraie première échéance pour une PME, c'est septembre 2026 pour recevoir, pas 2027 pour émettre." ]} />
+
+  
+
+Ça y est, l'échéance approche pour de bon. À partir du **1er septembre 2026**, la facturation électronique entre entreprises devient progressivement obligatoire en France, et plus de dix millions d'acteurs économiques sont concernés. Si votre entreprise émet ou reçoit des factures entre professionnels, vous êtes dans le périmètre. Et au centre du sujet, il y a votre logiciel de gestion : pour bien saisir ce qui va changer, gardez en tête [ce qu'est un ERP](/qu-est-ce-qu-un-erp/), cette base qui centralise déjà votre facturation et votre comptabilité.
+
+  
+
+**PREMIÈRE CHOSE À COMPRENDRE CAR IL S’AGIT DU POINT LE PLUS MAL COMPRIS :**
+
+  
+
+Même si l'obligation d'émettre des factures électroniques est étalée jusqu'en 2027 pour les plus petites structures, l'obligation de les **recevoir** s'applique à tout le monde dès septembre 2026. Autrement dit, pour une PME, la première vraie échéance tombe en 2026, pas en 2027.
+
+  
+
+Pas de panique : la réforme a beaucoup bougé ces dernières années (calendriers reportés, plateforme publique gratuite abandonnée), mais le cadre est désormais stabilisé, au point que **l'administration parle d'une réforme « prête »**.
+
+  
+
+Voyons ensemble qui est concerné et quand, le vocabulaire à connaître, et surtout le rôle central de votre ERP dans cette transition.
+
+## Qui est concerné, et à partir de quand
+
+Commençons par le plus pratique : les dates et le périmètre. C'est ce que tout le monde veut savoir en premier.
+
+### Le calendrier 2026-2027
+
+Le déploiement se fait en deux temps, selon la taille de l'entreprise. Voici ce qu'il faut retenir :
+
+  
+
+  - **Au 1er septembre 2026** : toutes les entreprises, quelle que soit leur taille, doivent être capables de **recevoir** des factures électroniques. À la même date, les grandes entreprises et les ETI doivent aussi commencer à les **émettre**.
+  - **Au 1er septembre 2027** : c'est au tour des PME, TPE et micro-entreprises d'avoir l'obligation d'**émettre** leurs factures au format électronique.
+
+  
+
+Dans les deux cas s'ajoute l'e-reporting, la transmission de certaines données à l'administration, qui suit exactement le même calendrier. Un décret pourrait encore repousser l'échéance de 2027 d'un trimestre, mais l'esprit ne changera pas : tout le monde devra savoir recevoir dès 2026.
+
+### Quelles entreprises, quelles opérations
+
+Le champ est large. Sont concernées **toutes les entreprises établies en France et assujetties à la TVA**, sans exception de taille, de forme juridique ni de chiffre d'affaires. Même les micro-entrepreneurs en franchise de TVA sont dans la boucle : ils restent assujettis, donc soumis à la réforme. Et même une entreprise qui n'émet jamais de facture devra pouvoir en recevoir de ses fournisseurs.
+
+  
+
+En revanche, l'obligation porte uniquement sur les transactions **entre professionnels** (B2B) réalisées en France. Les ventes aux particuliers (B2C) et les opérations avec l'étranger n'entrent pas dans la facturation électronique à proprement parler : elles relèvent de l'e-reporting, dont on parle juste après. Les opérations exonérées de TVA (santé, enseignement…) restent, elles, en dehors du dispositif.
+
+## E-invoicing, e-reporting, plateformes : le vocabulaire à connaître
+
+La réforme s'accompagne de quelques termes un peu techniques. Pas besoin d'être expert pour s'y retrouver ! Mais mieux vaut les maîtriser, car ils reviennent partout.
+
+### E-invoicing et e-reporting
+
+Deux mécanismes coexistent. L'**e-invoicing**, c'est la facturation électronique au sens strict : l'émission et la réception de vos factures B2B via une plateforme.
+
+  
+
+L'**e-reporting**, lui, désigne la transmission à l'administration des données de vos autres opérations, celles qui ne passent pas par une facture électronique : vos ventes aux particuliers et vos transactions avec l'étranger. Pour celles-là, vous continuez à facturer comme avant, mais vous transmettez les données de transaction et de paiement à votre plateforme, qui les relaie au fisc.
+
+  
+
+Concrètement, deux natures de données remontent. D'un côté les **données de transaction** : le montant, la TVA facturée, la catégorie d'opération concernée. De l'autre les **données de paiement** : la date d'encaissement et le montant effectivement reçu, utiles pour les prestations de services où la TVA est exigible à l'encaissement. Le rythme d'envoi n'est pas le même pour tout le monde : il dépend de votre régime de TVA. Une entreprise au réel normal transmet à une cadence rapprochée, tandis que les régimes simplifiés ou la franchise en base bénéficient d'une périodicité plus espacée. Bonne nouvelle : c'est votre plateforme qui gère cette cadence, à la seule condition que votre ERP lui pousse des données à jour.
+
+### La plateforme agréée (et le rôle du PPF)
+
+Pour échanger vos factures, vous devrez obligatoirement passer par une **plateforme agréée** (PA), anciennement appelée plateforme de dématérialisation partenaire, ou PDP. C'est un opérateur privé immatriculé par l'administration fiscale, qui achemine les factures, vérifie leur conformité et remonte les données utiles au fisc. Il en existe déjà plus d'une centaine sur la liste officielle, des acteurs comme Pennylane, Sage, Cegid ou Qonto, et certaines proposent même une offre gratuite.
+
+  
+
+Un piège que signalent plusieurs plateformes, Pennylane en tête : ne confondez pas une plateforme agréée avec un simple **opérateur de dématérialisation** (OD). L'OD sait produire, convertir et faire transiter des factures électroniques, mais il n'est pas immatriculé par l'administration. Pour que vos flux soient valables, il doit lui-même s'adosser à une plateforme agréée. Autrement dit, un prestataire peut vous vendre une jolie interface de facturation sans être habilité à transmettre officiellement vos factures. Avant de signer, vérifiez donc l'immatriculation sur la liste officielle, pas seulement l'argumentaire commercial.
+
+  
+
+Et le portail public dans tout ça ? C'est le point qui a le plus évolué. L'État avait d'abord prévu un Portail Public de Facturation (PPF) gratuit, par lequel toutes les entreprises auraient pu déposer leurs factures. Ce scénario a été abandonné fin 2024. Le **PPF** ne sert plus de plateforme d'émission : il joue désormais deux rôles, celui d'annuaire central (savoir, à partir d'un SIREN, sur quelle plateforme une entreprise reçoit ses factures) et de concentrateur des données vers l'administration. Conclusion : vous ne pouvez pas vous contenter du portail public, il vous faut bel et bien choisir une plateforme agréée. À noter, pour facturer le secteur public, c'est toujours Chorus Pro qui reste la référence.
+
+### Les formats : place au Factur-X
+
+Une facture électronique n'est pas un simple PDF. C'est un fichier structuré, lisible par une machine, qui respecte la norme européenne EN 16931. Trois formats sont reconnus : le **Factur-X**, l'UBL et le CII. Pour la plupart des PME, le Factur-X est le plus confortable, car c'est un format hybride : un PDF classique que vous lisez à l'œil, avec un fichier de données XML intégré que les logiciels exploitent automatiquement. Vous gardez donc une facture lisible, tout en étant parfaitement conforme.
+
+  
+
+La conséquence est nette : le bon vieux PDF envoyé en pièce jointe d'un email ne sera plus valable pour une transaction B2B, une fois votre échéance passée. Seule une facture transmise via une plateforme agréée, dans l'un des formats reconnus, comptera comme une facture électronique conforme.
+
+## Et votre ERP dans tout ça ?
+
+Venons-en au cœur du sujet pour vous : où se situe votre logiciel de gestion dans ce nouveau paysage ? La réponse est capitale, car c'est lui qui va faire (ou non) le travail au quotidien.
+
+### Votre ERP, une « solution compatible »
+
+Soyons précis, car la nuance compte. Votre ERP n'est pas une plateforme agréée. Dans le vocabulaire officiel, c'est une **« solution compatible »** : un logiciel qui vous aide à produire et à traiter vos factures conformes, mais qui n'est pas immatriculé pour les transmettre directement à l'administration. Pour cela, il doit s'appuyer sur une plateforme agréée.
+
+  
+
+En pratique, deux cas de figure se présentent. Soit l'éditeur de votre ERP est lui-même devenu une plateforme agréée (c'est le cas de plusieurs grands noms comme Sage ou Cegid), et tout est intégré de bout en bout. Soit votre ERP se connecte, via un **connecteur ou une API**, à une plateforme agréée tierce que vous aurez choisie. Cette connexion s'appuie sur votre module de facturation et sur [le module de comptabilité concerné](/erp-comptabilite/), d'où part chaque facture.
+
+### Ce que votre ERP doit savoir faire
+
+Concrètement, pour être au rendez-vous, votre logiciel doit cocher plusieurs cases :
+
+  
+
+  - **générer des factures** au bon format structuré, le Factur-X en tête ;
+  - **les recevoir** et les intégrer automatiquement, sans ressaisie ;
+  - **suivre les statuts** tout au long du cycle de vie de la facture (déposée, reçue, rejetée, encaissée…), puisque la plateforme renvoie ces informations en temps réel ;
+  - **porter les quatre nouvelles mentions** obligatoires : le SIREN du client, la catégorie de l'opération, l'option éventuelle de TVA sur les débits, et l'adresse de livraison si elle diffère ;
+  - **archiver les factures** dans leur format d'origine, sans les transformer en simple PDF.
+
+  
+
+Le suivi des statuts mérite qu'on s'y arrête, car c'est souvent là que se joue la différence entre deux logiciels. Le cycle de vie d'une facture est désormais normalisé : une fois émise, elle traverse une série d'états standardisés que la plateforme renvoie à votre ERP. La facture est **déposée**, puis **reçue** par le destinataire, éventuellement **refusée** ou **rejetée** en cas d'anomalie, **approuvée** quand le client la valide, et enfin **encaissée** une fois payée. Certains de ces statuts sont obligatoires, d'autres facultatifs, mais un bon logiciel doit tous savoir les recueillir et les afficher, pour que vous sachiez à tout instant où en est chaque facture. Sans ce retour de statut, vous perdez la visibilité en temps réel qui fait justement l'intérêt de la réforme.
+
+  
+
+Si votre ERP est récent et bien maintenu, son éditeur a probablement déjà prévu tout ça. Dans le doute, posez-lui directement la question : est-il prêt pour la réforme, et avec quelle plateforme agréée travaille-t-il ?
+
+### Préparer ses données en amont
+
+Un point que beaucoup négligent : une facture électronique conforme ne s'improvise pas, elle repose sur des données propres. Avant même de brancher quoi que ce soit, assurez-vous que votre ERP contient des informations carrées. Des fiches clients complètes, avec le **SIREN** systématiquement renseigné (il devient une mention obligatoire). Un catalogue produits structuré, avec des taux de TVA justes. Une numérotation de factures continue, sans trou. Et un cycle devis, commande, facture maîtrisé. C'est ce socle qui fera la différence entre une bascule en douceur et une migration douloureuse.
+
+## Comment se préparer dès maintenant
+
+La bonne nouvelle, c'est qu'il vous reste un peu de temps, mais pas tant que ça ! Et s'y prendre tôt change tout, car les délais de raccordement à une plateforme s'allongent à mesure qu'on approche de l'échéance. Voici les étapes à enclencher sans attendre.
+
+  
+
+Première étape, et la plus structurante : **choisissez votre plateforme agréée**. Consultez la liste officielle sur impots.gouv.fr, et vérifiez surtout qu'elle s'intègre bien avec votre ERP (connecteurs, API), qu'elle gère vos éventuels flux internationaux et qu'elle offre un support à la hauteur. Comptez deux à quatre semaines de raccordement pour une configuration simple, davantage à l'approche de septembre 2026.
+
+  
+
+Ensuite, vérifiez la compatibilité de votre logiciel de gestion : sait-il produire et lire du Factur-X ? Votre éditeur a-t-il annoncé une mise à jour ? Profitez-en pour ajouter dès maintenant les nouvelles mentions sur vos modèles de factures, nettoyer vos bases clients et fournisseurs, puis tester l'émission et la réception d'une vraie facture. Et n'oubliez pas de former vos équipes comptables et administratives, car ce sont elles qui vivront le changement au quotidien.
+
+  
+
+Au-delà de l'aspect purement technique, cette mise en conformité rejoint [les enjeux de conformité réglementaire](/erp-rgpd/) que votre ERP doit déjà gérer sur les données qu'il héberge. Autant traiter les deux sujets de front.
+
+  
+
+## Les sanctions si on ne se conforme pas à la facturation électronique obligatoire :
+
+  
+
+Depuis la loi de finances 2026, une facture non conforme coûte 50 € (contre 15 € auparavant), et un e-reporting manquant 500 €, dans la limite de 15 000 € par an. Mais le vrai risque est ailleurs : **sans plateforme agréée, vous ne pourrez tout simplement plus recevoir les factures** de vos fournisseurs dès septembre 2026, ce qui **peut bloquer vos paiements et vous faire perdre le droit à déduction de la TVA**.
+
+  
+
+Par où commencer ? Par la réception, justement. Même si vous êtes une petite structure et que votre obligation d'émettre n'arrive qu'en 2027, choisir dès maintenant votre plateforme agréée et vérifier que votre ERP s'y connecte vous met à l'abri pour septembre 2026. Le reste suivra naturellement…
+
+  
+
+Au fond, il serait dommage de ne voir là qu'une contrainte de plus. La facturation électronique n'est pas qu'une corvée administrative, c'est **une vraie occasion** de fiabiliser toute votre chaîne de facturation : moins de ressaisie, moins d'erreurs, des paiements suivis en temps réel, une comptabilité alimentée presque automatiquement. Les entreprises qui s'y préparent tôt, en s'appuyant sur un ERP bien outillé, n'auront pas à subir l'échéance : elles en feront un atout. Et septembre 2026, ce n'est plus si loin !
+
+## Questions fréquentes
+
+### Mon ERP suffit-il, ou dois-je en changer ?
+
+Pas forcément en changer. Votre ERP est une « solution compatible » : il doit pouvoir produire du Factur-X et se connecter à une plateforme agréée. S'il est récent et maintenu, une mise à jour suffit souvent. Vérifiez auprès de votre éditeur.
+
+### Qu'est-ce qu'une plateforme agréée (PA) ?
+
+C'est un opérateur immatriculé par l'administration fiscale, intermédiaire obligatoire pour émettre et recevoir vos factures électroniques. Anciennement appelée PDP, elle achemine les factures et transmet les données au fisc. Plus d'une centaine existent déjà, dont certaines gratuites.
+
+### Plateforme agréée ou opérateur de dématérialisation : quelle différence ?
+
+Une plateforme agréée (PA) est immatriculée par l'administration et peut transmettre officiellement vos factures. Un opérateur de dématérialisation (OD) sait les produire ou les convertir, mais n'est pas habilité : il doit s'appuyer sur une PA. Pour une transaction B2B conforme, seule une PA de la liste officielle fait foi.
+
+### Le PDF par email est-il encore valable ?
+
+Non, plus une fois votre échéance passée. Un PDF ordinaire envoyé par mail ne sera plus considéré comme une facture électronique conforme pour le B2B. Seule une facture au format structuré, transmise via une plateforme agréée, comptera.
+
+### Ma micro-entreprise est-elle concernée ?
+
+Oui. Toute entreprise assujettie à la TVA l'est, y compris en franchise de base. Dès septembre 2026, vous devrez pouvoir recevoir des factures électroniques ; l'obligation d'émettre arrivera en septembre 2027. Une plateforme agréée gratuite suffit largement.
+
+### Le Portail Public de Facturation est-il gratuit ?
+
+Le PPF existe toujours, mais il ne sert plus à émettre ou recevoir vos factures. L'État a abandonné ce service gratuit fin 2024. Le PPF se limite désormais à l'annuaire et à la remontée des données. Vous devez passer par une plateforme agréée.

@@ -1,0 +1,49 @@
+# meilleur-erp.fr
+
+> Le média indépendant des logiciels ERP : définitions, fonctionnement, modules, déploiement, coûts et conformité, expliqués simplement par Guillaume Wagner. Contenu informationnel, neutre, sans discours d'éditeur.
+
+## Page pilier
+- [Qu'est-ce qu'un logiciel ERP ? TOUT savoir](https://meilleur-erp.fr/qu-est-ce-qu-un-erp/): Un ERP centralise la gestion de l'entreprise dans une base unique.
+## Comprendre, choisir et déployer un ERP (niveau 1)
+- [ERP et PGI : quelles sont les différences ?](https://meilleur-erp.fr/erp-pgi-difference/): ERP ou PGI, est-ce la même chose ?
+- [À quoi sert un ERP ? Rôle et utilité en entreprise](https://meilleur-erp.fr/a-quoi-sert-un-erp/): À quoi sert un ERP ?
+- [Avantages et inconvénients d'un ERP : le vrai bilan](https://meilleur-erp.fr/avantages-inconvenients-erp/): Quels sont les avantages et les inconvénients d'un ERP ?
+- [Comment fonctionne un ERP : base de données et workflow](https://meilleur-erp.fr/comment-fonctionne-un-erp/): Base de données unique, modules connectés et moteur de workflow : découvrez la mécanique interne d'un ERP et comment une seule saisie se propage partout.
+- [Modules ERP : le guide complet des fonctionnalités](https://meilleur-erp.fr/modules-erp/): Quels sont les modules d'un ERP ?
+- [Différence entre ERP et CRM : lequel choisir en 2026 ?](https://meilleur-erp.fr/erp-crm-difference/): ERP ou CRM : deux outils complémentaires souvent confondus.
+- [Logiciels de gestion d'entreprise : la cartographie 2026](https://meilleur-erp.fr/logiciels-gestion-entreprise/): ERP, CRM, SCM, BI, PIM, GED, SIRH : panorama des familles de logiciels de gestion.
+- [Prix d'un ERP : combien ça coûte vraiment en 2026 ?](https://meilleur-erp.fr/prix-erp/): Combien coûte un ERP ?
+- [ERP cloud, SaaS ou on-premise : quel mode choisir ?](https://meilleur-erp.fr/erp-cloud-saas-on-premise/): ERP cloud, SaaS ou on-premise : définitions, différences, avantages et coûts (CAPEX vs OPEX).
+- [ERP open source : fonctionnement, atouts et limites](https://meilleur-erp.fr/erp-open-source/): L'ERP open source repose sur un code ouvert et sans licence.
+- [Mise en place d'un ERP : étapes, durée et équipe projet](https://meilleur-erp.fr/mise-en-place-erp/): Comment se déroule un projet ERP, du cadrage au go-live : étapes clés, durée pour une PME, équipe à mobiliser et pièges à éviter pour réussir sa mise en place.
+- [Comment choisir un ERP : les critères et la méthode](https://meilleur-erp.fr/comment-choisir-un-erp/): Comment choisir un ERP ?
+- [ERP et intelligence artificielle : avantages et comment faire](https://meilleur-erp.fr/erp-intelligence-artificielle/): L'IA dans l'ERP : automatisation, prédictif, copilote en langage naturel.
+- [Sécurité ERP : protéger ses données et son entreprise](https://meilleur-erp.fr/securite-erp/): Sécurité ERP : pourquoi votre logiciel de gestion est une cible, les vraies menaces et les mesures concrètes pour protéger vos données en 2026.
+- [ERP et RGPD : se mettre en conformité sans s'y perdre](https://meilleur-erp.fr/erp-rgpd/): ERP et RGPD : pourquoi votre logiciel est concerné, vos obligations (registre, droits, sous-traitance) et qui est responsable en cas de problème.
+- [Intégration ERP : API, connecteurs et bonnes pratiques](https://meilleur-erp.fr/integration-erp/): Intégration ERP : faire communiquer votre logiciel avec vos autres outils (CRM, e-commerce, paie).
+- [Facturation électronique 2026 : le rôle de votre ERP](https://meilleur-erp.fr/erp-facturation-electronique/): Facturation électronique obligatoire en 2026 : calendrier, plateformes agréées, format Factur-X, et le rôle de votre ERP pour être en conformité.
+- [ERP mobile : usages, bénéfices et bonnes pratiques](https://meilleur-erp.fr/erp-mobile/): L'ERP mobile met votre gestion sur smartphone et tablette : usages par métier, bénéfices concrets, modes connecté ou hors-ligne et bonnes pratiques.
+- [Histoire de l'ERP : du MRP aux logiciels d'aujourd'hui](https://meilleur-erp.fr/histoire-erp/): L'histoire de l'ERP, des premiers MRP des années 1960 au terme forgé par Gartner en 1990, jusqu'aux logiciels cloud et IA d'aujourd'hui.
+- [Glossaire ERP : le lexique complet des termes clés](https://meilleur-erp.fr/glossaire-erp/): Glossaire ERP : définitions claires des termes essentiels, de PGI à SaaS, en passant par module, intégrateur, API, MRP, TCO et bien d'autres.
+- [Éditeur et intégrateur ERP : qui fait quoi dans un projet](https://meilleur-erp.fr/editeur-integrateur-erp/): Éditeur, intégrateur, revendeur ERP : qui conçoit, qui déploie, qui vend ?
+- [Quand mettre en place un ERP : les signaux à repérer](https://meilleur-erp.fr/quand-mettre-en-place-un-erp/): Quand mettre en place un ERP ?
+## Modules et projet ERP en détail (niveau 2)
+- [Module gestion commerciale ERP : rôle et fonctions](https://meilleur-erp.fr/erp-gestion-commerciale/): Le module de gestion commerciale d'un ERP gère devis, commandes, tarifs et facturation.
+- [Module gestion des stocks ERP : fonctions et atouts](https://meilleur-erp.fr/erp-gestion-stocks/): Le module de gestion des stocks d'un ERP suit les mouvements en temps réel, automatise inventaires et réapprovisionnements.
+- [Module comptabilité ERP : à quoi il sert et ses avantages](https://meilleur-erp.fr/erp-comptabilite/): Le module comptabilité d'un ERP automatise les écritures, gère la TVA, la trésorerie et la conformité française (FEC, facture électronique).
+- [Module production ERP : la GPAO expliquée simplement](https://meilleur-erp.fr/erp-production-gpao/): La GPAO, module de production d'un ERP, gère nomenclatures, ordres de fabrication et planning.
+- [Module RH ERP : paie, congés et gestion du personnel](https://meilleur-erp.fr/erp-rh/): Le module RH d'un ERP gère contrats, absences, paie et DSN, formation et compétences.
+- [CRM intégré à un ERP : rôle, atouts et alternatives](https://meilleur-erp.fr/crm-integre-erp/): Le CRM intégré à un ERP relie la relation client aux stocks et à la facturation.
+- [Module achats ERP : cycle fournisseur et réapprovisionnement](https://meilleur-erp.fr/erp-achats/): Le module achats d'un ERP gère le cycle fournisseur : demande, commande, réception, facture.
+- [ERP cloud : définition, avantages et limites en 2026](https://meilleur-erp.fr/erp-cloud/): L'ERP cloud, hébergé à distance et accessible via le web, séduit par sa souplesse.
+- [ERP on-premise : définition, avantages et limites en 2026](https://meilleur-erp.fr/erp-on-premise/): L'ERP on-premise est installé sur vos serveurs, pour un contrôle total des données.
+- [Cahier des charges ERP : méthode, contenu et modèle](https://meilleur-erp.fr/cahier-des-charges-erp/): Le cahier des charges ERP cadre votre projet avant de choisir.
+- [Migration de données ERP : étapes, méthode et pièges](https://meilleur-erp.fr/migration-donnees-erp/): La migration de données vers un ERP conditionne la réussite du projet.
+- [Conduite du changement et ERP : méthode et leviers d'adoption](https://meilleur-erp.fr/conduite-du-changement-erp/): La conduite du changement décide de l'adoption de votre ERP.
+- [ROI d'un ERP : calcul, gains et délai de rentabilité](https://meilleur-erp.fr/roi-erp/): Le ROI d'un ERP mesure ce qu'il rapporte face à son coût.
+- [Durée d'un projet ERP : combien de temps prévoir ?](https://meilleur-erp.fr/duree-projet-erp/): Combien de temps dure un projet ERP ?
+- [Échec d'un projet ERP : causes fréquentes et prévention](https://meilleur-erp.fr/echec-projet-erp/): Entre 50 et 70 % des projets ERP échouent, rarement pour des raisons techniques.
+
+## À propos
+- [Guillaume Wagner, auteur](https://meilleur-erp.fr/auteur/): l'auteur des contenus du site.
+- [Mentions légales](https://meilleur-erp.fr/mentions-legales/): éditeur, hébergeur et conditions.

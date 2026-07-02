@@ -1,0 +1,150 @@
+---
+title: "L'ERP on-premise, ou la gestion installée chez vous"
+seoTitle: "ERP on-premise : définition, avantages et limites en 2026"
+excerpt: "Un ERP on-premise est installé sur vos propres serveurs, avec une licence achetée et une gestion interne. Voici sa définition, son fonctionnement, ses avantages et ses limites."
+description: "L'ERP on-premise est installé sur vos serveurs, pour un contrôle total des données. Définition, atouts, coûts et limites de l'hébergement sur site."
+heroImage: "/images/N2-09.webp"
+heroAlt: "L'ERP on-premise, ou la gestion installée chez vous"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "7 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Quelle différence entre un ERP on-premise et un ERP hébergé ?"
+    a: "Dans l'on-premise pur, les serveurs sont dans vos locaux. Dans l'ERP hébergé, vous gardez la maîtrise du logiciel mais louez le matériel chez un hébergeur. C'est un on-premise « délocalisé » : mêmes responsabilités logicielles, infrastructure externalisée."
+  - q: "Un ERP on-premise est-il plus sécurisé que le cloud ?"
+    a: "Pas forcément. Il offre plus de contrôle, mais la sécurité dépend de vos moyens : un grand hébergeur applique parfois des mesures qu'une PME atteint difficilement. L'atout de l'on-premise tient surtout à la localisation des données, pas à un niveau de protection supérieur par défaut."
+  - q: "Combien coûte un ERP on-premise ?"
+    a: "Le budget se concentre au départ : achat des licences, serveurs, mise en route, formation. S'ajoutent une maintenance annuelle et le renouvellement du matériel. Sur plusieurs années et de gros volumes, le total peut devenir compétitif face au cloud."
+  - q: "Peut-on accéder à un ERP on-premise à distance ?"
+    a: "Oui, mais pas nativement comme le cloud. L'accès hors des locaux passe par un VPN, qu'il faut installer et sécuriser. C'est possible et courant, simplement moins immédiat qu'un ERP consultable depuis un navigateur."
+  - q: "L'ERP on-premise est-il en train de disparaître ?"
+    a: "Non. Le cloud domine les nouvelles installations, mais l'on-premise garde une place solide dans l'industrie, la finance et le public, partout où la souveraineté des données pèse lourd. Beaucoup d'entreprises optent aussi pour l'hybride."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import ProsCons from '../../components/ProsCons.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "Un ERP on-premise est installé sur les serveurs de l'entreprise, qui en gère l'exploitation.", "On achète la licence, souvent perpétuelle : le logiciel vous appartient, contre un investissement de départ.", "Atouts : contrôle total des données, sécurité maîtrisée, personnalisation profonde, indépendance.", "Limites : coût initial élevé, maintenance interne, mobilité via VPN, mises à jour à sa charge.", "Idéal pour l'industrie, la finance et le secteur public, ou dès que la souveraineté des données prime." ]} />
+
+  
+
+Un ERP on-premise, c'est l'inverse du cloud : au lieu de louer un service hébergé ailleurs, vous installez le logiciel sur vos propres serveurs, dans vos murs. Vous achetez la licence, **le logiciel vous appartient**, et c'est vous (ou votre prestataire) qui gérez tout : l'installation, la maintenance, la sécurité, les sauvegardes.
+
+  
+
+Le mot d'ordre : contrôle. Contrôle des données, du paramétrage, de l'infrastructure. En échange, vous assumez le coût et la charge technique. Faut-il encore installer son ERP chez soi en 2026 ? Définition, fonctionnement, avantages, limites et cas d'usage, on déroule.
+
+## Qu'est-ce qu'un ERP on-premise ?
+
+Un ERP on-premise (ou « sur site ») est un progiciel de gestion intégré installé directement sur l'infrastructure de l'entreprise, dans ses locaux ou dans un datacenter qui lui est dédié. L'entreprise achète la licence, souvent perpétuelle, et devient **propriétaire du logiciel**. À elle, ensuite, d'assurer l'installation, la maintenance, les mises à jour et la sécurité. Cette logique de propriété change tout sur le plan économique : une fois la licence payée, le logiciel est à vous, sans loyer mensuel. Bien entretenu, un ERP on-premise peut servir de nombreuses années, là où un abonnement cloud court tant que vous payez.
+
+  
+
+Le principe s'oppose frontalement au cloud, où l'on loue un accès à un service hébergé. Ici, tout reste chez vous. Face à ce modèle, [les autres modes de déploiement](/erp-cloud-saas-on-premise/) répondent à des priorités différentes. Le rapport de force a basculé : en 2026, le cloud représente déjà plus de 65 % des nouvelles installations. Mais l'on-premise n'a pas dit son dernier mot, loin de là, et il garde des partisans convaincus dans les secteurs les plus exigeants.
+
+  
+
+On-premise « pur » : les serveurs sont physiquement dans vos murs. ERP « hébergé » : vous gardez la maîtrise du logiciel et de sa configuration, mais le matériel est loué chez un hébergeur (un SAP sur AWS, un ERP open source chez OVHcloud…). Hybride : certains modules restent sur site pour la conformité, d'autres passent en SaaS. Trois nuances d'un même curseur, entre contrôle et délégation.
+
+## Comment fonctionne un ERP on-premise ?
+
+Concrètement, le logiciel tourne sur des serveurs que l'entreprise possède et administre. Toute la chaîne technique lui revient.
+
+  
+
+L'accès se fait par le réseau local, au bureau. Pour travailler à distance, il faut passer par un VPN, une couche de sécurité supplémentaire à installer et à maintenir. Côté budget, on parle d'**un investissement de départ (CAPEX)** : licences, serveurs, mise en route, puis une maintenance annuelle qui vient s'ajouter chaque année, année après année.
+
+  
+
+Cette autonomie a une contrepartie : la responsabilité de l'exploitation repose entièrement sur l'entreprise. À sa charge :
+
+  
+
+  - les sauvegardes régulières et leur test ;
+  - les correctifs et les montées de version ;
+  - la sécurité (pare-feu, gestion des accès, chiffrement) ;
+  - la continuité de service, avec un plan de reprise (PCA/PRA) à financer en interne.
+
+  
+
+Rien de tout cela n'est externalisé : c'est le prix du contrôle ! En contrepartie, sur un site unique, les performances sont au rendez-vous : tout étant local, la latence réseau est minimale et l'ERP reste disponible même si internet tombe.
+
+## Avantages et limites de l'ERP on-premise
+
+Comme pour le cloud, tout est affaire d'arbitrage. Voici le bilan de l'on-premise.
+
+  
+
+<ProsCons pros={[ "Un contrôle total des données, qui ne quittent jamais vos serveurs", "Une sécurité gérée en interne, selon vos propres protocoles", "Une personnalisation profonde, jusqu'au code et aux intégrations métier", "Une indépendance vis-à-vis de tout prestataire cloud", "Un fonctionnement sans dépendance à la connexion internet", "Une licence possédée, rentable sur la durée pour de gros volumes" ]} cons={[ "Un coût initial élevé : licences, serveurs, mise en route", "Une maintenance à votre charge, qui suppose des compétences IT", "Une mobilité limitée, l'accès distant passant par un VPN", "Des mises à jour à appliquer soi-même, y compris réglementaires", "Une obsolescence du matériel à anticiper et à renouveler", "Une montée en charge plus lente qu'un abonnement cloud" ]} />
+
+### Ce que l'on-premise fait gagner
+
+Le vrai atout tient en un mot : **la souveraineté**. Vos données restent physiquement chez vous, hors de portée d'un tiers, ce qui rassure les secteurs sensibles à la confidentialité et à la conformité (RGPD, secteur bancaire). L'argument a gagné en force depuis le Cloud Act américain de 2018, qui permet aux autorités des États-Unis d'exiger l'accès aux données détenues par les grands fournisseurs cloud, même hébergées en Europe. C'est aussi le terrain de la [sécurité gérée en interne](/securite-erp/) : vous fixez vos propres règles, sans dépendre des choix d'un hébergeur. Enfin, la personnalisation va loin : on adapte le logiciel au métier, on l'intègre finement aux automates, au MES ou à la GPAO, on modifie le code si besoin ! Cette maîtrise du code fait la différence dans les environnements complexes : connecter l'ERP à une ligne de production, à un logiciel maison ou à un parc de machines devient possible sans buter sur les limites d'un éditeur cloud.
+
+### Les points de vigilance
+
+Le revers est financier et technique. Le coût initial est lourd : il faut acheter les licences, les serveurs, et souvent recruter ou mobiliser une équipe IT. Ensuite, tout repose sur vous : les mises à jour, y compris celles imposées par la loi (nouveaux taux de TVA, facture électronique…), sont à déployer à la main, au bon moment. Ajoutez la mobilité en retrait (VPN obligatoire), l'obsolescence du matériel à budgéter, et une évolutivité moins souple. C'est un engagement de long terme, pas une décision qu'on prend à la légère. Pour donner un ordre d'idée, la facture d'entrée additionne l'achat des licences, les serveurs et leur installation, puis la mise en route (paramétrage, reprise de données, formation). S'y greffe chaque année une maintenance, souvent facturée en pourcentage de la licence, à laquelle s'ajoute le coût humain d'une équipe capable de faire tourner la machine.
+
+  
+
+Le prix affiché n'est que la partie visible. À la licence et aux serveurs s'ajoutent des coûts récurrents souvent sous-estimés : renouvellement du matériel tous les quelques années, salaires ou prestation d'administrateurs systèmes, plan de reprise à financer. Comparez toujours sur le coût total de possession, pas sur le ticket d'entrée.
+
+## Comment se déroule un déploiement sur site ?
+
+Installer un ERP sur site ne s'improvise pas : le projet se prépare étape par étape.
+
+  
+
+  - **Analyse des besoins** : cadrer les processus à outiller et les objectifs, avant de choisir quoi que ce soit.
+  - **Choix du logiciel et dimensionnement** : retenir la solution adaptée au métier et calibrer les serveurs nécessaires.
+  - **Installation et configuration** : déployer l'ERP sur l'infrastructure, paramétrer, reprendre les données existantes.
+  - **Formation des équipes** : embarquer utilisateurs métier, administrateurs et IT pour une adoption réelle.
+  - **Maintenance dans la durée** : planifier correctifs, montées de version et renouvellement du matériel.
+
+  
+
+Ce chantier mobilise des compétences internes ou un intégrateur, et s'étale souvent sur plusieurs mois. C'est le revers de l'autonomie : personne ne le fait à votre place.
+
+## À qui s'adresse l'ERP on-premise ?
+
+L'on-premise ne convient pas à tout le monde, mais il reste le choix de référence dans plusieurs univers.
+
+  
+
+<FeatureColumns columns={3} items={[ { title: "Industrie et PMI", text: "Intégration fine aux automates, au MES et à la GPAO, traçabilité exigeante, forte personnalisation : l'usine tourne souvent sur un site unique, là où l'on-premise excelle." }, { title: "Services financiers", text: "Banques et assurances, soumises à des règles strictes (RGPD, Bâle III), gardent leurs données sensibles en interne pour garantir confidentialité et conformité." }, { title: "Secteur public", text: "Administrations et collectivités privilégient l'hébergement sur site pour la souveraineté des données et la maîtrise totale de leur système d'information." } ]} />
+
+  
+
+Au fond, l'on-premise s'impose dès que la souveraineté, une personnalisation très poussée ou une DSI structurée pèsent plus lourd que la souplesse. Pour les entreprises plus légères, sans équipe informatique et attachées à la mobilité, [l'alternative du cloud](/erp-cloud/) coche souvent plus de cases ! Beaucoup, d'ailleurs, tranchent pour l'hybride, en gardant le sensible sur site et le reste en ligne. Le bon réflexe consiste à partir de vos contraintes plutôt que de suivre la mode : sensibilité des données, degré de personnalisation attendu, présence ou non d'une équipe IT, exigences réglementaires du secteur. Ce sont ces réponses qui désignent le bon mode de déploiement, pas le discours d'un commercial.
+
+## Le vrai visage de l'ERP on-premise
+
+L'ERP on-premise, c'est le choix de ceux qui préfèrent **tenir les commandes** plutôt que déléguer. Vous gardez la main sur vos données, votre sécurité, votre outil, au prix d'un investissement et d'une charge technique bien réels. Un ERP on-premise n'est pas une relique du passé, c'est une réponse assumée pour qui place le contrôle et la souveraineté avant la facilité.
+
+## Questions fréquentes
+
+### Quelle différence entre un ERP on-premise et un ERP hébergé ?
+
+Dans l'on-premise pur, les serveurs sont dans vos locaux. Dans l'ERP hébergé, vous gardez la maîtrise du logiciel mais louez le matériel chez un hébergeur. C'est un on-premise « délocalisé » : mêmes responsabilités logicielles, infrastructure externalisée.
+
+### Un ERP on-premise est-il plus sécurisé que le cloud ?
+
+Pas forcément. Il offre plus de contrôle, mais la sécurité dépend de vos moyens : un grand hébergeur applique parfois des mesures qu'une PME atteint difficilement. L'atout de l'on-premise tient surtout à la localisation des données, pas à un niveau de protection supérieur par défaut.
+
+### Combien coûte un ERP on-premise ?
+
+Le budget se concentre au départ : achat des licences, serveurs, mise en route, formation. S'ajoutent une maintenance annuelle et le renouvellement du matériel. Sur plusieurs années et de gros volumes, le total peut devenir compétitif face au cloud.
+
+### Peut-on accéder à un ERP on-premise à distance ?
+
+Oui, mais pas nativement comme le cloud. L'accès hors des locaux passe par un VPN, qu'il faut installer et sécuriser. C'est possible et courant, simplement moins immédiat qu'un ERP consultable depuis un navigateur.
+
+### L'ERP on-premise est-il en train de disparaître ?
+
+Non. Le cloud domine les nouvelles installations, mais l'on-premise garde une place solide dans l'industrie, la finance et le public, partout où la souveraineté des données pèse lourd. Beaucoup d'entreprises optent aussi pour l'hybride.

@@ -1,0 +1,182 @@
+---
+title: "Votre ERP face au RGPD : obligations et responsabilités"
+seoTitle: "ERP et RGPD : se mettre en conformité sans s'y perdre"
+excerpt: "Votre ERP regorge de données personnelles : il est en première ligne face au RGPD. Voici vos obligations concrètes, qui est responsable de quoi, et comment l'ERP peut vous aider."
+description: "ERP et RGPD : pourquoi votre logiciel est concerné, vos obligations (registre, droits, sous-traitance) et qui est responsable en cas de problème."
+heroImage: "/images/N1-15.webp"
+heroAlt: "Votre ERP face au RGPD : obligations et responsabilités"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "12 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Un ERP « conforme RGPD » suffit-il à être en règle ?"
+    a: "Non. Un logiciel bien conçu vous aide à appliquer le RGPD (exercer les droits, tracer les accès, purger les données), mais la conformité repose sur votre organisation : registre, base légale, contrat avec l'éditeur. L'outil exécute, il ne décide pas à votre place."
+  - q: "En cas de fuite de données, qui est responsable : moi ou l'éditeur ?"
+    a: "Vous, en tant que responsable de traitement, restez responsable vis-à-vis de la CNIL et des personnes concernées. L'éditeur, comme sous-traitant, partage certaines obligations (sécurité, notification), mais ne vous dédouane pas. D'où l'importance d'un contrat de sous-traitance solide."
+  - q: "Faut-il un DPO pour gérer le RGPD de son ERP ?"
+    a: "Pas toujours. Le DPO est obligatoire si vous suivez des personnes à grande échelle ou traitez des données sensibles. Pour beaucoup de PME, il est seulement recommandé. Un DPO externe (3 000 à 8 000 € par an) reste une option fréquente et économique."
+  - q: "Mes données ERP doivent-elles être hébergées en France ou en UE ?"
+    a: "Aucune obligation stricte de localisation, mais c'est fortement conseillé. Un hébergement européen évite les transferts hors UE, soumis à des garanties supplémentaires face à des lois étrangères d'accès aux données. La localisation mérite une vraie attention lors du choix."
+  - q: "Combien de temps peut-on conserver des données dans un ERP ?"
+    a: "Le temps nécessaire à la finalité, pas davantage. Une donnée client se garde le temps de la relation commerciale plus quelques années ; une facture, dix ans par obligation légale. Au-delà, on supprime ou on anonymise. Définir ces durées fait partie de vos obligations."
+  - q: "Les fonctions d'IA de mon ERP changent-elles mes obligations RGPD ?"
+    a: "Oui, elles en ajoutent. Un module qui score des prospects ou trie des candidatures reste un traitement de données personnelles, à inscrire au registre. Il faut une base légale pour entraîner le modèle, veiller à l'anonymisation des données d'entraînement et pouvoir expliquer les décisions automatisées aux personnes concernées."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+
+<KeyTakeaways title="En bref" items={[ "Dès qu'il traite des données de clients ou de salariés, votre ERP entre dans le champ du RGPD.", "Bonne nouvelle : la centralisation des données dans l'ERP facilite la conformité (exporter, supprimer, tracer au même endroit).", "Vous êtes responsable de traitement ; l'éditeur est sous-traitant. Un contrat, le DPA, encadre ce partage.", "Vos obligations clés : registre des traitements, base légale, durées de conservation, exercice des droits des personnes.", "Un ERP « RGPD-compatible » est un atout, mais la conformité reste avant tout votre responsabilité." ]} />
+
+  
+
+Une question simple pour commencer : votre logiciel de gestion contient-il des noms de clients, des adresses, des fiches de paie, des coordonnées de fournisseurs ? Si oui (et c'est presque toujours le cas), votre ERP traite des données personnelles. Et dès qu'on traite des données personnelles, on entre dans le champ du RGPD. Comprendre [ce qu'est un ERP](/qu-est-ce-qu-un-erp/) ne suffit donc pas : il faut aussi savoir ce que la loi attend de lui.
+
+  
+
+La bonne nouvelle ? Bien utilisé, un ERP est plutôt un allié pour la conformité. Parce qu'il **centralise** vos données au même endroit, il devient bien plus facile d'exporter, de corriger ou de supprimer les informations d'une personne que si elles étaient éparpillées dans dix fichiers Excel. Cette centralisation a beau concentrer les risques en un seul point, elle reste votre meilleur atout pour rester en règle.
+
+  
+
+Attention quand même à une idée fausse très répandue : voir « logiciel conforme RGPD » sur la plaquette d'un éditeur ne rend pas votre entreprise conforme pour autant. L'outil aide, la responsabilité, elle, reste la vôtre. Voyons pourquoi votre ERP est concerné, quelles sont vos obligations, et surtout qui est responsable de quoi.
+
+  
+
+Avant d'entrer dans le détail, gardez en tête ce schéma. Le RGPD répartit les rôles entre deux acteurs : celui qui décide quoi faire des données, et celui qui les traite pour son compte. Tout le reste en découle. 
+
+## Pourquoi votre ERP est forcément concerné
+
+Reprenons depuis le début. Le RGPD s'applique dès qu'une organisation traite des **données à caractère personnel**, c'est-à-dire toute information permettant d'identifier quelqu'un, directement ou non : un nom, un email, un numéro de téléphone, un salaire, parfois une donnée de santé… Peu importe la taille de l'entreprise ou son secteur. Un artisan qui garde les coordonnées de ses clients dans un coin est soumis aux mêmes principes qu'un grand groupe.
+
+  
+
+Or un ERP, par définition, en déborde. Le module RH gère les fiches de paie, les contrats, les évaluations de vos salariés. Le module commercial stocke l'identité, les coordonnées et l'historique de vos clients et prospects. Les achats conservent les contacts fournisseurs. Chacun de ces ensembles est un **traitement de données personnelles** au sens de la loi, et votre ERP en abrite plusieurs à lui seul.
+
+  
+
+D'où une réalité à **double tranchant**. D'un côté, cette concentration augmente l'enjeu : une fuite touche d'un coup des milliers de personnes. De l'autre, elle vous facilite énormément la tâche pour rester en règle. Quand toutes vos données personnelles vivent dans un seul système, avec une gestion des droits centralisée et une traçabilité des accès, répondre à une demande ou prouver votre sérieux devient bien plus simple que de courir après dix fichiers disséminés. Bien tenu, votre ERP devient un vrai point d'appui pour votre conformité, et pas seulement une contrainte de plus.
+
+## Vos obligations RGPD, concrètement
+
+Place aux obligations. Le RGPD peut ressembler à une montagne, mais pour un usage normal d'un ERP, l'essentiel tient en trois blocs : des principes à respecter, de la documentation à tenir, et des droits à garantir aux personnes. Pas besoin de devenir juriste pour s'y retrouver !
+
+### Les grands principes à respecter
+
+Avant tout, chaque traitement de données dans votre ERP doit reposer sur quelques principes simples :
+
+  
+
+  - **une base légale** : vous devez avoir une raison valable de détenir ces données (l'exécution d'un contrat, une obligation légale comme la conservation des factures, le consentement de la personne, ou votre intérêt légitime) ;
+  - **une finalité déterminée** : les données sont collectées pour un objectif précis (gérer la paie, suivre des commandes) et ne peuvent pas resservir à tout et n'importe quoi ;
+  - **la minimisation** : on ne collecte que le strict nécessaire, inutile de demander la date de naissance d'un contact si elle ne sert à rien ;
+  - **une durée de conservation limitée** : les données ne se gardent pas indéfiniment, on définit une durée par catégorie et on purge (ou on anonymise) au-delà.
+
+  
+
+Ce dernier point mérite qu'on s'y arrête, car c'est l'un des oublis les plus fréquents. Votre ERP accumule les années de données clients sans que personne n'y pense… Or conserver un fichier client inactif depuis dix ans « au cas où » est précisément le genre de pratique que la CNIL sanctionne. Prévoir des règles de purge, c'est se simplifier la vie autant que se mettre en règle.
+
+### Le registre et la documentation
+
+Le RGPD repose sur un principe central : l'**accountability**. Autrement dit, il ne suffit pas d'être en règle, il faut pouvoir le prouver, documents à l'appui. Et le document roi, ici, c'est le registre des traitements.
+
+  
+
+Le **registre des traitements** (prévu par l'article 30 du RGPD) recense, pour chaque traitement, à quoi servent les données, lesquelles sont concernées, qui y a accès, combien de temps elles sont gardées, et si elles quittent l'Union européenne. C'est un document interne, vivant, qu'on met à jour à chaque évolution. Et c'est le tout premier que la CNIL réclame en cas de contrôle.
+
+  
+
+Une idée reçue à corriger : on entend souvent que les entreprises de moins de 250 salariés en sont dispensées. C'est partiellement vrai, mais la dérogation tombe dès que les traitements sont récurrents ou portent sur des données sensibles. Or un ERP qui gère la paie ou un fichier clients traite des données de façon récurrente, par nature. Dans les faits, donc : si vous avez un ERP, vous devez tenir un registre.
+
+  
+
+À côté du registre, deux autres obligations peuvent vous concerner. L'analyse d'impact (AIPD) devient obligatoire pour les traitements à risque élevé, comme la vidéosurveillance, le profilage ou la géolocalisation de salariés ; elle s'effectue avant de lancer le traitement. Et le **DPO** (délégué à la protection des données) s'impose si votre activité implique un suivi systématique des personnes à grande échelle ou des données sensibles. Pour la plupart des PME, il reste recommandé sans être obligatoire, et peut très bien être externalisé (comptez 3 000 à 8 000 € par an dans ce cas).
+
+### Les droits des personnes
+
+Enfin, le RGPD donne aux individus une série de **droits** sur leurs données, et votre entreprise doit pouvoir les honorer. Concrètement, n'importe quelle personne (un client, un ancien salarié) peut vous demander :
+
+  
+
+  - **le droit d'accès** : obtenir une copie de toutes les données que vous détenez sur elle ;
+  - **le droit de rectification** : faire corriger une information erronée ;
+  - **le droit à l'effacement** (le « droit à l'oubli ») : demander la suppression de ses données ;
+  - **le droit à la portabilité** : récupérer ses données dans un format lisible et réutilisable ;
+  - **le droit d'opposition** : refuser que ses données servent, par exemple, à de la prospection.
+
+  
+
+Vous disposez d'**un mois** pour répondre à ces demandes, après avoir vérifié l'identité du demandeur. C'est là qu'un bon ERP fait la différence : il permet d'extraire en quelques clics toutes les informations sur une personne, d'en corriger ou d'en supprimer, et d'anonymiser ce qui doit légalement être conservé (une facture, par exemple, se garde dix ans : on anonymise le client plutôt que de tout effacer). Chaque action est tracée et horodatée, ce qui constitue une preuve si on vous la réclame un jour.
+
+## Qui est responsable : vous ou l'éditeur ?
+
+Voilà LA question qui fâche, et celle dont la réponse surprend le plus. Quand une fuite survient ou que la CNIL contrôle, vers qui se tourne-t-elle ? Beaucoup pensent « l'éditeur du logiciel »… La réalité juridique est plus nuancée, et nettement plus engageante pour vous.
+
+  
+
+Le RGPD distingue deux rôles. Vous, l'entreprise qui utilise l'ERP, êtes le **responsable de traitement** : c'est vous qui décidez quelles données collecter et pourquoi.
+
+  
+
+L'éditeur, lui, est votre **sous-traitant** : il traite ces données pour votre compte, en suivant vos instructions, sans en décider la finalité. Cette distinction pèse lourd, car elle détermine qui porte quelle responsabilité.
+
+  
+
+Ce partage doit être encadré par un contrat précis : le **contrat de sous-traitance**, ou DPA (Data Processing Agreement), imposé par l'article 28 du RGPD. Il fixe noir sur blanc la finalité et la durée du traitement, les mesures de sécurité, le recours éventuel à d'autres sous-traitants, la notification des violations, et le sort des données à la fin du contrat. Son absence est, en elle-même, une infraction. Avant de signer avec un éditeur, c'est l'un des premiers documents à réclamer.
+
+  
+
+L'éditeur n'est pas pour autant un simple exécutant passif. La loi lui impose une obligation de conseil, l'oblige à vous alerter si une de vos instructions enfreint le règlement, à vous notifier toute violation de données, et à concevoir son logiciel en intégrant la protection des données dès l'origine (le fameux *privacy by design*). Mais, et c'est le point crucial, tout cela ne transfère jamais **la responsabilité finale**. La CNIL a déjà sanctionné une entreprise qui avait délégué sa conformité à un prestataire, en rappelant que certaines obligations, comme le registre, relèvent exclusivement du responsable de traitement. Traduction : vous ne pouvez pas tout faire reposer sur votre éditeur.
+
+  
+
+Deux nuances pour finir. La première concerne l'hébergement : vos données doivent être hébergées dans des conditions conformes, et [la localisation des données dans le cloud](/erp-cloud-saas-on-premise/), en Europe ou hors d'Europe, change la donne juridiquement, notamment face à des législations étrangères qui autorisent certaines autorités à y accéder. La seconde touche à la sécurité : protéger juridiquement les données suppose aussi de les protéger techniquement, ce que le RGPD impose via son article 32, et qui passe par [les mesures de sécurité techniques](/securite-erp/) que sont le chiffrement, la gestion des accès ou les sauvegardes.
+
+  
+
+Le piège classique : croire qu'un logiciel estampillé « conforme RGPD » vous dispense de toute démarche. Faux ! Sans contrat de sous-traitance (DPA) signé, sans registre tenu, sans base légale définie, vous restez en infraction, même avec le meilleur ERP du marché. Et les sanctions ne sont pas théoriques : jusqu'à 20 millions d'euros ou 4 % du chiffre d'affaires mondial, avec des PME déjà condamnées à 150 000 € pour un simple défaut de registre.
+
+## Les fronts qui montent : IA embarquée et contrôles CNIL
+
+Un dernier point, souvent absent des guides, mais qui gagne du terrain. Les ERP intègrent de plus en plus de fonctions d'[intelligence artificielle dans l'ERP](/erp-intelligence-artificielle/) : scoring de prospects, prévision de la demande, analyse des CV. Or ces briques se nourrissent de vos données personnelles, ce qui ouvre de nouvelles questions de conformité : sur quelle base légale entraîne-t-on un modèle sur des données clients ? Comment expliquer une décision automatisée à la personne concernée ? Les jeux d'entraînement sont-ils correctement anonymisés ? Les orientations récentes de la CNIL vont clairement dans le sens d'une vigilance accrue sur ces usages. Si votre éditeur ajoute de l'IA à son ERP, ces traitements ont vocation à figurer eux aussi dans votre registre, avec le cas échéant une analyse d'impact.
+
+  
+
+Par où commencer si tout cela vous semble vertigineux ? Par le registre. Listez vos cinq traitements principaux (paie, clients, prospects, fournisseurs, candidatures), et pour chacun notez la finalité, les données concernées, qui y accède et combien de temps vous les gardez. La CNIL met un modèle gratuit à disposition. Ce premier inventaire prend une après-midi et pose les fondations de tout le reste.
+
+  
+
+Le RGPD n'est d'ailleurs pas la seule échéance réglementaire qui pèse sur votre ERP : le [passage à la facturation électronique](/erp-facturation-electronique/) impose lui aussi d'adapter vos processus et vos flux de données. Autant traiter ces chantiers de front, puisqu'ils touchent souvent les mêmes modules.
+
+  
+
+Au bout du compte, une formule résume tout. **La conformité au RGPD n'est pas une fonctionnalité du logiciel, c'est une démarche d'entreprise.** Votre ERP est un outil formidable pour l'appliquer, à condition que vous ayez d'abord posé les règles : pourquoi vous détenez ces données, combien de temps, qui peut y accéder, et comment répondre à ceux qui les réclament. L'outil exécute. Vous, vous décidez. Et c'est très bien ainsi !
+
+## Questions fréquentes
+
+### Un ERP « conforme RGPD » suffit-il à être en règle ?
+
+Non. Un logiciel bien conçu vous aide à appliquer le RGPD (exercer les droits, tracer les accès, purger les données), mais la conformité repose sur votre organisation : registre, base légale, contrat avec l'éditeur. L'outil exécute, il ne décide pas à votre place.
+
+### En cas de fuite de données, qui est responsable : moi ou l'éditeur ?
+
+Vous, en tant que responsable de traitement, restez responsable vis-à-vis de la CNIL et des personnes concernées. L'éditeur, comme sous-traitant, partage certaines obligations (sécurité, notification), mais ne vous dédouane pas. D'où l'importance d'un contrat de sous-traitance solide.
+
+### Faut-il un DPO pour gérer le RGPD de son ERP ?
+
+Pas toujours. Le DPO est obligatoire si vous suivez des personnes à grande échelle ou traitez des données sensibles. Pour beaucoup de PME, il est seulement recommandé. Un DPO externe (3 000 à 8 000 € par an) reste une option fréquente et économique.
+
+### Mes données ERP doivent-elles être hébergées en France ou en UE ?
+
+Aucune obligation stricte de localisation, mais c'est fortement conseillé. Un hébergement européen évite les transferts hors UE, soumis à des garanties supplémentaires face à des lois étrangères d'accès aux données. La localisation mérite une vraie attention lors du choix.
+
+### Combien de temps peut-on conserver des données dans un ERP ?
+
+Le temps nécessaire à la finalité, pas davantage. Une donnée client se garde le temps de la relation commerciale plus quelques années ; une facture, dix ans par obligation légale. Au-delà, on supprime ou on anonymise. Définir ces durées fait partie de vos obligations.
+
+### Les fonctions d'IA de mon ERP changent-elles mes obligations RGPD ?
+
+Oui, elles en ajoutent. Un module qui score des prospects ou trie des candidatures reste un traitement de données personnelles, à inscrire au registre. Il faut une base légale pour entraîner le modèle, veiller à l'anonymisation des données d'entraînement et pouvoir expliquer les décisions automatisées aux personnes concernées.

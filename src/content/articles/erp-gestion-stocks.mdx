@@ -1,0 +1,158 @@
+---
+title: "Le module qui suit vos stocks au mouvement près, en temps réel"
+seoTitle: "Module gestion des stocks ERP : fonctions et atouts"
+excerpt: "Dans un ERP, le module de gestion des stocks actualise chaque quantité en temps réel, du suivi des mouvements à la valorisation. Voici ses fonctions et ses atouts concrets."
+description: "Le module de gestion des stocks d'un ERP suit les mouvements en temps réel, automatise inventaires et réapprovisionnements. Fonctions et atouts."
+heroImage: "/images/N2-02.webp"
+heroAlt: "Le module qui suit vos stocks au mouvement près, en temps réel"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "9 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Le stock se met-il vraiment à jour en temps réel ?"
+    a: "Oui. Chaque mouvement (réception, expédition, transfert, retour) actualise la quantité disponible à l'instant où il est saisi. Vous connaissez votre stock exact à tout moment, sans attendre un comptage de fin de journée."
+  - q: "Quelle méthode de valorisation choisir : FIFO, LIFO ou CUMP ?"
+    a: "Ça dépend de votre activité. Le FIFO convient aux produits périssables ou à rotation rapide. Le CUMP lisse les variations de prix d'achat. La LIFO est plus rare, souvent limitée par les règles comptables françaises. L'ERP applique ensuite la méthode retenue automatiquement."
+  - q: "FEFO et FIFO, est-ce la même chose ?"
+    a: "Non. Le FIFO fait sortir en premier le lot entré en premier ; le FEFO fait sortir en premier le lot dont la date de péremption est la plus proche. Les deux coïncident souvent, mais pas toujours : un lot reçu plus tard peut périmer plus tôt. Sur des produits à DLC courte, le FEFO limite les pertes là où le FIFO seul laisserait passer des périmés."
+  - q: "Faut-il encore faire un inventaire annuel avec un ERP ?"
+    a: "L'inventaire annuel reste souvent une obligation comptable, mais il devient une formalité. Avec l'inventaire tournant, vous comptez de petites portions en continu, sans paralyser l'activité, et les écarts se corrigent au fil de l'eau."
+  - q: "Le module peut-il déclencher les commandes de réappro tout seul ?"
+    a: "Oui, via des seuils d'alerte et un stock de sécurité par article. Dès que le niveau descend trop bas, le module propose ou passe la commande. Certains intègrent même les prévisions de vente, calculées sur l'historique, pour anticiper les besoins au lieu de réagir à un seuil."
+  - q: "Peut-on gérer plusieurs entrepôts et travailler en mobilité ?"
+    a: "Oui. Le module suit les stocks par site, zone et emplacement, y compris chez un sous-traitant. Les équipes saisissent réceptions, inventaires et sorties depuis un smartphone ou une douchette code-barres, directement en atelier."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "Le module de gestion des stocks suit chaque mouvement (entrée, sortie, transfert) en temps réel, sans ressaisie.", "Il gère les emplacements, le multi-entrepôts et la traçabilité par lot ou numéro de série.", "Il valorise le stock (FIFO, LIFO, CUMP) et pilote les inventaires, tournants comme annuels.", "Le réapprovisionnement s'automatise via des seuils d'alerte et un stock de sécurité.", "À la clé : moins de ruptures, moins de surstocks, et de la trésorerie libérée." ]} />
+
+  
+
+Le module de gestion des stocks, c'est l'« œil » de l'ERP sur vos marchandises. À chaque entrée, sortie ou transfert, il met à jour la quantité disponible **en temps réel**, pour que tout le monde voie le même chiffre au même instant. Fini le tableur qui date d'hier et les comptages qui ne tombent jamais juste !
+
+  
+
+Son but tient dans un équilibre : éviter à la fois la rupture, qui bloque la production et fait fuir le client, et le surstock, qui immobilise de la trésorerie et encombre l'entrepôt. Deux dangers opposés qu'un stock bien suivi tient à distance. Voyons comment.
+
+## À quoi sert le module de gestion des stocks ?
+
+Son rôle : rassembler au même endroit toute l'information sur vos articles. Quantités disponibles, réservées ou en transit, emplacements physiques, valeur comptable, tout est centralisé et actualisé au fil des opérations. Chaque réception, chaque expédition, chaque transfert entre entrepôts s'enregistre à l'instant.
+
+  
+
+Comme ces données vivent dans l'ERP, elles cassent les cloisons entre la logistique, les achats et la comptabilité : chacun lit le même stock, sans se renvoyer des fichiers. Ce module dialogue en continu avec [les modules de l'ERP](/modules-erp/) qui partagent cette base commune, et c'est l'un des plus sensibles, car le stock pèse souvent lourd au bilan.
+
+  
+
+Concrètement, une mauvaise tenue du stock coûte des deux côtés : trop peu, et une commande client part en retard ou une chaîne s'arrête faute de pièce ; trop, et des palettes vieillissent en réserve, parfois jusqu'à l'obsolescence. Le module donne les moyens d'arbitrer entre ces deux extrêmes, chiffres à l'appui.
+
+## Les fonctions clés
+
+Derrière ce suivi se cachent plusieurs fonctions, du comptage brut jusqu'à la commande automatique… Passons-les en revue.
+
+  
+
+Chaque flèche, entrée comme sortie, met à jour le stock au moment où elle a lieu. C'est cette actualisation permanente qui fait toute la fiabilité du chiffre affiché. 
+
+### Le suivi des mouvements en temps réel
+
+Tout part de là. Chaque réception, expédition, transfert entre sites, retour ou correction s'enregistre au fil de l'eau. Le résultat : une visibilité instantanée sur ce que vous avez, où, et dans quel état (disponible, réservé, en transit…). Plus besoin d'attendre la fin de journée pour connaître son stock réel. Le module distingue les grands types de mouvements :
+
+  
+
+  - les **entrées** : réceptions fournisseurs, retours clients, produits finis sortis de production ;
+  - les **sorties** : expéditions clients, consommations en atelier, rebuts ;
+  - les **transferts** : d'un entrepôt ou d'un emplacement à un autre, sans quitter le stock global.
+
+### Les emplacements et le multi-entrepôts
+
+Un stock, ce n'est pas qu'un chiffre global. Le module le localise finement : par entrepôt, par zone, par emplacement, voire par couple lieu/lot. Il gère plusieurs sites, les stocks déportés chez un client ou un sous-traitant, les transferts inter-établissements. Pour un entrepôt structuré, il optimise même les emplacements afin de raccourcir les parcours de préparation. Cette localisation sert aussi les entreprises multicanal : quand le même stock alimente une boutique, un site e-commerce et une marketplace, le module affiche partout la quantité réelle et évite de promettre un article déjà parti.
+
+### La traçabilité
+
+Dans l'agroalimentaire, la santé ou l'industrie, savoir d'où vient un article n'est pas une option. Le module trace chaque produit par lot et par numéro de série, gère les dates de péremption (DLC, DLUO), et remonte la chaîne dans les deux sens : de la matière première au produit fini livré, puis inversement. La lecture par codes-barres ou puces RFID sécurise chaque saisie sur le terrain.
+
+  
+
+Sur les produits à date, l'ordre de sortie ne suit pas forcément l'ordre comptable : le module applique le **FEFO** (premier périmé, premier sorti), qui écoule d'abord les lots dont la péremption approche, quelle que soit leur date d'entrée. La nuance compte, car FIFO, LIFO et CUMP décident de la valeur attribuée à une sortie, tandis que le FEFO décide du lot physique qui part réellement. Sur du frais ou du pharmaceutique, c'est ce qui évite qu'un lot périme au fond d'une allée pendant qu'on en expédie un plus récent.
+
+### La valorisation du stock
+
+Le stock a une valeur, et l'ERP la calcule sans effort. Il applique la méthode qui vous convient : **FIFO** (premier entré, premier sorti), LIFO, ou coût unitaire moyen pondéré (CUMP). Il peut intégrer les frais d'approche (transport, douane) pour un coût de revient juste, et fournir une photographie de la valeur du stock à chaque fin de mois… De quoi fiabiliser les clôtures, cette valeur alimentant ensuite la comptabilité. Un même stock peut d'ailleurs être valorisé différemment selon l'entrepôt ou le lot, ce qui affine le calcul de la marge.
+
+  
+
+Cette valeur ne reste pas dans la logistique : elle descend au bilan, où le stock figure à l'actif, et pèse sur le résultat via la variation de stock d'un exercice à l'autre. D'où l'enjeu à la clôture : une valorisation fausse, et c'est toute la marge qui se trouve faussée, sans parler des articles dormants qu'on oublie de déprécier. Un stock bien valorisé dans l'ERP, c'est un poste de bilan qui tient debout au moment du bilan comptable.
+
+### Les inventaires
+
+Compter son stock reste indispensable, mais l'ERP change la donne. Fini l'inventaire annuel qui paralyse tout un week-end : place à **l'inventaire tournant**, où l'on compte en continu de petites portions du stock. La méthode ABC aide à prioriser : les articles A, qui pèsent environ 70 % de la valeur pour 10 % des références, se comptent souvent chaque mois ; les B chaque trimestre ; les C une fois l'an. Le module repère aussitôt les écarts entre stock théorique et stock réel, et guide leur correction.
+
+### Le réapprovisionnement automatique
+
+C'est le nerf de la guerre. Vous fixez pour chaque article un **seuil d'alerte** (le « point de commande ») et un stock de sécurité ; dès que le niveau descend sous ce point, le module génère une suggestion, voire directement une commande. Certains vont plus loin avec un calcul des besoins nets, qui croise le stock disponible, les commandes clients en cours et les réservations. Quand le manque touche une matière première, le besoin remonte vers [les matières consommées en production](/erp-production-gpao/) ; quand il faut acheter, il [déclenche une commande d'approvisionnement](/erp-achats/) auprès du fournisseur.
+
+  
+
+Le seuil fixe fait le travail sur des articles réguliers, mais il vieillit mal dès que la demande bouge. C'est là qu'intervient la prévision : en s'appuyant sur l'historique des ventes, le module anticipe le besoin au lieu d'attendre qu'un seuil soit franchi. Il repère la saisonnalité — un article qui s'écoule deux fois plus vite avant les fêtes — et relève le point de commande à l'approche du pic, pour ne pas commander trop tôt ni découvrir la pénurie le jour où la demande grimpe. Plus l'historique de ventes est propre et profond, plus cette prévision colle au réel.
+
+## Module de gestion des stocks ou WMS : quelle différence ?
+
+On confond parfois les deux. Le module de gestion des stocks de l'ERP répond à la question « combien, où, et pour quelle valeur ? ». Il suit les quantités, les mouvements et la valorisation, connectés au reste de la gestion.
+
+  
+
+Un WMS (warehouse management system) creuse l'entrepôt lui-même : il optimise les parcours de préparation, l'affectation des emplacements, la charge des équipes, la radio-fréquence. C'est l'outil des entrepôts très structurés ou à gros volumes. Les deux ne s'opposent pas : le module ERP suffit à la plupart des PME, et pour des besoins logistiques pointus, un WMS s'interface avec lui.
+
+## Les bénéfices concrets
+
+Au bout du compte, qu'est-ce que ça change ? Beaucoup !
+
+  
+
+<FeatureColumns columns={2} items={[ {title: "Moins de ruptures", text: "Les seuils d'alerte et la vision temps réel préviennent le manque avant qu'il ne bloque une vente ou une production."}, {title: "Moins de surstocks", text: "En repérant les articles dormants et à faible rotation, on cesse d'immobiliser de la trésorerie pour rien."}, {title: "Des données fiables", text: "Fini les écarts de tableur et les erreurs de comptage : le stock affiché correspond au stock réel."}, {title: "Du temps gagné", text: "Mouvements automatisés, saisie par codes-barres, inventaires tournants : les tâches répétitives fondent."} ]} />
+
+  
+
+Ce dernier point compte plus qu'il n'y paraît : le stock est souvent l'actif le plus lourd d'une entreprise. Chaque euro qui y dort ne travaille pas ailleurs.
+
+  
+
+Un module de stock ne vaut que par la qualité de ses données de base. Avant le démarrage, fiabilisez vos délais fournisseurs, vos prix d'achat et vos niveaux initiaux : un réapprovisionnement automatique nourri de données fausses commandera au mauvais moment. Le paramétrage de départ fait toute la différence !
+
+## Le vrai rôle du module
+
+Le module de gestion des stocks, c'est ce qui transforme un inventaire subi en **stock piloté**. Il ne se contente pas de compter des articles ; il vous dit quoi commander, quand, et combien tout cela vaut. Un bon module de gestion des stocks n'est pas un simple compteur de quantités, c'est un outil de trésorerie déguisé en outil logistique.
+
+## Questions fréquentes
+
+### Le stock se met-il vraiment à jour en temps réel ?
+
+Oui. Chaque mouvement (réception, expédition, transfert, retour) actualise la quantité disponible à l'instant où il est saisi. Vous connaissez votre stock exact à tout moment, sans attendre un comptage de fin de journée.
+
+### Quelle méthode de valorisation choisir : FIFO, LIFO ou CUMP ?
+
+Ça dépend de votre activité. Le FIFO convient aux produits périssables ou à rotation rapide. Le CUMP lisse les variations de prix d'achat. La LIFO est plus rare, souvent limitée par les règles comptables françaises. L'ERP applique ensuite la méthode retenue automatiquement.
+
+### FEFO et FIFO, est-ce la même chose ?
+
+Non. Le FIFO fait sortir en premier le lot entré en premier ; le FEFO fait sortir en premier le lot dont la date de péremption est la plus proche. Les deux coïncident souvent, mais pas toujours : un lot reçu plus tard peut périmer plus tôt. Sur des produits à DLC courte, le FEFO limite les pertes là où le FIFO seul laisserait passer des périmés.
+
+### Faut-il encore faire un inventaire annuel avec un ERP ?
+
+L'inventaire annuel reste souvent une obligation comptable, mais il devient une formalité. Avec l'inventaire tournant, vous comptez de petites portions en continu, sans paralyser l'activité, et les écarts se corrigent au fil de l'eau.
+
+### Le module peut-il déclencher les commandes de réappro tout seul ?
+
+Oui, via des seuils d'alerte et un stock de sécurité par article. Dès que le niveau descend trop bas, le module propose ou passe la commande. Certains intègrent même les prévisions de vente, calculées sur l'historique, pour anticiper les besoins au lieu de réagir à un seuil.
+
+### Peut-on gérer plusieurs entrepôts et travailler en mobilité ?
+
+Oui. Le module suit les stocks par site, zone et emplacement, y compris chez un sous-traitant. Les équipes saisissent réceptions, inventaires et sorties depuis un smartphone ou une douchette code-barres, directement en atelier.

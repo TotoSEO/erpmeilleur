@@ -1,0 +1,191 @@
+---
+title: "Le vocabulaire de l'ERP expliqué simplement"
+seoTitle: "Glossaire ERP : le lexique complet des termes clés"
+excerpt: "Sigles à rallonge, anglicismes, faux amis : l'ERP a son jargon. Ce glossaire réunit les termes que vous croiserez le plus, classés par thème, avec une définition courte pour chacun."
+description: "Glossaire ERP : définitions claires des termes essentiels, de PGI à SaaS, en passant par module, intégrateur, API, MRP, TCO et bien d'autres."
+heroImage: "/images/N1-20.webp"
+heroAlt: "Le vocabulaire de l'ERP expliqué simplement"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "11 min"
+publishedDate: "02 juillet 2026"
+badges:
+  - { label: "Guide ERP", tone: "blue", variant: "gradient" }
+faq:
+  - q: "Quelle est la différence entre ERP et PGI ?"
+    a: "Aucune sur le fond. PGI (progiciel de gestion intégré) est la traduction française d'ERP. Le terme PGI s'emploie surtout dans les textes officiels et les marchés publics ; ERP domine partout ailleurs, même en France."
+  - q: "ERP et logiciel de gestion, c'est pareil ?"
+    a: "Pas exactement. Un logiciel de gestion couvre souvent un seul domaine (comptabilité, paie…). L'ERP, lui, intègre plusieurs fonctions sur une base unique. Tout ERP est un logiciel de gestion, mais l'inverse n'est pas vrai."
+  - q: "Que veut dire SaaS ?"
+    a: "Software as a Service. Le logiciel est hébergé dans le cloud et utilisé via un navigateur, contre un abonnement. Pas d'installation ni de serveur à gérer : l'éditeur s'occupe de tout, mises à jour comprises."
+  - q: "C'est quoi un intégrateur ERP ?"
+    a: "Le prestataire qui déploie l'ERP chez vous : installation, paramétrage, reprise des données, formation. L'éditeur crée le logiciel, l'intégrateur le met en œuvre. Les deux peuvent être la même entreprise."
+  - q: "GPAO ou MES : quelle différence ?"
+    a: "La GPAO planifie et suit la production d'un point de vue gestion : ordres de fabrication, nomenclatures, gammes. Le MES descend au niveau de l'atelier et des machines, en temps réel, pour piloter et tracer l'exécution. Les deux se complètent plus qu'ils ne se remplacent."
+  - q: "Faut-il connaître tous ces termes pour choisir un ERP ?"
+    a: "Non. Quelques notions clés suffisent au départ (ERP, module, déploiement, intégrateur). Le reste du vocabulaire s'acquiert au fil du projet, et un bon intégrateur vulgarise ce qu'il faut."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "Un ERP (ou PGI en français) se décrit avec un vocabulaire récurrent : modules, déploiement, intégration, métiers.", "Les sigles métiers les plus fréquents : CRM, SCM, WMS, GPAO, GMAO, BI.", "Côté projet, retenez : éditeur, intégrateur, paramétrage, reprise de données, go-live.", "Côté hébergement : SaaS, cloud, on-premise, licence ou abonnement.", "Côté budget, le TCO (coût total) et le ROI (retour sur investissement) priment sur le seul prix des licences." ]} />
+
+  
+
+L'univers de [l'ERP a son langage](https://meilleur-erp.fr/qu-est-ce-qu-un-erp/), et quand on démarre un projet, on s'y perd vite. Par où commencer dans cette forêt de sigles ? Par les mots qui reviennent le plus souvent. Ce glossaire les rassemble par thème, avec à chaque fois une définition simple, sans détour. Gardez-le sous la main !
+
+## Les fondamentaux
+
+Les mots de base, ceux qui reviennent dans toute conversation sur l'ERP. Si vous ne deviez en retenir qu'une poignée, ce sont eux : ils forment le socle sur lequel tout le reste vient se greffer.
+
+  
+
+  - **ERP** : Enterprise Resource Planning. Logiciel qui centralise les processus de gestion d'une entreprise (finance, ventes, stocks, production, RH…) dans une base de données unique.
+  - **PGI** : progiciel de gestion intégré, [la traduction française officielle d'ERP](https://meilleur-erp.fr/erp-pgi-difference/). Les deux mots désignent la même chose ; « PGI » domine dans les textes officiels et les marchés publics, « ERP » dans la pratique quotidienne.
+  - **Progiciel** : un logiciel standard, prêt à l'emploi, conçu pour de nombreuses entreprises, par opposition à un développement réalisé sur mesure pour une seule.
+  - **Module** : brique fonctionnelle couvrant un domaine précis (comptabilité, achats, stocks, paie…). On active uniquement ceux dont on a besoin, et on en ajoute au fil de la croissance.
+  - **Base de données unique** : le cœur de l'ERP. Une seule « source de vérité » partagée par tous les services, qui évite les doublons et les versions contradictoires d'une même information.
+  - **Temps réel** : la mise à jour immédiate de l'information dès qu'une donnée change, sans attendre un traitement différé.
+  - **SI (système d'information)** : l'ensemble des logiciels et des données de l'entreprise. L'ERP en est souvent la pièce centrale, mais rarement la seule.
+  - **Instance** : une installation particulière de l'ERP, propre à une entreprise ou à un environnement de travail donné.
+  - **MRP** : Material Requirements Planning. Ancêtre de l'ERP, né dans l'industrie, qui calcule les besoins en matières à partir du plan de production et des stocks.
+  - **MRP II** : Manufacturing Resource Planning. Évolution du MRP élargie aux machines, à la main-d'œuvre et aux capacités de l'atelier.
+
+## Le projet et les acteurs
+
+Qui fait quoi, et les grandes étapes d'un déploiement. Un projet ERP n'est jamais qu'une affaire de logiciel : il mobilise des acteurs, des étapes et un calendrier qu'il vaut mieux savoir nommer pour ne pas se laisser distancer en réunion.
+
+  
+
+  - **Éditeur** : l'entreprise qui conçoit et développe le logiciel (SAP, Sage, Odoo, Divalto…).
+  - **Intégrateur** : le prestataire qui installe, paramètre et adapte l'ERP chez le client. [Éditeur et intégrateur sont parfois la même société](https://meilleur-erp.fr/editeur-integrateur-erp/), parfois non.
+  - **Paramétrage** : configuration du logiciel selon les besoins, sans écrire de code. Le premier levier d'adaptation, et le plus économique.
+  - **Développement spécifique** : du code sur mesure, quand le paramétrage ne suffit plus. Plus puissant, mais plus lourd à maintenir dans le temps.
+  - **Cahier des charges** : le document qui formalise les besoins de l'entreprise et sert de référence pour choisir la solution et cadrer le projet.
+  - **Reprise de données** : le transfert des données de l'ancien système vers le nouvel ERP. Une étape souvent sous-estimée, et pourtant critique.
+  - **Sandbox (bac à sable)** : un environnement de test, copie de l'ERP, où l'on essaie les changements sans risque avant de toucher au système réel.
+  - **Recette** : la phase de tests où l'on vérifie que l'ERP fait bien ce qu'on attend de lui, avant la bascule définitive.
+  - **Go-live** : la mise en production, le jour où l'ERP passe en conditions réelles pour tous les utilisateurs.
+  - **Conduite du changement** : l'accompagnement humain des équipes. Sans elle, l'adoption traîne et le retour sur investissement déçoit.
+  - **Sponsor** : le dirigeant qui porte le projet, débloque les moyens et tranche les arbitrages. Sans sponsor solide, un projet ERP s'enlise vite.
+  - **TMA** : tierce maintenance applicative, l'entretien et les évolutions du logiciel confiés à un prestataire après le démarrage.
+
+## L'hébergement et la tarification
+
+Où tourne le logiciel, et comment on le paie. Deux questions liées de près, car le mode d'hébergement choisi détermine bien souvent le modèle de prix, et réciproquement.
+
+  
+
+  - **SaaS** : Software as a Service. Le logiciel est hébergé dans le cloud et accessible via un navigateur, contre un abonnement, sans avoir à gérer ni serveur ni mises à jour.
+  - **Cloud** : hébergement à distance, sur les serveurs de l'éditeur ou d'un tiers, accessible par Internet.
+  - **On-premise** : à l'inverse, le logiciel est installé sur les serveurs internes de l'entreprise, qui en garde la maîtrise complète. Pour choisir entre ces options, comparez [les modes de déploiement (SaaS, cloud, on-premise)](/erp-cloud-saas-on-premise/).
+  - **Cloud hybride** : un mélange des deux, où l'on garde certaines données sensibles en interne et le reste dans le cloud.
+  - **Multi-tenant** : une architecture où plusieurs clients partagent la même instance du logiciel. C'est le standard du SaaS, qui permet des coûts réduits et des mises à jour pour tous en même temps.
+  - **Disponibilité (SLA)** : le niveau de service que l'hébergeur s'engage à tenir, souvent exprimé en pourcentage de temps de fonctionnement garanti.
+  - **Utilisateur (licence nommée)** : une personne autorisée à se connecter à l'ERP. Le nombre d'utilisateurs pèse souvent directement sur le prix.
+  - **Licence / abonnement** : deux modèles de prix. La licence s'achète une fois (souvent en on-premise) ; l'abonnement se paie périodiquement (modèle SaaS).
+  - **TCO** : Total Cost of Ownership, le coût total de possession. Il additionne licences, intégration, formation et maintenance sur la durée, bien au-delà du seul prix d'achat.
+  - **ROI** : retour sur investissement. Le gain rapporté au coût, ce qui justifie (ou non) le projet aux yeux de la direction.
+
+## L'intégration et la technique
+
+Comment l'ERP communique avec le reste du système d'information. Car un ERP vit rarement seul : il doit dialoguer en permanence avec d'autres outils, et tout un vocabulaire décrit ces ponts entre logiciels.
+
+  
+
+  - **API** : une interface qui permet à deux logiciels d'échanger des données automatiquement, en temps réel.
+  - **Connecteur** : un lien prêt à l'emploi entre l'ERP et un outil courant (CRM, boutique en ligne, banque…).
+  - **EDI** : l'échange de documents commerciaux (commandes, factures, bons de livraison) dans un format standardisé, entre partenaires.
+  - **iPaaS** : une plateforme cloud qui orchestre les échanges entre plusieurs applications, utile quand les connexions se multiplient.
+  - **Webhook** : une notification automatique envoyée par un logiciel à un autre dès qu'un événement précis se produit.
+  - **Migration** : le passage d'une ancienne version ou d'un ancien système vers un nouveau, données comprises.
+  - **Interopérabilité** : la capacité de l'ERP à fonctionner avec d'autres systèmes sans perte ni rupture de données.
+  - **Workflow** : un enchaînement automatisé d'étapes et de validations. Exemple : une demande d'achat validée déclenche seule le bon de commande et la notification à la comptabilité.
+
+## Les sigles métiers
+
+Les briques fonctionnelles que l'on branche autour de l'ERP, ou directement dedans. Ces sigles désignent autant de domaines que l'ERP peut couvrir lui-même ou déléguer à des outils spécialisés.
+
+  
+
+<FeatureColumns columns={2} items={[ {title: "CRM", text: "Customer Relationship Management : la gestion de la relation client, des prospects au suivi commercial."}, {title: "SCM", text: "Supply Chain Management : le pilotage de la chaîne logistique, des achats jusqu'à la livraison."}, {title: "WMS", text: "Warehouse Management System : la gestion fine d'un entrepôt (emplacements, préparation, expéditions)."}, {title: "GPAO", text: "Gestion de la production assistée par ordinateur : planifier, lancer et suivre la fabrication."}, {title: "GMAO", text: "Gestion de la maintenance assistée par ordinateur : entretenir et suivre les équipements."}, {title: "BI", text: "Business Intelligence, ou informatique décisionnelle : les tableaux de bord qui changent les données en décisions."} ]} />
+
+  
+
+D'autres sigles reviennent selon les métiers, sans toujours mériter leur propre colonne :
+
+  - **GED** : gestion électronique de documents. Le classement, le stockage et la recherche des documents de l'entreprise (factures, contrats, bons de livraison) rattachés directement aux données de l'ERP, plutôt que dispersés dans des dossiers réseau ou des boîtes mail.
+  - **SIRH** : système d'information des ressources humaines. Le volet RH élargi (paie, congés, entretiens, formation), parfois intégré au cœur de l'ERP, parfois confié à un outil dédié qui s'y connecte.
+  - **MES** : Manufacturing Execution System. Le pilotage de l'atelier au plus près des machines, en temps réel. À ne pas confondre avec la GPAO : la GPAO planifie et suit la production d'en haut, le MES exécute sur la ligne et remonte ce qui s'y passe vraiment.
+
+## La production et les flux
+
+Des termes plus industriels, mais qu'on retrouve dans beaucoup d'ERP, même hors de l'usine. Ils décrivent la mécanique des flux, du besoin en matière jusqu'au produit livré au client.
+
+  
+
+  - **Nomenclature (BOM)** : la liste des composants et matières nécessaires pour fabriquer un produit.
+  - **Gamme opératoire** : la suite des étapes et opérations à réaliser pour le fabriquer.
+  - **Ordre de fabrication (OF)** : l'ordre lancé en atelier pour produire une quantité donnée.
+  - **PIC (plan industriel et commercial)** : la vision à moyen terme qui aligne prévisions de ventes et capacités de production, en général sur plusieurs mois.
+  - **PDP (plan directeur de production)** : la déclinaison plus fine du PIC, qui fixe ce qu'on produit, en quelle quantité et à quelle échéance.
+  - **CBN (calcul des besoins nets)** : le calcul qui traduit le plan de production en besoins concrets de matières et de composants, cœur historique du MRP.
+  - **Ordonnancement** : l'organisation détaillée des ordres de fabrication dans le temps et sur les postes de travail, pour tenir les délais sans engorger l'atelier.
+  - **Cycle devis-commande-livraison** : le parcours type d'une vente dans l'ERP, du devis à la facture, chaque étape mettant à jour stock et comptabilité.
+  - **Inventaire** : le comptage des stocks réels, que l'ERP confronte ensuite aux quantités théoriques pour corriger les écarts.
+  - **Réapprovisionnement** : le déclenchement des commandes d'achat quand un stock descend sous un seuil défini à l'avance.
+  - **FIFO / FEFO** : deux règles de rotation des stocks. FIFO (first in, first out) fait sortir d'abord ce qui est entré en premier ; FEFO (first expired, first out) fait sortir d'abord ce qui périme le plus tôt, indispensable en agroalimentaire ou en pharmacie.
+  - **Stock de sécurité** : la quantité minimale conservée en réserve pour absorber les aléas de demande ou de délai de livraison.
+  - **Traçabilité** : la capacité à retrouver l'historique complet d'un produit (lot, date, matières), précieuse en cas de rappel ou de SAV.
+  - **KPI** : indicateur clé de performance, le chiffre que l'on suit pour piloter (taux de service, marge, délai de livraison…).
+
+## L'évolution et les tendances
+
+Quelques mots pour suivre les discussions sur l'ERP d'aujourd'hui et de demain. Le vocabulaire évolue avec la technologie, et ces termes reviennent de plus en plus souvent dans les appels d'offres.
+
+  
+
+  - **ERP II** : l'ERP ouvert sur le web et sur l'extérieur (clients, fournisseurs), apparu dans les années 2000.
+  - **ERP postmoderne** : une approche modulaire où un noyau léger est entouré de services cloud spécialisés, plutôt qu'un gros bloc unique et figé.
+  - **Best-of-breed** : le choix d'assembler le meilleur outil de chaque catégorie, à l'opposé de la suite tout-en-un d'un seul éditeur.
+  - **Low-code / no-code** : des outils qui permettent d'adapter ou d'étendre l'ERP avec peu, voire pas du tout, de programmation.
+  - **Scalabilité (évolutivité)** : la capacité de l'ERP à grandir avec l'entreprise, sans devoir tout reconstruire.
+  - **Industrie 4.0** : l'usine connectée, où capteurs, machines et ERP échangent en continu pour automatiser et optimiser la production. Un terme qui revient de plus en plus dans les appels d'offres industriels, souvent aux côtés du MES et de l'IoT.
+  - **IA dans l'ERP** : l'intelligence artificielle au service de la prévision, de l'automatisation et de l'analyse des données.
+
+  
+
+Un conseil pour aborder un projet sans se noyer : ne cherchez pas à tout retenir d'un coup. Concentrez-vous d'abord sur cinq mots, ERP, module, intégrateur, paramétrage et go-live. Ils suffisent à suivre la quasi-totalité des réunions de cadrage. Le reste viendra à l'usage !
+
+## Garder le bon mot au bon moment
+
+Maîtriser ce vocabulaire change tout dans un projet : vous suivez les échanges, vous posez les bonnes questions, vous évitez les malentendus coûteux. Un glossaire n'est pas une fin en soi, c'est **un point d'appui** pour dialoguer d'égal à égal avec les éditeurs et les intégrateurs. Gardez cette page en favori, vous y reviendrez !
+
+## Questions fréquentes
+
+### Quelle est la différence entre ERP et PGI ?
+
+Aucune sur le fond. PGI (progiciel de gestion intégré) est la traduction française d'ERP. Le terme PGI s'emploie surtout dans les textes officiels et les marchés publics ; ERP domine partout ailleurs, même en France.
+
+### ERP et logiciel de gestion, c'est pareil ?
+
+Pas exactement. Un logiciel de gestion couvre souvent un seul domaine (comptabilité, paie…). L'ERP, lui, intègre plusieurs fonctions sur une base unique. Tout ERP est un logiciel de gestion, mais l'inverse n'est pas vrai.
+
+### Que veut dire SaaS ?
+
+Software as a Service. Le logiciel est hébergé dans le cloud et utilisé via un navigateur, contre un abonnement. Pas d'installation ni de serveur à gérer : l'éditeur s'occupe de tout, mises à jour comprises.
+
+### C'est quoi un intégrateur ERP ?
+
+Le prestataire qui déploie l'ERP chez vous : installation, paramétrage, reprise des données, formation. L'éditeur crée le logiciel, l'intégrateur le met en œuvre. Les deux peuvent être la même entreprise.
+
+### GPAO ou MES : quelle différence ?
+
+La GPAO planifie et suit la production d'un point de vue gestion : ordres de fabrication, nomenclatures, gammes. Le MES descend au niveau de l'atelier et des machines, en temps réel, pour piloter et tracer l'exécution. Les deux se complètent plus qu'ils ne se remplacent.
+
+### Faut-il connaître tous ces termes pour choisir un ERP ?
+
+Non. Quelques notions clés suffisent au départ (ERP, module, déploiement, intégrateur). Le reste du vocabulaire s'acquiert au fil du projet, et un bon intégrateur vulgarise ce qu'il faut.

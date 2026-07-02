@@ -17,3 +17,9 @@ node_modules/
 .env
 .env.production
 .DS_Store
+
+# travail temporaire
+_incoming/
+.gen-llms.mjs
+.convert.mjs
+.raw/
