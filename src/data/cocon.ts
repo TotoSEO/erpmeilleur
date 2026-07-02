@@ -86,12 +86,58 @@ export const SECTIONS: Section[] = [
   },
 ];
 
-/** Méga-menu : colonnes de pages « intéressantes » (le hub + un choix de pages, sans surcharge). */
-export const MEGA = SECTIONS.map((s) => ({
-  key: s.key,
-  label: s.label,
-  links: [s.hub, ...s.items].slice(0, 6),
-}));
+/**
+ * Méga-menu : colonnes CURÉES des pages « intéressantes ».
+ * On ne liste PAS les pages module précises (elles restent accessibles depuis
+ * le hub « Tous les modules » et le plan du site) : le menu reste lisible.
+ */
+export const MEGA = [
+  {
+    key: 'comprendre',
+    label: "Comprendre l'ERP",
+    links: [
+      PILIER,
+      { slug: 'a-quoi-sert-un-erp', label: "À quoi ça sert" },
+      { slug: 'comment-fonctionne-un-erp', label: 'Comment ça fonctionne' },
+      { slug: 'avantages-inconvenients-erp', label: 'Avantages & inconvénients' },
+      { slug: 'erp-crm-difference', label: 'ERP ou CRM' },
+      { slug: 'logiciels-gestion-entreprise', label: 'Les logiciels de gestion' },
+    ],
+  },
+  {
+    key: 'choisir',
+    label: 'Choisir & budgéter',
+    links: [
+      { slug: 'prix-erp', label: 'Combien ça coûte' },
+      { slug: 'comment-choisir-un-erp', label: 'Comment choisir' },
+      { slug: 'cahier-des-charges-erp', label: 'Cahier des charges' },
+      { slug: 'roi-erp', label: 'Retour sur investissement' },
+      { slug: 'editeur-integrateur-erp', label: 'Éditeur & intégrateur' },
+    ],
+  },
+  {
+    key: 'deployer',
+    label: 'Déployer & réussir',
+    links: [
+      { slug: 'erp-cloud-saas-on-premise', label: 'Cloud, SaaS ou on-premise' },
+      { slug: 'erp-open-source', label: 'ERP open source' },
+      { slug: 'mise-en-place-erp', label: 'Mettre en place un ERP' },
+      { slug: 'conduite-du-changement-erp', label: 'Conduite du changement' },
+      { slug: 'echec-projet-erp', label: "Pourquoi un projet échoue" },
+    ],
+  },
+  {
+    key: 'reperes',
+    label: 'Modules, tech & repères',
+    links: [
+      { slug: 'modules-erp', label: "Tous les modules d'un ERP" },
+      { slug: 'securite-erp', label: 'La sécurité des données' },
+      { slug: 'erp-rgpd', label: 'RGPD & conformité' },
+      { slug: 'erp-intelligence-artificielle', label: 'ERP et IA' },
+      { slug: 'glossaire-erp', label: 'Glossaire ERP' },
+    ],
+  },
+];
 
 /**
  * Parent direct de chaque page pour le fil d'Ariane (un seul niveau au-dessus).
