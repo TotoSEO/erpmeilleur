@@ -10,12 +10,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  */
 const updated = '12 octobre 2026';
 
-// Identité de l'éditeur (LCEN). Les champs « À COMPLÉTER » doivent être remplis avant mise en ligne.
+// Identité de l'éditeur (LCEN art. 6-III-1).
 const EDITEUR = {
   nom: 'Thomas Owaller (EI)',
-  siren: '[À COMPLÉTER]',
-  adresse: '4 rue de Bruges, [CODE POSTAL ET VILLE À COMPLÉTER], France',
-  telephone: '[À COMPLÉTER]',
+  siren: '940 106 800',
+  adresse: '4 rue de Bruges, 67000 Strasbourg, France',
+  // Téléphone encodé (XOR + ordre inversé) : jamais en clair dans le HTML, révélé au clic.
+  telephoneCode: '39,34,55,39,39,55,37,32,55,37,47,55,32,39',
 };
 const SITE = 'https://meilleur-erp.fr';
 const ld = {
@@ -50,7 +51,7 @@ const ld = {
       <ul>
         <li>SIREN : <span class="num">{EDITEUR.siren}</span></li>
         <li>Adresse : {EDITEUR.adresse}</li>
-        <li>Téléphone : <span class="num">{EDITEUR.telephone}</span></li>
+        <li>Téléphone : <button type="button" class="reveal-phone" data-c={EDITEUR.telephoneCode}>Afficher le numéro</button></li>
         <li>E-mail : <a href="mailto:contact@meilleur-erp.fr">contact@meilleur-erp.fr</a></li>
         <li>Directeur de la publication : <strong>{EDITEUR.nom}</strong></li>
       </ul>
@@ -116,3 +117,21 @@ const ld = {
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .reveal-phone { font: inherit; color: var(--blue-ink); background: none; border: none; padding: 0; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+</style>
+
+<script>
+  // Révèle le téléphone au clic : le numéro n'existe en clair qu'après interaction.
+  document.querySelectorAll<HTMLButtonElement>('.reveal-phone').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const n = (btn.dataset.c || '').split(',').map((x) => String.fromCharCode(Number(x) ^ 23)).reverse().join('');
+      const a = document.createElement('a');
+      a.href = 'tel:+33' + n.replace(/\s/g, '').slice(1);
+      a.textContent = n;
+      a.className = 'num';
+      btn.replaceWith(a);
+    });
+  });
+</script>
