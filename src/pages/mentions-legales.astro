@@ -3,11 +3,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 /**
  * Mentions légales — page statique simple, hors collection « articles ».
- * Responsable de publication : Guillaume Wagner. Hébergeur : Cloudflare France SAS.
+ * Éditeur : entrepreneur individuel (LCEN art. 6-III-1 : nom, domicile, téléphone,
+ * numéro d'immatriculation). Hébergeur : Cloudflare France SAS.
  * Section « Classements et liens d'intérêts » : information exigée pour les
  * contenus qui classent des offres (art. L111-7 et D111-7 du Code de la consommation).
  */
 const updated = '12 octobre 2026';
+
+// Identité de l'éditeur (LCEN). Les champs « À COMPLÉTER » doivent être remplis avant mise en ligne.
+const EDITEUR = {
+  nom: 'Thomas Owaller (EI)',
+  siren: '[À COMPLÉTER]',
+  adresse: '4 rue de Bruges, [CODE POSTAL ET VILLE À COMPLÉTER], France',
+  telephone: '[À COMPLÉTER]',
+};
 const SITE = 'https://meilleur-erp.fr';
 const ld = {
   '@context': 'https://schema.org',
@@ -35,12 +44,15 @@ const ld = {
 
       <h2>Éditeur du site</h2>
       <p>
-        Le site <strong>meilleur-erp.fr</strong> est édité par une personne
-        physique.
+        Le site <strong>meilleur-erp.fr</strong> est édité par
+        <strong>{EDITEUR.nom}</strong>, entrepreneur individuel (micro-entreprise).
       </p>
       <ul>
-        <li>Responsable de la publication : <strong>Guillaume Wagner</strong></li>
-        <li>Contact : contact@meilleur-erp.fr</li>
+        <li>SIREN : <span class="num">{EDITEUR.siren}</span></li>
+        <li>Adresse : {EDITEUR.adresse}</li>
+        <li>Téléphone : <span class="num">{EDITEUR.telephone}</span></li>
+        <li>E-mail : <a href="mailto:contact@meilleur-erp.fr">contact@meilleur-erp.fr</a></li>
+        <li>Directeur de la publication : <strong>{EDITEUR.nom}</strong></li>
       </ul>
 
       <h2>Hébergement</h2>
@@ -65,7 +77,14 @@ const ld = {
       </p>
       <p>
         L'éditeur du site entretient des liens professionnels avec l'un des
-        éditeurs de logiciels présentés dans ces classements.
+        éditeurs de logiciels présentés dans ces classements. Cette information
+        figure en tête de chaque classement. Le site n'affiche aucune publicité
+        et ne contient aucun lien affilié.
+      </p>
+      <p>
+        Les éditeurs de logiciels cités peuvent demander la correction d'une
+        information les concernant ou le retrait d'un visuel de leur produit en
+        écrivant à contact@meilleur-erp.fr.
       </p>
       <h2>Propriété intellectuelle</h2>
       <p>

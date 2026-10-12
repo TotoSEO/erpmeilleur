@@ -39,14 +39,13 @@ const SITE = 'https://meilleur-erp.fr';
 const cleanTitle = fm.title.replace(/<[^>]+>/g, '');
 const pageTitle = fm.seoTitle || `${cleanTitle} · meilleur-erp.fr`;
 const canonical = Astro.url.href;
-const author = fm.author
-  ? { '@type': 'Person', name: fm.author.name, url: `${SITE}/auteur/` }
-  : undefined;
+// Contenus signés par le site lui-même (pas d'auteur individuel).
 const publisher = {
   '@type': 'Organization',
   name: 'meilleur-erp.fr',
   url: SITE,
 };
+const author = publisher;
 
 // Fil d'Ariane hiérarchique : Accueil › hub de la branche › page courante.
 // N1 -> pilier ; N2 -> hub (ex. Modules) ; pilier -> racine.
@@ -130,16 +129,16 @@ const ld = { '@context': 'https://schema.org', '@graph': graph };
       <TableOfContents headings={headings} variant="desktop" />
 
       <div class="article-content">
+        {fm.ranking && fm.ranking.length > 0 && (
+          <aside class="rank-disclosure" aria-label="Transparence">
+            <strong>Transparence.</strong> Classement établi selon les critères décrits dans cet
+            article. L'éditeur du site entretient des liens professionnels avec l'un des éditeurs
+            de logiciels présentés. <a href="/a-propos/#transparence">Notre méthode</a>
+          </aside>
+        )}
         {fm.takeaways && fm.takeaways.length > 0 && <KeyTakeaways items={fm.takeaways} />}
         <TableOfContents headings={headings} variant="mobile" />
         <slot />
-        {fm.ranking && fm.ranking.length > 0 && (
-          <p class="rank-note">
-            Classement établi selon les critères éditoriaux décrits dans cet article.
-            L'éditeur du site entretient des liens professionnels avec l'un des éditeurs
-            de logiciels présentés. <a href="/mentions-legales/">Mentions légales</a>
-          </p>
-        )}
       </div>
     </div>
 

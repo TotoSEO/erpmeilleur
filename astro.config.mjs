@@ -9,6 +9,9 @@ export default defineConfig({
   site: 'https://meilleur-erp.fr',
   integrations: [mdx()],
 
+  // L'ancienne page auteur est remplacée par la page « À propos ».
+  redirects: { '/auteur': '/a-propos/' },
+
   markdown: {
     // Les titres reçoivent automatiquement un id (slug) -> ancrage + sommaire.
     shikiConfig: { theme: 'github-light' },

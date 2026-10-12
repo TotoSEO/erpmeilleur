@@ -141,6 +141,7 @@
 .lib__code { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-80); background: var(--ink); color: #fff; padding: 12px 16px; overflow-x: auto; white-space: pre; }
 .lib__code .tok { color: var(--orange); }
 
-/* Note de transparence des pages classement : discrète, en pied d'article. */
-.article-content .rank-note { margin: 48px 0 0; padding-top: 12px; border-top: 1px solid var(--hairline); font-family: var(--font-ui); font-size: 11.5px; line-height: 1.5; color: var(--ink-55); }
-.article-content .rank-note a { color: var(--ink-55); }
+/* Mention de transparence des pages classement : visible en tête d'article. */
+.article-content .rank-disclosure { margin: 0 0 22px; padding: 10px 14px; border: 1px solid var(--hairline-strong); border-left: 3px solid var(--ink-35); background: var(--paper-sunk, #F4F5F8); font-family: var(--font-ui); font-size: 13px; line-height: 1.5; color: var(--ink-80); }
+.article-content .rank-disclosure strong { color: var(--ink); }
+.article-content .rank-disclosure a { color: var(--blue-ink); }

@@ -1,6 +1,6 @@
 # meilleur-erp.fr
 
-> Le média des logiciels ERP : définitions, fonctionnement, modules, déploiement, coûts, conformité et classements des meilleures solutions, expliqués simplement par Guillaume Wagner.
+> Le média des logiciels ERP : définitions, fonctionnement, modules, déploiement, coûts, conformité et classements des meilleures solutions, expliqués simplement.
 
 ## Page pilier
 - [Qu'est-ce qu'un logiciel ERP ? TOUT savoir](https://meilleur-erp.fr/qu-est-ce-qu-un-erp/): Un ERP centralise la gestion de l'entreprise dans une base unique.
@@ -56,7 +56,7 @@
 - [Échec d'un projet ERP : causes fréquentes et prévention](https://meilleur-erp.fr/echec-projet-erp/): Entre 50 et 70 % des projets ERP échouent, rarement pour des raisons techniques.
 
 ## À propos
-- [Guillaume Wagner, auteur](https://meilleur-erp.fr/auteur/): l'auteur unique des contenus du site.
+- [À propos et méthode](https://meilleur-erp.fr/a-propos/): qui publie le site, comment les classements sont établis, sources et liens d'intérêts.
 
 ## Optional
 - [Plan du site](https://meilleur-erp.fr/plan-du-site/): l'arborescence complète des guides, organisée par thème.
