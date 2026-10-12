@@ -1,0 +1,90 @@
+---
+/**
+ * RankCard — fiche d'identité d'une solution dans un classement.
+ * Se place juste sous le titre ### de la solution (le titre reste en Markdown
+ * pour alimenter le sommaire). Pas de titre interne : rang, visuel, cible, specs.
+ *
+ * <RankCard rank={1} name="Divalto infinity" editor="Divalto" origin="France"
+ *   image="/images/erp/divalto.webp" credit="© Divalto"
+ *   badge="Notre choix" bestFor="PME et ETI industrielles ou de négoce"
+ *   specs={[{ label: 'Déploiement', value: 'SaaS, cloud privé, sur site' }]} />
+ */
+interface Spec { label: string; value: string; }
+interface Props {
+  rank: number;
+  name: string;
+  editor?: string;
+  origin?: string;
+  image?: string;
+  imageAlt?: string;
+  credit?: string;
+  badge?: string;
+  bestFor?: string;
+  specs?: Spec[];
+  highlight?: boolean;
+}
+const { rank, name, editor, origin, image, imageAlt, credit, badge, bestFor, specs = [], highlight = false } = Astro.props;
+const num = String(rank).padStart(2, '0');
+const initials = name.replace(/[^A-Za-zÀ-ÿ0-9 ]/g, '').split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+---
+<div class={`rank${highlight ? ' rank--top' : ''}`}>
+  <span class="rank__num" aria-label={`Rang ${rank}`}>{num}</span>
+  <figure class="rank__media">
+    {image ? (
+      <img src={image} alt={imageAlt || `Interface de ${name}`} loading="lazy" decoding="async" width="640" height="400" />
+    ) : (
+      <span class="rank__ph" aria-hidden="true">{initials}</span>
+    )}
+    {credit && <figcaption class="rank__credit">{credit}</figcaption>}
+  </figure>
+  <div class="rank__body">
+    {(editor || origin) && (
+      <div class="rank__eyebrow">{[editor && `Éditeur : ${editor}`, origin].filter(Boolean).join(' · ')}</div>
+    )}
+    <div class="rank__name">{name}</div>
+    {badge && <span class="rank__badge">{badge}</span>}
+    {bestFor && <p class="rank__best"><strong>Idéal pour</strong> {bestFor}</p>}
+    {specs.length > 0 && (
+      <dl class="rank__specs">
+        {specs.map((s) => (
+          <div><dt>{s.label}</dt><dd>{s.value}</dd></div>
+        ))}
+      </dl>
+    )}
+  </div>
+</div>
+
+<style>
+  .rank {
+    position: relative; display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: 0;
+    background: #fff; border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--ink);
+    margin: 18px 0 26px;
+  }
+  .rank--top { box-shadow: 6px 6px 0 var(--blue); }
+  .rank__num {
+    position: absolute; top: -14px; left: -12px; z-index: 2;
+    background: #FFD400; color: var(--ink); border: 2px solid var(--ink);
+    font-family: var(--font-mono); font-weight: 700; font-size: 20px; line-height: 1;
+    padding: 8px 10px 7px; font-variant-numeric: tabular-nums;
+    clip-path: polygon(0 0, 100% 0, 100% 72%, 82% 100%, 0 100%);
+  }
+  .rank--top .rank__num { background: var(--blue); color: #fff; }
+  .rank__media { position: relative; margin: 0; border-right: 2px solid var(--ink); background: var(--paper-sunk, #F2F3F7); min-height: 210px; display: grid; place-items: center; overflow: hidden; }
+  .rank__media img { width: 100%; height: 100%; object-fit: cover; object-position: top left; display: block; }
+  .rank__ph { font-family: var(--font-grotesk); font-weight: 800; font-size: 54px; color: var(--ink-35); letter-spacing: -0.03em; }
+  .rank__credit { position: absolute; right: 6px; bottom: 6px; background: rgba(255,255,255,.88); color: var(--ink-55); font-family: var(--font-mono); font-size: 10px; padding: 2px 6px; }
+  .rank__body { padding: 20px 22px 18px; display: flex; flex-direction: column; gap: 8px; }
+  .rank__eyebrow { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-55); }
+  .rank__name { font-family: var(--font-grotesk); font-weight: 800; font-size: 24px; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; }
+  .rank__badge { align-self: flex-start; background: var(--blue); color: #fff; font-family: var(--font-ui); font-weight: 700; font-size: 12px; padding: 4px 10px; }
+  .rank__best { margin: 2px 0 0; font-family: var(--font-body); font-size: 15px; line-height: 1.5; color: var(--ink-80); }
+  .rank__best strong { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-ink); font-weight: 600; margin-bottom: 2px; }
+  .rank__specs { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--hairline); display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+  .rank__specs dt { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-55); }
+  .rank__specs dd { margin: 2px 0 0; font-family: var(--font-ui); font-weight: 600; font-size: 13.5px; color: var(--ink); line-height: 1.35; }
+  @media (max-width: 720px) {
+    .rank { grid-template-columns: 1fr; }
+    .rank__media { border-right: none; border-bottom: 2px solid var(--ink); min-height: 180px; aspect-ratio: 16 / 10; }
+    .rank__specs { grid-template-columns: 1fr; }
+  }
+</style>

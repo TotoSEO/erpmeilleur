@@ -8,6 +8,7 @@ import { MEGA } from '../data/cocon';
 interface Props { current?: string; }
 const { current } = Astro.props;
 const DIRECT = [
+  { id: 'classements', label: 'Meilleurs ERP', href: '/meilleurs-erp/' },
   { id: 'modules', label: 'Modules', href: '/modules-erp/' },
   { id: 'prix', label: 'Prix', href: '/prix-erp/' },
   { id: 'glossaire', label: 'Glossaire', href: '/glossaire-erp/' },
@@ -57,6 +58,7 @@ const DIRECT = [
         {col.links.map((l) => (<a href={`/${l.slug}/`}>{l.label}</a>))}
       </details>
     ))}
+    <a class="mobile-nav__direct" href="/meilleurs-erp/">Les meilleurs ERP</a>
     <a class="mobile-nav__direct" href="/glossaire-erp/">Glossaire</a>
     <a class="mobile-nav__direct" href="/auteur/">L'auteur</a>
     <a class="mobile-nav__direct" href="/plan-du-site/">Plan du site</a>

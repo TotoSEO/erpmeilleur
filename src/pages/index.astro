@@ -12,7 +12,7 @@ const homeLd = {
       '@id': `${SITE}/#organization`,
       name: 'meilleur-erp.fr',
       url: SITE,
-      description: "Le média indépendant des logiciels ERP : définitions, fonctionnement, modules, déploiement et coûts, expliqués simplement.",
+      description: "Le média des logiciels ERP : définitions, fonctionnement, modules, déploiement, coûts et classements, expliqués simplement.",
     },
     {
       '@type': 'WebSite',
@@ -61,9 +61,9 @@ const tabs = [
     text: "Fourchettes de prix réelles, grille de critères, cahier des charges : la méthode pour comparer sans se faire éblouir par une démo commerciale.",
     image: '/images/N1-08.webp',
     links: [
+      { label: 'Les meilleurs ERP en 2026', href: '/meilleurs-erp/' },
       { label: 'Combien ça coûte', href: '/prix-erp/' },
       { label: 'Comment choisir', href: '/comment-choisir-un-erp/' },
-      { label: 'Cloud, SaaS ou sur site', href: '/erp-cloud-saas-on-premise/' },
     ],
   },
   {
@@ -82,7 +82,7 @@ const tabs = [
 ];
 
 // Ticker : les grands sujets qui défilent.
-const ticker = ['Définition', 'Modules', 'Prix réels', 'Cloud vs on-premise', 'Sécurité', 'RGPD', 'GPAO', 'CRM intégré', 'Migration', 'ROI', 'Facturation électronique', 'Open source'];
+const ticker = ['Définition', 'Meilleurs ERP', 'Modules', 'Prix réels', 'Cloud vs on-premise', 'Sécurité', 'RGPD', 'GPAO', 'CRM intégré', 'Migration', 'ROI', 'Facturation électronique', 'Open source'];
 
 // Parcours : points d'entrée du cocon.
 const parcours = [
@@ -90,7 +90,7 @@ const parcours = [
   { n: '02', eyebrow: 'Fonctions', title: 'Les modules', text: 'Finance, ventes, stocks, production, RH : le panorama des briques.', href: '/modules-erp/' },
   { n: '03', eyebrow: 'Budget', title: 'Combien ça coûte', text: 'Licence, intégration, maintenance : les postes et les fourchettes réelles.', href: '/prix-erp/' },
   { n: '04', eyebrow: 'Déploiement', title: 'Cloud, SaaS ou sur site', text: "Les modes d'hébergement comparés, coûts et logique de contrôle.", href: '/erp-cloud-saas-on-premise/' },
-  { n: '05', eyebrow: 'Méthode', title: 'Comment choisir', text: 'Une grille de critères pour ne pas se tromper de solution.', href: '/comment-choisir-un-erp/' },
+  { n: '05', eyebrow: 'Classement', title: 'Les meilleurs ERP', text: 'Notre sélection 2026, puis les déclinaisons par taille, secteur et mode de déploiement.', href: '/meilleurs-erp/' },
   { n: '06', eyebrow: 'Projet', title: 'Mettre en place un ERP', text: "Les étapes, de la préparation au go-live, et les pièges à éviter.", href: '/mise-en-place-erp/' },
 ];
 ---
@@ -110,14 +110,14 @@ const parcours = [
     <div class="container mx-hero__grid">
       <div class="mx-hero__copy reveal">
         <div class="mx-hero__badges">
-          <Badge tone="blue" variant="gradient">Média indépendant</Badge>
+          <Badge tone="blue" variant="gradient">Média ERP</Badge>
           <Badge tone="neutral" variant="soft" mono>Sans jargon</Badge>
         </div>
         <h1 class="mx-hero__title">
           Les ERP,<br /><span class="text-gradient">expliqués simplement</span>.
         </h1>
         <p class="mx-hero__lead">
-          Définitions claires, exemples concrets, chiffres réels. Un média indépendant qui décortique les logiciels de gestion sans jargon et sans discours d'éditeur.
+          Définitions claires, exemples concrets, chiffres réels. Un média qui décortique les logiciels de gestion sans jargon, du premier pas jusqu'au choix de la solution.
         </p>
         <div class="mx-hero__cta">
           <Button variant="primary" size="lg" href="/qu-est-ce-qu-un-erp/">Commencer par la définition</Button>
@@ -144,7 +144,7 @@ const parcours = [
           <img src="/images/P0.webp" alt="" loading="eager" width="360" height="240" />
           <figcaption>La définition</figcaption>
         </figure>
-        <span class="mx-stack__pill">100 % indépendant</span>
+        <span class="mx-stack__pill">Sans jargon</span>
         <span class="mx-stack__dot"></span>
       </div>
     </div>
@@ -227,12 +227,12 @@ const parcours = [
       </div>
       <div class="mx-trust__copy reveal">
         <div class="kicker">Pourquoi nous lire</div>
-        <h2 class="mx-h2 mx-h2--light">Neutre, sourcé, sans arrière-pensée commerciale</h2>
+        <h2 class="mx-h2 mx-h2--light">Clair, sourcé, concret</h2>
         <p class="mx-trust__lead">
-          Pas d'éditeur derrière le rideau, pas de classement sponsorisé. On explique le fonctionnement, on donne des chiffres, et on dit les limites autant que les bénéfices.
+          On explique le fonctionnement, on donne des chiffres, et on dit les limites autant que les bénéfices. Nos critères de classement sont publiés, et nos liens d'intérêts sont déclarés.
         </p>
         <ul class="mx-trust__list">
-          <li><strong>Indépendance</strong>Aucun partenariat d'éditeur, aucune publicité.</li>
+          <li><strong>Transparence</strong>Critères publiés, liens d'intérêts déclarés, aucune publicité.</li>
           <li><strong>Concret</strong>Des exemples métier, des fourchettes de prix, des méthodes.</li>
           <li><strong>Honnêteté</strong>Les inconvénients et les échecs, pas seulement la vitrine.</li>
         </ul>

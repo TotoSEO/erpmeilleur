@@ -1,6 +1,6 @@
 # meilleur-erp.fr
 
-Site éditorial de **meilleur-erp.fr**, le blog indépendant des logiciels ERP.
+Site éditorial de **meilleur-erp.fr**, le média des logiciels ERP.
 On teste, on mesure, on date, on signe.
 
 Construit avec **[Astro](https://astro.build/)** (génération statique) pour un SEO

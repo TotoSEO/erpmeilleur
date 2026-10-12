@@ -32,6 +32,10 @@ const articles = defineCollection({
     faq: z
       .array(z.object({ q: z.string(), a: z.string() }))
       .optional(),
+    // Pages classement : solutions dans l'ordre (JSON-LD ItemList + note de transparence).
+    ranking: z
+      .array(z.object({ name: z.string(), editor: z.string().optional(), anchor: z.string().optional() }))
+      .optional(),
   }),
 });
 

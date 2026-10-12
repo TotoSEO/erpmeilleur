@@ -9,7 +9,26 @@ export const PILIER: Item = { slug: 'qu-est-ce-qu-un-erp', label: "Qu'est-ce qu'
 /** Sections du cocon : chaque section a un hub (page pilier de branche) et ses satellites. */
 export interface Section { key: string; label: string; hub: Item; items: Item[]; }
 
+/** Classements : hub « Les meilleurs ERP » et ses déclinaisons par taille, secteur ou usage. */
+export const CLASSEMENTS: Section = {
+  key: 'classements',
+  label: 'Meilleurs ERP',
+  hub: { slug: 'meilleurs-erp', label: 'Les meilleurs ERP en 2026' },
+  items: [
+    { slug: 'meilleurs-erp-pme', label: 'Pour les PME' },
+    { slug: 'meilleurs-erp-eti', label: 'Pour les ETI' },
+    { slug: 'meilleurs-erp-industrie', label: "Pour l'industrie" },
+    { slug: 'meilleurs-erp-negoce-distribution', label: 'Pour le négoce' },
+    { slug: 'meilleurs-erp-agroalimentaire', label: "Pour l'agroalimentaire" },
+    { slug: 'meilleurs-erp-francais', label: 'Les ERP français' },
+    { slug: 'meilleurs-erp-cloud-saas', label: 'En SaaS / cloud' },
+    { slug: 'meilleurs-erp-tpe', label: 'Pour les TPE' },
+    { slug: 'meilleurs-erp-services', label: 'Pour les services' },
+  ],
+};
+
 export const SECTIONS: Section[] = [
+  CLASSEMENTS,
   {
     key: 'comprendre',
     label: "Comprendre l'ERP",
@@ -93,6 +112,11 @@ export const SECTIONS: Section[] = [
  */
 export const MEGA = [
   {
+    key: 'classements',
+    label: 'Les meilleurs ERP',
+    links: [CLASSEMENTS.hub, ...CLASSEMENTS.items.slice(0, 5)],
+  },
+  {
     key: 'comprendre',
     label: "Comprendre l'ERP",
     links: [
@@ -162,7 +186,8 @@ const N2_HUB: Record<string, Item> = {
 };
 
 export function parentOf(slug: string): Item | null {
-  if (slug === PILIER.slug) return null;
+  if (slug === PILIER.slug || slug === CLASSEMENTS.hub.slug) return null;
+  if (CLASSEMENTS.items.some((i) => i.slug === slug)) return { slug: CLASSEMENTS.hub.slug, label: 'Meilleurs ERP' };
   if (N2_HUB[slug]) return N2_HUB[slug];
   return { slug: PILIER.slug, label: "Qu'est-ce qu'un ERP" };
 }

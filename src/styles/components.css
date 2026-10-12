@@ -97,12 +97,12 @@
 }
 .proscons__col--pros { background: linear-gradient(160deg, rgba(46,46,255,.10), rgba(255,255,255,.6)); }
 .proscons__col--cons { background: linear-gradient(160deg, rgba(255,45,45,.10), rgba(255,255,255,.6)); }
-.proscons__col h3 {
+.proscons__col .proscons__title {
   display: flex; align-items: center; gap: 8px; font-family: var(--font-display);
   font-weight: 700; font-size: 17px; letter-spacing: -0.01em; margin: 0 0 14px;
 }
-.proscons__col--pros h3 { color: var(--green-ink); }
-.proscons__col--cons h3 { color: var(--minium-ink); }
+.proscons__col--pros .proscons__title { color: var(--green-ink); }
+.proscons__col--cons .proscons__title { color: var(--minium-ink); }
 .proscons__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
 .proscons__col li { display: flex; gap: 11px; font-family: var(--font-sans); font-size: 14.5px; line-height: 1.5; color: var(--ink-80); }
 .proscons__mark { font-weight: 800; flex: none; font-family: var(--font-mono); line-height: 1.4; }
