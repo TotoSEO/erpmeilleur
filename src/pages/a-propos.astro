@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+
+/**
+ * À propos — qui publie le site, comment les contenus et les classements sont
+ * établis, et déclaration des liens d'intérêts. Remplace l'ancienne page auteur.
+ */
+const SITE = 'https://meilleur-erp.fr';
+const ld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'AboutPage',
+      name: 'À propos de meilleur-erp.fr',
+      url: `${SITE}/a-propos/`,
+      inLanguage: 'fr-FR',
+      isPartOf: { '@type': 'WebSite', name: 'meilleur-erp.fr', url: SITE },
+      about: { '@type': 'Organization', name: 'meilleur-erp.fr', url: SITE },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE}/` },
+        { '@type': 'ListItem', position: 2, name: 'À propos', item: `${SITE}/a-propos/` },
+      ],
+    },
+  ],
+};
+---
+<BaseLayout
+  title="À propos de meilleur-erp.fr : méthode, sources et transparence"
+  description="Qui publie meilleur-erp.fr, comment les guides et les classements d'ERP sont établis, quelles sources sont utilisées et quels liens d'intérêts sont déclarés."
+  current="apropos"
+>
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} is:inline />
+  <div class="article-layout" style="padding-top:32px">
+    <div class="article-content">
+      <Breadcrumb items={[{ name: 'Accueil', href: '/' }, { name: 'À propos' }]} />
+      <h1 style="font-family:var(--font-grotesk);font-weight:800;font-size:clamp(30px,5vw,44px);letter-spacing:-0.02em;color:var(--ink);margin:0 0 14px">
+        À propos de meilleur-erp.fr
+      </h1>
+      <p>
+        meilleur-erp.fr explique les logiciels ERP simplement : ce qu'ils sont, comment
+        ils fonctionnent, combien ils coûtent, comment les choisir et les déployer.
+        Le site publie aussi des classements des meilleures solutions, par taille
+        d'entreprise, par secteur et par mode de déploiement.
+      </p>
+
+      <h2>Qui publie ce site</h2>
+      <p>
+        Le site est édité par un professionnel du secteur des logiciels de gestion,
+        identifié dans les <a href="/mentions-legales/">mentions légales</a>. Les
+        contenus sont signés du nom du site, et non d'un auteur individuel : ils
+        engagent l'éditeur, qui en répond.
+      </p>
+
+      <h2>Comment les contenus sont établis</h2>
+      <p>
+        Chaque guide part d'une question concrète que se pose une entreprise et s'appuie
+        sur des sources vérifiables : textes officiels, statistiques publiques (Insee,
+        Eurostat, baromètre France Num), documentation de l'administration fiscale,
+        études sectorielles et documentation des éditeurs. Les chiffres sont datés et leur
+        source est citée dans l'article ; les classements comportent en plus une
+        section « Nos sources ».
+      </p>
+      <p>
+        Nous ne publions pas de faux tests ni de notes chiffrées artificielles. Quand une
+        information n'est pas publique, le prix d'un logiciel par exemple, nous le
+        disons plutôt que de reprendre une estimation invérifiable.
+      </p>
+
+      <h2 id="classements">Comment les classements sont établis</h2>
+      <p>
+        Chaque classement évalue les solutions sur des critères écrits dans l'article :
+        couverture fonctionnelle, adéquation au métier ou à la taille de l'entreprise,
+        modes de déploiement et d'hébergement, conformité française (facturation
+        électronique, localisation comptable), écosystème d'accompagnement et
+        transparence tarifaire. Leur poids varie selon le sujet du classement.
+      </p>
+      <p>
+        Les informations proviennent des pages officielles des éditeurs, de leurs tarifs
+        publics et de la liste des plateformes agréées publiée par la DGFiP. Chaque
+        classement indique sa date de vérification. L'ordre retenu reflète une
+        appréciation éditoriale : il peut évoluer à chaque mise à jour.
+      </p>
+
+      <h2 id="transparence">Liens d'intérêts</h2>
+      <p>
+        L'éditeur du site travaille dans le secteur des logiciels de gestion et entretient,
+        à ce titre, des liens professionnels avec l'un des éditeurs de logiciels présentés
+        dans nos classements. Cette information figure en tête de chaque classement.
+      </p>
+      <p>
+        Le site n'affiche aucune publicité et ne contient aucun lien affilié.
+      </p>
+
+      <h2>Corrections et demandes des éditeurs</h2>
+      <p>
+        Une erreur, une information datée, une fonctionnalité oubliée ? Écrivez à
+        <a href="mailto:contact@meilleur-erp.fr">contact@meilleur-erp.fr</a>. Les
+        éditeurs de logiciels cités peuvent demander la correction d'une information
+        les concernant ou le retrait d'un visuel de leur produit : chaque demande
+        justifiée est traitée rapidement, et la date de mise à jour de la page est
+        modifiée en conséquence.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

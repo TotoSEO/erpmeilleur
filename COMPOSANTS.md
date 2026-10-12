@@ -37,7 +37,7 @@ Mon paragraphe de texte normal.
 | `excerpt` | oui | `"Huit ERP testés sur comptes réels…"` (s'affiche sous le H1) |
 | `description` | recommandé | meta description SEO (sinon `excerpt`) |
 | `badges` | non | liste de `{ label, tone, variant, mono }` affichée au-dessus du H1 |
-| `author` | non | `{ name, role, initials }` |
+| `author` | non | `{ name, role }` (non utilisé : les contenus sont signés du site) |
 | `readingTime` | non | `'14 min'` |
 | `publishedDate` | non | `'03 juin 2026'` (date de mise en ligne) |
 | `updatedDate` | non | `'23 juin 2026'` (date d'actualisation) |

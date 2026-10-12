@@ -7,7 +7,7 @@ export const prerender = true;
 const SITE = 'https://meilleur-erp.fr';
 
 // Pages statiques hors collection (l'accueil en premier).
-const STATIC_PATHS = ['/', '/plan-du-site/', '/auteur/', '/mentions-legales/'];
+const STATIC_PATHS = ['/', '/plan-du-site/', '/a-propos/', '/mentions-legales/'];
 
 export const GET: APIRoute = async () => {
   const articles = await getCollection('articles', (e) => e.id !== 'exemple');
