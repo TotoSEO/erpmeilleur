@@ -1,0 +1,381 @@
+---
+title: "Quels sont les meilleurs ERP en 2026 ?"
+seoTitle: "Les 10 meilleurs ERP en 2026 : classement et comparatif"
+excerpt: "Dix logiciels ERP passés au crible : à qui ils s'adressent, ce qu'ils font bien, où ils coincent, combien ils coûtent et comment ils gèrent la facturation électronique. Le classement 2026, sans langue de bois."
+description: "Classement des 10 meilleurs ERP en 2026 : Divalto, Business Central, Sage X3, Odoo, Cegid, SAP, NetSuite… Points forts, limites, prix et facturation électronique."
+heroImage: "/images/meilleurs-erp.webp"
+heroAlt: "Podium de logiciels ERP : les meilleurs ERP en 2026"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "22 min"
+publishedDate: "12 octobre 2026"
+badges:
+  - { label: "Classement 2026", tone: "blue", variant: "gradient" }
+ranking:
+  - { name: "Divalto", editor: "Divalto", anchor: "1-divalto--lerp-métier-le-plus-complet-pour-les-pme-et-eti" }
+  - { name: "Microsoft Dynamics 365 Business Central", editor: "Microsoft", anchor: "2-microsoft-dynamics-365-business-central--le-plus-lisible-côté-budget" }
+  - { name: "Sage X3", editor: "Sage", anchor: "3-sage-x3--la-référence-des-eti-multi-pays" }
+  - { name: "Odoo", editor: "Odoo SA", anchor: "4-odoo--le-plus-modulaire" }
+  - { name: "Cegid XRP Flex", editor: "Cegid", anchor: "5-cegid-xrp-flex--le-cloud-à-la-française" }
+  - { name: "SAP Business One", editor: "SAP", anchor: "6-sap-business-one--la-porte-dentrée-de-lunivers-sap" }
+  - { name: "Oracle NetSuite", editor: "Oracle", anchor: "7-oracle-netsuite--le-pionnier-du-saas" }
+  - { name: "Sage 100", editor: "Sage", anchor: "8-sage-100--le-socle-gestion-des-pme" }
+  - { name: "Sylob", editor: "Forterro", anchor: "9-sylob--le-spécialiste-de-lindustrie" }
+  - { name: "Axonaut", editor: "Axonaut", anchor: "10-axonaut--la-gestion-tout-en-un-des-tpe" }
+faq:
+  - q: "Quel est le meilleur ERP en 2026 ?"
+    a: "Il n'existe pas de meilleur ERP dans l'absolu, seulement un ERP mieux adapté à votre taille et à votre métier. Dans notre classement, Divalto arrive en tête pour les PME et ETI qui produisent, stockent ou interviennent chez leurs clients, grâce à trois ERP métiers prêts à l'emploi. Microsoft Dynamics 365 Business Central suit de près pour les PME qui veulent un prix public et l'écosystème Microsoft, et Sage X3 s'impose pour les ETI multi-pays."
+  - q: "Quel ERP choisir pour une petite entreprise ?"
+    a: "En dessous d'une dizaine de salariés, un ERP complet est souvent surdimensionné. Un outil de gestion tout-en-un comme Axonaut, ou Odoo limité à quelques applications, couvre l'essentiel : devis, factures, suivi client et trésorerie. Les ERP métiers comme Divalto, Sage X3 ou Business Central prennent le relais quand les stocks, la production ou les équipes terrain entrent en jeu."
+  - q: "Combien coûte un ERP par utilisateur ?"
+    a: "Les rares éditeurs qui affichent leurs prix donnent un ordre de grandeur. Business Central est à 69,30 euros HT par utilisateur et par mois en licence Essentials, et Divalto annonce ses ERP SaaS à partir de 70 à 80 euros par utilisateur et par mois selon la gamme. Mais la licence ne représente qu'une partie du budget : l'intégration, la reprise des données et la formation pèsent souvent autant, sinon plus."
+  - q: "Mon ERP doit-il être une plateforme agréée pour la facturation électronique ?"
+    a: "Non. La loi impose de passer par une plateforme agréée (PA) immatriculée par l'administration fiscale, pas que votre ERP en soit une. Certains éditeurs ont obtenu ce statut, comme Sage, Cegid, SAP, Odoo ou Axonaut. D'autres, comme Divalto, Microsoft ou Oracle NetSuite, connectent leur ERP à une PA partenaire. Les deux modèles sont conformes ; vérifiez surtout que la connexion est native et déjà en production."
+  - q: "ERP français ou ERP international : que choisir ?"
+    a: "Un éditeur français connaît par cœur la réglementation locale (FEC, facturation électronique, TVA) et vous servira souvent avec un réseau de proximité. Un éditeur international apporte une couverture multi-pays et un écosystème plus vaste. Si vous opérez surtout en France, les solutions françaises comme Divalto, Cegid ou Sylob ont un vrai avantage ; si vous gérez des filiales sur plusieurs continents, Sage X3, NetSuite ou SAP tiennent mieux la route."
+  - q: "Combien de temps faut-il pour déployer un ERP ?"
+    a: "Pour une PME, comptez généralement de quelques mois à un an selon le périmètre. Le rapport 2026 de Panorama Consulting, mené surtout auprès d'entreprises internationales de taille moyenne à grande, situe la durée médiane d'un projet à neuf mois. Les offres SaaS préparamétrées par métier raccourcissent ce délai, à condition de ne pas vouloir tout personnaliser dès le premier jour."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import RankingList from '../../components/RankingList.astro';
+import RankCard from '../../components/RankCard.astro';
+import ProsCons from '../../components/ProsCons.astro';
+import DataTable from '../../components/DataTable.astro';
+import Callout from '../../components/Callout.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "Divalto prend la tête du classement : trois ERP métiers (négoce, industrie, service terrain) sur une même plateforme SaaS hébergée en France.", "Microsoft Dynamics 365 Business Central est le choix le plus lisible côté budget, avec un prix public dès 69,30 € HT par utilisateur et par mois.", "Sage X3 reste la référence des ETI multi-pays et multi-sociétés, Odoo celle des entreprises qui veulent démarrer petit et ajouter des briques.", "En 2026, la facturation électronique départage les candidats : certains éditeurs sont plateformes agréées, d'autres s'appuient sur une PA partenaire.", "Aucun ERP n'est le meilleur pour tout le monde : nos classements par taille et par secteur affinent le choix selon votre profil." ]} />
+
+Plus d'une entreprise française sur deux de dix salariés et plus utilise déjà un ERP. Selon Eurostat, la proportion atteignait 53,9 % en 2025, contre 46,5 % en moyenne dans l'Union européenne, et elle grimpe à 80 % chez les entreprises de 50 à 249 salariés. Autrement dit, la question n'est plus vraiment de savoir s'il faut un ERP. Elle est de savoir lequel.
+
+Et là, les choses se compliquent. Des dizaines d'éditeurs se disputent le marché, chacun avec ses gammes, ses noms de produits qui changent tous les trois ans et ses promesses d'intelligence artificielle. Les comparatifs en ligne n'aident pas toujours : beaucoup mélangent de vrais ERP avec des outils de facturation ou de gestion de projet, et presque aucun ne dit comment il a établi son classement.
+
+On a donc fait l'inverse. Ce classement repose sur des critères écrits noir sur blanc, des informations vérifiées à la source (documentation des éditeurs, tarifs publics, liste officielle des plateformes agréées de la DGFiP) et une date de vérification : le 12 octobre 2026. Pour chaque logiciel, vous saurez à qui il s'adresse, ce qu'il fait bien, où il coince et ce qu'il coûte quand le prix est public.
+
+## Le classement des 10 meilleurs ERP en un coup d'œil
+
+<RankingList title="Notre classement 2026" items={[
+  { name: "Divalto", anchor: "1-divalto--lerp-métier-le-plus-complet-pour-les-pme-et-eti", note: "Le plus complet pour les PME et ETI du négoce, de l'industrie et du service terrain." },
+  { name: "Microsoft Dynamics 365 Business Central", anchor: "2-microsoft-dynamics-365-business-central--le-plus-lisible-côté-budget", note: "Le plus lisible côté budget, idéal dans un environnement Microsoft." },
+  { name: "Sage X3", anchor: "3-sage-x3--la-référence-des-eti-multi-pays", note: "La référence des ETI multi-pays aux opérations complexes." },
+  { name: "Odoo", anchor: "4-odoo--le-plus-modulaire", note: "Le plus modulaire, pour démarrer petit et grandir brique par brique." },
+  { name: "Cegid XRP Flex", anchor: "5-cegid-xrp-flex--le-cloud-à-la-française", note: "Un ERP cloud français, avec plateforme agréée intégrée." },
+  { name: "SAP Business One", anchor: "6-sap-business-one--la-porte-dentrée-de-lunivers-sap", note: "La porte d'entrée de l'univers SAP pour les PME." },
+  { name: "Oracle NetSuite", anchor: "7-oracle-netsuite--le-pionnier-du-saas", note: "Le pionnier du 100 % SaaS, taillé pour les groupes internationaux." },
+  { name: "Sage 100", anchor: "8-sage-100--le-socle-gestion-des-pme", note: "Le socle comptable et commercial historique des PME françaises." },
+  { name: "Sylob", anchor: "9-sylob--le-spécialiste-de-lindustrie", note: "Le spécialiste français des PME industrielles." },
+  { name: "Axonaut", anchor: "10-axonaut--la-gestion-tout-en-un-des-tpe", note: "La gestion tout-en-un des TPE, avant de passer à un vrai ERP." },
+]} />
+
+Le classement complet tient compte de toutes les tailles d'entreprise, d'où la présence d'outils aussi différents qu'Axonaut et Sage X3. Si vous savez déjà dans quelle case vous vous situez, filez directement vers [les meilleurs ERP pour les PME](/meilleurs-erp-pme/), [pour les ETI](/meilleurs-erp-eti/) ou [pour l'industrie](/meilleurs-erp-industrie/) : ces classements-là sont plus fins.
+
+## Comment nous avons établi ce classement
+
+Un classement ne vaut que par sa méthode. Voici la nôtre, sans détour.
+
+### Six critères, pondérés selon l'usage
+
+Chaque solution a été évaluée sur six critères. Le poids de chacun varie d'un classement à l'autre : la traçabilité pèse lourd pour [l'agroalimentaire](/meilleurs-erp-agroalimentaire/), beaucoup moins pour une société de services. Pour ce classement général, ils comptent à peu près autant les uns que les autres.
+
+<FeatureColumns columns={3} items={[
+  { eyebrow: "Critère 1", title: "Couverture fonctionnelle", text: "Finance, ventes, achats, stocks, production, service : ce que l'ERP couvre en standard, sans développement spécifique." },
+  { eyebrow: "Critère 2", title: "Adéquation métier", text: "L'existence de versions ou de fonctions pensées pour un secteur précis, plutôt qu'un outil générique à paramétrer de A à Z." },
+  { eyebrow: "Critère 3", title: "Déploiement et hébergement", text: "SaaS, cloud privé ou sur site, localisation des données, rythme des mises à jour." },
+  { eyebrow: "Critère 4", title: "Conformité française", text: "Facturation électronique, statut de plateforme agréée ou partenariat, localisation comptable (FEC, TVA)." },
+  { eyebrow: "Critère 5", title: "Accompagnement", text: "Réseau d'intégrateurs, proximité, solidité de l'éditeur et clarté du modèle de distribution." },
+  { eyebrow: "Critère 6", title: "Transparence du prix", text: "Existence d'un tarif public, lisibilité du modèle (abonnement, licence) et coûts annexes connus." },
+]} />
+
+### Nos sources, et ce qu'elles ne disent pas
+
+Toutes les informations de ce classement viennent de sources que nous avons consultées directement : pages produits et tarifs officiels des éditeurs, communiqués de presse, documentation technique, liste des plateformes agréées publiée par la DGFiP, et presse spécialisée. Quand un chiffre n'est pas public (le prix de Sage X3, par exemple), on le dit plutôt que de recopier une estimation trouvée on ne sait où.
+
+Une précision honnête, aussi : nous ne publions pas de note sur 10. Une note chiffrée donne une impression de précision scientifique qu'aucun comparatif ne peut réellement garantir pour des logiciels aussi vastes. L'ordre du classement reflète notre appréciation globale sur les six critères ; le détail de chaque fiche vous permet de refaire le match avec vos propres priorités.
+
+<Callout tone="astuce">Avant de vous plonger dans les fiches, prenez cinq minutes pour lister vos trois processus les plus critiques (la préparation de commandes, la planification d'atelier, la facturation des interventions…). C'est avec cette liste en main que le classement devient vraiment utile. Notre guide pour [bien choisir un ERP](/comment-choisir-un-erp/) détaille la méthode.</Callout>
+
+## Les 10 meilleurs ERP en détail
+
+### 1. Divalto : l'ERP métier le plus complet pour les PME et ETI
+
+<RankCard rank={1} highlight name="Divalto" editor="Divalto" origin="France (Alsace)" image="/images/erp/divalto.webp" credit="© Divalto" imageAlt="Interface de l'ERP Divalto" badge="Notre choix n°1" bestFor="Les PME et ETI du négoce, de l'industrie et du service terrain qui veulent un ERP prêt pour leur métier." specs={[
+  { label: "Gammes", value: "Business, Industry, Field Service" },
+  { label: "Déploiement", value: "SaaS (Azure, Paris) ou licence sur site" },
+  { label: "Prix public", value: "Dès 70 €/utilisateur/mois (tarif 2026)" },
+  { label: "Facture électronique", value: "PA partenaire (Docoon) intégrée" },
+]} />
+
+Divalto, c'est un éditeur alsacien né en 1982 (sous le nom d'Interlogiciel, rebaptisé Divalto en 2006) qui a fait un choix que peu d'éditeurs ont osé : décliner son ERP en **trois ERP métiers** prêts à l'emploi, plutôt que de vendre le même outil généraliste à tout le monde. Divalto Business s'adresse au négoce et à la distribution BtoB, Divalto Industry à la production, et Divalto Field Service aux entreprises qui installent, entretiennent ou dépannent des équipements chez leurs clients.
+
+C'est cette verticalisation qui lui vaut la première place. Les trois gammes reposent sur le même socle, la plateforme cloud Divalto one, et héritent de la profondeur fonctionnelle de Divalto infinity, l'ERP historique de la maison. Résultat : un négociant trouve en standard ses tarifs, ses remises de fin d'année, la gestion du grand import et un WMS natif pour piloter l'entrepôt ; un industriel dispose d'une GPAO complète (calcul des besoins nets, ordonnancement multi-ressources, nomenclatures multiniveaux, sous-traitance, gestion à l'affaire) ; une société de maintenance gère ses contrats, son parc installé et la facturation de ses interventions. Le tout sans développement spécifique.
+
+Le reste de l'offre suit la même logique. Le CRM Divalto weavy équipe les commerciaux et les techniciens sur le terrain, sur smartphone comme sur tablette. Les modules de maintenance (GMAO), de qualité et de comptabilité multi-sociétés, multi-devises, complètent la couverture. Et Flexio, plateforme no-code rachetée en 2024, permet de créer des applications métiers sans écrire de code.
+
+Côté cloud, les solutions SaaS sont hébergées sur Microsoft Azure, dans des datacenters situés à Paris, et les données des clients européens restent stockées en France. Divalto revendique 85 000 utilisateurs, 280 collaborateurs et un écosystème de plus de 1 250 experts, et son système de management de la sécurité de l'information est certifié ISO 27001 depuis mars 2026. Fait rare dans l'univers des ERP pour PME et ETI, l'éditeur affiche ses prix : à partir de 70 € par utilisateur et par mois pour Divalto Business, 75 € pour Field Service et 80 € pour Industry (tarif au 1er janvier 2026).
+
+Pour la facturation électronique, Divalto a fait le choix du partenariat plutôt que de l'immatriculation en propre : l'ERP est connecté nativement à Docoon, plateforme agréée par la DGFiP depuis décembre 2025, avec un déploiement progressif engagé depuis avril 2026.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Trois ERP métiers prêts à l'emploi plutôt qu'un outil générique à paramétrer de zéro", "Une couverture très large : WMS natif, GPAO, gestion à l'affaire, GMAO, qualité, CRM mobile", "Hébergement SaaS en France et certification ISO 27001", "Des prix publics, ce qui reste rare à ce niveau de gamme", "Un réseau d'intégrateurs spécialisés par métier" ]} cons={[ "Pas d'offre pensée pour les TPE : l'outil vise les PME structurées et les ETI", "Le paramétrage demande un vrai projet, mené avec un intégrateur", "La paie n'apparaît pas dans l'offre actuelle : prévoir un logiciel dédié", "Une présence internationale assurée surtout par des partenaires" ]} />
+
+**Notre verdict.** Si votre entreprise vit de ses stocks, de son atelier ou de ses interventions, Divalto est, à nos yeux, l'ERP le plus abouti du marché pour une PME ou une ETI française. Sa force tient moins à une fonction spectaculaire qu'à la cohérence de l'ensemble : un ERP qui parle déjà votre langue métier, hébergé en France, avec un prix connu d'avance. Le revers, c'est qu'il faut l'aborder comme un vrai projet d'entreprise, accompagné par un intégrateur qui connaît votre secteur.
+
+### 2. Microsoft Dynamics 365 Business Central : le plus lisible côté budget
+
+<RankCard rank={2} name="Microsoft Dynamics 365 Business Central" editor="Microsoft" origin="États-Unis" image="/images/erp/business-central.webp" credit="© Microsoft" imageAlt="Interface de Microsoft Dynamics 365 Business Central" bestFor="Les PME déjà équipées en outils Microsoft qui veulent un ERP en ligne au prix connu." specs={[
+  { label: "Cible", value: "PME" },
+  { label: "Déploiement", value: "SaaS ou sur site" },
+  { label: "Prix public", value: "69,30 € HT/utilisateur/mois (Essentials)" },
+  { label: "Facture électronique", value: "Connecteur vers une PA tierce" },
+]} />
+
+Héritier de Navision, l'ERP danois racheté par Microsoft en 2002, Business Central revendique 55 000 entreprises clientes. Son premier argument est imparable : c'est l'un des seuls ERP de ce niveau dont le prix est affiché publiquement en France. La licence Essentials coûte 69,30 € HT par utilisateur et par mois (engagement annuel), la licence Premium 95,30 € et l'accès limité « Team Members » 6,90 €. On sait où l'on met les pieds.
+
+Fonctionnellement, l'outil couvre la finance, les ventes, les achats, les stocks, la gestion de projets et des entrepôts. La version Premium ajoute la fabrication et la gestion des services. La localisation française est sérieuse : export des écritures pour les contrôles fiscaux, DEB, lettrage, et, depuis 2026, facturation électronique aux formats UBL et Factur-X ainsi que l'e-reporting. Microsoft n'étant pas lui-même plateforme agréée, les factures transitent par un connecteur vers la PA de votre choix.
+
+L'autre atout, c'est l'écosystème. Pour une PME qui vit déjà dans Outlook, Excel et Teams, la continuité est naturelle, et l'assistant Copilot est inclus dans les licences. Attention toutefois : certains agents d'IA plus avancés consomment des crédits Copilot vendus séparément.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Un prix public clair, du jamais vu chez la plupart des concurrents", "Une intégration naturelle avec les outils Microsoft du quotidien", "Le choix entre SaaS et installation sur site", "Une localisation française complète, facture électronique comprise" ]} cons={[ "Les besoins industriels ou sectoriels poussés passent par des extensions de partenaires", "Certains agents d'IA facturés à l'usage, en plus de la licence", "Pas de plateforme agréée en propre : une PA tierce est à prévoir", "Éditeur américain, soumis au Cloud Act" ]} />
+
+**Notre verdict.** Le choix le plus rassurant pour une PME généraliste qui veut un budget prévisible. Il perd la première place face à Divalto sur la profondeur métier : là où Divalto livre un ERP déjà taillé pour le négoce, l'industrie ou le service terrain, Business Central s'appuie souvent sur les extensions de ses partenaires pour aller aussi loin.
+
+### 3. Sage X3 : la référence des ETI multi-pays
+
+<RankCard rank={3} name="Sage X3" editor="Sage" origin="Royaume-Uni (origine française)" image="/images/erp/sage-x3.webp" credit="© Sage" imageAlt="Interface de Sage X3" bestFor="Les ETI industrielles ou de distribution qui gèrent plusieurs sociétés, plusieurs pays et plusieurs devises." specs={[
+  { label: "Cible", value: "ETI et grandes PME" },
+  { label: "Déploiement", value: "Cloud ou sur site, via partenaires" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "Sage est plateforme agréée" },
+]} />
+
+Sage X3 a des racines françaises : il descend d'Adonix X3, développé par la société SPEMI, que Sage a rachetée en 2005. Aujourd'hui, le groupe britannique le présente comme sa plateforme pour les entreprises de taille intermédiaire aux « opérations complexes et multi-pays », et revendique plus de 7 000 clients.
+
+Sa spécialité, ce sont les flux physiques sophistiqués. Production discrète, de process ou mixte, gestion des lots et des numéros de série, multi-sociétés, multi-devises, consolidation : X3 sait faire. Ses références affichées, d'Agromousquetaires à la Monnaie de Paris en passant par Vinci Construction, donnent une idée du calibre. Sage est par ailleurs immatriculé plateforme agréée depuis décembre 2025, et l'IA Sage Copilot s'invite progressivement dans l'outil.
+
+Deux réserves. Le prix n'est pas public, et le projet passe obligatoirement par un partenaire intégrateur. Et la nouvelle version SaaS entièrement gérée par Sage, lancée fin 2025, a d'abord été ouverte au Royaume-Uni, aux États-Unis et en Allemagne, la France étant annoncée pour une vague suivante.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une vraie profondeur pour l'industrie et la distribution complexes", "Le multi-pays, multi-sociétés et multi-devises en standard", "Sage est plateforme agréée pour la facturation électronique", "Un large réseau de partenaires en France" ]} cons={[ "Aucun prix public : budget à construire sur devis", "Surdimensionné pour une PME aux besoins simples", "La version SaaS gérée par Sage arrive en France après d'autres pays" ]} />
+
+**Notre verdict.** Le bon réflexe pour une ETI qui opère dans plusieurs pays et jongle avec plusieurs entités juridiques. Pour une PME française centrée sur son marché national, Divalto ou Business Central offrent un meilleur rapport entre profondeur et simplicité. On détaille ce match dans [notre classement des ERP pour ETI](/meilleurs-erp-eti/).
+
+### 4. Odoo : le plus modulaire
+
+<RankCard rank={4} name="Odoo" editor="Odoo SA" origin="Belgique" image="/images/erp/odoo.webp" credit="© Odoo" imageAlt="Interface d'Odoo" bestFor="Les entreprises qui veulent démarrer avec quelques applications et étoffer leur ERP au fil de leur croissance." specs={[
+  { label: "Cible", value: "De la TPE à la grande entreprise" },
+  { label: "Déploiement", value: "Odoo Online, Odoo.sh ou sur site" },
+  { label: "Prix public", value: "1 app gratuite, puis par utilisateur" },
+  { label: "Facture électronique", value: "Odoo est plateforme agréée" },
+]} />
+
+Odoo, c'est le grand magasin de l'ERP : des dizaines d'applications (ventes, CRM, comptabilité, stocks, fabrication, site web, RH…) que l'on active à la carte. L'éditeur belge revendique plus de 28 millions d'utilisateurs dans le monde, de la startup d'une personne à la grande entreprise. Il existe en deux éditions : Community, open source, et Enterprise, sous licence, qui seule inclut la comptabilité complète, la planification de production, le contrôle qualité ou le module d'interventions sur site.
+
+Le modèle tarifaire est transparent. Une application seule est gratuite, puis deux plans payants par utilisateur (Standard et Personnalisé) donnent accès à toutes les applications, le second ouvrant l'hébergement sur Odoo.sh ou sur vos serveurs, le studio de personnalisation et le multi-sociétés. Côté conformité, Odoo est immatriculé plateforme agréée depuis avril 2026, avec un module dédié à la facturation électronique française.
+
+La contrepartie de cette souplesse, c'est que la réussite dépend énormément de l'intégrateur et de la discipline du projet. La licence n'inclut ni l'implémentation ni le développement spécifique, et la facilité avec laquelle on ajoute des modules peut conduire à des projets qui s'éparpillent.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une modularité sans équivalent : on n'active que ce dont on a besoin", "Des tarifs publics et un point d'entrée gratuit", "Odoo est plateforme agréée pour la facture électronique", "Une communauté et un catalogue d'applications très riches" ]} cons={[ "La version Community n'a pas de comptabilité complète", "Implémentation et développements spécifiques non compris dans la licence", "Une qualité de projet très variable selon le partenaire choisi", "Les utilisateurs sur site doivent suivre la dernière version stable" ]} />
+
+**Notre verdict.** Une excellente porte d'entrée pour les entreprises qui grandissent vite et veulent avancer par étapes. Pour un industriel ou un négociant qui a besoin de processus métier profonds dès le départ, un ERP vertical comme Divalto évite de reconstruire soi-même ce qu'Odoo laisse au paramétrage. Le sujet de l'open source mérite d'ailleurs [son propre décryptage](/erp-open-source/).
+
+### 5. Cegid XRP Flex : le cloud à la française
+
+<RankCard rank={5} name="Cegid XRP Flex" editor="Cegid" origin="France (Lyon)" image="/images/erp/cegid-xrp-flex.webp" credit="© Cegid" imageAlt="Interface de Cegid XRP Flex" bestFor="Les PME du négoce, de l'industrie ou des services qui veulent un ERP 100 % cloud d'un éditeur français." specs={[
+  { label: "Cible", value: "PME et entreprises moyennes" },
+  { label: "Déploiement", value: "Cloud" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "PA Cegid intégrée, sans surcoût" },
+]} />
+
+Cegid, le géant lyonnais du logiciel de gestion (plus d'un milliard d'euros de chiffre d'affaires), propose trois ERP : XRP Flex pour les PME, XRP Ultimate pour les ETI et les grandes entreprises, et Orli pour la mode. XRP Flex est un ERP cloud bâti sur la technologie de l'éditeur américain Acumatica et adapté à la réglementation française.
+
+Sa couverture est large : gestion financière multi-sociétés, gestion commerciale omnicanale (magasin, e-commerce, places de marché), CRM natif, gestion de production, gestion des affaires et des interventions. Son atout maître en 2026 tient à la conformité : Cegid est immatriculé plateforme agréée, et XRP Flex intègre cette PA « sans aucun surcoût », selon l'éditeur. Pour une PME qui veut régler la question de la facturation électronique sans ajouter un fournisseur, c'est un argument.
+
+En revanche, le prix n'est pas public, et la couverture industrielle reste moins profonde que celle d'un spécialiste de la GPAO.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Un éditeur français de premier plan, solide financièrement", "Plateforme agréée Cegid intégrée nativement, sans surcoût annoncé", "Une couverture omnicanale intéressante pour le négoce et la distribution", "CRM natif dans l'ERP" ]} cons={[ "Aucun prix public", "Une GPAO moins poussée que celle des spécialistes de l'industrie", "Un socle technologique d'origine américaine (Acumatica)" ]} />
+
+**Notre verdict.** Un concurrent sérieux pour les PME qui privilégient le cloud et la conformité clé en main. Il reste derrière Divalto sur la profondeur métier et la transparence tarifaire.
+
+### 6. SAP Business One : la porte d'entrée de l'univers SAP
+
+<RankCard rank={6} name="SAP Business One" editor="SAP" origin="Allemagne" image="/images/erp/sap-business-one.webp" credit="© SAP" imageAlt="Interface de SAP Business One" bestFor="Les PME, notamment filiales de groupes déjà équipés en SAP, dans le négoce, la fabrication légère ou les services." specs={[
+  { label: "Cible", value: "PME" },
+  { label: "Déploiement", value: "Cloud ou sur site" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "SAP est plateforme agréée" },
+]} />
+
+On associe souvent SAP aux grands groupes du CAC 40. Pourtant, l'éditeur allemand dispose depuis longtemps d'un ERP pensé pour les PME, SAP Business One, qui revendique plus de 85 000 clients dans le monde, principalement dans le commerce de gros, la fabrication légère, le retail et les services.
+
+L'outil couvre la comptabilité, le contrôle de gestion, la banque, les ventes et le CRM, les achats, les stocks, la BI et la mobilité, en cloud ou sur site. Sa grande force, c'est la cohérence avec le reste de l'écosystème SAP : pour la filiale française d'un groupe qui tourne déjà sous SAP, la remontée des données vers la maison mère est bien plus simple. SAP est par ailleurs immatriculé plateforme agréée depuis janvier 2026.
+
+Le modèle repose entièrement sur les partenaires accrédités, qui assurent la vente, le déploiement et une bonne partie des extensions métiers. Pas de prix public en France.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "La robustesse et l'écosystème d'un éditeur mondial", "Idéal pour les filiales de groupes déjà sous SAP", "SAP est plateforme agréée", "Cloud ou sur site au choix" ]} cons={[ "Pas de prix public en France", "Les fonctions métiers pointues reposent sur des extensions de partenaires", "Moins de proximité qu'un éditeur français pour une PME isolée" ]} />
+
+**Notre verdict.** Le bon choix si votre groupe parle déjà SAP. Pour une PME indépendante, il apporte moins de valeur métier native que les trois premiers du classement.
+
+### 7. Oracle NetSuite : le pionnier du SaaS
+
+<RankCard rank={7} name="Oracle NetSuite" editor="Oracle" origin="États-Unis" image="/images/erp/netsuite.webp" credit="© Oracle NetSuite" imageAlt="Interface d'Oracle NetSuite" bestFor="Les entreprises en forte croissance et les groupes internationaux qui veulent un ERP 100 % SaaS." specs={[
+  { label: "Cible", value: "Toutes tailles, surtout groupes en croissance" },
+  { label: "Déploiement", value: "SaaS uniquement" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "PA externe à connecter" },
+]} />
+
+NetSuite fait partie des tout premiers ERP nés dans le cloud, avant d'être racheté par Oracle. Il revendique plus de 44 000 organisations clientes dans plus de 200 pays. Finance, supply chain, CRM, e-commerce et RH cohabitent dans une même plateforme accessible uniquement en SaaS.
+
+C'est un excellent outil de consolidation financière pour les groupes qui multiplient les filiales à l'étranger. Côté France, la localisation passe par une extension dédiée, qui produit notamment le fichier des écritures comptables (FEC). En revanche, ni Oracle ni NetSuite ne figurent sur la liste des plateformes agréées : une PA externe doit être connectée pour la facturation électronique. Et la nouvelle génération d'outils d'IA, NetSuite Next, a été annoncée en priorité pour l'Amérique du Nord.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Un vrai ERP natif cloud, sans version sur site à maintenir", "Très à l'aise avec le multi-entités et l'international", "Une plateforme unifiée finance, CRM et e-commerce" ]} cons={[ "Aucun prix public officiel", "Pas de plateforme agréée : PA externe à prévoir", "Des innovations IA d'abord réservées à l'Amérique du Nord", "Éditeur américain, soumis au Cloud Act" ]} />
+
+**Notre verdict.** Pertinent pour une entreprise internationale ou une scale-up qui veut une finance consolidée en temps réel. Pour une PME française ancrée dans l'industrie ou le négoce, le classement penche nettement vers des solutions plus proches du terrain.
+
+### 8. Sage 100 : le socle gestion des PME
+
+<RankCard rank={8} name="Sage 100" editor="Sage" origin="Royaume-Uni" image="/images/erp/sage-100.webp" credit="© Sage" imageAlt="Interface de Sage 100" bestFor="Les PME qui cherchent avant tout une comptabilité et une gestion commerciale solides, avec des options à la carte." specs={[
+  { label: "Cible", value: "PME" },
+  { label: "Déploiement", value: "Cloud Microsoft Azure" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "Sage est plateforme agréée" },
+]} />
+
+Difficile de trouver un expert-comptable qui n'ait jamais croisé Sage 100. La solution, autrefois appelée Sage 100cloud, revendique plus de 40 000 PME clientes. Elle s'organise autour de deux piliers, Sage 100 Comptabilité et Sage 100 Gestion Commerciale, réunis dans le pack Sage 100 Entreprise, avec des options pour la trésorerie, les moyens de paiement, les immobilisations, le recouvrement ou le reporting.
+
+Sage 100 est désormais hébergé dans le cloud Microsoft Azure, avec une nouvelle interface web et un assistant IA inclus dans tous les packs. La facturation électronique est prise en charge par la plateforme agréée de Sage.
+
+Sa limite tient à son périmètre : c'est un excellent socle comptable et commercial, mais pas un ERP industriel ou logistique complet. Dès que la production, l'entrepôt ou les interventions terrain deviennent centraux, on atteint ses frontières.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une référence connue de tous les experts-comptables", "Une gestion comptable et commerciale éprouvée", "Sage est plateforme agréée", "Un réseau de partenaires très dense en France" ]} cons={[ "Un périmètre centré sur la comptabilité et la gestion commerciale", "Pas de prix public : tarif selon gamme, options et niveau d'assistance", "Peu adapté à la production ou à la logistique complexe" ]} />
+
+**Notre verdict.** Un choix sûr pour structurer la gestion d'une PME, moins pour piloter ses opérations. C'est souvent l'étape avant un ERP plus complet.
+
+### 9. Sylob : le spécialiste de l'industrie
+
+<RankCard rank={9} name="Sylob" editor="Forterro" origin="France" image="/images/erp/sylob.webp" credit="© Sylob" imageAlt="Interface de l'ERP Sylob" bestFor="Les PME industrielles qui veulent un ERP pensé exclusivement pour la production." specs={[
+  { label: "Cible", value: "PME et ETI industrielles" },
+  { label: "Déploiement", value: "Cloud (AWS)" },
+  { label: "Prix public", value: "80 à 125 € HT/utilisateur/mois" },
+  { label: "Facture électronique", value: "PA partenaire" },
+]} />
+
+Sylob conçoit des ERP pour les PME industrielles françaises depuis 1991. Né à Albi, il appartient depuis 2016 au groupe européen Forterro, qui réunit plusieurs éditeurs d'ERP industriels (dont Silog et Clipper en France) et revendique plus de 25 000 entreprises clientes en Europe. Sylob, lui, annonce plus de 20 000 utilisateurs.
+
+Son terrain, c'est exclusivement l'industrie : aéronautique, automobile, dispositifs médicaux, électronique, machines spéciales, plasturgie, mécanique… La couverture est à la hauteur de cette spécialisation : configurateur, données techniques, calcul des besoins, planification avancée, suivi d'atelier, qualité et traçabilité, GMAO, gestion à l'affaire, sans oublier la finance et la BI. L'ERP est proposé dans le cloud, hébergé chez AWS, et l'éditeur publie ses tarifs : 80 € HT par utilisateur et par mois pour l'offre Essentiel, 125 € pour l'offre Avancé, l'offre Expert destinée aux ETI étant sur devis. Comme chez la plupart des éditeurs, l'intégration (paramétrage, reprise des données, formation) s'ajoute à l'abonnement.
+
+Pour la facturation électronique, Sylob s'appuie sur un partenariat avec une plateforme agréée, sans la nommer sur son site.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Un ERP 100 % dédié à l'industrie, avec configurateur et planification avancée", "Des tarifs publics clairs", "Une forte présence dans les filières industrielles françaises" ]} cons={[ "Hors industrie, l'outil perd une grande partie de son intérêt", "Le partenaire de facturation électronique n'est pas nommé publiquement", "Intégration facturée en plus de l'abonnement" ]} />
+
+**Notre verdict.** Un excellent spécialiste pour l'usine pure. Il cède du terrain face à Divalto dès que l'entreprise mêle production, négoce et service après-vente, un cas pourtant fréquent dans les PME industrielles. Le duel est détaillé dans [notre classement des ERP pour l'industrie](/meilleurs-erp-industrie/).
+
+### 10. Axonaut : la gestion tout-en-un des TPE
+
+<RankCard rank={10} name="Axonaut" editor="Axonaut" origin="France" image="/images/erp/axonaut.webp" credit="© Axonaut" imageAlt="Interface d'Axonaut" bestFor="Les TPE et petites PME de services qui veulent centraliser devis, factures, CRM et trésorerie." specs={[
+  { label: "Cible", value: "TPE et petites PME" },
+  { label: "Déploiement", value: "SaaS" },
+  { label: "Prix public", value: "Abonnement mensuel, essai 15 jours" },
+  { label: "Facture électronique", value: "Axonaut est plateforme agréée" },
+]} />
+
+Soyons clairs : Axonaut n'est pas un ERP au sens strict, et l'éditeur lui-même parle plutôt de « logiciel de gestion ». Mais pour une TPE, c'est souvent la marche juste avant l'ERP, et il serait dommage de l'ignorer. L'éditeur toulousain revendique plus de 189 000 utilisateurs.
+
+Dans une seule interface en ligne, on trouve les devis et factures, le CRM, la trésorerie, les achats et dépenses, un suivi des stocks, un module de tickets SAV, des outils RH et marketing, et même un compte professionnel. Axonaut est immatriculé plateforme agréée depuis janvier 2026 : pour une petite entreprise, la facturation électronique se règle donc au même endroit que le reste.
+
+Ses limites sont celles de sa catégorie : pas de production, une gestion de stock simple, peu de profondeur pour la logistique ou le multi-sociétés. Dès que l'entreprise structure un entrepôt, un atelier ou une équipe de techniciens, il faut passer à un véritable ERP.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une prise en main rapide, sans projet d'intégration lourd", "Un tout-en-un pertinent pour les TPE de services", "Axonaut est plateforme agréée pour la facture électronique" ]} cons={[ "Pas un ERP au sens strict : ni production, ni logistique avancée", "Des limites rapides dès que l'entreprise se structure", "Une grille tarifaire à vérifier en direct, selon le nombre d'utilisateurs et l'engagement" ]} />
+
+**Notre verdict.** Le bon outil pour démarrer, pas pour industrialiser. Il occupe la dixième place parce qu'il rend un vrai service aux TPE, pas parce qu'il rivalise avec les neuf solutions qui le précèdent.
+
+## Le tableau comparatif des 10 ERP
+
+Pour prendre du recul, voici les dix solutions côte à côte. Les prix indiqués sont ceux que les éditeurs publient eux-mêmes ; « sur devis » signifie qu'aucun tarif officiel n'est affiché.
+
+<DataTable caption="Comparatif des meilleurs ERP en 2026 (informations vérifiées le 12 octobre 2026)" columns={["ERP", "Éditeur (pays)", "Pour qui", "Déploiement", "Prix public", "Facture électronique"]} rows={[
+  { 0: "Divalto", 1: "Divalto (France)", 2: "PME et ETI : négoce, industrie, service terrain", 3: "SaaS ou sur site", 4: "Dès 70 €/util./mois", 5: "PA partenaire intégrée", _best: true },
+  ["Business Central", "Microsoft (États-Unis)", "PME", "SaaS ou sur site", "69,30 € HT/util./mois", "PA tierce via connecteur"],
+  ["Sage X3", "Sage (Royaume-Uni)", "ETI multi-pays", "Cloud ou sur site", "Sur devis", "Éditeur PA"],
+  ["Odoo", "Odoo SA (Belgique)", "TPE à grande entreprise", "Online, Odoo.sh, sur site", "1 app gratuite, puis par utilisateur", "Éditeur PA"],
+  ["Cegid XRP Flex", "Cegid (France)", "PME", "Cloud", "Sur devis", "Éditeur PA"],
+  ["SAP Business One", "SAP (Allemagne)", "PME", "Cloud ou sur site", "Sur devis", "Éditeur PA"],
+  ["Oracle NetSuite", "Oracle (États-Unis)", "Groupes en croissance", "SaaS", "Sur devis", "PA externe"],
+  ["Sage 100", "Sage (Royaume-Uni)", "PME", "Cloud Azure", "Sur devis", "Éditeur PA"],
+  ["Sylob", "Forterro (France)", "PME et ETI industrielles", "Cloud", "80 à 125 € HT/util./mois", "PA partenaire"],
+  ["Axonaut", "Axonaut (France)", "TPE", "SaaS", "Abonnement mensuel", "Éditeur PA"],
+]} />
+
+Une remarque sur la dernière colonne, parce qu'elle prête souvent à confusion. Qu'un éditeur soit lui-même plateforme agréée est un confort (un seul interlocuteur), pas une obligation. Ce que la loi exige, c'est que vos factures transitent par une PA immatriculée. Un ERP connecté nativement à une PA partenaire, comme Divalto avec Docoon, est tout aussi conforme.
+
+## Quel ERP choisir selon votre profil ?
+
+Ce classement général donne une vue d'ensemble. Mais un négociant de matériaux et un fabricant de pièces mécaniques n'ont pas les mêmes priorités. C'est pourquoi nous avons décliné le classement par taille et par secteur.
+
+<FeatureColumns columns={3} items={[
+  { eyebrow: "Par taille", title: "Les ERP pour PME", text: "De 10 à 250 salariés : les solutions qui couvrent l'essentiel sans exploser le budget.", action: { label: "Voir le classement", href: "/meilleurs-erp-pme/" } },
+  { eyebrow: "Par taille", title: "Les ERP pour ETI", text: "Multi-sites, multi-sociétés, international : les plateformes qui tiennent la charge.", action: { label: "Voir le classement", href: "/meilleurs-erp-eti/" } },
+  { eyebrow: "Par secteur", title: "Les ERP pour l'industrie", text: "GPAO, calcul des besoins, ordonnancement, gestion à l'affaire.", action: { label: "Voir le classement", href: "/meilleurs-erp-industrie/" } },
+  { eyebrow: "Par secteur", title: "Les ERP pour le négoce", text: "Tarifs, remises, entrepôt, EDI : les outils du négoce et de la distribution.", action: { label: "Voir le classement", href: "/meilleurs-erp-negoce-distribution/" } },
+  { eyebrow: "Par secteur", title: "Les ERP agroalimentaires", text: "Traçabilité des lots, DLC, rappels produits, exigences de la grande distribution.", action: { label: "Voir le classement", href: "/meilleurs-erp-agroalimentaire/" } },
+  { eyebrow: "Par secteur", title: "Maintenance & SAV", text: "Contrats, parc installé, planning des techniciens et facturation des interventions.", action: { label: "Voir le classement", href: "/meilleurs-erp-maintenance-sav/" } },
+]} />
+
+Trois autres classements répondent à des questions transversales : faut-il privilégier [un ERP français](/meilleurs-erp-francais/), [un ERP 100 % SaaS](/meilleurs-erp-cloud-saas/) ou [un ERP avec CRM intégré](/meilleurs-erp-crm-integre/) ? Chacun a sa logique, et ses gagnants.
+
+## La facturation électronique, critère décisif en 2026
+
+Impossible de choisir un ERP cette année sans parler de la réforme. Depuis le 1er septembre 2026, toutes les entreprises assujetties à la TVA doivent être capables de recevoir des factures électroniques, et les grandes entreprises et les ETI doivent déjà les émettre. Les PME et les microentreprises suivront pour l'émission au 1er septembre 2027, selon le calendrier publié par l'administration fiscale. L'e-reporting, la transmission des données de transaction, suit la même chronologie.
+
+Une facture électronique, rappelle la DGFiP, n'est pas un PDF envoyé par e-mail. C'est un fichier structuré qui transite obligatoirement par une plateforme agréée. Au 22 septembre 2026, la liste officielle comptait 149 opérateurs immatriculés et 14 en attente de leurs derniers tests d'interopérabilité.
+
+Pour votre ERP, trois questions suffisent à faire le tri :
+
+  - **Comment la PA est-elle reliée à l'ERP ?** Plateforme de l'éditeur ou partenaire, l'important est une connexion native, sans export manuel.
+  - **Le dispositif est-il déjà en production ?** Demandez des références de clients qui émettent et reçoivent réellement des factures par ce canal.
+  - **Que se passe-t-il si vous changez de PA ?** La réglementation permet d'en changer ; vérifiez que votre ERP ne vous enferme pas.
+
+Notre guide sur [le rôle de l'ERP dans la facturation électronique](/erp-facturation-electronique/) entre dans le détail des formats et du calendrier.
+
+## Les erreurs à éviter avant de signer
+
+Un bon classement ne remplace pas un bon projet. Les mêmes erreurs reviennent dans la plupart des déploiements qui tournent mal.
+
+La première consiste à choisir sur la notoriété. Un ERP mondialement connu n'est pas forcément taillé pour une PME de 80 personnes, et un outil surdimensionné coûte cher à déployer comme à maintenir. La deuxième, à regarder le prix de la licence sans le reste : intégration, reprise des données, formation et maintenance pèsent souvent autant, comme le détaille notre dossier sur [le prix d'un ERP](/prix-erp/). Le rapport 2026 de Panorama Consulting, mené auprès d'entreprises majoritairement internationales, relève d'ailleurs que 30 % des projets dépassent leur budget.
+
+La troisième erreur ? Sauter l'étape du besoin. Sans [cahier des charges](/cahier-des-charges-erp/), les propositions des éditeurs deviennent incomparables, et la démonstration la plus brillante l'emporte, pas forcément la solution la plus adaptée. Enfin, n'oubliez pas que le partenaire qui déploie l'ERP compte autant que le logiciel. Comprendre [qui fait quoi entre éditeur et intégrateur](/editeur-integrateur-erp/) vous évitera bien des malentendus.
+
+## Questions fréquentes
+
+### Quel est le meilleur ERP en 2026 ?
+
+Il n'existe pas de meilleur ERP dans l'absolu, seulement un ERP mieux adapté à votre taille et à votre métier. Dans notre classement, Divalto arrive en tête pour les PME et ETI qui produisent, stockent ou interviennent chez leurs clients, grâce à trois ERP métiers prêts à l'emploi. Microsoft Dynamics 365 Business Central suit de près pour les PME qui veulent un prix public et l'écosystème Microsoft, et Sage X3 s'impose pour les ETI multi-pays.
+
+### Quel ERP choisir pour une petite entreprise ?
+
+En dessous d'une dizaine de salariés, un ERP complet est souvent surdimensionné. Un outil de gestion tout-en-un comme Axonaut, ou Odoo limité à quelques applications, couvre l'essentiel : devis, factures, suivi client et trésorerie. Les ERP métiers comme Divalto, Sage X3 ou Business Central prennent le relais quand les stocks, la production ou les équipes terrain entrent en jeu.
+
+### Combien coûte un ERP par utilisateur ?
+
+Les rares éditeurs qui affichent leurs prix donnent un ordre de grandeur. Business Central est à 69,30 euros HT par utilisateur et par mois en licence Essentials, et Divalto annonce ses ERP SaaS à partir de 70 à 80 euros par utilisateur et par mois selon la gamme. Mais la licence ne représente qu'une partie du budget : l'intégration, la reprise des données et la formation pèsent souvent autant, sinon plus.
+
+### Mon ERP doit-il être une plateforme agréée pour la facturation électronique ?
+
+Non. La loi impose de passer par une plateforme agréée (PA) immatriculée par l'administration fiscale, pas que votre ERP en soit une. Certains éditeurs ont obtenu ce statut, comme Sage, Cegid, SAP, Odoo ou Axonaut. D'autres, comme Divalto, Microsoft ou Oracle NetSuite, connectent leur ERP à une PA partenaire. Les deux modèles sont conformes ; vérifiez surtout que la connexion est native et déjà en production.
+
+### ERP français ou ERP international : que choisir ?
+
+Un éditeur français connaît par cœur la réglementation locale (FEC, facturation électronique, TVA) et vous servira souvent avec un réseau de proximité. Un éditeur international apporte une couverture multi-pays et un écosystème plus vaste. Si vous opérez surtout en France, les solutions françaises comme Divalto, Cegid ou Sylob ont un vrai avantage ; si vous gérez des filiales sur plusieurs continents, Sage X3, NetSuite ou SAP tiennent mieux la route.
+
+### Combien de temps faut-il pour déployer un ERP ?
+
+Pour une PME, comptez généralement de quelques mois à un an selon le périmètre. Le rapport 2026 de Panorama Consulting, mené surtout auprès d'entreprises internationales de taille moyenne à grande, situe la durée médiane d'un projet à neuf mois. Les offres SaaS préparamétrées par métier raccourcissent ce délai, à condition de ne pas vouloir tout personnaliser dès le premier jour.
+
+## Nos sources
+
+  - Eurostat, *Integration of internal processes* (isoc_eb_iip), données 2025 : [ec.europa.eu/eurostat](https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_iip/default/table)
+  - DGFiP, calendrier de la réforme et liste des plateformes agréées (mise à jour du 22 septembre 2026) : [impots.gouv.fr](https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees)
+  - Panorama Consulting Group, *The 2026 ERP Report* (170 répondants, échantillon international)
+  - Pages produits, tarifs et communiqués officiels des éditeurs cités, consultés le 12 octobre 2026

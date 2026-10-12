@@ -21,9 +21,9 @@ export const CLASSEMENTS: Section = {
     { slug: 'meilleurs-erp-negoce-distribution', label: 'Pour le négoce' },
     { slug: 'meilleurs-erp-agroalimentaire', label: "Pour l'agroalimentaire" },
     { slug: 'meilleurs-erp-francais', label: 'Les ERP français' },
+    { slug: 'meilleurs-erp-maintenance-sav', label: 'Maintenance & SAV' },
+    { slug: 'meilleurs-erp-crm-integre', label: 'Avec CRM intégré' },
     { slug: 'meilleurs-erp-cloud-saas', label: 'En SaaS / cloud' },
-    { slug: 'meilleurs-erp-tpe', label: 'Pour les TPE' },
-    { slug: 'meilleurs-erp-services', label: 'Pour les services' },
   ],
 };
 
