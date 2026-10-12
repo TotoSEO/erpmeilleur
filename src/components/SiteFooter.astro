@@ -30,7 +30,7 @@ const COLS = [
     </div>
     {COLS.map((c) => (
       <div>
-        <h4>{c.title}</h4>
+        <p class="site-footer__title">{c.title}</p>
         <ul>{c.items.map((it) => (<li><a href={it.href}>{it.label}</a></li>))}</ul>
       </div>
     ))}
