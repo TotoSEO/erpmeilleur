@@ -4,11 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 /**
  * Mentions légales — page statique simple, hors collection « articles ».
  * Responsable de publication : Guillaume Wagner. Hébergeur : Cloudflare France SAS.
- * Site édité par une personne physique à titre non professionnel : conformément
- * à la LCEN, seules les coordonnées de l'hébergeur sont obligatoires (l'adresse
- * personnelle de l'éditeur n'est pas publiée).
+ * Section « Classements et liens d'intérêts » : information exigée pour les
+ * contenus qui classent des offres (art. L111-7 et D111-7 du Code de la consommation).
  */
-const updated = '23 juin 2026';
+const updated = '12 octobre 2026';
 const SITE = 'https://meilleur-erp.fr';
 const ld = {
   '@context': 'https://schema.org',
@@ -37,7 +36,7 @@ const ld = {
       <h2>Éditeur du site</h2>
       <p>
         Le site <strong>meilleur-erp.fr</strong> est édité par une personne
-        physique agissant à titre non professionnel.
+        physique.
       </p>
       <ul>
         <li>Responsable de la publication : <strong>Guillaume Wagner</strong></li>
@@ -56,12 +55,29 @@ const ld = {
         <li>Site web : cloudflare.com</li>
       </ul>
 
+      <h2>Classements et liens d'intérêts</h2>
+      <p>
+        Les classements publiés sur meilleur-erp.fr reposent sur des critères
+        éditoriaux décrits dans chaque article (couverture fonctionnelle,
+        adéquation à la taille et au secteur, modes de déploiement, conformité
+        réglementaire, écosystème d'accompagnement). L'ordre retenu reflète une
+        appréciation éditoriale et peut évoluer à chaque mise à jour.
+      </p>
+      <p>
+        L'éditeur du site entretient des liens professionnels avec l'un des
+        éditeurs de logiciels présentés dans ces classements.
+      </p>
       <h2>Propriété intellectuelle</h2>
       <p>
         L'ensemble des contenus présents sur meilleur-erp.fr (textes, visuels,
         éléments graphiques, mise en page) est protégé par le droit d'auteur.
         Toute reproduction ou réutilisation, totale ou partielle, sans
         autorisation préalable de l'éditeur est interdite.
+      </p>
+      <p>
+        Les noms, logos et captures d'écran des logiciels cités restent la
+        propriété de leurs éditeurs respectifs. Ils sont reproduits à des fins
+        d'information et d'identification, avec mention de leur origine.
       </p>
 
       <h2>Données personnelles</h2>

@@ -1,9 +1,20 @@
 # meilleur-erp.fr
 
-> Le média indépendant des logiciels ERP : définitions, fonctionnement, modules, déploiement, coûts et conformité, expliqués simplement par Guillaume Wagner. Contenu informationnel, neutre, sans discours d'éditeur.
+> Le média des logiciels ERP : définitions, fonctionnement, modules, déploiement, coûts, conformité et classements des meilleures solutions, expliqués simplement par Guillaume Wagner.
 
 ## Page pilier
 - [Qu'est-ce qu'un logiciel ERP ? TOUT savoir](https://meilleur-erp.fr/qu-est-ce-qu-un-erp/): Un ERP centralise la gestion de l'entreprise dans une base unique.
+## Classements des meilleurs ERP (2026)
+- [Les 10 meilleurs ERP en 2026 : classement et comparatif](https://meilleur-erp.fr/meilleurs-erp/): Divalto, Microsoft Dynamics 365 Business Central, Sage X3, Odoo, Cegid XRP Flex, SAP Business One, Oracle NetSuite, Sage 100, Sylob, Axonaut ; critères, prix publics et statut facture électronique vérifiés le 12/10/2026.
+- [Meilleur ERP pour PME](https://meilleur-erp.fr/meilleurs-erp-pme/): les 8 ERP adaptés aux PME de 10 à 250 salariés, avec prix publics.
+- [Meilleur ERP pour ETI](https://meilleur-erp.fr/meilleurs-erp-eti/): multi-sociétés, multi-sites, international et facture électronique obligatoire dès septembre 2026.
+- [Meilleur ERP pour l'industrie](https://meilleur-erp.fr/meilleurs-erp-industrie/): ERP de production (GPAO) par mode de production.
+- [Meilleur ERP pour le négoce et la distribution](https://meilleur-erp.fr/meilleurs-erp-negoce-distribution/): tarifs, remises, WMS, EDI.
+- [Meilleur ERP agroalimentaire](https://meilleur-erp.fr/meilleurs-erp-agroalimentaire/): traçabilité (règlement 178/2002), DLC, allergènes, EDI GMS.
+- [Meilleur ERP pour la maintenance et le SAV](https://meilleur-erp.fr/meilleurs-erp-maintenance-sav/): contrats, parc installé, interventions terrain.
+- [Meilleurs ERP français](https://meilleur-erp.fr/meilleurs-erp-francais/): siège, capital, hébergement et conformité des éditeurs français.
+- [Meilleur ERP SaaS et cloud](https://meilleur-erp.fr/meilleurs-erp-cloud-saas/): architecture, hébergement, souveraineté.
+- [Meilleur ERP avec CRM intégré](https://meilleur-erp.fr/meilleurs-erp-crm-integre/): CRM natif et mobilité des équipes terrain.
 ## Comprendre, choisir et déployer un ERP (niveau 1)
 - [ERP et PGI : quelles sont les différences ?](https://meilleur-erp.fr/erp-pgi-difference/): ERP ou PGI, est-ce la même chose ?
 - [À quoi sert un ERP ? Rôle et utilité en entreprise](https://meilleur-erp.fr/a-quoi-sert-un-erp/): À quoi sert un ERP ?
@@ -45,7 +56,7 @@
 - [Échec d'un projet ERP : causes fréquentes et prévention](https://meilleur-erp.fr/echec-projet-erp/): Entre 50 et 70 % des projets ERP échouent, rarement pour des raisons techniques.
 
 ## À propos
-- [Guillaume Wagner, auteur](https://meilleur-erp.fr/auteur/): l'auteur unique des contenus du site, ligne éditoriale indépendante et neutre.
+- [Guillaume Wagner, auteur](https://meilleur-erp.fr/auteur/): l'auteur unique des contenus du site.
 
 ## Optional
 - [Plan du site](https://meilleur-erp.fr/plan-du-site/): l'arborescence complète des guides, organisée par thème.

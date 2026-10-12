@@ -1,0 +1,39 @@
+---
+/**
+ * RankingList — le classement en un coup d'œil, en vraie liste ordonnée <ol>
+ * (lisible par les moteurs et les IA). Chaque entrée renvoie à la fiche détaillée.
+ *
+ * <RankingList items={[{ name: 'Divalto infinity', anchor: '1-divalto-infinity-…', note: 'Le plus complet pour…' }]} />
+ */
+interface Item { name: string; anchor?: string; note?: string; }
+interface Props { items: Item[]; title?: string; }
+const { items = [], title } = Astro.props;
+---
+<div class="rlist">
+  {title && <p class="rlist__title">{title}</p>}
+  <ol class="rlist__ol">
+    {items.map((it, i) => (
+      <li class={`rlist__item${i === 0 ? ' rlist__item--top' : ''}`}>
+        <span class="rlist__n">{String(i + 1).padStart(2, '0')}</span>
+        <span class="rlist__txt">
+          {it.anchor ? <a href={`#${it.anchor}`} class="rlist__name">{it.name}</a> : <span class="rlist__name">{it.name}</span>}
+          {it.note && <span class="rlist__note">{it.note}</span>}
+        </span>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<style>
+  .rlist { margin: 26px 0; border: 2px solid var(--ink); background: #fff; box-shadow: 6px 6px 0 var(--ink); }
+  .rlist__title { margin: 0; padding: 12px 18px; border-bottom: 2px solid var(--ink); background: var(--ink); color: #fff; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .rlist__ol { list-style: none; margin: 0; padding: 0; max-width: none; }
+  .rlist__item { display: flex; gap: 14px; align-items: baseline; margin: 0; padding: 12px 18px; border-bottom: 1px solid var(--hairline); }
+  .rlist__item:last-child { border-bottom: none; }
+  .rlist__item--top { background: linear-gradient(90deg, rgba(46,46,255,.08), rgba(255,255,255,0) 70%); }
+  .rlist__n { flex: none; font-family: var(--font-mono); font-weight: 700; font-size: 14px; color: var(--blue-ink); font-variant-numeric: tabular-nums; }
+  .rlist__txt { display: flex; flex-direction: column; gap: 2px; }
+  .rlist__name { font-family: var(--font-grotesk); font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; }
+  a.rlist__name:hover { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 2px; }
+  .rlist__note { font-family: var(--font-body); font-size: 14.5px; line-height: 1.45; color: var(--ink-80); }
+</style>

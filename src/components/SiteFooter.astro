@@ -8,6 +8,7 @@ const COLS = [
     { label: 'Les modules', href: '/modules-erp/' },
   ] },
   { title: 'Choisir & déployer', items: [
+    { label: 'Les meilleurs ERP', href: '/meilleurs-erp/' },
     { label: 'Combien ça coûte', href: '/prix-erp/' },
     { label: 'Comment choisir', href: '/comment-choisir-un-erp/' },
     { label: 'Mise en place', href: '/mise-en-place-erp/' },
@@ -25,11 +26,11 @@ const COLS = [
   <div class="site-footer__grid">
     <div>
       <Wordmark size={26} inverse />
-      <p class="site-footer__about">Le média indépendant des logiciels ERP. On explique, on source, on reste neutre.</p>
+      <p class="site-footer__about">Le média des logiciels ERP. On explique, on source, on compare.</p>
     </div>
     {COLS.map((c) => (
       <div>
-        <h4>{c.title}</h4>
+        <p class="site-footer__title">{c.title}</p>
         <ul>{c.items.map((it) => (<li><a href={it.href}>{it.label}</a></li>))}</ul>
       </div>
     ))}

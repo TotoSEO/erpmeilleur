@@ -1,0 +1,262 @@
+---
+title: "Quel ERP choisir pour une ETI en 2026 ?"
+seoTitle: "Meilleur ERP pour ETI 2026 : classement des 8 solutions"
+excerpt: "Plusieurs sociétés, plusieurs sites, parfois plusieurs pays, et depuis septembre 2026 l'obligation d'émettre des factures électroniques : une ETI demande beaucoup à son ERP. Voici les huit solutions à la hauteur."
+description: "Meilleur ERP pour ETI en 2026 : Sage X3, Divalto, Cegid XRP Ultimate, Dynamics 365, SAP Cloud ERP, NetSuite… Classement multi-sociétés, multi-sites et international."
+heroImage: "/images/meilleurs-erp-eti.webp"
+heroAlt: "Siège d'une ETI relié à ses usines, entrepôts et bureaux"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "16 min"
+publishedDate: "12 octobre 2026"
+badges:
+  - { label: "Classement 2026", tone: "blue", variant: "gradient" }
+  - { label: "ETI", tone: "neutral", variant: "soft", mono: true }
+ranking:
+  - { name: "Sage X3", editor: "Sage", anchor: "1-sage-x3--le-meilleur-choix-pour-les-eti-multi-pays" }
+  - { name: "Divalto", editor: "Divalto", anchor: "2-divalto--le-premier-choix-des-eti-françaises" }
+  - { name: "Cegid XRP Ultimate", editor: "Cegid", anchor: "3-cegid-xrp-ultimate--lerp-français-des-eti-exigeantes-en-finance" }
+  - { name: "Microsoft Dynamics 365 Finance & Supply Chain Management", editor: "Microsoft", anchor: "4-microsoft-dynamics-365-finance--supply-chain-management--la-suite-des-eti-en-croissance" }
+  - { name: "SAP Cloud ERP (S/4HANA Cloud)", editor: "SAP", anchor: "5-sap-cloud-erp--la-puissance-sap-en-cloud" }
+  - { name: "Oracle NetSuite", editor: "Oracle", anchor: "6-oracle-netsuite--la-consolidation-en-saas" }
+  - { name: "Proginov", editor: "Proginov", anchor: "7-proginov--lerp-français-avec-paie-et-hébergement-souverain" }
+  - { name: "IFS Cloud", editor: "IFS", anchor: "8-ifs-cloud--les-eti-à-forte-intensité-dactifs" }
+faq:
+  - q: "Qu'est-ce qu'une ETI au sens officiel ?"
+    a: "Une entreprise de taille intermédiaire (ETI) est une entreprise qui n'est pas une PME, qui emploie moins de 5 000 personnes et dont le chiffre d'affaires ne dépasse pas 1,5 milliard d'euros ou le total de bilan 2 milliards d'euros, selon la définition du décret de 2008 reprise par l'Insee. La France en comptait 7 442 en 2023."
+  - q: "Quel est le meilleur ERP pour une ETI ?"
+    a: "Pour une ETI multi-pays aux opérations complexes, Sage X3 est notre premier choix. Pour une ETI française du négoce, de l'industrie ou de la maintenance, Divalto offre une couverture métier plus directe et un prix public. Cegid XRP Ultimate convient aux ETI qui veulent un éditeur français très fort en finance, et SAP ou Microsoft aux groupes déjà ancrés dans ces écosystèmes."
+  - q: "Les ETI doivent-elles déjà émettre des factures électroniques ?"
+    a: "Oui. Depuis le 1er septembre 2026, les grandes entreprises et les ETI doivent émettre leurs factures en format électronique et transmettre leurs données de transaction (e-reporting), en plus de recevoir les factures électroniques comme toutes les entreprises. Les PME suivront pour l'émission au 1er septembre 2027."
+  - q: "Combien de temps dure un projet ERP dans une ETI ?"
+    a: "Comptez généralement de neuf mois à deux ans selon le périmètre, le nombre de sociétés et de pays. Le rapport 2026 de Panorama Consulting, mené auprès d'entreprises de taille moyenne à grande, situe la durée médiane à neuf mois et relève que 22 % des projets dépassent leur calendrier. Un déploiement par vagues, société par société, limite les risques."
+  - q: "Faut-il un ERP unique pour toutes les filiales ?"
+    a: "C'est l'idéal pour consolider et piloter, mais pas une obligation. Certains groupes adoptent un modèle à deux niveaux : un ERP robuste au siège et un ERP plus léger dans les petites filiales, reliés par des interfaces. Ce modèle se justifie surtout quand les filiales ont des métiers très différents ou opèrent dans des pays aux réglementations spécifiques."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import RankingList from '../../components/RankingList.astro';
+import RankCard from '../../components/RankCard.astro';
+import ProsCons from '../../components/ProsCons.astro';
+import DataTable from '../../components/DataTable.astro';
+import Callout from '../../components/Callout.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "Sage X3 prend la tête pour les ETI multi-pays : multi-sociétés, multi-devises, production discrète et process.", "Divalto se classe deuxième et devient le premier choix des ETI françaises du négoce, de l'industrie ou de la maintenance, avec un prix public.", "Cegid XRP Ultimate est l'option française la plus solide côté finance et achats.", "Depuis le 1er septembre 2026, les ETI doivent émettre leurs factures en format électronique : la connexion à une plateforme agréée n'est plus optionnelle.", "Les ERP des grands groupes (SAP, Microsoft, Oracle) s'imposent surtout dans les ETI internationales ou déjà équipées." ]} />
+
+Les ETI sont peu nombreuses, mais elles pèsent lourd. L'Insee en dénombrait 7 442 en 2023, soit 0,1 % des entreprises, qui représentaient pourtant 25,9 % de l'emploi salarié (en équivalent temps plein) et 25,6 % de la valeur ajoutée des entreprises marchandes non agricoles et non financières. Officiellement, une ETI emploie moins de 5 000 personnes et réalise jusqu'à 1,5 milliard d'euros de chiffre d'affaires (ou 2 milliards de total de bilan) : un spectre immense, de l'industriel familial de 300 salariés au groupe international de 4 000 personnes.
+
+Côté ERP, ces entreprises sont presque toutes équipées. Selon Eurostat, 93 % des entreprises françaises de 250 salariés et plus utilisaient un ERP en 2025. La question, pour une ETI, n'est donc pas de s'équiper mais de choisir l'outil qui portera la prochaine décennie : celui qui absorbera une acquisition, l'ouverture d'une usine à l'étranger ou le passage à la facturation électronique, obligatoire pour elles depuis septembre 2026.
+
+## Les 8 meilleurs ERP pour ETI en 2026
+
+<RankingList title="Notre classement ETI 2026" items={[
+  { name: "Sage X3", anchor: "1-sage-x3--le-meilleur-choix-pour-les-eti-multi-pays", note: "Le meilleur choix pour les ETI multi-pays aux opérations complexes." },
+  { name: "Divalto", anchor: "2-divalto--le-premier-choix-des-eti-françaises", note: "Le premier choix des ETI françaises du négoce, de l'industrie et du service." },
+  { name: "Cegid XRP Ultimate", anchor: "3-cegid-xrp-ultimate--lerp-français-des-eti-exigeantes-en-finance", note: "L'ERP français des ETI exigeantes en finance et en achats." },
+  { name: "Microsoft Dynamics 365 Finance & Supply Chain Management", anchor: "4-microsoft-dynamics-365-finance--supply-chain-management--la-suite-des-eti-en-croissance", note: "La suite Microsoft pour les ETI à forte croissance." },
+  { name: "SAP Cloud ERP (S/4HANA Cloud)", anchor: "5-sap-cloud-erp--la-puissance-sap-en-cloud", note: "La puissance SAP, en cloud public ou privé." },
+  { name: "Oracle NetSuite", anchor: "6-oracle-netsuite--la-consolidation-en-saas", note: "La consolidation financière en SaaS pour les groupes internationaux." },
+  { name: "Proginov", anchor: "7-proginov--lerp-français-avec-paie-et-hébergement-souverain", note: "Un ERP français avec paie, RH et hébergement souverain." },
+  { name: "IFS Cloud", anchor: "8-ifs-cloud--les-eti-à-forte-intensité-dactifs", note: "La référence des ETI à forte intensité d'actifs et de service." },
+]} />
+
+## Ce qu'une ETI attend de son ERP
+
+Une ETI cumule les contraintes d'une grande entreprise avec des équipes souvent plus resserrées. Voici les critères qui ont pesé dans notre classement.
+
+<FeatureColumns columns={3} items={[
+  { eyebrow: "Structure", title: "Multi-sociétés et multi-sites", text: "Plusieurs entités juridiques, plusieurs établissements, des flux intersociétés automatisés et une consolidation sans ressaisie." },
+  { eyebrow: "International", title: "Multi-devises et multi-pays", text: "Devises, langues, fiscalités locales : indispensable si vous avez des filiales ou des usines hors de France." },
+  { eyebrow: "Pilotage", title: "Finance et contrôle de gestion", text: "Analytique multi-axes, budgets, trésorerie de groupe, reporting consolidé en temps réel." },
+  { eyebrow: "Conformité", title: "Facture électronique dès 2026", text: "Émission et e-reporting obligatoires pour les ETI depuis le 1er septembre 2026, via une plateforme agréée." },
+  { eyebrow: "Sécurité", title: "Gouvernance des données", text: "Habilitations fines, traçabilité des accès, certifications de l'éditeur et de l'hébergeur." },
+  { eyebrow: "Projet", title: "Capacité de déploiement", text: "Un écosystème d'intégrateurs capable de mener un projet par vagues, société par société." },
+]} />
+
+## Les 8 ERP pour ETI en détail
+
+### 1. Sage X3 : le meilleur choix pour les ETI multi-pays
+
+<RankCard rank={1} highlight name="Sage X3" editor="Sage" origin="Royaume-Uni (origine française)" image="/images/erp/sage-x3.webp" credit="© Sage" imageAlt="Tableau de bord de Sage X3" badge="Notre choix ETI" bestFor="Les ETI industrielles et de distribution qui opèrent dans plusieurs pays et plusieurs sociétés." specs={[
+  { label: "Clients", value: "Plus de 7 000 entreprises" },
+  { label: "Points forts", value: "Multi-pays, multi-devises, consolidation" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "Sage est plateforme agréée" },
+]} />
+
+Sage X3 est, de l'aveu même de Sage, sa plateforme pour les entreprises de taille intermédiaire aux « opérations complexes et multi-pays ». Plus de 7 000 entreprises l'utilisent, d'Agromousquetaires à Vinci Construction. Ses atouts pour une ETI sont nombreux : multi-sociétés, multi-devises et consolidation natives, production discrète, de process ou mixte, gestion des lots et des numéros de série, workflows et règles configurables, API.
+
+Côté conformité, Sage est immatriculé plateforme agréée depuis décembre 2025, ce qui simplifie l'émission obligatoire des factures électroniques. L'IA progresse aussi avec Sage Copilot et des agents dédiés, annoncés début 2026.
+
+Ses limites sont celles d'un outil de ce calibre : un prix sur devis, des projets menés généralement par des partenaires, et une nouvelle version SaaS gérée directement par Sage qui a d'abord été lancée au Royaume-Uni, aux États-Unis et en Allemagne, la France étant annoncée pour une vague suivante.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une vraie dimension internationale : multi-pays, multi-devises, consolidation", "Discret, process et mixte dans un même outil", "Sage est plateforme agréée" ]} cons={[ "Aucun prix public", "La version SaaS gérée par Sage arrive en France après d'autres pays", "Un projet lourd pour une ETI mono-pays" ]} />
+
+**Notre verdict.** Le premier choix pour une ETI qui pense déjà en plusieurs pays. Pour une ETI essentiellement française, Divalto mérite une comparaison attentive.
+
+### 2. Divalto : le premier choix des ETI françaises
+
+<RankCard rank={2} name="Divalto" editor="Divalto" origin="France (Alsace)" image="/images/erp/divalto.webp" credit="© Divalto" imageAlt="Tableau de bord d'accueil de l'ERP Divalto (suivi des ordres de fabrication)" bestFor="Les ETI françaises du négoce, de l'industrie ou de la maintenance, multi-sociétés et multi-sites." specs={[
+  { label: "Points forts", value: "Multi-sociétés, multi-établissements, multidevises" },
+  { label: "Déploiement", value: "SaaS (France), sur site ou hybride" },
+  { label: "Prix public", value: "Dès 70 €/utilisateur/mois" },
+  { label: "Facture électronique", value: "PA Docoon intégrée" },
+]} />
+
+Divalto vise explicitement les PME et les ETI, et ses trois ERP métiers (Business pour le négoce, Industry pour la production, Field Service pour la maintenance) reposent sur une base de données unique, multi-sociétés, multi-établissements et multidevises. La finance suit : analytique sur quatre axes, budgets, immobilisations, trésorerie de groupe, rapprochement automatique des factures fournisseurs dans un « Data Hub ».
+
+Les références ETI publiées par l'éditeur montrent le terrain de jeu. Airflux, spécialiste de l'air comprimé de 55 millions d'euros de chiffre d'affaires et d'environ 250 salariés, a choisi Divalto Field Service pour ses quelque 100 techniciens. Le groupe Vallier, acteur de la gestion des déchets de 100 millions d'euros, utilise la solution métier développée par un partenaire sur l'ERP Divalto. Les crèches La Maison Bleue ont retenu Divalto Business pour environ 250 utilisateurs.
+
+Pour une ETI, Divalto apporte trois atouts que les géants du classement n'offrent pas toujours : une **couverture métier native** qui réduit les développements spécifiques, un **prix public** (à partir de 70 € par utilisateur et par mois selon la gamme) et un **hébergement SaaS en France**, sur Azure, avec une certification ISO 27001 obtenue en mars 2026. La facturation électronique, déjà obligatoire en émission pour les ETI, passe par la plateforme agréée Docoon, connectée nativement. Et une offre hybride lancée en 2026 permet aux ETI installées sur site de migrer progressivement vers le SaaS.
+
+Pourquoi deuxième, alors ? Parce que la dimension internationale reste le point fort de Sage X3. Divalto est présent dans plus de 25 pays, mais surtout à travers des partenaires, et le multi-langue est moins documenté publiquement. Pour une ETI dont l'essentiel de l'activité se joue en France, ce n'est pas un frein ; pour un groupe avec dix filiales sur trois continents, c'en est un.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Des ERP métiers qui limitent le spécifique, même à l'échelle d'une ETI", "Multi-sociétés, multi-établissements, multidevises, trésorerie groupe", "Un prix public et un hébergement SaaS en France", "Une offre hybride pour migrer à son rythme" ]} cons={[ "Une présence internationale assurée surtout par des partenaires", "Paie absente des pages produit actuelles : à vérifier", "Hébergement SaaS sur Azure (exploitant américain)" ]} />
+
+**Notre verdict.** Le meilleur choix pour une ETI française qui veut un ERP métier complet et un budget lisible. Seules les ETI très internationales lui préféreront Sage X3.
+
+### 3. Cegid XRP Ultimate : l'ERP français des ETI exigeantes en finance
+
+<RankCard rank={3} name="Cegid XRP Ultimate" editor="Cegid" origin="France (Lyon)" image="/images/erp/cegid-xrp-flex.webp" credit="© Cegid" imageAlt="Interface d'un ERP Cegid XRP" bestFor="Les ETI et grandes entreprises qui veulent un éditeur français très solide en finance et en achats." specs={[
+  { label: "Cible", value: "ETI et grandes entreprises" },
+  { label: "Points forts", value: "Finance, Procure-to-Pay, ESG" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "Cegid est plateforme agréée" },
+]} />
+
+XRP Ultimate est l'ERP de Cegid pour les ETI et les grandes entreprises, multi-sites et multi-sociétés. Selon la presse spécialisée, il est issu de Qualiac, l'éditeur racheté par Cegid en 2017, dont l'ERP a été rebaptisé XRP Ultimate en 2019. Sa force historique, c'est la finance (comptabilités générale, analytique et budgétaire, contrôle de gestion, recouvrement, affaires) et les achats (Procure-to-Pay, e-achats, punch-out), complétés par la gestion commerciale, les stocks, la production, la maintenance et un module ESG avancé. Cegid est plateforme agréée, ce qui règle la question de l'émission obligatoire.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une finance et des achats très complets", "Un module ESG avancé", "Cegid est plateforme agréée" ]} cons={[ "Pas de prix public", "Une couverture métier opérationnelle moins verticalisée que Divalto" ]} />
+
+**Notre verdict.** Le bon choix pour une ETI dont la direction financière pilote le projet ERP.
+
+### 4. Microsoft Dynamics 365 Finance & Supply Chain Management : la suite des ETI en croissance
+
+<RankCard rank={4} name="Microsoft Dynamics 365 Finance & Supply Chain Management" editor="Microsoft" origin="États-Unis" image="/images/erp/business-central.webp" credit="© Microsoft" imageAlt="Interface de Microsoft Dynamics 365" bestFor="Les ETI à forte croissance, souvent internationales, déjà équipées en Microsoft." specs={[
+  { label: "Prix public", value: "182 € HT/utilisateur/mois (par application)" },
+  { label: "Éditions Premium", value: "259,90 € HT/utilisateur/mois" },
+  { label: "Déploiement", value: "Cloud Microsoft" },
+  { label: "Facture électronique", value: "PA tierce (Edicom documentée)" },
+]} />
+
+Au-dessus de Business Central, Microsoft propose deux applications pour les organisations plus grandes : Dynamics 365 Finance et Dynamics 365 Supply Chain Management, chacune à 182 € HT par utilisateur et par mois (259,90 € en édition Premium). C'est un ensemble puissant pour une ETI internationale, avec une intégration naturelle à Microsoft 365 et à la plateforme de données Dataverse. Pour la facturation électronique française, Microsoft documente une connexion à une plateforme agréée tierce, Edicom servant d'exemple.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Un prix public, même à ce niveau de gamme", "L'écosystème Microsoft" ]} cons={[ "Un coût par utilisateur élevé", "Une PA tierce à connecter", "Éditeur américain, soumis au Cloud Act" ]} />
+
+**Notre verdict.** Une valeur sûre pour une ETI internationale déjà ancrée dans Microsoft.
+
+### 5. SAP Cloud ERP : la puissance SAP en cloud
+
+<RankCard rank={5} name="SAP Cloud ERP (S/4HANA Cloud)" editor="SAP" origin="Allemagne" image="/images/erp/sap-s4hana.webp" credit="© SAP" imageAlt="Interface de SAP S/4HANA Cloud" bestFor="Les ETI internationales et les filiales de grands groupes déjà sous SAP." specs={[
+  { label: "Offres", value: "SAP GROW (cloud public), SAP Cloud ERP Private" },
+  { label: "Couverture", value: "Finance, supply chain, production, RH, paie" },
+  { label: "Prix public", value: "Sur devis en France" },
+  { label: "Facture électronique", value: "SAP est plateforme agréée" },
+]} />
+
+SAP propose son ERP S/4HANA en deux versions cloud : le cloud public, accessible via le programme SAP GROW pour les entreprises en croissance, et SAP Cloud ERP Private pour les organisations qui veulent davantage de personnalisation, souvent via le programme RISE with SAP. La couverture est la plus large du classement, jusqu'à la paie, avec l'assistant d'IA Joule. Pour une ETI, la question est celle du dimensionnement : SAP apporte une puissance considérable, au prix de processus standardisés (en cloud public) ou d'un projet lourd (en version privée).
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "La couverture fonctionnelle la plus large du marché", "SAP est plateforme agréée", "Idéal pour s'aligner sur un groupe déjà sous SAP" ]} cons={[ "Pas de prix public en France", "Des projets exigeants en ressources" ]} />
+
+**Notre verdict.** Le bon choix pour une ETI qui vise la cohérence avec un groupe ou des partenaires SAP.
+
+### 6. Oracle NetSuite : la consolidation en SaaS
+
+<RankCard rank={6} name="Oracle NetSuite" editor="Oracle" origin="États-Unis" image="/images/erp/netsuite.webp" credit="© Oracle NetSuite" imageAlt="Interface d'Oracle NetSuite" bestFor="Les ETI internationales qui veulent une finance consolidée en temps réel, 100 % SaaS." specs={[
+  { label: "Clients", value: "Plus de 44 000 organisations" },
+  { label: "Déploiement", value: "SaaS uniquement" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "PA externe (Avalara documentée)" },
+]} />
+
+NetSuite excelle dans la consolidation multi-entités et multi-devises, entièrement en SaaS. Pour une ETI qui ouvre régulièrement des filiales à l'étranger, c'est un atout. En France, la facturation électronique passe par une plateforme agréée externe ; la documentation de l'éditeur décrit notamment la configuration avec Avalara. Le prix n'est pas public, et l'industrie ou le négoce complexes sont moins son terrain que la finance.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une consolidation financière remarquable", "100 % SaaS, sans version à maintenir" ]} cons={[ "PA externe à connecter", "Moins profond sur les opérations industrielles" ]} />
+
+**Notre verdict.** Le meilleur outil pour une ETI pilotée par la finance et l'international.
+
+### 7. Proginov : l'ERP français avec paie et hébergement souverain
+
+<RankCard rank={7} name="Proginov" editor="Proginov" origin="France (Nantes)" bestFor="Les PME et ETI françaises qui veulent paie, RH et hébergement dans le datacenter de l'éditeur." specs={[
+  { label: "Clients", value: "Plus de 1 300" },
+  { label: "Points forts", value: "Paie, RH, WMS, cloud souverain" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "PA partenaire" },
+]} />
+
+Proginov, éditeur nantais indépendant détenu par ses dirigeants et ses salariés, se présente comme un « ERP français et cloud souverain pour les ETI et PME ». Avec près de 70 millions d'euros de chiffre d'affaires en 2025 et plus de 1 300 clients, il couvre la gestion commerciale, la production, le WMS, la finance, mais aussi la paie et les RH, un vrai plus pour une ETI qui veut limiter le nombre de logiciels. Il héberge ses clients dans son propre datacenter nantais.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Paie et RH intégrées à l'ERP", "Hébergement dans le datacenter de l'éditeur, en France", "Un éditeur indépendant, détenu par ses dirigeants et salariés" ]} cons={[ "Peu d'informations publiques sur l'international", "Prix sur devis" ]} />
+
+**Notre verdict.** Une option solide pour une ETI française qui fait de la souveraineté et de l'intégration RH des priorités.
+
+### 8. IFS Cloud : les ETI à forte intensité d'actifs
+
+<RankCard rank={8} name="IFS Cloud" editor="IFS" origin="Suède" bestFor="Les ETI dont l'activité repose sur des équipements, des actifs et du service après-vente." specs={[
+  { label: "Points forts", value: "Service terrain, maintenance d'actifs, projets" },
+  { label: "Déploiement", value: "Cloud ou sur site" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "PA partenaire non précisée" },
+]} />
+
+L'éditeur d'origine suédoise IFS (environ 1,5 milliard de dollars de chiffre d'affaires, selon LeMagIT en 2024) cible les secteurs à forte intensité d'actifs : maintenance, service, énergie, construction, aéronautique. IFS Cloud réunit ERP, gestion des services terrain et gestion des actifs, en cloud ou sur site. En France, sa base installée reste modeste (une centaine de clients selon la presse spécialisée en 2021), et la presse note que les partenaires d'intégration peuvent y être rares.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une référence mondiale en service et maintenance d'actifs", "Cloud ou sur site" ]} cons={[ "Une base installée et un réseau limités en France (presse 2021-2022)", "Pas de PA partenaire publiquement nommée" ]} />
+
+**Notre verdict.** À considérer pour une ETI dont le cœur de métier est l'actif et le service. Pour une ETI française du SAV, voyez aussi [notre classement maintenance et SAV](/meilleurs-erp-maintenance-sav/).
+
+## Le comparatif des ERP pour ETI
+
+<DataTable caption="ERP pour ETI : comparatif (informations vérifiées le 12 octobre 2026)" columns={["ERP", "Idéal pour", "International", "Prix public", "Facture électronique"]} rows={[
+  { 0: "Sage X3", 1: "ETI multi-pays, industrie et distribution", 2: "Fort", 3: "Sur devis", 4: "Éditeur PA", _best: true },
+  ["Divalto", "ETI françaises négoce, industrie, SAV", "Via partenaires", "Dès 70 €/util./mois", "PA partenaire intégrée"],
+  ["Cegid XRP Ultimate", "Finance, achats, ESG", "Moyen", "Sur devis", "Éditeur PA"],
+  ["D365 Finance & SCM", "ETI internationales Microsoft", "Fort", "182 € HT/util./mois par app.", "PA tierce"],
+  ["SAP Cloud ERP", "Groupes et filiales SAP", "Très fort", "Sur devis (FR)", "Éditeur PA"],
+  ["Oracle NetSuite", "Consolidation multi-entités", "Fort", "Sur devis", "PA externe"],
+  ["Proginov", "Paie intégrée, cloud souverain", "Non documenté", "Sur devis", "PA partenaire"],
+  ["IFS Cloud", "Actifs et service", "Fort", "Sur devis", "Non précisée"],
+]} />
+
+## Facture électronique : les ETI sont déjà concernées
+
+C'est le point qui distingue le plus une ETI d'une PME en 2026. Depuis le **1er septembre 2026**, les grandes entreprises et les ETI doivent non seulement recevoir les factures électroniques, mais aussi émettre les leurs dans ce format et transmettre leurs données de transaction à l'administration (e-reporting). Les PME n'y seront tenues qu'en septembre 2027.
+
+Concrètement, une ETI qui choisit un nouvel ERP aujourd'hui doit vérifier que la connexion à une plateforme agréée est déjà en production, et pas simplement « prévue ». La DGFiP a annoncé une approche pédagogique des sanctions dans un premier temps, mais l'obligation est bien en vigueur. Dans ce classement, Sage, Cegid et SAP sont eux-mêmes plateformes agréées ; Divalto s'appuie sur Docoon, Microsoft et Oracle sur des plateformes tierces. Pour une ETI multi-sociétés, vérifiez aussi la gestion des factures intragroupe et la capacité de l'ERP à absorber les volumes.
+
+<Callout tone="attention">Si votre ERP actuel n'est pas encore relié à une plateforme agréée, ne lancez pas un projet de remplacement complet dans l'urgence. Une solution de transition (connecteur vers une PA) permet de respecter l'obligation pendant que vous menez sereinement la sélection du futur ERP.</Callout>
+
+Le détail du calendrier et des formats est expliqué dans notre guide sur [la facturation électronique dans l'ERP](/erp-facturation-electronique/). Pour la conduite d'un projet de cette ampleur, nos dossiers sur [la durée d'un projet ERP](/duree-projet-erp/) et [la conduite du changement](/conduite-du-changement-erp/) vous aideront à cadrer les choses.
+
+## Questions fréquentes
+
+### Qu'est-ce qu'une ETI au sens officiel ?
+
+Une entreprise de taille intermédiaire (ETI) est une entreprise qui n'est pas une PME, qui emploie moins de 5 000 personnes et dont le chiffre d'affaires ne dépasse pas 1,5 milliard d'euros ou le total de bilan 2 milliards d'euros, selon la définition du décret de 2008 reprise par l'Insee. La France en comptait 7 442 en 2023.
+
+### Quel est le meilleur ERP pour une ETI ?
+
+Pour une ETI multi-pays aux opérations complexes, Sage X3 est notre premier choix. Pour une ETI française du négoce, de l'industrie ou de la maintenance, Divalto offre une couverture métier plus directe et un prix public. Cegid XRP Ultimate convient aux ETI qui veulent un éditeur français très fort en finance, et SAP ou Microsoft aux groupes déjà ancrés dans ces écosystèmes.
+
+### Les ETI doivent-elles déjà émettre des factures électroniques ?
+
+Oui. Depuis le 1er septembre 2026, les grandes entreprises et les ETI doivent émettre leurs factures en format électronique et transmettre leurs données de transaction (e-reporting), en plus de recevoir les factures électroniques comme toutes les entreprises. Les PME suivront pour l'émission au 1er septembre 2027.
+
+### Combien de temps dure un projet ERP dans une ETI ?
+
+Comptez généralement de neuf mois à deux ans selon le périmètre, le nombre de sociétés et de pays. Le rapport 2026 de Panorama Consulting, mené auprès d'entreprises de taille moyenne à grande, situe la durée médiane à neuf mois et relève que 22 % des projets dépassent leur calendrier. Un déploiement par vagues, société par société, limite les risques.
+
+### Faut-il un ERP unique pour toutes les filiales ?
+
+C'est l'idéal pour consolider et piloter, mais pas une obligation. Certains groupes adoptent un modèle à deux niveaux : un ERP robuste au siège et un ERP plus léger dans les petites filiales, reliés par des interfaces. Ce modèle se justifie surtout quand les filiales ont des métiers très différents ou opèrent dans des pays aux réglementations spécifiques.
+
+## Nos sources
+
+  - Insee, *Catégories d'entreprises* et *L'essentiel sur les entreprises* (données 2023, édition 2026) : [insee.fr](https://www.insee.fr/fr/statistiques/5424748?sommaire=7667330)
+  - Eurostat, usage des ERP par taille d'entreprise (isoc_eb_iip), données 2025 : [ec.europa.eu/eurostat](https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_iip/default/table)
+  - DGFiP, calendrier de la facturation électronique et liste des plateformes agréées : [impots.gouv.fr](https://www.impots.gouv.fr/professionnel/questions/partir-de-quand-suis-je-concerne-par-la-reforme-de-la-facturation)
+  - Panorama Consulting Group, *The 2026 ERP Report* (170 répondants, échantillon international)
+  - Pages produits, tarifs et communiqués officiels des éditeurs cités, consultés le 12 octobre 2026

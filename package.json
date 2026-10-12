@@ -2,7 +2,7 @@
   "name": "meilleur-erp",
   "type": "module",
   "version": "1.0.0",
-  "description": "meilleur-erp.fr — blog éditorial indépendant des logiciels ERP. Site Astro statique.",
+  "description": "meilleur-erp.fr — média éditorial des logiciels ERP. Site Astro statique.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

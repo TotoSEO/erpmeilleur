@@ -29,6 +29,7 @@ interface Props {
     heroLabel?: string;
     takeaways?: string[];
     faq?: { q: string; a: string }[];
+    ranking?: { name: string; editor?: string; anchor?: string }[];
   };
   headings: Heading[];
 }
@@ -85,6 +86,27 @@ if (fm.faq && fm.faq.length > 0) {
     })),
   });
 }
+// Pages classement : la liste ordonnée des solutions (ItemList de SoftwareApplication).
+if (fm.ranking && fm.ranking.length > 0) {
+  graph.push({
+    '@type': 'ItemList',
+    name: cleanTitle,
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: fm.ranking.length,
+    itemListElement: fm.ranking.map((r, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: r.anchor ? `${canonical}#${r.anchor}` : canonical,
+      item: {
+        '@type': 'SoftwareApplication',
+        name: r.name,
+        applicationCategory: 'BusinessApplication',
+        applicationSubCategory: 'ERP',
+        ...(r.editor ? { publisher: { '@type': 'Organization', name: r.editor } } : {}),
+      },
+    })),
+  });
+}
 const ld = { '@context': 'https://schema.org', '@graph': graph };
 ---
 <BaseLayout title={pageTitle} description={fm.description || fm.excerpt} current="guides" ogImage={fm.heroImage} canonical={canonical}>
@@ -111,6 +133,13 @@ const ld = { '@context': 'https://schema.org', '@graph': graph };
         {fm.takeaways && fm.takeaways.length > 0 && <KeyTakeaways items={fm.takeaways} />}
         <TableOfContents headings={headings} variant="mobile" />
         <slot />
+        {fm.ranking && fm.ranking.length > 0 && (
+          <p class="rank-note">
+            Classement établi selon les critères éditoriaux décrits dans cet article.
+            L'éditeur du site entretient des liens professionnels avec l'un des éditeurs
+            de logiciels présentés. <a href="/mentions-legales/">Mentions légales</a>
+          </p>
+        )}
       </div>
     </div>
 

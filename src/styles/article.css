@@ -32,7 +32,7 @@
   conic-gradient(from 20deg at 0 100%, rgba(46,46,255,.7) 0 30deg, transparent 30deg); opacity: .5; }
 .site-footer__grid { position: relative; max-width: var(--content-wide); margin: 0 auto; padding: 44px 20px; display: grid; gap: 28px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
 .site-footer__about { font-family: var(--font-sans); font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.78); margin-top: 12px; max-width: 32ch; }
-.site-footer h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 0 0 12px; }
+.site-footer .site-footer__title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,.6); margin: 0 0 12px; }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
 .site-footer ul a { font-family: var(--font-ui); font-size: 14px; color: rgba(255,255,255,.88); text-decoration: none; }
 .site-footer ul a:hover { color: var(--orange); }
@@ -140,3 +140,7 @@
 .lib__row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .lib__code { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-80); background: var(--ink); color: #fff; padding: 12px 16px; overflow-x: auto; white-space: pre; }
 .lib__code .tok { color: var(--orange); }
+
+/* Note de transparence des pages classement : discrète, en pied d'article. */
+.article-content .rank-note { margin: 48px 0 0; padding-top: 12px; border-top: 1px solid var(--hairline); font-family: var(--font-ui); font-size: 11.5px; line-height: 1.5; color: var(--ink-55); }
+.article-content .rank-note a { color: var(--ink-55); }

@@ -1,0 +1,270 @@
+---
+title: "Quel ERP choisir pour une entreprise industrielle ?"
+seoTitle: "Meilleur ERP industrie 2026 : les 8 solutions GPAO à comparer"
+excerpt: "Calcul des besoins, ordonnancement, nomenclatures, sous-traitance, traçabilité : un ERP industriel se juge à l'atelier. Voici les huit solutions qui tiennent la route en 2026, de la PME mécanique à l'ETI multi-sites."
+description: "Meilleur ERP pour l'industrie en 2026 : Divalto Industry, Sylob, Sage X3, Silog, Clipper… Classement des ERP de production (GPAO), forces, limites et prix."
+heroImage: "/images/meilleurs-erp-industrie.webp"
+heroAlt: "Opérateur d'usine consultant le planning de production sur une tablette"
+author:
+  name: "Guillaume Wagner"
+  role: "Auteur"
+  initials: "GW"
+readingTime: "17 min"
+publishedDate: "12 octobre 2026"
+badges:
+  - { label: "Classement 2026", tone: "blue", variant: "gradient" }
+  - { label: "Industrie", tone: "neutral", variant: "soft", mono: true }
+ranking:
+  - { name: "Divalto Industry", editor: "Divalto", anchor: "1-divalto-industry--le-plus-complet-pour-les-pme-et-eti-industrielles" }
+  - { name: "Sylob", editor: "Forterro", anchor: "2-sylob--le-spécialiste-de-lusine" }
+  - { name: "Sage X3", editor: "Sage", anchor: "3-sage-x3--le-choix-des-industriels-multi-pays" }
+  - { name: "Silog", editor: "Forterro", anchor: "4-silog--lerp-industriel-français-éprouvé" }
+  - { name: "Clipper", editor: "Forterro", anchor: "5-clipper--la-référence-de-la-métallurgie" }
+  - { name: "Microsoft Dynamics 365 Business Central", editor: "Microsoft", anchor: "6-microsoft-dynamics-365-business-central--une-gpao-simple-au-prix-connu" }
+  - { name: "Odoo", editor: "Odoo SA", anchor: "7-odoo--une-gpao-modulaire" }
+  - { name: "Infor CloudSuite Industrial", editor: "Infor", anchor: "8-infor-cloudsuite-industrial--linternational-natif-cloud" }
+faq:
+  - q: "Quel est le meilleur ERP pour une PME industrielle ?"
+    a: "Pour une PME industrielle qui fabrique mais gère aussi du négoce de pièces, de la sous-traitance ou du SAV, Divalto Industry offre la couverture la plus homogène : GPAO complète, gestion à l'affaire et maintenance, avec un WMS et une offre de service terrain sur la même plateforme. Pour une usine pure qui a besoin d'un configurateur et d'une planification très fine, Sylob est un excellent spécialiste. Dans la métallurgie et la tôlerie, Clipper est taillé sur mesure."
+  - q: "Quelle différence entre un ERP industriel et une GPAO ?"
+    a: "La GPAO (gestion de production assistée par ordinateur) gère la fabrication : nomenclatures, gammes, ordres de fabrication, calcul des besoins, ordonnancement. Un ERP industriel l'intègre dans un ensemble plus large qui couvre aussi les ventes, les achats, les stocks, la comptabilité et souvent la qualité et la maintenance. L'avantage : une seule base de données, sans interface fragile entre la production et le reste de l'entreprise."
+  - q: "Un ERP industriel remplace-t-il un MES ?"
+    a: "Pas complètement. L'ERP planifie la production et en mesure le résultat ; le MES (Manufacturing Execution System) pilote l'exécution en temps réel au pied des machines. Certains ERP intègrent un suivi d'atelier assez poussé pour une PME. Au-delà, la plupart des éditeurs, dont Divalto, misent sur l'interopérabilité avec un MES spécialisé."
+  - q: "Combien coûte un ERP pour l'industrie ?"
+    a: "Quelques éditeurs affichent leurs prix d'abonnement : Divalto Industry à partir de 80 euros par utilisateur et par mois, Sylob à 80 ou 125 euros HT selon l'offre, Business Central Premium (qui inclut la fabrication) à 95,30 euros HT. Le budget d'intégration est généralement plus élevé dans l'industrie qu'ailleurs, car il faut reprendre les nomenclatures, les gammes et les données techniques."
+  - q: "Faut-il un ERP différent selon le mode de production ?"
+    a: "Oui, c'est même le premier critère de tri. Une production à l'affaire ou à la commande (machines spéciales, chaudronnerie) n'a pas les mêmes besoins qu'une fabrication en série sur stock ou qu'une industrie de process. Vérifiez que l'ERP gère nativement votre mode, et si vous en mélangez plusieurs, qu'il sait les faire cohabiter."
+---
+
+import KeyTakeaways from '../../components/KeyTakeaways.astro';
+import RankingList from '../../components/RankingList.astro';
+import RankCard from '../../components/RankCard.astro';
+import ProsCons from '../../components/ProsCons.astro';
+import DataTable from '../../components/DataTable.astro';
+import Callout from '../../components/Callout.astro';
+import FeatureColumns from '../../components/FeatureColumns.astro';
+
+<KeyTakeaways title="En bref" items={[ "Divalto Industry arrive en tête : GPAO complète, gestion à l'affaire, qualité et maintenance, sur une plateforme qui couvre aussi le négoce et le service terrain.", "Sylob est le meilleur spécialiste de l'usine pure, avec configurateur et planification avancée, et des prix publics.", "Sage X3 s'impose dès que l'industriel opère dans plusieurs pays ou mélange production discrète et process.", "Clipper reste une référence dans la métallurgie, la chaudronnerie et la tôlerie.", "Le premier critère de choix est votre mode de production : à l'affaire, à la commande, sur stock, en série ou en process." ]} />
+
+L'industrie est le terrain de naissance de l'ERP. Avant d'être des progiciels de gestion intégrés, les premiers logiciels de ce type calculaient des besoins en composants pour des usines, à partir des années 1960. Ce n'est donc pas un hasard si l'industrie reste l'un des secteurs les mieux équipés : selon Eurostat, 65 % des entreprises manufacturières françaises de dix salariés et plus utilisaient un ERP en 2025, et même 85 % dans la fabrication de machines et équipements.
+
+Mais un ERP industriel se juge à l'atelier, pas sur une plaquette. Les fonctions qui comptent ne sont pas les mêmes pour un sous-traitant en usinage qui travaille à la commande, un fabricant de machines spéciales qui gère des affaires sur dix-huit mois et un industriel de la plasturgie qui produit en grande série. Ce classement en tient compte : pour chaque solution, on précise à quel type d'industrie elle convient le mieux.
+
+## Les 8 meilleurs ERP pour l'industrie en 2026
+
+<RankingList title="Notre classement industrie 2026" items={[
+  { name: "Divalto Industry", anchor: "1-divalto-industry--le-plus-complet-pour-les-pme-et-eti-industrielles", note: "Le plus complet pour les PME et ETI industrielles aux activités multiples." },
+  { name: "Sylob", anchor: "2-sylob--le-spécialiste-de-lusine", note: "Le spécialiste de l'usine, configurateur et planification avancée compris." },
+  { name: "Sage X3", anchor: "3-sage-x3--le-choix-des-industriels-multi-pays", note: "Le choix des industriels multi-pays, en discret comme en process." },
+  { name: "Silog", anchor: "4-silog--lerp-industriel-français-éprouvé", note: "Un ERP industriel français éprouvé, du configurateur à l'EDI automobile." },
+  { name: "Clipper", anchor: "5-clipper--la-référence-de-la-métallurgie", note: "La référence de la métallurgie, de la tôlerie et de l'usinage." },
+  { name: "Microsoft Dynamics 365 Business Central", anchor: "6-microsoft-dynamics-365-business-central--une-gpao-simple-au-prix-connu", note: "La fabrication en version Premium, pour une production simple." },
+  { name: "Odoo", anchor: "7-odoo--une-gpao-modulaire", note: "Une GPAO modulaire pour les ateliers en croissance." },
+  { name: "Infor CloudSuite Industrial", anchor: "8-infor-cloudsuite-industrial--linternational-natif-cloud", note: "Un ERP industriel international, natif cloud." },
+]} />
+
+## Les fonctions qui font un bon ERP industriel
+
+Avant de passer aux fiches, voici la grille avec laquelle nous avons lu chaque solution. Elle vous servira aussi pendant les démonstrations.
+
+<FeatureColumns columns={2} items={[
+  { eyebrow: "Planifier", title: "Calcul des besoins et ordonnancement", text: "Le calcul des besoins nets (CBN, MRP) transforme les commandes et les prévisions en ordres d'achat et de fabrication. L'ordonnancement les répartit ensuite sur vos machines et vos équipes, en tenant compte des capacités réelles." },
+  { eyebrow: "Décrire", title: "Nomenclatures, gammes et données techniques", text: "Nomenclatures multiniveaux, gammes opératoires, variantes : c'est la carte d'identité de vos produits. Un configurateur devient précieux dès que vous fabriquez des produits paramétrables." },
+  { eyebrow: "Suivre", title: "Suivi d'atelier et coûts de revient", text: "Pointage des temps, déclarations de production, comparaison du coût réel et du coût théorique : sans ces remontées, impossible de savoir si une affaire gagne ou perd de l'argent." },
+  { eyebrow: "Garantir", title: "Qualité, traçabilité et maintenance", text: "Traçabilité des lots et des numéros de série, non-conformités, plans d'actions, maintenance préventive des équipements : autant d'exigences clients et réglementaires qui doivent vivre dans l'ERP." },
+]} />
+
+Un dernier point, souvent décisif : **le mode de production**. Production à la commande, sur stock, à l'affaire, unitaire, en série, en process… Certains ERP excellent dans un mode et peinent dans les autres. Si vous en combinez plusieurs, ce qui est fréquent dans les PME, posez la question très tôt. Pour un rappel sur la façon dont tout cela s'articule, voyez notre guide sur [le module de production (GPAO)](/erp-production-gpao/).
+
+## Les 8 ERP industriels en détail
+
+### 1. Divalto Industry : le plus complet pour les PME et ETI industrielles
+
+<RankCard rank={1} highlight name="Divalto Industry" editor="Divalto" origin="France (Alsace)" image="/images/erp/divalto-industry.webp" credit="© Divalto" imageAlt="Plan de charge d'un centre de production dans Divalto Industry" badge="Notre choix industrie" bestFor="Les PME et ETI industrielles qui fabriquent à la commande, à l'affaire ou en série, et gèrent aussi négoce, SAV ou maintenance." specs={[
+  { label: "Modes de production", value: "Commande, stock, affaire, unitaire, série" },
+  { label: "Déploiement", value: "SaaS (France) ou sur site" },
+  { label: "Prix public", value: "Dès 80 €/utilisateur/mois" },
+  { label: "Facture électronique", value: "PA Docoon intégrée" },
+]} />
+
+Divalto Industry est la version de l'ERP Divalto dédiée à la production. Elle hérite de la profondeur fonctionnelle de Divalto infinity, l'ERP historique de l'éditeur alsacien, et vise explicitement les PME et ETI industrielles : mécanique, machines spéciales, plasturgie, métallurgie, électronique, optique.
+
+Côté planification, on trouve l'arsenal attendu d'un vrai ERP industriel : MRP2, calcul des besoins nets, plan directeur de production, prévisions de vente, ordonnancement multi-ressources. Les nomenclatures et les gammes sont multiniveaux, la sous-traitance est automatisée, le pointage d'atelier remonte les temps réels, et le coût de revient peut être valorisé au coût moyen pondéré ou au coût standard, avec une comparaison entre le coût réel et le coût théorique. La qualité (fiches d'événements, méthodes 8D et PDCA) et la maintenance des équipements (GMAO) font partie de l'offre.
+
+Ce qui fait la différence, c'est la largeur. Divalto Industry gère la production **à la commande, sur stock, à l'affaire, en unitaire et en grande série**, en multi-sites et multi-sociétés. Or beaucoup de PME industrielles ne font pas que fabriquer : elles revendent des pièces détachées, gèrent un entrepôt, assurent l'installation et le SAV de leurs machines. Avec Divalto, la gestion à l'affaire (Gantt, facturation à l'avancement ou par jalons, suivi budgétaire) est native, et l'éditeur propose sur la même plateforme, Divalto one, un WMS natif et une version dédiée au service terrain. Des industriels comme Aramine (matériel pour les mines), Movn'tec (électromobilité) ou TCEM figurent parmi les références publiées par l'éditeur.
+
+Deux réserves. Divalto ne met pas en avant de configurateur produit ni de MES maison : pour le pilotage temps réel des machines, l'éditeur mise sur l'interopérabilité avec des systèmes spécialisés. Et comme tout ERP industriel complet, le projet demande un intégrateur qui connaît votre métier ; le réseau Divalto propose un label « Industrie » pour les identifier.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une GPAO complète : MRP2, CBN, ordonnancement multi-ressources, sous-traitance", "Tous les modes de production, y compris à l'affaire", "Négoce, WMS et service terrain sur la même plateforme Divalto one", "Un prix public (à partir de 80 € par utilisateur et par mois)" ]} cons={[ "Pas de configurateur ni de MES mis en avant", "Un projet d'intégration exigeant, à confier à un partenaire labellisé" ]} />
+
+**Notre verdict.** Le meilleur ERP industriel pour une PME ou une ETI dont l'activité déborde de l'atelier. Si votre entreprise fabrique, stocke, revend et dépanne, c'est la solution la plus cohérente du marché.
+
+### 2. Sylob : le spécialiste de l'usine
+
+<RankCard rank={2} name="Sylob" editor="Forterro" origin="France (Albi)" image="/images/erp/sylob.webp" credit="© Sylob" imageAlt="Interface de l'ERP Sylob" bestFor="Les industriels de la mécanique, de l'aéronautique, des dispositifs médicaux ou de la plasturgie qui veulent un ERP 100 % production." specs={[
+  { label: "Déploiement", value: "Cloud-natif (AWS)" },
+  { label: "Points forts", value: "Configurateur, APS, suivi d'atelier" },
+  { label: "Prix public", value: "80 € HT (Essentiel), 125 € HT (Avancé)" },
+  { label: "Facture électronique", value: "PA partenaire" },
+]} />
+
+Sylob ne fait que de l'industrie, depuis 1991. L'éditeur né à Albi, propriété du groupe Forterro depuis 2016, revendique plus de 20 000 utilisateurs, de la petite entreprise à l'ETI, dans l'aéronautique, l'automobile, la défense, les dispositifs médicaux, l'électronique, les machines spéciales ou la plasturgie.
+
+Sa couverture est l'une des plus profondes de ce classement côté atelier : CAO et données techniques, **configurateur**, calcul des besoins, **planification avancée (APS)**, suivi d'atelier, qualité et traçabilité, maintenance, gestion des compétences. L'éditeur pousse aussi des briques d'IA et d'IoT. L'ERP est cloud-natif, hébergé chez AWS, et ses tarifs sont publics : 80 € HT par utilisateur et par mois en Essentiel, 125 € HT en Avancé, l'offre Expert étant sur devis.
+
+Pourquoi deuxième ? Sylob couvre aussi le SAV, la logistique et le négoce industriel, mais il reste avant tout centré sur la production. Divalto propose en plus des versions dédiées au négoce (avec WMS natif) et au service terrain, un avantage pour les PME dont ces activités pèsent lourd.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Configurateur et planification avancée intégrés", "Une expertise sectorielle très large dans l'industrie", "Des prix publics" ]} cons={[ "Centré d'abord sur la production", "Pas de plateforme agréée en propre (partenariat Esker)" ]} />
+
+**Notre verdict.** Le meilleur choix pour une usine pure, surtout si vous fabriquez des produits configurables.
+
+### 3. Sage X3 : le choix des industriels multi-pays
+
+<RankCard rank={3} name="Sage X3" editor="Sage" origin="Royaume-Uni (origine française)" image="/images/erp/sage-x3.webp" credit="© Sage" imageAlt="Interface de Sage X3" bestFor="Les ETI industrielles qui produisent dans plusieurs pays, en discret, en process ou en mixte." specs={[
+  { label: "Production", value: "Discrète, process et mixte" },
+  { label: "Déploiement", value: "Cloud ou sur site" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "Sage est plateforme agréée" },
+]} />
+
+Sage X3 prend en charge la production discrète, la production de process et les modèles mixtes, avec une gestion fine des lots et des numéros de série. Pour un industriel qui fabrique à la fois des produits assemblés et des produits formulés, c'est un atout rare. L'outil gère aussi nativement le multi-sociétés, le multi-devises et le multi-pays, d'où sa popularité auprès des ETI qui ont des usines ou des filiales à l'étranger.
+
+Sage le décrit comme conçu « pour les entreprises qui ont atteint les limites des ERP généralistes ». C'est juste, mais cela se paie : le prix est sur devis, le projet passe par un partenaire, et certaines nouvelles fonctions de planification de production sont livrées via l'écosystème de partenaires.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Discret, process et mixte dans le même outil", "Multi-pays et multi-sociétés en standard", "Sage est plateforme agréée" ]} cons={[ "Prix sur devis", "Surdimensionné pour une PME mono-site" ]} />
+
+**Notre verdict.** Le bon calibre pour une ETI industrielle internationale. Pour une PME française, les deux premiers du classement sont plus adaptés.
+
+### 4. Silog : l'ERP industriel français éprouvé
+
+<RankCard rank={4} name="Silog" editor="Forterro" origin="France" image="/images/erp/silog.webp" credit="© Silog" imageAlt="Interface de l'ERP Silog" bestFor="Les PME industrielles françaises, y compris les sous-traitants automobiles qui échangent en EDI." specs={[
+  { label: "Points forts", value: "Configurateur, EDI Odette/Galia" },
+  { label: "Secteurs", value: "Mécanique, plasturgie, agro, aéro…" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "PA partenaire via Forterro" },
+]} />
+
+Créé en 1984, Silog fait lui aussi partie du groupe Forterro depuis 2018. Il se présente comme un « véritable ERP au service des PME industrielles françaises » et couvre un large éventail de secteurs, de la mécanique à l'agroalimentaire en passant par la fonderie et la menuiserie.
+
+Ses modules suivent le cycle industriel complet : données techniques, ventes, achats, stocks, GPAO et calcul des besoins, configurateur, SAV, maintenance, gestion d'affaires, finance, BI et un outil de planification. Son support des normes EDI Odette et Galia est précieux pour les sous-traitants de l'automobile. En revanche, l'éditeur communique peu sur le mode de déploiement, un point à éclaircir en rendez-vous. Pour la facturation électronique, Forterro indique s'appuyer sur un partenaire plateforme reconnu, vraisemblablement Esker, partenaire du groupe.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une couverture industrielle complète", "EDI Odette et Galia pour les sous-traitants", "Une longue expérience des PME françaises" ]} cons={[ "Peu d'informations publiques sur le mode de déploiement", "Pas de prix public" ]} />
+
+**Notre verdict.** Une valeur sûre pour les sous-traitants industriels, à condition de bien cadrer le mode de déploiement.
+
+### 5. Clipper : la référence de la métallurgie
+
+<RankCard rank={5} name="Clipper" editor="Forterro" origin="France" image="/images/erp/clipper.webp" credit="© Clipper" imageAlt="Interface de l'ERP Clipper" bestFor="Les TPE et PME de la métallurgie, de la chaudronnerie, de la tôlerie, du décolletage et de l'usinage." specs={[
+  { label: "Déploiement", value: "Sur site, option cloud" },
+  { label: "Clients", value: "Plus de 2 000 TPE et PME" },
+  { label: "Prix affiché", value: "À partir de 4 000 € pour 3 utilisateurs" },
+  { label: "Facture électronique", value: "Native, via PA partenaire" },
+]} />
+
+Clipper a choisi un créneau précis et s'y tient : les TPE et PME de la métallurgie, de la métallerie et de la sous-traitance industrielle. Plus de 2 000 entreprises et 30 000 utilisateurs, selon l'éditeur, rattaché lui aussi au groupe Forterro. Ses fonctions parlent directement aux chaudronniers et aux tôliers : gestion des matières et des chutes, interface entre la CFAO et l'ERP, devis techniques, pilotage d'atelier en mobilité, qualité et traçabilité.
+
+L'éditeur affiche un tarif d'entrée « à partir de 4 000 € pour 3 utilisateurs », sans préciser sur sa page s'il s'agit d'un montant mensuel, annuel ou ponctuel : demandez le détail. La facturation électronique est intégrée nativement et s'appuie sur une plateforme agréée partenaire.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Des fonctions taillées pour la tôlerie et la chaudronnerie", "Une base installée importante dans son créneau", "Accessible aux petites structures" ]} cons={[ "Peu adapté hors métallurgie et sous-traitance", "Un tarif affiché à préciser" ]} />
+
+**Notre verdict.** Le spécialiste à rencontrer si votre atelier découpe, plie, soude ou usine.
+
+### 6. Microsoft Dynamics 365 Business Central : une GPAO simple, au prix connu
+
+<RankCard rank={6} name="Microsoft Dynamics 365 Business Central" editor="Microsoft" origin="États-Unis" image="/images/erp/business-central.webp" credit="© Microsoft" imageAlt="Interface de Microsoft Dynamics 365 Business Central" bestFor="Les PME à la production simple (assemblage, fabrication légère) qui veulent un budget prévisible." specs={[
+  { label: "Production", value: "Incluse en licence Premium" },
+  { label: "Déploiement", value: "SaaS ou sur site" },
+  { label: "Prix public", value: "95,30 € HT/utilisateur/mois (Premium)" },
+  { label: "Facture électronique", value: "Connecteur vers une PA tierce" },
+]} />
+
+Business Central intègre la fabrication dans sa licence Premium, à 95,30 € HT par utilisateur et par mois. On y trouve les nomenclatures, les ordres de fabrication et la planification de base, suffisants pour une production d'assemblage ou de fabrication légère. Microsoft précise d'ailleurs lui-même que l'industrie s'adresse « avec des partenaires spécialisés » : pour un atelier plus complexe, ce sont des extensions de partenaires qui apportent la profondeur nécessaire.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Un prix public, fabrication comprise en Premium", "L'écosystème Microsoft" ]} cons={[ "Une GPAO standard limitée sans extensions", "Une PA tierce à connecter" ]} />
+
+**Notre verdict.** Pertinent pour une production simple au sein d'une PME généraliste. Insuffisant seul pour un atelier exigeant.
+
+### 7. Odoo : une GPAO modulaire
+
+<RankCard rank={7} name="Odoo" editor="Odoo SA" origin="Belgique" image="/images/erp/odoo.webp" credit="© Odoo" imageAlt="Interface d'Odoo" bestFor="Les ateliers en croissance qui veulent ajouter la fabrication à un ERP modulaire." specs={[
+  { label: "Production", value: "Fabrication, PLM, qualité (Enterprise)" },
+  { label: "Déploiement", value: "Online, Odoo.sh, sur site" },
+  { label: "Prix public", value: "Par utilisateur, selon le plan" },
+  { label: "Facture électronique", value: "Odoo est plateforme agréée" },
+]} />
+
+Odoo propose une application de fabrication qui gère les nomenclatures et les ordres de fabrication, complétée dans l'édition Enterprise par la planification d'atelier, le PLM, le contrôle qualité et la lecture de codes-barres. Pour un petit industriel qui démarre avec la vente et les stocks et veut ajouter la production ensuite, la progression est naturelle.
+
+Attention : ces fonctions avancées ne sont pas dans l'édition Community, et un atelier complexe demandera un intégrateur rompu à l'industrie.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une montée en puissance progressive", "Plateforme agréée en propre" ]} cons={[ "Planification, PLM et qualité réservés à Enterprise", "Une profondeur industrielle inférieure aux spécialistes" ]} />
+
+**Notre verdict.** Une bonne porte d'entrée pour un petit atelier, moins pour une usine aux processus complexes.
+
+### 8. Infor CloudSuite Industrial : l'international natif cloud
+
+<RankCard rank={8} name="Infor CloudSuite Industrial" editor="Infor" origin="États-Unis" image="/images/erp/infor.webp" credit="© Infor" imageAlt="Interface d'Infor CloudSuite Industrial" bestFor="Les industriels internationaux en production à la commande ou sur affaire (ETO, MTO)." specs={[
+  { label: "Production", value: "Discrète et process, ETO, MTO" },
+  { label: "Déploiement", value: "Cloud multi-tenant (AWS)" },
+  { label: "Prix public", value: "Sur devis" },
+  { label: "Facture électronique", value: "Pas de PA identifiée" },
+]} />
+
+CloudSuite Industrial, la déclinaison cloud de l'ERP SyteLine, est l'offre d'Infor (groupe Koch Industries) pour les industriels en production discrète et de process, y compris à la conception sur commande. Elle est hébergée en multi-tenant sur AWS et vise des secteurs comme les équipements industriels, l'électronique, les dispositifs médicaux ou l'aéronautique.
+
+C'est un outil puissant, mais pensé d'abord pour l'international. En France, le réseau d'intégrateurs est moins dense que celui des éditeurs locaux, et nous n'avons pas identifié de plateforme agréée partenaire mise en avant par l'éditeur.
+
+<ProsCons level={4} prosTitle="Ce qu'on apprécie" consTitle="Points de vigilance" pros={[ "Une couverture industrielle internationale", "Un cloud-natif multi-tenant" ]} cons={[ "Un réseau français plus restreint", "Pas de PA partenaire identifiée publiquement" ]} />
+
+**Notre verdict.** À envisager pour un groupe industriel international. Les éditeurs français du classement sont mieux armés pour une PME hexagonale.
+
+## Le comparatif des ERP industriels
+
+<DataTable caption="ERP pour l'industrie : comparatif (informations vérifiées le 12 octobre 2026)" columns={["ERP", "Idéal pour", "Configurateur", "Déploiement", "Prix public"]} rows={[
+  { 0: "Divalto Industry", 1: "PME/ETI multi-activités, production à l'affaire", 2: "Non mis en avant", 3: "SaaS ou sur site", 4: "Dès 80 €/util./mois", _best: true },
+  ["Sylob", "Usine pure, produits configurables", "Oui", "Cloud", "80 à 125 € HT/util./mois"],
+  ["Sage X3", "ETI multi-pays, discret et process", "Non détaillé", "Cloud ou sur site", "Sur devis"],
+  ["Silog", "Sous-traitance, EDI automobile", "Oui", "Non précisé", "Sur devis"],
+  ["Clipper", "Métallurgie, tôlerie, usinage", "Non détaillé", "Sur site, option cloud", "Dès 4 000 € / 3 util."],
+  ["Business Central", "Production simple", "Non", "SaaS ou sur site", "95,30 € HT/util./mois"],
+  ["Odoo", "Petit atelier en croissance", "Non détaillé", "Online, Odoo.sh, sur site", "Par utilisateur"],
+  ["Infor CSI", "Groupes internationaux", "Non détaillé", "Cloud (AWS)", "Sur devis"],
+]} />
+
+## Comment départager deux ERP industriels
+
+Sur le papier, la plupart des ERP de ce classement « font de la GPAO ». La différence se joue sur des détails qu'on ne voit qu'en démonstration, à condition de poser les bonnes questions.
+
+Apportez **une vraie nomenclature** de l'un de vos produits, avec ses variantes, et demandez à la voir saisie devant vous. Faites lancer un calcul des besoins à partir d'un carnet de commandes réaliste. Demandez comment l'outil gère un aléa : une machine en panne, un fournisseur en retard, une commande urgente qui bouscule le planning. Et faites calculer le coût de revient d'une affaire terminée, en comparant le prévu et le réalisé.
+
+<Callout tone="astuce">Associez votre responsable de production et un chef d'atelier aux démonstrations. Ce sont eux qui verront tout de suite si l'outil colle au terrain, ou s'il faudra contourner le système avec un tableur dès la deuxième semaine.</Callout>
+
+Pensez aussi à la reprise des données techniques, souvent sous-estimée : nomenclatures, gammes, temps standards et historiques de production représentent un chantier à part entière. Notre guide sur [la migration des données](/migration-donnees-erp/) détaille la méthode. Enfin, si votre entreprise fait aussi du négoce de pièces ou du dépannage chez ses clients, jetez un œil à nos classements des ERP pour [le négoce](/meilleurs-erp-negoce-distribution/) et pour [la maintenance et le SAV](/meilleurs-erp-maintenance-sav/).
+
+## Questions fréquentes
+
+### Quel est le meilleur ERP pour une PME industrielle ?
+
+Pour une PME industrielle qui fabrique mais gère aussi du négoce de pièces, de la sous-traitance ou du SAV, Divalto Industry offre la couverture la plus homogène : GPAO complète, gestion à l'affaire et maintenance, avec un WMS et une offre de service terrain sur la même plateforme. Pour une usine pure qui a besoin d'un configurateur et d'une planification très fine, Sylob est un excellent spécialiste. Dans la métallurgie et la tôlerie, Clipper est taillé sur mesure.
+
+### Quelle différence entre un ERP industriel et une GPAO ?
+
+La GPAO (gestion de production assistée par ordinateur) gère la fabrication : nomenclatures, gammes, ordres de fabrication, calcul des besoins, ordonnancement. Un ERP industriel l'intègre dans un ensemble plus large qui couvre aussi les ventes, les achats, les stocks, la comptabilité et souvent la qualité et la maintenance. L'avantage : une seule base de données, sans interface fragile entre la production et le reste de l'entreprise.
+
+### Un ERP industriel remplace-t-il un MES ?
+
+Pas complètement. L'ERP planifie la production et en mesure le résultat ; le MES (Manufacturing Execution System) pilote l'exécution en temps réel au pied des machines. Certains ERP intègrent un suivi d'atelier assez poussé pour une PME. Au-delà, la plupart des éditeurs, dont Divalto, misent sur l'interopérabilité avec un MES spécialisé.
+
+### Combien coûte un ERP pour l'industrie ?
+
+Quelques éditeurs affichent leurs prix d'abonnement : Divalto Industry à partir de 80 euros par utilisateur et par mois, Sylob à 80 ou 125 euros HT selon l'offre, Business Central Premium (qui inclut la fabrication) à 95,30 euros HT. Le budget d'intégration est généralement plus élevé dans l'industrie qu'ailleurs, car il faut reprendre les nomenclatures, les gammes et les données techniques.
+
+### Faut-il un ERP différent selon le mode de production ?
+
+Oui, c'est même le premier critère de tri. Une production à l'affaire ou à la commande (machines spéciales, chaudronnerie) n'a pas les mêmes besoins qu'une fabrication en série sur stock ou qu'une industrie de process. Vérifiez que l'ERP gère nativement votre mode, et si vous en mélangez plusieurs, qu'il sait les faire cohabiter.
+
+## Nos sources
+
+  - Eurostat, usage des ERP par secteur (isoc_eb_iipn2), données 2025 : [ec.europa.eu/eurostat](https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_iipn2/default/table)
+  - DGFiP, liste des plateformes agréées (mise à jour du 22 septembre 2026) : [impots.gouv.fr](https://www.impots.gouv.fr/je-consulte-la-liste-des-plateformes-agreees)
+  - Pages produits, tarifs et références clients officiels des éditeurs cités, consultés le 12 octobre 2026
