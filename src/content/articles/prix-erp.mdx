@@ -1,17 +1,18 @@
 ---
 title: "Quel budget prévoir pour un logiciel ERP ?"
-seoTitle: "Prix d'un ERP : combien ça coûte vraiment en 2026 ?"
+seoTitle: "Prix d'un ERP en 2026 : tarifs publics, coût pour une PME et budget projet"
 excerpt: "Le prix d'un ERP va de quelques centaines d'euros par mois à plusieurs centaines de milliers d'euros. Mais le vrai sujet, c'est le coût total : la licence n'en représente qu'un tiers. Voici où part l'argent, et comment budgéter juste."
-description: "Combien coûte un ERP ? Postes de coût, fourchettes par taille d'entreprise, licence vs coût total, coûts cachés et logique TCO. Guide budget ERP 2026."
+description: "Combien coûte un ERP en 2026 ? Tarifs publics par utilisateur (Divalto, Business Central, Sylob, Axelor…), postes de coût, fourchettes PME et ETI, coûts cachés et TCO."
 heroImage: "/images/N1-08.webp"
 heroAlt: "Quel budget prévoir pour un logiciel ERP ?"
 readingTime: "13 min"
 publishedDate: "02 juillet 2026"
+updatedDate: "16 novembre 2026"
 badges:
   - { label: "Guide ERP", tone: "blue", variant: "gradient" }
 faq:
   - q: "Combien coûte un ERP pour une PME ?"
-    a: "Tout dépend du périmètre, mais on peut donner des repères. Pour une solution standard sur un besoin restreint, le projet démarre souvent entre 30 000 et 50 000 euros, ou quelques centaines d'euros par mois en cloud. Pour une PME aux besoins plus spécifiques (production, multi-sites), la facture grimpe vite vers 100 000 à 150 000 euros, voire bien au-delà. Le bon réflexe reste de raisonner en coût complet, pas au seul prix de la licence."
+    a: "Tout dépend du périmètre, mais on peut donner des repères. Pour une solution standard sur un besoin restreint, le projet démarre souvent entre 30 000 et 50 000 euros, ou quelques centaines d'euros par mois en cloud. Pour une PME aux besoins plus spécifiques (production, multi-sites), la facture grimpe vite vers 100 000 à 150 000 euros, voire bien au-delà. Le bon réflexe reste de raisonner en coût complet, pas au seul prix de la licence. Pour l'abonnement seul, les éditeurs qui publient leurs tarifs se situent entre 35 et 125 € par utilisateur et par mois (Divalto dès 70 €, Business Central 69,30 € HT, Sylob 80 € HT)."
   - q: "Pourquoi le prix d'un ERP varie-t-il autant ?"
     a: "Parce qu'un ERP s'adapte à chaque entreprise, et que cette adaptation a un coût. Le nombre d'utilisateurs, le nombre de modules, le niveau de personnalisation, la complexité de l'organisation et le mode d'hébergement font tous bouger l'addition. Deux entreprises de même taille peuvent donc afficher des budgets très différents selon ce qu'elles demandent à leur outil."
   - q: "Un ERP cloud est-il moins cher qu'un ERP sur site ?"
@@ -26,8 +27,9 @@ faq:
 
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import FeatureColumns from '../../components/FeatureColumns.astro';
+import DataTable from '../../components/DataTable.astro';
 
-<KeyTakeaways title="En bref" items={[ "Le prix d'un ERP va de quelques centaines d'euros par mois à plusieurs dizaines de milliers d'euros, selon la taille et le projet.", "La licence ou l'abonnement ne pèse qu'un quart à un tiers du budget ; le coût total est deux à trois fois plus élevé.", "Les vrais postes : intégration, migration des données, formation, maintenance et coûts cachés.", "Deux modèles de tarification : l'abonnement cloud (par utilisateur, par mois) et la licence perpétuelle.", "Un budget fiable naît d'un cadrage précis, et plusieurs financements existent (crédit-bail, France Num, aides régionales)." ]} />
+<KeyTakeaways title="En bref" items={[ "Le prix d'un ERP va de quelques centaines d'euros par mois à plusieurs dizaines de milliers d'euros, selon la taille et le projet.", "La licence ou l'abonnement ne pèse qu'un quart à un tiers du budget ; le coût total est deux à trois fois plus élevé.", "Les vrais postes : intégration, migration des données, formation, maintenance et coûts cachés.", "Deux modèles de tarification, l'abonnement cloud et la licence perpétuelle : les éditeurs qui publient leurs tarifs se situent entre 35 et 125 € par utilisateur et par mois pour une PME (Axelor, Hello Harel, Business Central, Divalto, Sylob).", "Un budget fiable naît d'un cadrage précis, et plusieurs financements existent (crédit-bail, France Num, aides régionales)." ]} />
 
 
 
@@ -128,6 +130,23 @@ Le second, plus traditionnel, c'est la **licence perpétuelle**, qu'on achète u
 
 Sur cinq ans, les deux finissent souvent par se rejoindre. Le vrai arbitrage est moins une affaire de montant qu'une affaire de stratégie financière, entre payer beaucoup en une fois (CAPEX) et étaler la dépense (OPEX). Tout cela tient à l'arbitrage [cloud ou licence sur site](/erp-cloud-saas-on-premise/), qui dépasse largement la seule question du prix.
 
+### Les prix publics affichés par les éditeurs en 2026
+
+Peu d'éditeurs publient leurs tarifs. Parmi les solutions passées en revue dans nos classements, une poignée seulement affiche un prix par utilisateur ; les autres chiffrent sur devis, après un premier échange sur le périmètre. Voici les prix publics relevés sur les pages tarifs officielles, en abonnement cloud, par utilisateur et par mois.
+
+<DataTable caption="Prix publics des ERP en abonnement cloud, par utilisateur et par mois (relevés le 12 octobre 2026, hors taxes lorsque l'éditeur le précise)" columns={["ERP", "Cible", "Prix public"]} rows={[
+  ["Axelor", "PME", "35 € (Pro) à 55 € (Enterprise)"],
+  ["Hello Harel", "TPE et PME", "49 à 99 € HT"],
+  ["Microsoft Dynamics 365 Business Central", "PME", "69,30 € HT (Essentials), 95,30 € HT (Premium)"],
+  ["Divalto", "PME et ETI (négoce, industrie, SAV)", "À partir de 70 € (Business), 75 € (Field Service) et 80 € (Industry)"],
+  ["Sylob", "PMI", "80 € HT (Essentiel), 125 € HT (Avancé)"],
+  ["Microsoft Dynamics 365 Finance et Supply Chain", "ETI", "182 € HT par application (259,90 € HT en Premium)"],
+  ["Odoo", "TPE et PME", "Une application gratuite, puis un tarif par utilisateur selon le plan"],
+  ["Sage 100, Sage X3, Cegid XRP Flex, SAP Business One, Oracle NetSuite, Proginov", "PME à ETI", "Sur devis"],
+]} />
+
+Un exemple pour fixer les idées : pour 20 utilisateurs sur trois ans, l'abonnement seul représente 49 896 € avec Business Central Essentials (69,30 € HT), 50 400 € avec Divalto Business (70 €) et 57 600 € avec Sylob Essentiel (80 € HT). C'est le montant de départ, pas celui du projet. En appliquant la règle d'un abonnement qui pèse un quart à un tiers du total, le coût complet se situe plutôt entre 150 000 et 200 000 € sur la même période, intégration, reprise des données et formation comprises.
+
 ### Progiciel standard ou développement sur mesure ?
 
 Un autre choix pèse lourd sur la facture, et on l'oublie souvent derrière la question cloud/licence : partir d'un progiciel du marché ou faire développer un outil sur mesure. Ce sont deux économies radicalement différentes.
@@ -183,13 +202,13 @@ Avant de renoncer à un projet pour une question de budget, vérifiez donc ce à
 
 Avant de signer, demandez à l'éditeur un budget sur cinq ans, tout compris : licence, intégration, formation, maintenance et évolutions. S'il refuse ou reste vague, méfiez-vous. Un partenaire sérieux sait chiffrer l'ensemble, pas seulement la première année.
 
-Pour comparer des chiffres concrets, nous avons relevé les tarifs publics des principaux éditeurs, quand ils existent, dans notre [classement des meilleurs ERP pour PME](/meilleurs-erp-pme/). Vous y verrez que trois ou quatre éditeurs seulement affichent un prix par utilisateur, et ce que ces prix couvrent vraiment.
+Pour comparer des chiffres concrets, nous avons relevé les tarifs publics des principaux éditeurs, quand ils existent, dans notre [classement des meilleurs ERP pour PME](/meilleurs-erp-pme/), dans [le classement général](/meilleurs-erp/) et, pour les structures multi-sociétés, dans [celui des ERP pour ETI](/meilleurs-erp-eti/). Vous y verrez ce que ces prix couvrent vraiment, et ce qui reste à chiffrer avec l'intégrateur.
 
 ## Questions fréquentes
 
 ### Combien coûte un ERP pour une PME ?
 
-Tout dépend du périmètre, mais on peut donner des repères. Pour une solution standard sur un besoin restreint, le projet démarre souvent entre 30 000 et 50 000 euros, ou quelques centaines d'euros par mois en cloud. Pour une PME aux besoins plus spécifiques (production, multi-sites), la facture grimpe vite vers 100 000 à 150 000 euros, voire bien au-delà. Le bon réflexe reste de raisonner en coût complet, pas au seul prix de la licence.
+Tout dépend du périmètre, mais on peut donner des repères. Pour une solution standard sur un besoin restreint, le projet démarre souvent entre 30 000 et 50 000 euros, ou quelques centaines d'euros par mois en cloud. Pour une PME aux besoins plus spécifiques (production, multi-sites), la facture grimpe vite vers 100 000 à 150 000 euros, voire bien au-delà. Le bon réflexe reste de raisonner en coût complet, pas au seul prix de la licence. Pour l'abonnement seul, les éditeurs qui publient leurs tarifs se situent entre 35 et 125 € par utilisateur et par mois (Divalto dès 70 €, Business Central 69,30 € HT, Sylob 80 € HT).
 
 ### Pourquoi le prix d'un ERP varie-t-il autant ?
 
