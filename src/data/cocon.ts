@@ -24,6 +24,10 @@ export const CLASSEMENTS: Section = {
     { slug: 'meilleurs-erp-maintenance-sav', label: 'Maintenance & SAV' },
     { slug: 'meilleurs-erp-crm-integre', label: 'Avec CRM intégré' },
     { slug: 'meilleurs-erp-cloud-saas', label: 'En SaaS / cloud' },
+    { slug: 'meilleurs-erp-btp-second-oeuvre', label: 'BTP second œuvre' },
+    { slug: 'meilleurs-erp-metallerie-chaudronnerie-usinage', label: 'Métallerie & usinage' },
+    { slug: 'meilleurs-erp-negoce-materiaux', label: 'Négoce de matériaux' },
+    { slug: 'meilleurs-erp-gestion-affaire-machines-speciales', label: "Gestion à l'affaire" },
   ],
 };
 

@@ -15,6 +15,10 @@
 - [Meilleurs ERP français](https://meilleur-erp.fr/meilleurs-erp-francais/): siège, capital, hébergement et conformité des éditeurs français.
 - [Meilleur ERP SaaS et cloud](https://meilleur-erp.fr/meilleurs-erp-cloud-saas/): architecture, hébergement, souveraineté.
 - [Meilleur ERP avec CRM intégré](https://meilleur-erp.fr/meilleurs-erp-crm-integre/): CRM natif et mobilité des équipes terrain.
+- [Meilleur ERP BTP second œuvre](https://meilleur-erp.fr/meilleurs-erp-btp-second-oeuvre/): installateurs CVC, plomberie, électricité ; chantiers, contrats de maintenance, SAV et conformité fluides frigorigènes.
+- [Meilleur ERP métallerie, chaudronnerie et usinage](https://meilleur-erp.fr/meilleurs-erp-metallerie-chaudronnerie-usinage/): sous-traitance mécanique, configurateur, gestion à l'affaire, chutes et traçabilité.
+- [Meilleur ERP négoce de matériaux](https://meilleur-erp.fr/meilleurs-erp-negoce-materiaux/): fournitures industrielles et du bâtiment, FAB-DIS, contremarque, comptoir, inter-agences.
+- [Meilleur ERP de gestion à l'affaire](https://meilleur-erp.fr/meilleurs-erp-gestion-affaire-machines-speciales/): machines spéciales, équipements sur mesure, bureaux d'études ; budgets, jalons, facturation à l'avancement.
 ## Comprendre, choisir et déployer un ERP (niveau 1)
 - [ERP et PGI : quelles sont les différences ?](https://meilleur-erp.fr/erp-pgi-difference/): ERP ou PGI, est-ce la même chose ?
 - [À quoi sert un ERP ? Rôle et utilité en entreprise](https://meilleur-erp.fr/a-quoi-sert-un-erp/): À quoi sert un ERP ?

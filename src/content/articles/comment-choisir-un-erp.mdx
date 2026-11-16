@@ -27,6 +27,7 @@ faq:
 
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import FeatureColumns from '../../components/FeatureColumns.astro';
+import DataTable from '../../components/DataTable.astro';
 
 <KeyTakeaways title="En bref" items={[ "Choisir un ERP est un projet d'entreprise à part entière : la méthode compte autant que l'outil.", "Partez de vos processus et de vos points de friction, jamais d'une liste de logiciels.", "Les critères clés : adéquation fonctionnelle native, paramétrage, ergonomie, évolutivité et intégration.", "Testez sur vos vrais cas en démonstration, et évaluez le prestataire autant que la solution.", "L'erreur la plus fréquente : choisir sur la notoriété plutôt que sur l'adéquation à votre métier." ]} />
 
@@ -101,6 +102,22 @@ L'évolutivité ne se résume pas au nombre de sociétés ou de langues gérées
   
 
 Dernier réflexe au moment de comparer : raisonnez en **coût complet**, pas en prix affiché. Une solution peut sembler bon marché à l'achat et se révéler lourde une fois additionnés l'intégration, la reprise des données, la formation et la maintenance annuelle. Un ordre de grandeur utile pour ne pas se faire piéger : sur trois ans, les services — paramétrage, intégration, formation, reprise — pèsent souvent autant, voire davantage, que les licences elles-mêmes ; la ligne visible du devis n'est que la partie émergée. Mettez ces postes à plat sur trois ans pour chaque candidat, et vous vous épargnerez bien des mauvaises surprises six mois après la signature.
+
+### La grille de sélection, en une page
+
+Pour ne rien oublier le jour de la démonstration, voici les neuf critères que nous utilisons, avec la question qui fait réagir l'éditeur et la preuve à exiger avant de signer. Reprenez-la telle quelle dans votre [cahier des charges](/cahier-des-charges-erp/).
+
+<DataTable caption="Grille de sélection d'un ERP : le critère, la question à poser, la preuve à demander" columns={["Critère", "La question à poser en démonstration", "La preuve à demander"]} rows={[
+  ["Couverture fonctionnelle native", "Montrez-moi mes trois processus critiques de bout en bout, sans développement.", "Une démonstration sur vos propres cas, pas sur le jeu de données de l'éditeur."],
+  ["Paramétrage et spécifiques", "Que se passe-t-il si mon processus ne correspond pas à votre standard ?", "La liste des développements prévus, chiffrés ligne par ligne dans le devis."],
+  ["Références métier", "Combien de clients de mon secteur et de ma taille utilisent l'outil en production ?", "Deux références à appeler, dans votre métier."],
+  ["Hébergement et sécurité", "Où sont hébergées mes données, qui y accède, en combien de temps sont-elles restaurées ?", "Localisation du datacenter, certifications (ISO 27001 par exemple) et délai de restauration écrit au contrat."],
+  ["Facture électronique", "Votre plateforme agréée est-elle en production, et avec quel connecteur ?", "Le nom de la plateforme et son immatriculation dans la liste publiée par la DGFiP."],
+  ["Mobilité", "Que peuvent faire mes équipes terrain hors connexion ?", "Un essai de l'application sur un smartphone, en mode avion."],
+  ["Intégration", "Comment l'ERP se connecte-t-il à mes autres outils (paie, e-commerce, CAO…) ?", "La documentation des API et la liste des connecteurs livrés en standard."],
+  ["Coût complet", "Combien sur cinq ans, intégration, formation et maintenance comprises ?", "Un budget pluriannuel écrit, pas seulement un prix par utilisateur."],
+  ["Prestataire", "Qui pilotera mon projet, et combien de projets comme le mien a-t-il menés ?", "Le profil du chef de projet et la méthode de déploiement proposée."],
+]} />
 
 ## Bien mener la sélection
 
