@@ -129,13 +129,6 @@ const ld = { '@context': 'https://schema.org', '@graph': graph };
       <TableOfContents headings={headings} variant="desktop" />
 
       <div class="article-content">
-        {fm.ranking && fm.ranking.length > 0 && (
-          <aside class="rank-disclosure" aria-label="Transparence">
-            <strong>Transparence.</strong> Classement établi selon les critères décrits dans cet
-            article. L'éditeur du site entretient des liens professionnels avec l'un des éditeurs
-            de logiciels présentés. <a href="/a-propos/#transparence">Notre méthode</a>
-          </aside>
-        )}
         {fm.takeaways && fm.takeaways.length > 0 && <KeyTakeaways items={fm.takeaways} />}
         <TableOfContents headings={headings} variant="mobile" />
         <slot />
