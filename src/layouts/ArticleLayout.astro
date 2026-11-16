@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { toIsoDate } from '../lib/dates';
 import ArticleHero from '../components/ArticleHero.astro';
 import KeyTakeaways from '../components/KeyTakeaways.astro';
 import TableOfContents from '../components/TableOfContents.astro';
@@ -64,8 +65,8 @@ const graph: any[] = [
     inLanguage: 'fr-FR',
     mainEntityOfPage: canonical,
     author,
-    datePublished: fm.publishedDate,
-    dateModified: fm.updatedDate || fm.publishedDate,
+    datePublished: toIsoDate(fm.publishedDate) || fm.publishedDate,
+    dateModified: toIsoDate(fm.updatedDate || fm.publishedDate) || fm.updatedDate || fm.publishedDate,
     publisher,
   },
   {
