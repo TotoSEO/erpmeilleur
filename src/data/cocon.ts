@@ -28,6 +28,7 @@ export const CLASSEMENTS: Section = {
     { slug: 'meilleurs-erp-metallerie-chaudronnerie-usinage', label: 'Métallerie & usinage' },
     { slug: 'meilleurs-erp-negoce-materiaux', label: 'Négoce de matériaux' },
     { slug: 'meilleurs-erp-gestion-affaire-machines-speciales', label: "Gestion à l'affaire" },
+    { slug: 'meilleurs-erp-vins-spiritueux', label: 'Vins & spiritueux' },
   ],
 };
 
