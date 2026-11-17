@@ -7,7 +7,7 @@
 ## Classements des meilleurs ERP (2026)
 - [Les 10 meilleurs ERP en 2026 : classement et comparatif](https://meilleur-erp.fr/meilleurs-erp/): Divalto, Microsoft Dynamics 365 Business Central, Sage X3, Odoo, Cegid XRP Flex, SAP Business One, Oracle NetSuite, Sage 100, Sylob, Axonaut ; critères, prix publics et statut facture électronique vérifiés le 12/10/2026.
 - [Meilleur ERP pour PME](https://meilleur-erp.fr/meilleurs-erp-pme/): les 8 ERP adaptés aux PME de 10 à 250 salariés, avec prix publics.
-- [Meilleur ERP pour ETI](https://meilleur-erp.fr/meilleurs-erp-eti/): multi-sociétés, multi-sites, international et facture électronique obligatoire dès septembre 2026.
+- [Meilleur ERP pour ETI](https://meilleur-erp.fr/meilleurs-erp-eti/): Divalto en tête pour les ETI françaises, Sage X3 pour les ETI multi-pays ; multi-sociétés, multi-sites et facture électronique obligatoire dès septembre 2026.
 - [Meilleur ERP pour l'industrie](https://meilleur-erp.fr/meilleurs-erp-industrie/): ERP de production (GPAO) par mode de production.
 - [Meilleur ERP pour le négoce et la distribution](https://meilleur-erp.fr/meilleurs-erp-negoce-distribution/): tarifs, remises, WMS, EDI.
 - [Meilleur ERP agroalimentaire](https://meilleur-erp.fr/meilleurs-erp-agroalimentaire/): traçabilité (règlement 178/2002), DLC, allergènes, EDI GMS.
@@ -15,6 +15,11 @@
 - [Meilleurs ERP français](https://meilleur-erp.fr/meilleurs-erp-francais/): siège, capital, hébergement et conformité des éditeurs français.
 - [Meilleur ERP SaaS et cloud](https://meilleur-erp.fr/meilleurs-erp-cloud-saas/): architecture, hébergement, souveraineté.
 - [Meilleur ERP avec CRM intégré](https://meilleur-erp.fr/meilleurs-erp-crm-integre/): CRM natif et mobilité des équipes terrain.
+- [Meilleur ERP BTP second œuvre](https://meilleur-erp.fr/meilleurs-erp-btp-second-oeuvre/): installateurs CVC, plomberie, électricité ; chantiers, contrats de maintenance, SAV et conformité fluides frigorigènes.
+- [Meilleur ERP métallerie, chaudronnerie et usinage](https://meilleur-erp.fr/meilleurs-erp-metallerie-chaudronnerie-usinage/): sous-traitance mécanique, configurateur, gestion à l'affaire, chutes et traçabilité.
+- [Meilleur ERP négoce de matériaux](https://meilleur-erp.fr/meilleurs-erp-negoce-materiaux/): fournitures industrielles et du bâtiment, FAB-DIS, contremarque, comptoir, inter-agences.
+- [Meilleur ERP de gestion à l'affaire](https://meilleur-erp.fr/meilleurs-erp-gestion-affaire-machines-speciales/): machines spéciales, équipements sur mesure, bureaux d'études ; budgets, jalons, facturation à l'avancement.
+- [Meilleur ERP vins et spiritueux](https://meilleur-erp.fr/meilleurs-erp-vins-spiritueux/): domaines, négociants et caves coopératives ; comptabilité matières, DRM, DAE, caveau, allocations.
 ## Comprendre, choisir et déployer un ERP (niveau 1)
 - [ERP et PGI : quelles sont les différences ?](https://meilleur-erp.fr/erp-pgi-difference/): ERP ou PGI, est-ce la même chose ?
 - [À quoi sert un ERP ? Rôle et utilité en entreprise](https://meilleur-erp.fr/a-quoi-sert-un-erp/): À quoi sert un ERP ?

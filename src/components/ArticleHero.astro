@@ -57,7 +57,7 @@ const {
     </div>
     <div class="hero__media">
       {heroImage
-        ? <img src={heroImage} alt={heroAlt} width="800" height="600" />
+        ? <img src={heroImage} alt={heroAlt} width="800" height="600" fetchpriority="high" decoding="async" />
         : <div class="ph">{heroLabel && <span>{heroLabel}</span>}</div>}
     </div>
   </div>

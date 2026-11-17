@@ -7,6 +7,7 @@ heroImage: "/images/N2-10.webp"
 heroAlt: "Le cahier des charges ERP : la feuille de route de votre projet d’intégration"
 readingTime: "13 min"
 publishedDate: "02 juillet 2026"
+updatedDate: "16 novembre 2026"
 badges:
   - { label: "Guide ERP", tone: "blue", variant: "gradient" }
 faq:
@@ -28,6 +29,7 @@ faq:
 
 import KeyTakeaways from '../../components/KeyTakeaways.astro';
 import FeatureColumns from '../../components/FeatureColumns.astro';
+import DataTable from '../../components/DataTable.astro';
 
 <KeyTakeaways title="En bref" items={[ "Le cahier des charges ERP formalise vos besoins avant de comparer les solutions du marché.", "Il sert de référence commune entre vos équipes, les éditeurs et les intégrateurs.", "Sa structure type couvre huit rubriques, de la présentation de l'entreprise aux critères d'évaluation.", "La méthode gagnante : impliquer les métiers, cartographier l'existant, prioriser avec MoSCoW.", "Le piège classique : le rédiger en silo, sans validation croisée entre les services." ]} />
 
@@ -136,6 +138,23 @@ La seconde, c'est la sécurité et la conformité, trop souvent réduite à une 
 
 Le budget, enfin, gagne à être décomposé plutôt qu'annoncé en bloc. Un projet ERP se répartit schématiquement entre le coût des licences (ou des abonnements en SaaS), celui de l'implémentation — paramétrage, développements spécifiques, reprise des données, formation, qui pèse souvent plus lourd que la licence elle-même — et la maintenance annuelle qui court ensuite sur toute la durée de vie de l'outil. Si vous vous faites accompagner par un cabinet, ajoutez ce poste, facturé au temps passé. Les études du secteur le rappellent régulièrement : ce sont les coûts d'accompagnement, et non le prix affiché de la solution, qui creusent l'écart entre le budget prévu et la facture finale. Afficher une enveloppe réaliste, ces postes inclus, et prévoir une marge pour les imprévus vaut mieux qu'un chiffre optimiste qui volera vite en éclats.
 
+### Le plan type, section par section
+
+Pour vous éviter la page blanche, voici le plan que nous recommandons. Dix sections, de quinze à quarante pages au total selon la taille du projet, et pour chacune l'erreur qu'on voit le plus souvent.
+
+<DataTable caption="Plan type d'un cahier des charges ERP" columns={["Section", "Ce qu'elle contient", "L'erreur fréquente"]} rows={[
+  ["1. Présentation de l'entreprise", "Activité, effectifs, sites, chiffre d'affaires, organisation, système d'information actuel.", "Oublier les filiales et les sites qui rejoindront le projet plus tard."],
+  ["2. Contexte et objectifs", "Pourquoi changer, quels résultats attendus, quels indicateurs de succès.", "Des objectifs vagues (« moderniser ») impossibles à vérifier à la recette."],
+  ["3. Périmètre", "Modules concernés, sociétés et sites inclus, ce qui reste hors projet.", "Un périmètre qui gonfle en cours de route faute d'avoir écrit ce qui est exclu."],
+  ["4. Processus métier", "Vos flux clés décrits pas à pas, de la commande à l'encaissement, avec les cas particuliers.", "Décrire le processus idéal plutôt que le processus réel."],
+  ["5. Exigences fonctionnelles", "Les besoins, priorisés (indispensable, important, souhaitable), module par module.", "Tout classer en indispensable : plus rien ne permet d'arbitrer."],
+  ["6. Exigences techniques", "Hébergement, sécurité, sauvegardes, intégrations, API, mobilité, volumes, performances.", "Négliger les interfaces avec la paie, l'e-commerce ou la CAO."],
+  ["7. Conformité", "Facture électronique et plateforme agréée, RGPD, exigences sectorielles (traçabilité, réglementaire).", "Se contenter d'un « conforme » sans demander le nom de la plateforme ni la date."],
+  ["8. Reprise des données", "Données à migrer, sources, volumes, règles de nettoyage, responsabilités.", "Découvrir la qualité des données au moment de la migration."],
+  ["9. Déploiement et accompagnement", "Calendrier, équipe projet, formation, conduite du changement, recette, support.", "Un planning sans jalons ni responsables nommés."],
+  ["10. Cadre de réponse", "Format attendu des offres, grille tarifaire sur cinq ans, références, critères de notation.", "Comparer des devis qui ne couvrent pas le même périmètre."],
+]} />
+
 ## Décliner le cahier des charges selon votre secteur
 
 Un cahier des charges générique produit des réponses génériques. Ce qui distingue un bon document, c'est sa capacité à parler la langue de votre métier, parce que les priorités changent radicalement d'un secteur à l'autre.
@@ -217,6 +236,8 @@ Le piège le plus coûteux reste la surestimation. Vouloir tout, tout de suite, 
 ## Le cahier des charges, votre meilleur allié
 
 Le cahier des charges ERP demande du temps, mais c'est **un temps qui rapporte** : chaque heure passée à cadrer le besoin en épargne dix en cours de projet. Il transforme un choix flou en décision argumentée, et un dialogue commercial en comparaison objective. Mieux : il engage vos équipes, qui adhèrent d'autant plus au projet qu'elles ont contribué à le définir. Un cahier des charges ERP n'est pas une contrainte bureaucratique, c'est l'assurance de choisir la bonne solution pour les bonnes raisons.
+
+Une fois le cahier des charges rédigé, place à la présélection : [notre classement des meilleurs ERP](/meilleurs-erp/) et ses déclinaisons par taille ([meilleur ERP pour PME](/meilleurs-erp-pme/), [ERP pour ETI](/meilleurs-erp-eti/)) et par métier vous donneront une première liste d'éditeurs à consulter.
 
 ## Questions fréquentes
 
