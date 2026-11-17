@@ -179,6 +179,8 @@ export class StatsStore extends DurableObject {
     const since = parisDay(now - (days - 1) * DAY_MS);
     const q = (query: string) => this.rows(query, since);
     const one = (query: string) => q(query)[0] ?? {};
+    // Cible de clic sans le suffixe des anciens boutons (« divalto-erp:demo » → « divalto-erp »).
+    const TARGET = "CASE WHEN target LIKE 'divalto-erp%' THEN 'divalto' WHEN target LIKE 'divalto-crm%' THEN 'divalto-erp-crm-weavy' WHEN instr(target, ':') > 0 THEN substr(target, 1, instr(target, ':') - 1) ELSE target END";
     return {
       since,
       today: parisDay(now),
@@ -195,11 +197,11 @@ export class StatsStore extends DurableObject {
       devices: q(`SELECT device, COUNT(*) AS n FROM pageviews WHERE day >= ? GROUP BY device ORDER BY n DESC`),
       cta: {
         total: Number(one(`SELECT COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta'`).n ?? 0),
-        byPage: q(`SELECT path, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY path ORDER BY n DESC`),
-        byPlacement: q(`SELECT placement, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY placement ORDER BY n DESC`),
-        byTarget: q(`SELECT target, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY target ORDER BY n DESC`),
-        detail: q(`SELECT path, placement, target, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY path, placement, target ORDER BY n DESC LIMIT 60`),
-        daily: q(`SELECT day, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY day`),
+        divalto: Number(one(`SELECT COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' AND target LIKE 'divalto%'`).n ?? 0),
+        byPage: q(`SELECT path, COUNT(*) AS n, SUM(CASE WHEN target LIKE 'divalto%' THEN 1 ELSE 0 END) AS divalto FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY path ORDER BY n DESC`),
+        byTarget: q(`SELECT ${TARGET} AS target, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY 1 ORDER BY n DESC LIMIT 60`),
+        detail: q(`SELECT path, ${TARGET} AS target, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' GROUP BY 1, 2 ORDER BY n DESC LIMIT 60`),
+        daily: q(`SELECT day, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'cta' AND target LIKE 'divalto%' GROUP BY day`),
       },
       outbound: q(`SELECT dest_host, COUNT(*) AS n FROM clicks WHERE day >= ? AND kind = 'out' GROUP BY dest_host ORDER BY n DESC LIMIT 15`),
       bots: q(`SELECT category, bot, COUNT(*) AS n, COUNT(DISTINCT path) AS pages FROM bots WHERE day >= ? GROUP BY category, bot ORDER BY n DESC`),

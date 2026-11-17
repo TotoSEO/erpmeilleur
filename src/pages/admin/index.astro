@@ -5,7 +5,7 @@ import { FAMILY_LABELS, CRAWLER_CATEGORY_LABELS } from '../../lib/stats/sources'
 import type { Family, CrawlerCategory } from '../../lib/stats/sources';
 import { parisDay, DAY_MS } from '../../lib/stats/dates';
 import { SETUP_CODE, SESSION_COOKIE, SESSION_TTL_MS, MAX_FAILURES_PER_IP, MAX_FAILURES_GLOBAL, hashPassword, verifyPassword, isValidSetupCode, passwordProblem, newSessionToken, sha256hex, ipFingerprint } from '../../lib/admin/auth';
-import { DIVALTO_CTA, CTA_PLACEMENT_LABELS, CTA_LINK_LABELS } from '../../data/cta';
+import { vendorLabel, isDivaltoTarget } from '../../data/vendors';
 import { SECTIONS, PILIER } from '../../data/cocon';
 export const prerender = false;
 
@@ -130,12 +130,6 @@ for (const s of SECTIONS) {
 }
 const pageLabel = (path: unknown) => pageLabels.get(String(path)) ?? pageLabels.get(`${String(path)}/`) ?? String(path);
 
-const targetLabel = (t: unknown) => {
-  const [key, link] = String(t || '').split(':');
-  const product = Object.values(DIVALTO_CTA).find((c) => c.key === key)?.produit.replace(' (solution FIB)', '') ?? key;
-  return `${product} · ${CTA_LINK_LABELS[link] ?? link ?? ''}`;
-};
-
 const regionNames = (() => {
   try { return new Intl.DisplayNames(['fr'], { type: 'region' }); } catch { return null; }
 })();
@@ -194,7 +188,7 @@ if (data) {
 const totalViews = Number(data?.totals.views ?? 0);
 const totalEntries = Number(data?.totals.entries ?? 0);
 const rankingViews = data ? data.pages.filter((p) => String(p.path).startsWith('/meilleurs-erp')).reduce((s, p) => s + Number(p.views), 0) : 0;
-const ctaByPath = new Map((data?.cta.byPage ?? []).map((r) => [String(r.path), Number(r.n)]));
+const ctaByPath = new Map((data?.cta.byPage ?? []).map((r) => [String(r.path), { all: Number(r.n), divalto: Number(r.divalto) }]));
 const famLabel = (f: unknown) => FAMILY_LABELS[String(f) as Family] ?? String(f);
 const catLabel = (c: unknown) => CRAWLER_CATEGORY_LABELS[String(c) as CrawlerCategory] ?? String(c);
 const totalBots = (data?.bots ?? []).reduce((s, r) => s + Number(r.n), 0);
@@ -274,7 +268,7 @@ const searchEntries = Number((data?.families ?? []).find((f) => f.family === 'mo
           <div class="adm-kpi"><div class="adm-kpi__label">Visites</div><div class="adm-kpi__value">{fmt(totalEntries)}</div><div class="adm-kpi__hint">arrivées depuis l'extérieur</div></div>
           <div class="adm-kpi"><div class="adm-kpi__label">Visiteurs uniques</div><div class="adm-kpi__value">{fmt(data.uniques)}</div><div class="adm-kpi__hint">par jour, additionnés</div></div>
           <div class="adm-kpi"><div class="adm-kpi__label">Depuis les IA</div><div class="adm-kpi__value">{fmt(aiEntries)}</div><div class="adm-kpi__hint">{pct(aiEntries, totalEntries)} des visites · moteurs {pct(searchEntries, totalEntries)}</div></div>
-          <div class="adm-kpi adm-kpi--blue"><div class="adm-kpi__label">Clics vers Divalto</div><div class="adm-kpi__value">{fmt(data.cta.total)}</div><div class="adm-kpi__hint">{pct(data.cta.total, rankingViews)} des vues des classements</div></div>
+          <div class="adm-kpi adm-kpi--blue"><div class="adm-kpi__label">Clics vers Divalto</div><div class="adm-kpi__value">{fmt(data.cta.divalto)}</div><div class="adm-kpi__hint">{pct(data.cta.divalto, rankingViews)} des vues des classements · {pct(data.cta.divalto, data.cta.total)} des clics éditeurs</div></div>
         </section>
 
         <section class="adm-card">
@@ -324,18 +318,22 @@ const searchEntries = Number((data?.families ?? []).find((f) => f.family === 'mo
 
         <section class="adm-card">
           <h2>Pages</h2>
-          <p class="adm-note">Pages vues, visites qui ont commencé sur la page, visiteurs uniques (par jour) et clics vers Divalto depuis la page.</p>
+          <p class="adm-note">Pages vues, visites qui ont commencé sur la page, visiteurs uniques (par jour), clics vers les sites des éditeurs depuis la page, dont Divalto.</p>
           {data.pages.length === 0 ? <p class="adm-empty">Aucune page vue sur la période.</p> : (
             <div class="adm-scroll"><table class="adm-table">
-              <thead><tr><th>Page</th><th class="n">Vues</th><th class="n">Visites</th><th class="n">Visiteurs</th><th class="n">Clics Divalto</th><th class="n">Taux de clic</th></tr></thead>
-              <tbody>{data.pages.slice(0, 60).map((p) => (
-                <tr>
-                  <td>{pageLabel(p.path)}<a class="adm-path" href={String(p.path)} target="_blank" rel="noopener">{p.path}</a></td>
-                  <td class="n">{fmt(p.views)}</td><td class="n">{fmt(p.entries)}</td><td class="n">{fmt(p.visitors)}</td>
-                  <td class="n">{fmt(ctaByPath.get(String(p.path)) ?? 0)}</td>
-                  <td class="n">{ctaByPath.has(String(p.path)) ? pct(ctaByPath.get(String(p.path)), Number(p.views)) : '–'}</td>
-                </tr>
-              ))}</tbody>
+              <thead><tr><th>Page</th><th class="n">Vues</th><th class="n">Visites</th><th class="n">Visiteurs</th><th class="n">Clics éditeurs</th><th class="n">Dont Divalto</th><th class="n">Taux Divalto</th></tr></thead>
+              <tbody>{data.pages.slice(0, 60).map((p) => {
+                const c = ctaByPath.get(String(p.path));
+                return (
+                  <tr>
+                    <td>{pageLabel(p.path)}<a class="adm-path" href={String(p.path)} target="_blank" rel="noopener">{p.path}</a></td>
+                    <td class="n">{fmt(p.views)}</td><td class="n">{fmt(p.entries)}</td><td class="n">{fmt(p.visitors)}</td>
+                    <td class="n">{fmt(c?.all ?? 0)}</td>
+                    <td class="n">{fmt(c?.divalto ?? 0)}</td>
+                    <td class="n">{c?.divalto ? pct(c.divalto, Number(p.views)) : '–'}</td>
+                  </tr>
+                );
+              })}</tbody>
             </table></div>
           )}
         </section>
@@ -364,29 +362,23 @@ const searchEntries = Number((data?.families ?? []).find((f) => f.family === 'mo
         </div>
 
         <section class="adm-card">
-          <h2>Clics vers Divalto</h2>
-          <p class="adm-note">Chaque bouton est suivi par page, emplacement et destination (page produit, tarifs ou démonstration). Les liens portent aussi des paramètres UTM (utm_source=meilleur-erp.fr) lisibles dans l'analytics de Divalto.</p>
-          {data.cta.total === 0 ? <p class="adm-empty">Aucun clic vers Divalto sur la période.</p> : (
+          <h2>Clics vers les sites des éditeurs</h2>
+          <p class="adm-note">Lien « Site officiel » de chaque fiche, identique pour tous les logiciels. Divalto est surligné ; les visites envoyées apparaissent aussi chez Divalto comme provenant de meilleur-erp.fr.</p>
+          {data.cta.total === 0 ? <p class="adm-empty">Aucun clic vers un éditeur sur la période.</p> : (
             <div class="adm-grid2" style="margin-bottom:0">
               <div>
                 <div class="adm-scroll"><table class="adm-table">
-                  <thead><tr><th>Emplacement</th><th class="n">Clics</th><th class="n">Part</th></tr></thead>
-                  <tbody>{data.cta.byPlacement.map((r) => (<tr><td>{CTA_PLACEMENT_LABELS[String(r.placement)] ?? r.placement}</td><td class="n">{fmt(r.n)}</td><td class="n">{pct(r.n, data.cta.total)}</td></tr>))}</tbody>
+                  <thead><tr><th>Logiciel</th><th class="n">Clics</th><th class="n">Part</th></tr></thead>
+                  <tbody>{data.cta.byTarget.map((r) => (<tr><td>{isDivaltoTarget(r.target) ? <strong>{vendorLabel(r.target)}</strong> : vendorLabel(r.target)}</td><td class="n">{fmt(r.n)}</td><td class="n">{pct(r.n, data.cta.total)}</td></tr>))}</tbody>
                 </table></div>
               </div>
               <div>
                 <div class="adm-scroll"><table class="adm-table">
-                  <thead><tr><th>Destination</th><th class="n">Clics</th><th class="n">Part</th></tr></thead>
-                  <tbody>{data.cta.byTarget.map((r) => (<tr><td>{targetLabel(r.target)}</td><td class="n">{fmt(r.n)}</td><td class="n">{pct(r.n, data.cta.total)}</td></tr>))}</tbody>
+                  <thead><tr><th>Page</th><th>Logiciel</th><th class="n">Clics</th></tr></thead>
+                  <tbody>{data.cta.detail.map((r) => (<tr><td>{pageLabel(r.path)}<span class="adm-path">{r.path}</span></td><td>{isDivaltoTarget(r.target) ? <strong>{vendorLabel(r.target)}</strong> : vendorLabel(r.target)}</td><td class="n">{fmt(r.n)}</td></tr>))}</tbody>
                 </table></div>
               </div>
             </div>
-          )}
-          {data.cta.detail.length > 0 && (
-            <div class="adm-scroll" style="margin-top:16px"><table class="adm-table">
-              <thead><tr><th>Page</th><th>Emplacement</th><th>Destination</th><th class="n">Clics</th></tr></thead>
-              <tbody>{data.cta.detail.map((r) => (<tr><td>{pageLabel(r.path)}<span class="adm-path">{r.path}</span></td><td>{CTA_PLACEMENT_LABELS[String(r.placement)] ?? r.placement}</td><td>{targetLabel(r.target)}</td><td class="n">{fmt(r.n)}</td></tr>))}</tbody>
-            </table></div>
           )}
         </section>
 
