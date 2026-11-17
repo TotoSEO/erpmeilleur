@@ -11,6 +11,7 @@ import json
 import re
 import sys
 import urllib.request
+from pathlib import Path
 
 SITE = "https://meilleur-erp.fr"
 KEY = "7adaef5ad91ba4902f7893c9ae098fc2"
@@ -18,8 +19,14 @@ ENDPOINT = "https://api.indexnow.org/indexnow"
 
 
 def sitemap_urls():
-    with urllib.request.urlopen(f"{SITE}/sitemap.xml", timeout=30) as r:
-        xml = r.read().decode("utf-8")
+    """Sitemap du dernier build (dist/), sinon celui du site en ligne."""
+    local = Path(__file__).resolve().parent.parent / "dist" / "sitemap.xml"
+    if local.exists():
+        xml = local.read_text(encoding="utf-8")
+    else:
+        req = urllib.request.Request(f"{SITE}/sitemap.xml", headers={"User-Agent": "Mozilla/5.0 (compatible; meilleur-erp-indexnow/1.0)"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            xml = r.read().decode("utf-8")
     return re.findall(r"<loc>([^<]+)</loc>", xml)
 
 
