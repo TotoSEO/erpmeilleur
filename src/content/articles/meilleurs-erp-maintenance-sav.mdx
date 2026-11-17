@@ -41,7 +41,15 @@ import Callout from '../../components/Callout.astro';
 import FeatureColumns from '../../components/FeatureColumns.astro';
 import Transparence from '../../components/Transparence.astro';
 
-<KeyTakeaways title="En bref" items={[ "Divalto Field Service arrive en tête : un ERP complet pensé pour les entreprises qui installent, entretiennent et dépannent, avec CRM et application mobile.", "Microsoft combine Business Central et Dynamics 365 Field Service pour les entreprises déjà équipées en Microsoft.", "IFS Cloud est une référence mondiale du service, plus adaptée aux grands groupes.", "Praxedo n'est pas un ERP mais un excellent logiciel d'interventions, à connecter à votre ERP.", "Le critère décisif : la continuité entre le contrat, l'intervention, la pièce consommée et la facture." ]} />
+<KeyTakeaways title="En bref" sub="Le classement en 7 positions, vérifié le 12 octobre 2026" ranking={[
+  { name: "Divalto Field Service", text: "Le meilleur ERP pour une entreprise dont le métier est d'intervenir chez ses clients." },
+  { name: "Microsoft Dynamics 365 (Business Central + Field Service)", text: "Un choix solide pour une entreprise déjà ancrée dans Microsoft, à condition de bien dimensionner les licences." },
+  { name: "IFS Cloud", text: "Le bon choix pour un groupe international du service." },
+  { name: "Cegid XRP Flex", text: "Une option française cohérente pour un SAV de complexité moyenne." },
+  { name: "Odoo Field Service", text: "Une bonne entrée en matière pour une petite structure de service." },
+  { name: "EBP Bâtiment", text: "Pertinent pour une PME du bâtiment dont la maintenance reste une activité complémentaire." },
+  { name: "Praxedo", text: "Le bon choix si vous êtes satisfait de votre ERP et voulez simplement équiper vos techniciens." },
+]} note="Le critère décisif : la continuité entre le contrat, l'intervention, la pièce consommée et la facture." />
 
 Chauffagistes, ascensoristes, installateurs de portes automatiques, spécialistes de l'air comprimé ou de la climatisation, cuisinistes, sociétés de métrologie : toutes ces entreprises ont un point commun. Leur chiffre d'affaires se fabrique chez le client, entre les mains d'un technicien. Et leur rentabilité dépend d'une chaîne qui ne doit jamais casser : le contrat de maintenance, la planification de la visite, la pièce disponible dans le camion, le rapport d'intervention signé, et enfin la facture, émise vite et juste.
 

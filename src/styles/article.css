@@ -83,6 +83,12 @@
 .takeaways__list li::before { content: ""; position: absolute; left: 2px; top: 0.4em; width: 13px; height: 13px; background: var(--blue); clip-path: var(--cut-tri-up); }
 .takeaways__list li:nth-child(even)::before { background: var(--orange); }
 .takeaways__list li strong { color: var(--ink); font-weight: 700; }
+.takeaways__ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; counter-reset: rank; }
+.takeaways__ol li { position: relative; padding-left: 38px; font-family: var(--font-sans); font-size: 15.5px; line-height: 1.5; color: var(--ink-80); counter-increment: rank; }
+.takeaways__ol li::before { content: counter(rank, decimal-leading-zero); position: absolute; left: 0; top: 0.1em; font-family: var(--font-mono); font-weight: 700; font-size: 13px; color: var(--blue-ink); font-variant-numeric: tabular-nums; }
+.takeaways__name { color: var(--ink); font-weight: 700; }
+.takeaways__note { margin: 16px 0 0; padding-top: 12px; border-top: 1px solid var(--hairline); font-family: var(--font-sans); font-size: 14px; line-height: 1.5; color: var(--ink-80); }
+.takeaways__note strong { color: var(--ink); }
 
 /* ============================= Sommaire (TOC) ============================= */
 .article-toc-desktop { position: sticky; top: 84px; align-self: start; max-height: calc(100vh - 110px); overflow-y: auto; }

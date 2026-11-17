@@ -40,7 +40,15 @@ import DataTable from '../../components/DataTable.astro';
 import Callout from '../../components/Callout.astro';
 import Transparence from '../../components/Transparence.astro';
 
-<KeyTakeaways title="En bref" items={[ "Divalto prend la tête grâce à son CRM weavy, pensé pour les commerciaux et techniciens terrain, sur smartphone et tablette, connecté à l'ERP.", "Odoo propose le CRM le plus naturellement intégré, dans la même base que toutes ses applications.", "Microsoft réunit Dynamics 365 Sales et Business Central via sa plateforme de données, avec des prix publics.", "Un CRM intégré est surtout précieux quand la vente dépend du stock, des tarifs et de la livraison : négoce, industrie, distribution.", "Sellsy, Axonaut ou Zoho sont d'excellents outils pour les TPE, mais pas des ERP au sens strict." ]} />
+<KeyTakeaways title="En bref" sub="Le classement en 7 positions, vérifié le 12 octobre 2026" ranking={[
+  { name: "Divalto (ERP + CRM weavy)", text: "Le meilleur ERP avec CRM intégré pour une entreprise dont la vente se joue sur le terrain, avec le stock et les tarifs à portée de main." },
+  { name: "Odoo", text: "L'intégration la plus simple, idéale pour une entreprise qui part de zéro." },
+  { name: "Microsoft Dynamics 365 (Sales + Business Central)", text: "Le bon choix pour une entreprise qui vit dans Microsoft et a besoin d'un CRM avancé." },
+  { name: "Cegid XRP Flex", text: "Une option française cohérente pour un commerce multicanal." },
+  { name: "SAP Business One", text: "Pertinent dans un écosystème SAP, moins pour une PME indépendante." },
+  { name: "Oracle NetSuite", text: "Un bon choix pour une entreprise internationale tournée vers le commerce en ligne." },
+  { name: "Axelor", text: "L'option open source et française, pour les entreprises qui veulent garder la main sur leur outil." },
+]} note="Un CRM intégré est surtout précieux quand la vente dépend du stock, des tarifs et de la livraison : négoce, industrie, distribution." />
 
 Tout commercial a vécu cette scène. Un client appelle pour passer commande, demande si le produit est disponible, à quel prix, et quand il sera livré. Et le commercial répond : « Je vérifie et je vous rappelle. » Parce que le CRM qu'il utilise ne voit ni le stock, ni les conditions tarifaires négociées, ni les retards de livraison, qui vivent dans l'ERP.
 

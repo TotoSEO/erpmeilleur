@@ -41,7 +41,16 @@ import Callout from '../../components/Callout.astro';
 import FeatureColumns from '../../components/FeatureColumns.astro';
 import Transparence from '../../components/Transparence.astro';
 
-<KeyTakeaways title="En bref" items={[ "Divalto Industry prend la première place : chiffrage par scénarios, nomenclatures évolutives, arborescence WBS avec affaires mère et filles, budgets vendu, prévu, réalisé et engagé, facturation à l'avancement et calcul des besoins à l'affaire, pour un prix public dès 80 € par utilisateur et par mois.", "Sylob ERP est le spécialiste de la machine spéciale, avec un bilan projeté par affaire et des prix publics (80 et 125 € HT).", "Proginov, TopSolid'Erp et Abas complètent la famille industrielle, chacun avec un angle : cloud souverain, chaîne CFAO, déploiement international.", "Akuiteo, Everwin et Fitnet relèvent d'une autre famille, la gestion d'affaires des sociétés de services : on y vend du temps, pas un équipement.", "Depuis le 1er septembre 2026, vérifiez que l'ERP retenu est relié à une plateforme agréée pour la facture électronique." ]} />
+<KeyTakeaways title="En bref" sub="Le classement en 8 positions, vérifié le 16 novembre 2026" ranking={[
+  { name: "Divalto Industry", text: "Le meilleur ERP pour une entreprise qui conçoit et fabrique à l'affaire, et une option sérieuse pour le bureau d'études d'un industriel." },
+  { name: "Sylob ERP", text: "Le concurrent le plus direct du numéro un sur la machine spéciale." },
+  { name: "Proginov ERP", text: "Un choix solide pour une PME qui veut un interlocuteur unique, de l'édition à l'hébergement, surtout si elle confie aussi sa paie ou son négoce au même éditeur." },
+  { name: "TopSolid'Erp", text: "Le bon réflexe pour un atelier déjà sous TopSolid ; les autres compareront d'abord avec les trois premiers." },
+  { name: "Abas ERP", text: "À retenir pour un fabricant de machines qui a des filiales à l'étranger." },
+  { name: "Akuiteo", text: "La référence française pour une société d'ingénierie de taille moyenne qui pilote ses affaires au temps passé." },
+  { name: "Everwin", text: "Un acteur à inviter dans une consultation de société de services, à condition de faire confirmer par l'éditeur ce que nous n'avons pas pu lire." },
+  { name: "Fitnet", text: "Le meilleur rapport simplicité-prix pour un petit bureau d'études ou un cabinet de conseil ; pas un ERP industriel." },
+]} note="Depuis le 1er septembre 2026, vérifiez que l'ERP retenu est relié à une plateforme agréée pour la facture électronique." />
 
 Une machine spéciale, une ligne de conditionnement, un banc d'essai ou une étude d'ingénierie ont un point commun : on les vend avant de savoir exactement ce qu'ils coûteront. Le devis précède l'étude détaillée, la nomenclature bouge pendant la fabrication, le client demande une modification à mi-parcours et la facture tombe par jalons plutôt qu'à la livraison. C'est la gestion à l'affaire, que les industriels appellent aussi ETO (engineer-to-order), et elle met en difficulté les ERP conçus pour la série.
 

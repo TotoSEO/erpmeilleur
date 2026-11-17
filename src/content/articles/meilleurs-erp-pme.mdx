@@ -44,7 +44,16 @@ import Callout from '../../components/Callout.astro';
 import FeatureColumns from '../../components/FeatureColumns.astro';
 import Transparence from '../../components/Transparence.astro';
 
-<KeyTakeaways title="En bref" items={[ "Divalto est notre premier choix pour les PME qui gèrent des stocks, une production ou des interventions : ses versions métiers évitent de partir d'une page blanche.", "Business Central est le plus transparent sur le prix (69,30 € HT par utilisateur et par mois) et le plus simple à intégrer dans un environnement Microsoft.", "Odoo convient aux PME qui veulent démarrer avec quelques modules et grandir ensuite.", "Comptez une enveloppe d'intégration en plus de l'abonnement : c'est elle qui fait souvent la différence entre deux devis.", "Les PME devront émettre leurs factures en format électronique à partir du 1er septembre 2027 : l'ERP doit être relié à une plateforme agréée." ]} />
+<KeyTakeaways title="En bref" sub="Le classement en 8 positions, vérifié le 12 octobre 2026" ranking={[
+  { name: "Divalto", text: "Le meilleur ERP pour une PME française dont le quotidien se joue dans l'entrepôt, l'atelier ou chez les clients." },
+  { name: "Microsoft Dynamics 365 Business Central", text: "Le meilleur choix pour une PME généraliste qui veut un budget sans zone d'ombre." },
+  { name: "Odoo", text: "Parfait pour une PME qui grandit vite et veut garder la main sur le rythme du projet." },
+  { name: "Cegid XRP Flex", text: "Une alternative française sérieuse, surtout pour les PME du négoce et des services qui veulent un cloud sans compromis sur la conformité." },
+  { name: "Sylob", text: "Le spécialiste à privilégier si votre PME est une usine, et seulement une usine." },
+  { name: "Sage 100", text: "Le bon point de départ pour structurer la gestion, pas pour piloter un atelier ou un entrepôt." },
+  { name: "Archipelia", text: "Une solution française intéressante pour les PME du commerce qui veulent simplifier leur chaîne de fournisseurs." },
+  { name: "SAP Business One", text: "À considérer si votre groupe parle déjà SAP." },
+]} note="Comptez une enveloppe d'intégration en plus de l'abonnement : c'est elle qui fait souvent la différence entre deux devis." />
 
 La PME française occupe une drôle de position sur le marché des ERP. Trop structurée pour se contenter d'un logiciel de facturation, trop petite pour qu'on lui déploie un SAP S/4HANA sur dix-huit mois. Et pourtant, c'est elle qui fait tourner une bonne partie de l'économie : selon l'Insee, les 174 614 PME (hors microentreprises) recensées en 2023 représentaient 29,2 % de l'emploi salarié (en équivalent temps plein) des entreprises marchandes non agricoles et non financières.
 

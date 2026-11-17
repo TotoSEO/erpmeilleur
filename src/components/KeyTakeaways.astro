@@ -1,14 +1,23 @@
 ---
 /**
- * KeyTakeaways — encart « Les points à retenir » : encart spécial présent sur
- * chaque article, sous forme de liste à puces design (triangles bleu/jaune).
+ * KeyTakeaways — encart « En bref » présent en tête de chaque article.
+ * - items   : liste à puces (guides).
+ * - ranking : liste ordonnée nom + verdict (classements) : un bloc auto-suffisant,
+ *             lisible d'un coup d'œil et citable tel quel par les moteurs et les IA.
+ * - note    : phrase de contexte sous la liste (règle, chiffre, critère).
  */
+interface Entry { name: string; text: string; }
 interface Props {
   items?: string[];
+  ranking?: Entry[];
+  note?: string;
+  sub?: string;
   title?: string;
   class?: string;
 }
-const { items = [], title = 'Les points à retenir', class: cls = '' } = Astro.props;
+const { items = [], ranking = [], note, sub, title = 'Les points à retenir', class: cls = '' } = Astro.props;
+const ordered = ranking.length > 0;
+const subline = sub || (ordered ? `Le classement en ${ranking.length} positions` : `L'essentiel en ${items.length} points`);
 ---
 <aside class={`takeaways ${cls}`.trim()} aria-label={title}>
   <div class="takeaways__head">
@@ -17,10 +26,19 @@ const { items = [], title = 'Les points à retenir', class: cls = '' } = Astro.p
     </span>
     <div>
       <h2 class="takeaways__title">{title}</h2>
-      <div class="takeaways__sub">L'essentiel en {items.length} points</div>
+      <div class="takeaways__sub">{subline}</div>
     </div>
   </div>
-  <ul class="takeaways__list">
-    {items.map((it) => (<li set:html={it} />))}
-  </ul>
+  {ordered ? (
+    <ol class="takeaways__ol">
+      {ranking.map((r) => (
+        <li><strong class="takeaways__name">{r.name}</strong> : <span set:html={r.text} /></li>
+      ))}
+    </ol>
+  ) : (
+    <ul class="takeaways__list">
+      {items.map((it) => (<li set:html={it} />))}
+    </ul>
+  )}
+  {note && <p class="takeaways__note" set:html={note} />}
 </aside>
