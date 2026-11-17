@@ -30,3 +30,6 @@ _incoming/
 !.dev.vars.example
 !.env.example
 .shot*.mjs
+
+# Captures d'écran de travail : jamais dans le dépôt
+/*.png
