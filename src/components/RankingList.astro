@@ -5,9 +5,13 @@
  *
  * <RankingList items={[{ name: 'Divalto infinity', anchor: '1-divalto-infinity-…', note: 'Le plus complet pour…' }]} />
  */
+import { divaltoCtaFor, ctaHref, ctaAttrs } from '../data/cta';
 interface Item { name: string; anchor?: string; note?: string; }
 interface Props { items: Item[]; title?: string; }
 const { items = [], title } = Astro.props;
+// CTA vers Divalto sur la ligne n°1, seulement si Divalto est en tête (voir src/data/cta.ts).
+const path = Astro.url.pathname;
+const cta = items[0]?.name?.startsWith('Divalto') ? divaltoCtaFor(path) : null;
 ---
 <div class="rlist">
   {title && <p class="rlist__title">{title}</p>}
@@ -19,6 +23,9 @@ const { items = [], title } = Astro.props;
           {it.anchor ? <a href={`#${it.anchor}`} class="rlist__name">{it.name}</a> : <span class="rlist__name">{it.name}</span>}
           {it.note && <span class="rlist__note">{it.note}</span>}
         </span>
+        {i === 0 && cta && (
+          <a class="rlist__cta" href={ctaHref(cta.offre, path, 'liste')} {...ctaAttrs('liste', `${cta.key}:offre`)}>Voir l'offre<span aria-hidden="true">&nbsp;↗</span></a>
+        )}
       </li>
     ))}
   </ol>
@@ -36,4 +43,8 @@ const { items = [], title } = Astro.props;
   .rlist__name { font-family: var(--font-grotesk); font-weight: 700; font-size: 17px; color: var(--ink); text-decoration: none; }
   a.rlist__name:hover { color: var(--blue-ink); text-decoration: underline; text-underline-offset: 2px; }
   .rlist__note { font-family: var(--font-body); font-size: 14.5px; line-height: 1.45; color: var(--ink-80); }
+  .rlist__txt { flex: 1 1 auto; min-width: 0; }
+  .rlist__cta { flex: none; align-self: center; font-family: var(--font-ui); font-weight: 700; font-size: 13.5px; color: #fff; background: var(--blue); border: 2px solid var(--ink); padding: 6px 12px; text-decoration: none; box-shadow: 3px 3px 0 var(--ink); white-space: nowrap; }
+  .rlist__cta:hover { background: var(--blue-ink); }
+  @media (max-width: 560px) { .rlist__item--top { flex-wrap: wrap; } .rlist__cta { margin-left: 30px; } }
 </style>

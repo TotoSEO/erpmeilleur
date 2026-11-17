@@ -12,6 +12,13 @@
   ],
   "assets": {
     "binding": "ASSETS",
-    "directory": "dist"
-  }
+    "directory": "dist",
+    // Les pages passent par le Worker (journal des robots) ; fichiers statiques servis directement.
+    "run_worker_first": ["/*", "!/_astro/*", "!/images/*", "!/favicon.ico", "!/favicon.png", "!/favicon-32.png", "!/apple-touch-icon.png", "!/logo.png"]
+  },
+  // Statistiques et administration : Durable Object à stockage SQLite (offre gratuite comprise).
+  "durable_objects": {
+    "bindings": [{ "name": "STATS", "class_name": "StatsStore" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["StatsStore"] }]
 }

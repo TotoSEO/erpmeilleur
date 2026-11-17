@@ -8,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  * Section « Classements et liens d'intérêts » : information exigée pour les
  * contenus qui classent des offres (art. L111-7 et D111-7 du Code de la consommation).
  */
-const updated = '12 octobre 2026';
+const updated = '17 novembre 2026';
 
 // Identité de l'éditeur (LCEN art. 6-III-1).
 const EDITEUR = {
@@ -100,12 +100,32 @@ const ld = {
         d'information et d'identification, avec mention de leur origine.
       </p>
 
-      <h2>Données personnelles</h2>
+      <h2>Données personnelles et mesure d'audience</h2>
       <p>
-        Le site collecte le minimum de données nécessaires à son fonctionnement.
-        Conformément au Règlement général sur la protection des données (RGPD),
-        vous disposez d'un droit d'accès, de rectification et de suppression des
-        données vous concernant, en écrivant à l'adresse de contact ci-dessus.
+        Le site ne dépose aucun cookie publicitaire et n'utilise aucun traceur tiers.
+        Il mesure sa fréquentation avec un outil interne, sans cookie : pour chaque page
+        consultée, il enregistre l'adresse de la page, le site de provenance (moteur de
+        recherche, assistant d'intelligence artificielle, réseau social, autre site),
+        les éventuels paramètres de campagne, le pays et le type d'appareil, ainsi que
+        les clics sur les liens menant vers d'autres sites.
+      </p>
+      <p>
+        L'adresse IP n'est pas conservée : associée au navigateur utilisé, elle sert
+        uniquement à calculer un identifiant haché, renouvelé chaque jour, qui permet de
+        compter les visiteurs uniques sans pouvoir les identifier ni les suivre d'un jour
+        à l'autre. Ces statistiques sont réservées à l'éditeur, ne sont transmises à
+        aucun tiers et sont conservées 25 mois au plus. Conformément aux recommandations
+        de la CNIL, cette mesure d'audience, strictement limitée au fonctionnement du
+        site, ne requiert pas votre consentement. Vous pouvez néanmoins vous y opposer :
+      </p>
+      <p>
+        <button type="button" class="optout" id="optout">Ne plus être compté dans les statistiques de ce navigateur</button>
+        <span class="optout-state" id="optout-state" aria-live="polite"></span>
+      </p>
+      <p>
+        Conformément au Règlement général sur la protection des données (RGPD), vous
+        disposez d'un droit d'accès, de rectification et de suppression des données
+        vous concernant, en écrivant à l'adresse de contact ci-dessus.
       </p>
 
       <h2>Responsabilité</h2>
@@ -119,10 +139,27 @@ const ld = {
 </BaseLayout>
 
 <style>
+  .optout { font: inherit; font-weight: 600; color: var(--blue-ink); background: none; border: 2px solid var(--ink); padding: 6px 12px; cursor: pointer; }
+  .optout-state { display: block; margin-top: 6px; font-size: 14px; color: var(--ink-55); }
   .reveal-phone { font: inherit; color: var(--blue-ink); background: none; border: none; padding: 0; text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
 </style>
 
 <script>
+  // Opposition à la mesure d'audience : mémorisée dans ce navigateur uniquement.
+  const optout = document.getElementById('optout');
+  const optoutState = document.getElementById('optout-state');
+  const isOut = () => { try { return localStorage.getItem('mea-optout') === '1'; } catch { return false; } };
+  const render = () => {
+    if (!optout || !optoutState) return;
+    optout.textContent = isOut() ? 'Être de nouveau compté dans les statistiques' : 'Ne plus être compté dans les statistiques de ce navigateur';
+    optoutState.textContent = isOut() ? 'Vos visites ne sont plus comptées depuis ce navigateur.' : '';
+  };
+  optout?.addEventListener('click', () => {
+    try { isOut() ? localStorage.removeItem('mea-optout') : localStorage.setItem('mea-optout', '1'); } catch {}
+    render();
+  });
+  render();
+
   // Révèle le téléphone au clic : le numéro n'existe en clair qu'après interaction.
   document.querySelectorAll<HTMLButtonElement>('.reveal-phone').forEach((btn) => {
     btn.addEventListener('click', () => {

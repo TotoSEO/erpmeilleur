@@ -2,6 +2,7 @@
 import '../styles/styles.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import Tracker from '../components/Tracker.astro';
 /**
  * BaseLayout — coquille HTML : <head> SEO + perf, header sticky, footer.
  */
@@ -54,5 +55,6 @@ const {
       <slot />
     </main>
     <SiteFooter />
+    <Tracker />
   </body>
 </html>

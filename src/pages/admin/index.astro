@@ -1,0 +1,443 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+import { statsStub } from '../../lib/stats/client';
+import { FAMILY_LABELS, CRAWLER_CATEGORY_LABELS } from '../../lib/stats/sources';
+import type { Family, CrawlerCategory } from '../../lib/stats/sources';
+import { parisDay, DAY_MS } from '../../lib/stats/dates';
+import { SETUP_CODE, SESSION_COOKIE, SESSION_TTL_MS, MAX_FAILURES_PER_IP, MAX_FAILURES_GLOBAL, hashPassword, verifyPassword, isValidSetupCode, passwordProblem, newSessionToken, sha256hex, ipFingerprint } from '../../lib/admin/auth';
+import { DIVALTO_CTA, CTA_PLACEMENT_LABELS, CTA_LINK_LABELS } from '../../data/cta';
+import { SECTIONS, PILIER } from '../../data/cocon';
+export const prerender = false;
+
+/**
+ * /admin/ — administration privée : création du mot de passe à la première visite
+ * (avec le code d'installation), connexion, puis tableau de bord des statistiques.
+ */
+
+const h = Astro.response.headers;
+h.set('Cache-Control', 'no-store, private');
+h.set('X-Robots-Tag', 'noindex, nofollow');
+h.set('Referrer-Policy', 'same-origin');
+h.set('X-Frame-Options', 'DENY');
+h.set('Content-Security-Policy', "frame-ancestors 'none'");
+
+const store = statsStub((Astro.locals as any).runtime?.env);
+const cookieOpts = { path: '/', httpOnly: true, secure: true, sameSite: 'strict' as const };
+
+type Mode = 'unavailable' | 'setup' | 'login' | 'dashboard';
+let mode: Mode = 'login';
+let error = '';
+let hasPassword = false;
+let resetAvailable = false;
+
+async function startSession() {
+  const token = newSessionToken();
+  await store!.createSession(await sha256hex(token), Date.now() + SESSION_TTL_MS);
+  Astro.cookies.set(SESSION_COOKIE, token, cookieOpts);
+}
+
+if (!store) {
+  mode = 'unavailable';
+} else {
+  const auth = await store.getAuthState();
+  hasPassword = auth.hasPassword;
+  resetAvailable = auth.hasPassword && SETUP_CODE.version > auth.setupVersion;
+  const token = Astro.cookies.get(SESSION_COOKIE)?.value;
+  const tokenHash = token ? await sha256hex(token) : null;
+  const loggedIn = tokenHash ? await store.isSessionValid(tokenHash) : false;
+
+  if (Astro.request.method === 'POST') {
+    const form = await Astro.request.formData();
+    const action = String(form.get('action') || '');
+    const ipHash = await ipFingerprint(Astro.request.headers.get('cf-connecting-ip') || '');
+    if (action === 'logout') {
+      if (tokenHash) await store.deleteSession(tokenHash);
+      Astro.cookies.delete(SESSION_COOKIE, cookieOpts);
+      return Astro.redirect('/admin/', 303);
+    }
+    const canSetup = !hasPassword || resetAvailable;
+    if (action !== 'setup' && action !== 'login') return Astro.redirect('/admin/', 303);
+    if ((action === 'setup' && !canSetup) || (action === 'login' && !hasPassword)) return Astro.redirect('/admin/', 303);
+    mode = action === 'setup' ? 'setup' : 'login';
+    const failures = await store.loginFailures(ipHash);
+    if (failures.ip >= MAX_FAILURES_PER_IP || failures.global >= MAX_FAILURES_GLOBAL) {
+      error = 'Trop de tentatives. Réessayez dans 15 minutes.';
+      Astro.response.status = 429;
+    } else if (action === 'setup') {
+      const password = String(form.get('password') || '');
+      const problem = passwordProblem(password, String(form.get('confirm') || ''));
+      if (!(await isValidSetupCode(String(form.get('code') || '')))) {
+        await store.addLoginFailure(ipHash);
+        error = "Code d'installation incorrect.";
+        Astro.response.status = 401;
+      } else if (problem) {
+        error = problem;
+        Astro.response.status = 400;
+      } else {
+        await store.setPassword(await hashPassword(password), SETUP_CODE.version);
+        await store.clearLoginFailures(ipHash);
+        await startSession();
+        return Astro.redirect('/admin/', 303);
+      }
+    } else {
+      const password = String(form.get('password') || '');
+      const stored = await store.getPasswordHash();
+      if (stored && password && (await verifyPassword(password, stored))) {
+        await store.clearLoginFailures(ipHash);
+        await startSession();
+        return Astro.redirect('/admin/', 303);
+      }
+      await store.addLoginFailure(ipHash);
+      error = 'Mot de passe incorrect.';
+      Astro.response.status = 401;
+    }
+  } else {
+    if (token && !loggedIn) Astro.cookies.delete(SESSION_COOKIE, cookieOpts);
+    const wantsSetup = !hasPassword || (resetAvailable && Astro.url.searchParams.get('code') === '1');
+    mode = loggedIn ? 'dashboard' : wantsSetup ? 'setup' : 'login';
+  }
+}
+
+// --- Tableau de bord -----------------------------------------------------------
+const PERIODS = [
+  { d: 7, label: '7 j' },
+  { d: 30, label: '30 j' },
+  { d: 90, label: '90 j' },
+  { d: 365, label: '12 mois' },
+];
+const asked = Number(Astro.url.searchParams.get('p'));
+const days = PERIODS.some((p) => p.d === asked) ? asked : 30;
+const data = mode === 'dashboard' && store ? await store.getDashboard(days) : null;
+
+const nf = new Intl.NumberFormat('fr-FR');
+const fmt = (n: unknown) => nf.format(Number(n) || 0);
+const pct = (n: unknown, total: number) => (total > 0 ? `${((Number(n) / total) * 100).toFixed(1).replace('.', ',')} %` : '–');
+const share = (n: unknown, total: number) => (total > 0 ? Math.max(1.5, (Number(n) / total) * 100) : 0);
+const dayFr = (d: string) => `${d.slice(8, 10)}/${d.slice(5, 7)}/${d.slice(0, 4)}`;
+const MONTHS = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+
+// Libellés des pages à partir de l'arborescence du site.
+const pageLabels = new Map<string, string>([
+  ['/', 'Accueil'],
+  ['/a-propos/', 'À propos'],
+  ['/mentions-legales/', 'Mentions légales'],
+  ['/plan-du-site/', 'Plan du site'],
+  [`/${PILIER.slug}/`, PILIER.label],
+]);
+for (const s of SECTIONS) {
+  pageLabels.set(`/${s.hub.slug}/`, s.hub.label);
+  for (const it of s.items) pageLabels.set(`/${it.slug}/`, s.key === 'classements' ? `Meilleurs ERP · ${it.label}` : it.label);
+}
+const pageLabel = (path: unknown) => pageLabels.get(String(path)) ?? pageLabels.get(`${String(path)}/`) ?? String(path);
+
+const targetLabel = (t: unknown) => {
+  const [key, link] = String(t || '').split(':');
+  const product = Object.values(DIVALTO_CTA).find((c) => c.key === key)?.produit.replace(' (solution FIB)', '') ?? key;
+  return `${product} · ${CTA_LINK_LABELS[link] ?? link ?? ''}`;
+};
+
+const regionNames = (() => {
+  try { return new Intl.DisplayNames(['fr'], { type: 'region' }); } catch { return null; }
+})();
+const countryName = (c: unknown) => {
+  const code = String(c || '');
+  if (!/^[A-Z]{2}$/.test(code)) return 'Inconnu';
+  try { return regionNames?.of(code) ?? code; } catch { return code; }
+};
+
+// Série temporelle : jours (≤ 31 j), semaines (90 j) ou mois (12 mois).
+type Bucket = { label: string; views: number; entries: number; cta: number };
+let buckets: Bucket[] = [];
+let chart = { bars: [] as { x: number; y: number; w: number; h: number; t: string }[], line: '', labels: [] as { x: number; t: string }[], grid: [] as { y: number; t: string }[] };
+const W = 900, H = 210, PL = 44, PB = 26, PT = 10;
+if (data) {
+  const now = Date.now();
+  const allDays = [...new Set(Array.from({ length: days }, (_, i) => parisDay(now - (days - 1 - i) * DAY_MS)))];
+  const byDay = new Map(data.daily.map((r) => [String(r.day), r]));
+  const ctaByDay = new Map(data.cta.daily.map((r) => [String(r.day), Number(r.n)]));
+  const point = (d: string) => ({ views: Number(byDay.get(d)?.views ?? 0), entries: Number(byDay.get(d)?.entries ?? 0), cta: ctaByDay.get(d) ?? 0 });
+  if (days <= 31) {
+    buckets = allDays.map((d) => ({ label: `${d.slice(8, 10)}/${d.slice(5, 7)}`, ...point(d) }));
+  } else if (days <= 90) {
+    for (let i = 0; i < allDays.length; i += 7) {
+      const chunk = allDays.slice(i, i + 7);
+      const b = { label: `${chunk[0].slice(8, 10)}/${chunk[0].slice(5, 7)}`, views: 0, entries: 0, cta: 0 };
+      for (const d of chunk) { const p = point(d); b.views += p.views; b.entries += p.entries; b.cta += p.cta; }
+      buckets.push(b);
+    }
+  } else {
+    const months = new Map<string, Bucket>();
+    for (const d of allDays) {
+      const m = d.slice(0, 7);
+      if (!months.has(m)) months.set(m, { label: `${MONTHS[Number(m.slice(5, 7)) - 1]} ${m.slice(2, 4)}`, views: 0, entries: 0, cta: 0 });
+      const b = months.get(m)!; const p = point(d); b.views += p.views; b.entries += p.entries; b.cta += p.cta;
+    }
+    buckets = [...months.values()];
+  }
+  const max = Math.max(1, ...buckets.map((b) => b.views));
+  const mag = Math.pow(10, Math.floor(Math.log10(max)));
+  const niceMax = [1, 2, 2.5, 5, 10].map((f) => f * mag).find((v) => v >= max) ?? max;
+  const innerH = H - PB - PT;
+  const slot = (W - PL) / buckets.length;
+  chart.bars = buckets.map((b, i) => {
+    const hgt = (b.views / niceMax) * innerH;
+    return { x: PL + i * slot + slot * 0.14, y: H - PB - hgt, w: Math.max(1, slot * 0.72), h: hgt, t: `${b.label} : ${fmt(b.views)} pages vues, ${fmt(b.entries)} visites, ${fmt(b.cta)} clics Divalto` };
+  });
+  // (pas de division dans un gabarit de texte : le compilateur Astro la prend pour une regex)
+  const pt = (x: number, y: number) => x.toFixed(1) + ',' + y.toFixed(1);
+  chart.line = buckets.map((b, i) => pt(PL + i * slot + slot * 0.5, H - PB - (b.entries * innerH) * (1 / niceMax))).join(' ');
+  const step = Math.max(1, Math.ceil(buckets.length / 8));
+  chart.labels = buckets.map((b, i) => ({ x: PL + i * slot + slot / 2, t: b.label })).filter((_, i) => i % step === 0);
+  chart.grid = [0, 0.5, 1].map((f) => ({ y: H - PB - f * innerH, t: fmt(Math.round(niceMax * f)) }));
+}
+
+const totalViews = Number(data?.totals.views ?? 0);
+const totalEntries = Number(data?.totals.entries ?? 0);
+const rankingViews = data ? data.pages.filter((p) => String(p.path).startsWith('/meilleurs-erp')).reduce((s, p) => s + Number(p.views), 0) : 0;
+const ctaByPath = new Map((data?.cta.byPage ?? []).map((r) => [String(r.path), Number(r.n)]));
+const famLabel = (f: unknown) => FAMILY_LABELS[String(f) as Family] ?? String(f);
+const catLabel = (c: unknown) => CRAWLER_CATEGORY_LABELS[String(c) as CrawlerCategory] ?? String(c);
+const totalBots = (data?.bots ?? []).reduce((s, r) => s + Number(r.n), 0);
+const liveBots = (data?.bots ?? []).filter((r) => r.category === 'ia-direct').reduce((s, r) => s + Number(r.n), 0);
+const aiEntries = Number((data?.families ?? []).find((f) => f.family === 'ia')?.n ?? 0);
+const searchEntries = Number((data?.families ?? []).find((f) => f.family === 'moteur')?.n ?? 0);
+---
+<AdminLayout title="Statistiques · meilleur-erp.fr">
+  {mode === 'unavailable' && (
+    <main class="adm-auth"><div class="adm-auth__card">
+      <h1>Stockage indisponible</h1>
+      <p>La base des statistiques (liaison STATS) n'est pas accessible sur ce déploiement.</p>
+    </div></main>
+  )}
+
+  {mode === 'setup' && (
+    <main class="adm-auth"><div class="adm-auth__card">
+      <span class="adm-tag">{hasPassword ? 'Réinitialisation' : 'Première connexion'}</span>
+      <h1>{hasPassword ? 'Nouveau mot de passe' : 'Créer le mot de passe'}</h1>
+      <p>Saisissez le code d'installation qui vous a été communiqué, puis choisissez le mot de passe qui protégera l'administration. Il vous sera demandé à chaque nouvelle visite.</p>
+      {error && <div class="adm-error" role="alert">{error}</div>}
+      <form method="post" action="/admin/">
+        <input type="hidden" name="action" value="setup" />
+        <div class="adm-field">
+          <label for="code">Code d'installation</label>
+          <input id="code" name="code" type="text" required autocomplete="off" spellcheck="false" autocapitalize="characters" placeholder="XXXXX-XXXXX-XXXXX-XXXXX" />
+        </div>
+        <div class="adm-field">
+          <label for="password">Mot de passe (12 caractères minimum)</label>
+          <input id="password" name="password" type="password" required minlength="12" maxlength="200" autocomplete="new-password" />
+        </div>
+        <div class="adm-field">
+          <label for="confirm">Confirmation</label>
+          <input id="confirm" name="confirm" type="password" required minlength="12" maxlength="200" autocomplete="new-password" />
+        </div>
+        <button class="adm-btn adm-btn--primary" type="submit">Enregistrer et se connecter</button>
+      </form>
+      {hasPassword && <p class="adm-small"><a href="/admin/">Retour à la connexion</a></p>}
+    </div></main>
+  )}
+
+  {mode === 'login' && (
+    <main class="adm-auth"><div class="adm-auth__card">
+      <span class="adm-tag">Administration</span>
+      <h1>Connexion</h1>
+      <p>Espace réservé à l'éditeur du site.</p>
+      {error && <div class="adm-error" role="alert">{error}</div>}
+      <form method="post" action="/admin/">
+        <input type="hidden" name="action" value="login" />
+        <div class="adm-field">
+          <label for="password">Mot de passe</label>
+          <input id="password" name="password" type="password" required autocomplete="current-password" autofocus />
+        </div>
+        <button class="adm-btn adm-btn--primary" type="submit">Se connecter</button>
+      </form>
+      {resetAvailable && <p class="adm-small"><a href="/admin/?code=1">J'ai un code de réinitialisation</a></p>}
+    </div></main>
+  )}
+
+  {mode === 'dashboard' && data && (
+    <>
+      <header class="adm-top">
+        <div class="adm-top__in">
+          <div class="adm-brand">meilleur-erp.fr<span>Statistiques</span></div>
+          <nav class="adm-periods" aria-label="Période">
+            {PERIODS.map((p) => <a href={`/admin/?p=${p.d}`} class={p.d === days ? 'on' : ''}>{p.label}</a>)}
+          </nav>
+          <form method="post" action="/admin/"><input type="hidden" name="action" value="logout" /><button class="adm-btn" type="submit">Se déconnecter</button></form>
+        </div>
+      </header>
+      <div class="adm-wrap">
+        <h1 class="adm-h1">Tableau de bord</h1>
+        <p class="adm-sub">Du {dayFr(data.since)} au {dayFr(data.today)}{data.firstDay ? ` · données collectées depuis le ${dayFr(String(data.firstDay))}` : ' · aucune donnée collectée pour l’instant'}.</p>
+
+        <section class="adm-kpis">
+          <div class="adm-kpi"><div class="adm-kpi__label">Pages vues</div><div class="adm-kpi__value">{fmt(totalViews)}</div><div class="adm-kpi__hint">toutes pages confondues</div></div>
+          <div class="adm-kpi"><div class="adm-kpi__label">Visites</div><div class="adm-kpi__value">{fmt(totalEntries)}</div><div class="adm-kpi__hint">arrivées depuis l'extérieur</div></div>
+          <div class="adm-kpi"><div class="adm-kpi__label">Visiteurs uniques</div><div class="adm-kpi__value">{fmt(data.uniques)}</div><div class="adm-kpi__hint">par jour, additionnés</div></div>
+          <div class="adm-kpi"><div class="adm-kpi__label">Depuis les IA</div><div class="adm-kpi__value">{fmt(aiEntries)}</div><div class="adm-kpi__hint">{pct(aiEntries, totalEntries)} des visites · moteurs {pct(searchEntries, totalEntries)}</div></div>
+          <div class="adm-kpi adm-kpi--blue"><div class="adm-kpi__label">Clics vers Divalto</div><div class="adm-kpi__value">{fmt(data.cta.total)}</div><div class="adm-kpi__hint">{pct(data.cta.total, rankingViews)} des vues des classements</div></div>
+        </section>
+
+        <section class="adm-card">
+          <h2>Fréquentation</h2>
+          <p class="adm-note">{days <= 31 ? 'Par jour' : days <= 90 ? 'Par semaine' : 'Par mois'} ; survolez une barre pour le détail.</p>
+          {totalViews === 0 ? <p class="adm-empty">Aucune page vue sur la période.</p> : (
+            <>
+              <svg class="adm-chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Pages vues et visites sur la période">
+                {chart.grid.map((g) => (<g><line x1={PL} x2={W} y1={g.y} y2={g.y} stroke="#E6E6EA" /><text x={PL - 6} y={g.y + 4} text-anchor="end" font-size="11" fill="#6B6B78">{g.t}</text></g>))}
+                {chart.bars.map((b) => (<rect x={b.x} y={b.y} width={b.w} height={b.h} fill="#2E2EFF"><title>{b.t}</title></rect>))}
+                <polyline points={chart.line} fill="none" stroke="#FFD400" stroke-width="3" stroke-linejoin="round" />
+                {chart.labels.map((l) => (<text x={l.x} y={H - 8} text-anchor="middle" font-size="11" fill="#6B6B78">{l.t}</text>))}
+              </svg>
+              <div class="adm-legend"><span><i style="background:#2E2EFF"></i>Pages vues</span><span><i style="background:#FFD400"></i>Visites (arrivées)</span></div>
+            </>
+          )}
+        </section>
+
+        <div class="adm-grid2">
+          <section class="adm-card">
+            <h2>D'où viennent les visiteurs</h2>
+            <p class="adm-note">Visites (arrivées sur le site) par type de source.</p>
+            {data.families.length === 0 ? <p class="adm-empty">Aucune visite sur la période.</p> : (
+              <div class="adm-bars">
+                {data.families.map((f) => (
+                  <div class="adm-bar">
+                    <span>{famLabel(f.family)}</span><span class="adm-bar__val">{fmt(f.n)} · {pct(f.n, totalEntries)}</span>
+                    <div class="adm-bar__track"><div class={`adm-bar__fill${f.family === 'ia' ? ' adm-bar__fill--ia' : ''}`} style={`width:${share(f.n, totalEntries)}%`}></div></div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+          <section class="adm-card">
+            <h2>Sources en détail</h2>
+            <p class="adm-note">Moteur, assistant IA, réseau ou site précis.</p>
+            {data.sources.length === 0 ? <p class="adm-empty">Aucune visite sur la période.</p> : (
+              <div class="adm-scroll"><table class="adm-table">
+                <thead><tr><th>Source</th><th>Type</th><th class="n">Visites</th><th class="n">Part</th></tr></thead>
+                <tbody>{data.sources.map((s) => (
+                  <tr><td>{s.source}</td><td><span class={`adm-tag${s.family === 'ia' ? ' adm-tag--ia' : ''}`}>{famLabel(s.family)}</span></td><td class="n">{fmt(s.n)}</td><td class="n">{pct(s.n, totalEntries)}</td></tr>
+                ))}</tbody>
+              </table></div>
+            )}
+          </section>
+        </div>
+
+        <section class="adm-card">
+          <h2>Pages</h2>
+          <p class="adm-note">Pages vues, visites qui ont commencé sur la page, visiteurs uniques (par jour) et clics vers Divalto depuis la page.</p>
+          {data.pages.length === 0 ? <p class="adm-empty">Aucune page vue sur la période.</p> : (
+            <div class="adm-scroll"><table class="adm-table">
+              <thead><tr><th>Page</th><th class="n">Vues</th><th class="n">Visites</th><th class="n">Visiteurs</th><th class="n">Clics Divalto</th><th class="n">Taux de clic</th></tr></thead>
+              <tbody>{data.pages.slice(0, 60).map((p) => (
+                <tr>
+                  <td>{pageLabel(p.path)}<a class="adm-path" href={String(p.path)} target="_blank" rel="noopener">{p.path}</a></td>
+                  <td class="n">{fmt(p.views)}</td><td class="n">{fmt(p.entries)}</td><td class="n">{fmt(p.visitors)}</td>
+                  <td class="n">{fmt(ctaByPath.get(String(p.path)) ?? 0)}</td>
+                  <td class="n">{ctaByPath.has(String(p.path)) ? pct(ctaByPath.get(String(p.path)), Number(p.views)) : '–'}</td>
+                </tr>
+              ))}</tbody>
+            </table></div>
+          )}
+        </section>
+
+        <div class="adm-grid2">
+          <section class="adm-card">
+            <h2>Arrivées depuis les assistants IA</h2>
+            <p class="adm-note">Page d'arrivée par assistant. Les applications d'IA qui n'envoient ni référent ni paramètre UTM sont comptées en accès direct.</p>
+            {data.aiLandings.length === 0 ? <p class="adm-empty">Aucune visite venue d'un assistant IA sur la période.</p> : (
+              <div class="adm-scroll"><table class="adm-table">
+                <thead><tr><th>Assistant</th><th>Page d'arrivée</th><th class="n">Visites</th></tr></thead>
+                <tbody>{data.aiLandings.map((r) => (<tr><td>{r.source}</td><td>{pageLabel(r.path)}<span class="adm-path">{r.path}</span></td><td class="n">{fmt(r.n)}</td></tr>))}</tbody>
+              </table></div>
+            )}
+          </section>
+          <section class="adm-card">
+            <h2>Arrivées depuis les moteurs</h2>
+            <p class="adm-note">Page d'arrivée par moteur. Les visites issues des réponses IA de Google (AI Overviews, AI Mode) sont comptées dans Google.</p>
+            {data.searchLandings.length === 0 ? <p class="adm-empty">Aucune visite venue d'un moteur sur la période.</p> : (
+              <div class="adm-scroll"><table class="adm-table">
+                <thead><tr><th>Moteur</th><th>Page d'arrivée</th><th class="n">Visites</th></tr></thead>
+                <tbody>{data.searchLandings.map((r) => (<tr><td>{r.source}</td><td>{pageLabel(r.path)}<span class="adm-path">{r.path}</span></td><td class="n">{fmt(r.n)}</td></tr>))}</tbody>
+              </table></div>
+            )}
+          </section>
+        </div>
+
+        <section class="adm-card">
+          <h2>Clics vers Divalto</h2>
+          <p class="adm-note">Chaque bouton est suivi par page, emplacement et destination (page produit, tarifs ou démonstration). Les liens portent aussi des paramètres UTM (utm_source=meilleur-erp.fr) lisibles dans l'analytics de Divalto.</p>
+          {data.cta.total === 0 ? <p class="adm-empty">Aucun clic vers Divalto sur la période.</p> : (
+            <div class="adm-grid2" style="margin-bottom:0">
+              <div>
+                <div class="adm-scroll"><table class="adm-table">
+                  <thead><tr><th>Emplacement</th><th class="n">Clics</th><th class="n">Part</th></tr></thead>
+                  <tbody>{data.cta.byPlacement.map((r) => (<tr><td>{CTA_PLACEMENT_LABELS[String(r.placement)] ?? r.placement}</td><td class="n">{fmt(r.n)}</td><td class="n">{pct(r.n, data.cta.total)}</td></tr>))}</tbody>
+                </table></div>
+              </div>
+              <div>
+                <div class="adm-scroll"><table class="adm-table">
+                  <thead><tr><th>Destination</th><th class="n">Clics</th><th class="n">Part</th></tr></thead>
+                  <tbody>{data.cta.byTarget.map((r) => (<tr><td>{targetLabel(r.target)}</td><td class="n">{fmt(r.n)}</td><td class="n">{pct(r.n, data.cta.total)}</td></tr>))}</tbody>
+                </table></div>
+              </div>
+            </div>
+          )}
+          {data.cta.detail.length > 0 && (
+            <div class="adm-scroll" style="margin-top:16px"><table class="adm-table">
+              <thead><tr><th>Page</th><th>Emplacement</th><th>Destination</th><th class="n">Clics</th></tr></thead>
+              <tbody>{data.cta.detail.map((r) => (<tr><td>{pageLabel(r.path)}<span class="adm-path">{r.path}</span></td><td>{CTA_PLACEMENT_LABELS[String(r.placement)] ?? r.placement}</td><td>{targetLabel(r.target)}</td><td class="n">{fmt(r.n)}</td></tr>))}</tbody>
+            </table></div>
+          )}
+        </section>
+
+        <div class="adm-grid2">
+          <section class="adm-card">
+            <h2>Robots des moteurs et des IA</h2>
+            <p class="adm-note">Passages sur le site d'après le user-agent déclaré par chaque robot ({fmt(totalBots)} au total, dont {fmt(liveBots)} lectures en direct par des assistants IA).</p>
+            {data.bots.length === 0 ? <p class="adm-empty">Aucun passage de robot enregistré sur la période.</p> : (
+              <div class="adm-scroll"><table class="adm-table">
+                <thead><tr><th>Robot</th><th>Usage</th><th class="n">Requêtes</th><th class="n">Pages</th></tr></thead>
+                <tbody>{data.bots.map((r) => (<tr><td>{r.bot}</td><td><span class={`adm-tag${String(r.category).startsWith('ia') ? ' adm-tag--ia' : ''}`}>{catLabel(r.category)}</span></td><td class="n">{fmt(r.n)}</td><td class="n">{fmt(r.pages)}</td></tr>))}</tbody>
+              </table></div>
+            )}
+          </section>
+          <section class="adm-card">
+            <h2>Pages lues en direct par les IA</h2>
+            <p class="adm-note">Quand un utilisateur pose une question, ChatGPT, Perplexity, Claude ou Le Chat peuvent lire une page pour répondre : c'est le signal le plus direct d'une citation possible.</p>
+            {data.botLive.length === 0 ? <p class="adm-empty">Aucune lecture en direct sur la période.</p> : (
+              <div class="adm-scroll"><table class="adm-table">
+                <thead><tr><th>Assistant</th><th>Page</th><th class="n">Lectures</th></tr></thead>
+                <tbody>{data.botLive.map((r) => (<tr><td>{r.bot}</td><td>{pageLabel(r.path)}<span class="adm-path">{r.path}</span></td><td class="n">{fmt(r.n)}</td></tr>))}</tbody>
+              </table></div>
+            )}
+          </section>
+        </div>
+
+        <div class="adm-grid3">
+          <section class="adm-card">
+            <h2>Pays</h2>
+            {data.countries.length === 0 ? <p class="adm-empty">Aucune donnée.</p> : (
+              <table class="adm-table"><tbody>{data.countries.map((r) => (<tr><td>{countryName(r.country)}</td><td class="n">{fmt(r.n)}</td><td class="n">{pct(r.n, totalViews)}</td></tr>))}</tbody></table>
+            )}
+          </section>
+          <section class="adm-card">
+            <h2>Appareils</h2>
+            {data.devices.length === 0 ? <p class="adm-empty">Aucune donnée.</p> : (
+              <table class="adm-table"><tbody>{data.devices.map((r) => (<tr><td style="text-transform:capitalize">{r.device}</td><td class="n">{fmt(r.n)}</td><td class="n">{pct(r.n, totalViews)}</td></tr>))}</tbody></table>
+            )}
+          </section>
+          <section class="adm-card">
+            <h2>Liens sortants</h2>
+            {data.outbound.length === 0 ? <p class="adm-empty">Aucun clic sortant (hors Divalto).</p> : (
+              <table class="adm-table"><tbody>{data.outbound.map((r) => (<tr><td>{r.dest_host}</td><td class="n">{fmt(r.n)}</td></tr>))}</tbody></table>
+            )}
+          </section>
+        </div>
+
+        <p class="adm-foot">
+          Méthode : mesure interne sans cookie. Une « visite » est une arrivée sur le site depuis l'extérieur (moteur, IA, réseau, autre site, accès direct) ; la navigation d'une page à l'autre n'en crée pas de nouvelle. Les visiteurs uniques sont comptés jour par jour grâce à un identifiant haché renouvelé chaque jour (aucune adresse IP conservée). Les robots sont exclus des visites et suivis à part. Les personnes qui ont désactivé la mesure (page Mentions légales) ou bloqué JavaScript ne sont pas comptées. Données conservées 25 mois.
+        </p>
+      </div>
+    </>
+  )}
+</AdminLayout>

@@ -17,5 +17,8 @@ export default defineConfig({
     shikiConfig: { theme: 'github-light' },
   },
 
-  adapter: cloudflare()
+  // Point d'entrée Worker personnalisé : journal des robots + Durable Object des statistiques.
+  adapter: cloudflare({
+    workerEntryPoint: { path: 'src/worker.ts', namedExports: ['StatsStore'] },
+  }),
 });

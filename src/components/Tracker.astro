@@ -1,0 +1,58 @@
+---
+/**
+ * Tracker — mesure d'audience interne, sans cookie ni service tiers.
+ * Envoie la page vue (chemin, référent, paramètres UTM) et les clics sur les liens
+ * externes (dont les CTA marqués data-cta). Désactivable via la page Mentions légales.
+ */
+---
+<script>
+  (() => {
+    try {
+      if (navigator.webdriver) return;
+      try {
+        if (localStorage.getItem('mea-optout') === '1') return;
+      } catch {}
+
+      const send = (url: string, data: Record<string, string>) => {
+        const body = JSON.stringify(data);
+        try {
+          if (navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'text/plain' }))) return;
+        } catch {}
+        fetch(url, { method: 'POST', body, keepalive: true, headers: { 'Content-Type': 'text/plain' } }).catch(() => {});
+      };
+
+      const q = new URLSearchParams(location.search);
+      send('/api/nav', {
+        p: location.pathname,
+        r: document.referrer || '',
+        us: q.get('utm_source') || '',
+        um: q.get('utm_medium') || '',
+        uc: q.get('utm_campaign') || '',
+      });
+
+      const onClick = (event: MouseEvent) => {
+        const el = event.target as Element | null;
+        const a = el && el.closest ? (el.closest('a[href]') as HTMLAnchorElement | null) : null;
+        if (!a) return;
+        let u: URL;
+        try {
+          u = new URL(a.href, location.href);
+        } catch {
+          return;
+        }
+        if (u.protocol !== 'https:' && u.protocol !== 'http:') return;
+        const isCta = !!a.dataset.cta;
+        if (!isCta && u.host === location.host) return;
+        send('/api/cta', {
+          p: location.pathname,
+          k: isCta ? 'cta' : 'out',
+          pl: a.dataset.ctaPlacement || '',
+          t: a.dataset.ctaTarget || '',
+          h: u.hostname,
+        });
+      };
+      document.addEventListener('click', onClick, { capture: true });
+      document.addEventListener('auxclick', (e) => { if (e.button === 1) onClick(e); }, { capture: true });
+    } catch {}
+  })();
+</script>

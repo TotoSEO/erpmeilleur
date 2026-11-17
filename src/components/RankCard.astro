@@ -9,6 +9,8 @@
  *   badge="Notre choix" bestFor="PME et ETI industrielles ou de négoce"
  *   specs={[{ label: 'Déploiement', value: 'SaaS, cloud privé, sur site' }]} />
  */
+import Button from './Button.astro';
+import { divaltoCtaFor, ctaHref, ctaAttrs } from '../data/cta';
 interface Spec { label: string; value: string; }
 interface Props {
   rank: number;
@@ -25,6 +27,9 @@ interface Props {
 }
 const { rank, name, editor, origin, image, imageAlt, credit, badge, bestFor, specs = [], highlight = false } = Astro.props;
 const num = String(rank).padStart(2, '0');
+// CTA vers Divalto : uniquement sur la fiche de l'éditeur Divalto (voir src/data/cta.ts).
+const path = Astro.url.pathname;
+const cta = editor === 'Divalto' ? divaltoCtaFor(path) : null;
 ---
 <div class={`rank${highlight ? ' rank--top' : ''}`}>
   <span class="rank__num" aria-label={`Rang ${rank}`}>{num}</span>
@@ -49,6 +54,12 @@ const num = String(rank).padStart(2, '0');
           <div><dt>{s.label}</dt><dd>{s.value}</dd></div>
         ))}
       </dl>
+    )}
+    {cta && (
+      <div class="rank__actions">
+        <Button variant="primary" size="md" href={ctaHref(cta.offre, path, 'fiche')} {...ctaAttrs('fiche', `${cta.key}:offre`)}>{cta.bouton}<span aria-hidden="true">&nbsp;↗</span></Button>
+        <a class="rank__more" href={ctaHref(cta.tarifs, path, 'fiche-tarifs')} {...ctaAttrs('fiche-tarifs', `${cta.key}:tarifs`)}>{cta.tarifsLabel}<span aria-hidden="true">&nbsp;↗</span></a>
+      </div>
     )}
   </div>
 </div>
@@ -81,6 +92,9 @@ const num = String(rank).padStart(2, '0');
   .rank__specs { margin: auto 0 0; padding-top: 12px; border-top: 1px solid var(--hairline); display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
   .rank__specs dt { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-55); }
   .rank__specs dd { margin: 2px 0 0; font-family: var(--font-ui); font-weight: 600; font-size: 13.5px; color: var(--ink); line-height: 1.35; }
+  .rank__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding-top: 14px; margin-top: 4px; border-top: 1px solid var(--hairline); }
+  .rank__more { font-family: var(--font-ui); font-weight: 700; font-size: 14px; color: var(--blue-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .rank__more:hover { color: var(--ink); }
   @media (max-width: 720px) {
     .rank { grid-template-columns: 1fr; }
     .rank__media { border-right: none; border-bottom: 2px solid var(--ink); min-height: 180px; aspect-ratio: 16 / 10; }

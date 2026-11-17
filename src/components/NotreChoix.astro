@@ -1,0 +1,30 @@
+---
+/**
+ * NotreChoix — encart placé après le tableau comparatif des classements dont Divalto
+ * est premier : rappel des faits clés et liens suivis (démonstration, tarifs).
+ * Contenu piloté par src/data/cta.ts ; rien n'est affiché si la page n'y figure pas.
+ */
+import Button from './Button.astro';
+import { divaltoCtaFor, ctaHref, ctaAttrs } from '../data/cta';
+const path = Astro.url.pathname;
+const cta = divaltoCtaFor(path);
+---
+{cta && (
+  <aside class="choix" aria-label="Notre choix">
+    <div class="choix__eyebrow">Notre choix pour ce classement</div>
+    <div class="choix__name">{cta.produit}</div>
+    <p class="choix__facts">{cta.faits}</p>
+    <div class="choix__actions">
+      <Button variant="primary" size="md" href={ctaHref(cta.demo, path, 'choix')} {...ctaAttrs('choix', `${cta.key}:demo`)}>Demander une démonstration<span aria-hidden="true">&nbsp;↗</span></Button>
+      <Button variant="secondary" size="md" href={ctaHref(cta.tarifs, path, 'choix-tarifs')} {...ctaAttrs('choix-tarifs', `${cta.key}:tarifs`)}>{cta.tarifsLabel}<span aria-hidden="true">&nbsp;↗</span></Button>
+    </div>
+  </aside>
+)}
+
+<style>
+  .choix { margin: 28px 0 30px; padding: 22px 24px; background: #fff; border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--blue); max-width: var(--measure-wide, 100%); }
+  .choix__eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-ink); }
+  .choix__name { font-family: var(--font-grotesk); font-weight: 800; font-size: 26px; letter-spacing: -0.02em; color: var(--ink); margin: 4px 0 6px; line-height: 1.1; }
+  .choix__facts { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: var(--ink-80); margin: 0 0 16px; max-width: none; }
+  .choix__actions { display: flex; flex-wrap: wrap; gap: 12px; }
+</style>

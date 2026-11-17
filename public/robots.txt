@@ -4,6 +4,8 @@
 
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # --- Moteurs de recherche IA (récupération / citation en temps réel) ---
 User-agent: OAI-SearchBot
